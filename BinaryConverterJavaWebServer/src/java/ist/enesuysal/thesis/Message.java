@@ -32,13 +32,9 @@ public class Message {
         this.messageBool = message;
         messageSerilized =CentralSerializer.boolToByteArray(message, messageSerilized);
     }
-      public Message (Object message){
+      public Message (Object message) throws IllegalArgumentException, IllegalAccessException{
         this.messageObject = message;
-        try {
-            messageSerilized = CentralSerializer.objectToByteArray(message, messageSerilized);
-        } catch (IOException ex) {
-            Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        messageSerilized = ObjectSerializer.ObjectSerializer(message);
     }
    public String Seriliaze(){
       byte[] arrayByte = null;
