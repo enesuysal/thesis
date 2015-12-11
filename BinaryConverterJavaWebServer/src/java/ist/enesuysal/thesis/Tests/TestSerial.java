@@ -3,21 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ist.enesuysal.thesis;
+package ist.enesuysal.thesis.Tests;
 
 /**
  *
- * @author enesuysal
+ * @author enes
  */
-public interface CentralSerializerInterface {
-
-    /**
-     *
-     * @param intValue
-     * @param arrayByte
-     * @return
-     */
+public class TestSerial {
     
-
-  
+    public byte version = 100;
+    public byte count = 0;
+    
 }

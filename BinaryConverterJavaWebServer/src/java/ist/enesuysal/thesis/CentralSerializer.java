@@ -10,14 +10,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.nio.charset.Charset;
 
 /**
  *
  * @author enesuysal
  */
-public class CentralSerializer implements CentralSerializerInterface {
+public class CentralSerializer {
     
     /*
     *
@@ -54,13 +53,10 @@ public class CentralSerializer implements CentralSerializerInterface {
          return arrayByte;
      }
     // Serilizable object to ByteArray
-    public static byte[] objectToByteArray( Object o,byte[] arrayByte ) throws IOException 
+    public static byte[] objectToByteArray( Object o,byte[] arrayByte ) throws IllegalArgumentException, IllegalAccessException 
     {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream( baos );
-        oos.writeObject( o );
-        oos.close();
-        arrayByte=baos.toByteArray();
+        ObjectSerializer serializer = new ObjectSerializer(o);
+        arrayByte = serializer.Serialize();
         return  arrayByte; 
     }
     
@@ -91,13 +87,9 @@ public class CentralSerializer implements CentralSerializerInterface {
   	 return new String(bytes);
    } 
    
-   public static Object ByteArrayToObject( byte [] bytes ) throws IOException, ClassNotFoundException
+   public static Object ByteArrayToObject( byte [] bytes )
    {
-        
-        ObjectInputStream ois = new ObjectInputStream( 
-                                        new ByteArrayInputStream(  bytes ) );
-        Object o  = ois.readObject();
-        ois.close();
-        return o;
+        ObjectSerializer serializer = new ObjectSerializer(bytes);       
+        return serializer.DeSerialize(); 
    }
 }
