@@ -20,9 +20,13 @@ public class ThisisDemo {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException  {
+    public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException, Exception  {
          
         Message msg = new Message(new TestSerial());
+        String msgToSend =  msg.Seriliaze();
+        
+        //System.err.println(Arrays.toString());
+        Object o = CentralSerializer.ByteArrayToObject(msg.DeSeriliaze(msgToSend));
         
     }
     

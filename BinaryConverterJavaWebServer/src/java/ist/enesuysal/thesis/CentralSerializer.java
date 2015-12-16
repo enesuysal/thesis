@@ -5,12 +5,9 @@
  */
 package ist.enesuysal.thesis;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.nio.charset.Charset;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -53,10 +50,11 @@ public class CentralSerializer {
          return arrayByte;
      }
     // Serilizable object to ByteArray
-    public static byte[] objectToByteArray( Object o,byte[] arrayByte ) throws IllegalArgumentException, IllegalAccessException 
+    public static byte[] objectToByteArray( Object o,byte[] arrayByte ) throws IllegalArgumentException, IllegalAccessException, Exception 
     {
         ObjectSerializer serializer = new ObjectSerializer(o);
         arrayByte = serializer.Serialize();
+        
         return  arrayByte; 
     }
     
@@ -90,6 +88,11 @@ public class CentralSerializer {
    public static Object ByteArrayToObject( byte [] bytes )
    {
         ObjectSerializer serializer = new ObjectSerializer(bytes);       
-        return serializer.DeSerialize(); 
+        try { 
+            return serializer.DeSerialize();
+        } catch (Exception ex) {
+            Logger.getLogger(CentralSerializer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
    }
 }
