@@ -20,8 +20,8 @@ public class ObjectSerializer {
     public ObjectSerializer(Object o) {
         this.obj = o;
     }
-    
-     public ObjectSerializer(byte[] bytearray) {
+
+    public ObjectSerializer(byte[] bytearray) {
         this.byteArray = bytearray;
     }
 
@@ -55,9 +55,12 @@ public class ObjectSerializer {
             byteArray = push(byteArray, FIELD_HASVALUE);
             System.out.println("Field has value" + Arrays.toString(FIELD_HASVALUE));
             Object value = oneField.get(obj);
-            if (FIELD_HASVALUE != new byte[]{(byte) 0x00}) // If Field has value 
+            if (FIELD_HASVALUE[0] != 0) // If Field has value 
             {
+                
                 byte[] FIELD_VALUE = Helper.GetFieldValue(FIELD_TYPE[0], value);
+                byte[] FIELD_VALUE_LENGHT = CentralSerializer.intToByteArray(FIELD_VALUE.length, null);
+                byteArray = push(byteArray, FIELD_VALUE_LENGHT);
                 byteArray = push(byteArray, FIELD_VALUE);
                 System.out.println("Field  value" + Arrays.toString(FIELD_VALUE));
             }
@@ -72,41 +75,62 @@ public class ObjectSerializer {
     }
 
     public Object DeSerialize() throws Exception {
-        if(!Helper.IsSerializable())
+        if (!Helper.IsSerializable()) {
             throw new Exception("Array is not in correct format");
-        if(Helper.IsPrimitive())
+        }
+        System.err.println("Last Array" + Arrays.toString(byteArray));
+        byteArray = pop(byteArray);
+        byteArray = pop(byteArray);
+        System.err.println("Last Array" + Arrays.toString(byteArray));
+        if (Helper.IsPrimitive()) {
             throw new Exception("It is primative not a class");
+        }
+        byteArray = pop(byteArray);
+        System.err.println("Last Array" + Arrays.toString(byteArray));
         //Create Object
         int FieldLength = 0;
-        byte[] FieldLengthByte = new byte[0];
-        for (int i = 0; i < 8; i++) {
-            FieldLengthByte = push(FieldLengthByte, byteArray[3 + i]);
-        }
+        byte[] FieldLengthByte = new byte[8];
+        System.arraycopy(byteArray, 0, FieldLengthByte, 0, FieldLengthByte.length);
+        byteArray = pop(byteArray,FieldLengthByte);
+        System.err.println("Last Array" + Arrays.toString(byteArray));
         FieldLength = CentralSerializer.ByteArrayToInt(FieldLengthByte);
-        //int NumberofFields =obj.getClass().getFields().length;
-        System.err.println(FieldLength);
-         int iteration = 0;
-         FieldLength =1;
+        int iteration = 0;
+        //FieldLength = 1;
         for (int i = 0; i < FieldLength; i++) {
-            System.err.println(Helper.GetFieldType(byteArray[11+iteration])); //FieldType
-            iteration += Helper.GetFieldSize(Helper.GetFieldType(byteArray[11+iteration]));
-            byte[] FieldNameByte = new byte[0];
-            for (int s = 0; s < 8; s++) {
-            FieldNameByte = push(FieldNameByte, byteArray[11+iteration+s]);
+            String type = (Helper.GetFieldType(byteArray[iteration])); //FieldType
+            System.err.println(type);
+            byteArray = pop(byteArray);
+            byte[] FieldNameByte = new byte[8];
+            System.arraycopy(byteArray, 0, FieldNameByte, 0, FieldNameByte.length);
+            byteArray = pop(byteArray,FieldNameByte);
+            System.err.println("Last Array" + Arrays.toString(byteArray));
+            byte[] GetFieldNameByte = new byte[CentralSerializer.ByteArrayToInt(FieldNameByte)];
+            System.arraycopy(byteArray, 0, GetFieldNameByte, 0, GetFieldNameByte.length);
+            System.err.println(CentralSerializer.ByteArrayToString(GetFieldNameByte));
+            byteArray = pop(byteArray,GetFieldNameByte);
+            System.err.println("Last Array" + Arrays.toString(byteArray));
+            //Check if has value
+            byte HasValue = byteArray[0];
+            byteArray = pop(byteArray);
+            System.err.println("Last Array" + Arrays.toString(byteArray));
+            if(HasValue==1){
+                byte[] FieldValueLenghtByte = new byte[8];
+            System.arraycopy(byteArray, 0, FieldValueLenghtByte, 0, FieldValueLenghtByte.length);
+            int FieldValueLenght = CentralSerializer.ByteArrayToInt(FieldValueLenghtByte);
+              System.err.println("Last Array" + Arrays.toString(byteArray));
+              byteArray = pop(byteArray,FieldValueLenghtByte);
+              System.err.println("Last Array" + Arrays.toString(byteArray));
+              byte[] FieldValue = new byte[FieldValueLenght];
+              System.arraycopy(byteArray, 0, FieldValue, 0, FieldValue.length);
+               byteArray = pop(byteArray,FieldValue); // REmove Value
+               System.err.println("Last Array" + Arrays.toString(byteArray));
             }
-            System.err.println("Field Name Leng" + Arrays.toString(FieldNameByte));
-            iteration += 8;// FieldNameLenght
-            iteration += CentralSerializer.ByteArrayToInt(FieldNameByte);// FieldNameLenght
-            System.err.println("Field Name Leng" + CentralSerializer.ByteArrayToInt(FieldNameByte));
-             byte[] GetFieldNameByte = new byte[0];
-             for (int k = 0; k < CentralSerializer.ByteArrayToInt(FieldNameByte); k++) {
-            GetFieldNameByte = push(GetFieldNameByte, byteArray[11+iteration+k]);
-            }
-              System.err.println("Field" + CentralSerializer.ByteArrayToString(GetFieldNameByte));
             
             
+            
+           
         }
-        
+
         return null;
     }
 
@@ -117,11 +141,24 @@ public class ObjectSerializer {
 
         return longer;
     }
+     private static byte[] pop(byte[] array, byte[] pop) {
+        byte[] longer = new byte[array.length - pop.length];
+        System.arraycopy(array, pop.length, longer, 0, longer.length);
+       // System.arraycopy(push, 0, longer, array.length, push.length);
+
+        return longer;
+    }
 
     private static byte[] push(byte[] array, byte push) {
         byte[] longer = new byte[array.length + 1];
         System.arraycopy(array, 0, longer, 0, array.length);
         longer[array.length] = push;
         return longer;
-    } 
+    }
+    private static byte[] pop(byte[] array) {
+        byte[] longer = new byte[array.length - 1];
+        System.arraycopy(array, 1, longer, 0, longer.length);
+        
+        return longer;
+    }
 }

@@ -65,9 +65,9 @@ public class Helper {
         switch (o.toString()) {
             case "byte":
                 return (byte) 0x01;
-            case "integer":
+            case "int":
                 return (byte) 0x02;
-            case "string":
+            case "class java.lang.String":
                 return (byte) 0x03;
             case "boolean":
                 return (byte) 0x04;
@@ -81,7 +81,11 @@ public class Helper {
 
         Class t = field.getType();
         Object v = field.get(o);
-        if (boolean.class.equals(t) && Boolean.FALSE.equals(v)) {
+        if(t.getName().equals("boolean") && (boolean)v==false )
+            return (byte) 0X00;
+        else if(t.getName().equals("boolean") && (boolean)v==true )
+            return (byte) 0X01;
+        else if (boolean.class.equals(t) && Boolean.FALSE.equals(v)) {
             return (byte) 0X00;
         } else if (char.class.equals(t) && ((Character) v) != Character.MIN_VALUE) {
             return (byte) 0X00;
@@ -102,6 +106,10 @@ public class Helper {
     public static boolean IsPrimitive() {
         //Check OBJECT_START
         return false;
+    }
+
+    static int GetValueByteLenght(String type) {
+           return 1;
     }
 
 }

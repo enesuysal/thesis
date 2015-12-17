@@ -13,5 +13,9 @@ public class TestSerial {
     
     public byte version = 100;
     public byte count = 0;
+    public byte deneme = 50;
+    public int test;
+    public String mak = "ds";
+   public boolean de = true;
     
 }
