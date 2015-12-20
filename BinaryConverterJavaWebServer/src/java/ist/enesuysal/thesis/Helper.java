@@ -78,9 +78,10 @@ public class Helper {
     }
 
     public static byte CheckHasValue(Object o, Field field) throws IllegalArgumentException, IllegalAccessException {
-
+         field.setAccessible(true);
         Class t = field.getType();
         Object v = field.get(o);
+        
         if(t.getName().equals("boolean") && (boolean)v==false )
             return (byte) 0X00;
         else if(t.getName().equals("boolean") && (boolean)v==true )
@@ -98,9 +99,11 @@ public class Helper {
         return (byte) 0x01;
     }
 
-    public static boolean IsSerializable() {
+    public static boolean IsSerializable(byte[] byteArray) {
         //Check START_SERIALIZE and FINISH SERIALIZE
-        return true;
+        byte[] START_SERIALIZE = new byte[]{(byte) 0xAC, (byte) 0xAE};
+        byte[] FINISH_SERIALIZE = new byte[]{(byte) 0x75};
+        return byteArray[0] == START_SERIALIZE[0] && byteArray[1] == START_SERIALIZE[1] && byteArray[byteArray.length-1] == FINISH_SERIALIZE[0];
     }
 
     public static boolean IsPrimitive() {

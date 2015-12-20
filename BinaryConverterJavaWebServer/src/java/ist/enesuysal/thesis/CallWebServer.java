@@ -24,7 +24,7 @@ public class CallWebServer {
      * @return 
      */
     @WebMethod
-    public Object  GetResult(@WebParam(name="value") String value)
+    public Object  GetResult(@WebParam(name="value") String value) throws Exception
     {
  
         try {

@@ -33,49 +33,18 @@ public class ObjectSerializer {
         byte[] OBJECT_START = new byte[]{(byte) 0x73};//Specifies that Object starts here.
         byteArray = push(byteArray, OBJECT_START);
         System.out.println("OBJECT_START: " + Arrays.toString(OBJECT_START));
-        //GET Fields
-        Field[] fields = obj.getClass().getFields();
-        byte[] FIELDS_LENGH = CentralSerializer.intToByteArray(fields.length, null);// Length of the class name
-        byteArray = push(byteArray, FIELDS_LENGH);
-        System.out.println("FIELDS_LENGH: " + Arrays.toString(FIELDS_LENGH));
-        //For each Field 
-        for (Field oneField : fields) {
-            Object fieldType = oneField.getType(); //Get Field Type
-            System.out.println(fieldType.toString());
-            byte[] FIELD_TYPE = new byte[]{Helper.GetFieldCode(fieldType)}; // Get Field Code
-            byteArray = push(byteArray, FIELD_TYPE);
-            System.out.println(Arrays.toString(FIELD_TYPE));
-            byte[] FIELDNAME_LENGH = CentralSerializer.intToByteArray(oneField.getName().length(), null); //Get fieldname Length 
-            byteArray = push(byteArray, FIELDNAME_LENGH);
-            System.out.println("FieldName Lengh " + Arrays.toString(FIELDNAME_LENGH));
-            byte[] FIELDNAME = CentralSerializer.stringToByteArray(oneField.getName(), null); // Get FieldName
-            byteArray = push(byteArray, FIELDNAME);
-            System.out.println("FieldName " + Arrays.toString(FIELDNAME));
-            byte[] FIELD_HASVALUE = new byte[]{Helper.CheckHasValue(obj, oneField)}; // Get FieldName
-            byteArray = push(byteArray, FIELD_HASVALUE);
-            System.out.println("Field has value" + Arrays.toString(FIELD_HASVALUE));
-            Object value = oneField.get(obj);
-            if (FIELD_HASVALUE[0] != 0) // If Field has value 
-            {
-                
-                byte[] FIELD_VALUE = Helper.GetFieldValue(FIELD_TYPE[0], value);
-                byte[] FIELD_VALUE_LENGHT = CentralSerializer.intToByteArray(FIELD_VALUE.length, null);
-                byteArray = push(byteArray, FIELD_VALUE_LENGHT);
-                byteArray = push(byteArray, FIELD_VALUE);
-                System.out.println("Field  value" + Arrays.toString(FIELD_VALUE));
-            }
-        }
+        //Check Fields
+        byteArray = CheckFields(obj,byteArray);
         byte[] OBJECT_END = new byte[]{(byte) 0x74};//Specifies that Object finishes here.
         byteArray = push(byteArray, OBJECT_END);
         byte[] FINISH_SERIALIZE = new byte[]{(byte) 0x75};// Specifies that this is a serialization 
         byteArray = push(byteArray, FINISH_SERIALIZE);
-
         System.out.println("Bytes are: " + Arrays.toString(byteArray));
         return byteArray;
     }
 
     public Object DeSerialize() throws Exception {
-        if (!Helper.IsSerializable()) {
+        if (!Helper.IsSerializable(byteArray)) {
             throw new Exception("Array is not in correct format");
         }
         System.err.println("Last Array" + Arrays.toString(byteArray));
@@ -160,5 +129,42 @@ public class ObjectSerializer {
         System.arraycopy(array, 1, longer, 0, longer.length);
         
         return longer;
+    }
+
+    private byte[] CheckFields(Object obj, byte [] byteArray) throws IllegalArgumentException, IllegalAccessException {
+         //GET Fields
+        Field[] fields = obj.getClass().getDeclaredFields();
+        byte[] FIELDS_LENGH = CentralSerializer.intToByteArray(fields.length, null);// Length of the class name
+        byteArray = push(byteArray, FIELDS_LENGH);
+        System.out.println("FIELDS_LENGH: " + Arrays.toString(FIELDS_LENGH));
+        //For each Field 
+        for (Field oneField : fields) {
+            Object fieldType = oneField.getType(); //Get Field Type
+            System.out.println(fieldType.toString());
+            byte[] FIELD_TYPE = new byte[]{Helper.GetFieldCode(fieldType)}; // Get Field Code
+            byteArray = push(byteArray, FIELD_TYPE);
+            System.out.println(Arrays.toString(FIELD_TYPE));
+            byte[] FIELDNAME_LENGH = CentralSerializer.intToByteArray(oneField.getName().length(), null); //Get fieldname Length 
+            byteArray = push(byteArray, FIELDNAME_LENGH);
+            System.out.println("FieldName Lengh " + Arrays.toString(FIELDNAME_LENGH));
+            byte[] FIELDNAME = CentralSerializer.stringToByteArray(oneField.getName(), null); // Get FieldName
+            byteArray = push(byteArray, FIELDNAME);
+            System.out.println("FieldName " + Arrays.toString(FIELDNAME));
+            byte[] FIELD_HASVALUE = new byte[]{Helper.CheckHasValue(obj, oneField)}; // Get FieldName
+            byteArray = push(byteArray, FIELD_HASVALUE);
+            System.out.println("Field has value" + Arrays.toString(FIELD_HASVALUE));
+            Object value = oneField.get(obj);
+            if (FIELD_HASVALUE[0] != 0) // If Field has value 
+            {
+                
+                byte[] FIELD_VALUE = Helper.GetFieldValue(FIELD_TYPE[0], value);
+                byte[] FIELD_VALUE_LENGHT = CentralSerializer.intToByteArray(FIELD_VALUE.length, null);
+                byteArray = push(byteArray, FIELD_VALUE_LENGHT);
+                byteArray = push(byteArray, FIELD_VALUE);
+                System.out.println("Field  value" + Arrays.toString(FIELD_VALUE));
+            }
+        }
+        
+        return byteArray;
     }
 }

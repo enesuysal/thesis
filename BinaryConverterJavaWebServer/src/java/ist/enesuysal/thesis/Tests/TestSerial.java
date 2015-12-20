@@ -5,17 +5,24 @@
  */
 package ist.enesuysal.thesis.Tests;
 
+import ist.enesuysal.thesis.Annotation.Mandatory;
+
 /**
  *
  * @author enes
  */
+
 public class TestSerial {
-    
+    @Mandatory
     public byte version = 100;
+    @Mandatory
     public byte count = 0;
+    @Mandatory
     public byte deneme = 50;
     public int test;
     public String mak = "ds";
    public boolean de = true;
+   private boolean denee = false;
+   private String enes;
     
 }

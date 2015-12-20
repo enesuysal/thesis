@@ -24,9 +24,9 @@ public class ThisisDemo {
          
         Message msg = new Message(new TestSerial());
         String msgToSend =  msg.Seriliaze();
-        
+       Receiver.GetMessage(msgToSend);
         //System.err.println(Arrays.toString());
-        Object o = CentralSerializer.ByteArrayToObject(msg.DeSeriliaze(msgToSend));
+//        Object o = CentralSerializer.ByteArrayToObject(msg.DeSeriliaze(msgToSend));
         
     }
     
