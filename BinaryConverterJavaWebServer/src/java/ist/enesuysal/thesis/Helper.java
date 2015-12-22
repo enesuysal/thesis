@@ -28,7 +28,27 @@ public class Helper {
         return null;
 
     }
+    public static Object GetFieldValue(String type, byte[] o) {
 
+        switch (type) {
+            case "byte":
+                return o[0];
+            case "integer":
+                return CentralSerializer.ByteArrayToInt(o);
+            case "string":
+                return CentralSerializer.ByteArrayToString(o);
+            case "boolean":
+                return CentralSerializer.ByteArrayToBool(o);
+        }
+        return null;
+
+    }
+    public static boolean CheckNameTypeValue(){
+        return false;
+    }
+    public static boolean CheckNameType(){
+        return false;
+    }
     public static String GetFieldType(byte type) {
 
         switch (type) {

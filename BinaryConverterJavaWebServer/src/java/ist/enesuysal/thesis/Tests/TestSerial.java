@@ -13,6 +13,9 @@ import ist.enesuysal.thesis.Annotation.Mandatory;
  */
 
 public class TestSerial {
+    public  TestSerial(){
+        
+    }
     @Mandatory
     public byte version = 100;
     @Mandatory
