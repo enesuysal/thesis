@@ -7,12 +7,11 @@ package ist.enesuysal.thesis;
 
 import ist.enesuysal.thesis.Annotation.AvaliableMethod;
 import ist.enesuysal.thesis.Annotation.Mandatory;
+import ist.enesuysal.thesis.Tests.Test1;
 import ist.enesuysal.thesis.Tests.TestSerial;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
-import java.util.Arrays;
 import sun.misc.BASE64Decoder;
 
 /**
@@ -20,43 +19,52 @@ import sun.misc.BASE64Decoder;
  * @author enesuysal
  */
 public class Receiver {
-    public MyField[] methods= null; 
-    public Receiver() throws IllegalArgumentException, IllegalAccessException, InstantiationException, ClassNotFoundException{
+
+    public MyField[] knownfileds = null;
+
+    public Receiver() throws IllegalArgumentException, IllegalAccessException, InstantiationException, ClassNotFoundException {
 //                Get ALL KNown AvaliableMethods
-            
-            Method[] methods = this.getClass().getDeclaredMethods();
-            for (Method method : methods) {
-                //Find Avaliable Methods
-                if (method.isAnnotationPresent(AvaliableMethod.class)) {
 
-                    Class myClass = method.getParameters()[1].getType();
-                    Object objectInstance = myClass.newInstance();
-                    Field[] fields = myClass.getDeclaredFields();
-                  
-                    for (Field field : fields) {
-                        if (field.isAnnotationPresent(Mandatory.class)) {
-                            System.out.println("Field: " + field.getName());
-                            MyField myField = new MyField();
-                            myField.fieldName = field.getName();
-                            myField.fieldType = field.getType().toString();
-                            myField.fieldValue = field.get(objectInstance);
-                            myField.isMandatory =true;
+        Method[] methods = this.getClass().getDeclaredMethods();
 
-                        } else {
-                            System.out.println("Not Mandatory Field: " + field.getName());
-                             MyField myField = new MyField();
-                            myField.fieldName = field.getName();
-                            myField.fieldType = field.getType().toString();
-                            //myField.fieldValue = field.get(myClass);
-                            myField.isMandatory =false;
-                            
-                        }
+        for (Method method : methods) {
+            //Find Avaliable Methods
+            if (method.isAnnotationPresent(AvaliableMethod.class)) {
+
+                Class myClass = method.getParameters()[1].getType();
+                Object objectInstance = myClass.newInstance();
+                Field[] fields = myClass.getDeclaredFields();
+                knownfileds = new MyField[fields.length];
+                int counter = 0;
+                for (Field field : fields) {
+
+                    if (field.isAnnotationPresent(Mandatory.class)) {
+                        System.out.println("Field: " + field.getName());
+                        MyField myField = new MyField();
+                        myField.fieldName = field.getName();
+                        myField.fieldType = field.getType().toString();
+                        myField.fieldValue = field.get(objectInstance);
+                        myField.isMandatory = true;
+                        knownfileds[counter] = myField;
+
+                    } else {
+                        System.out.println("Not Mandatory Field: " + field.getName());
+                        MyField myField = new MyField();
+                        myField.fieldName = field.getName();
+                        myField.fieldType = field.getType().toString();
+                        //myField.fieldValue = field.get(myClass);
+                        myField.isMandatory = false;
+                        knownfileds[counter] = myField;
+
                     }
-
+                    counter++;
                 }
+
             }
-            
+        }
+
     }
+
     public static Object GetMessage(String BASE64String) throws ClassNotFoundException, Exception {
         BASE64Decoder decoder = new BASE64Decoder();
         try {
@@ -107,15 +115,18 @@ public class Receiver {
                     field.fieldValue = Helper.GetFieldValue(type, FieldValue);
                     // REmove Value
                     decodedBytes = pop(decodedBytes, FieldValue);
+                } else {
+
+                    field.fieldValue = Helper.GetFieldValue(type, null);
                 }
                 field.fieldName = CentralSerializer.ByteArrayToString(GetFieldNameByte);
                 field.fieldType = type;
                 fields[i] = field;
             }
-           
-             Receiver r = new Receiver();
-             r.findMethod();
- 
+
+            Receiver r = new Receiver();
+            r.findMethod(fields);
+
         } catch (IOException ex) {
             System.err.println("The Error Occured " + ex.getMessage());
         }
@@ -123,7 +134,7 @@ public class Receiver {
     }
 
     @AvaliableMethod
-    public void MakeObjectA(Byte[] binary, TestSerial test) {
+    public void MakeObjectA(Byte[] binary, Test1 test) {
 
     }
 
@@ -131,7 +142,6 @@ public class Receiver {
 //    public void MakeObjectB(Byte[] binary, int b) {
 //        TestSerial s = new TestSerial();
 //    }
-
     public void PrintAllClassValues() {
         System.out.println("#####################");
     }
@@ -166,8 +176,33 @@ public class Receiver {
         return longer;
     }
 
-    private void findMethod() {
-        
+    private void findMethod(MyField[] currentFields) {
+        // For each field
+        boolean Flag = false;
+        for (MyField field : knownfileds) {
+
+            Flag = false;
+            for (MyField knownField : currentFields) {
+                 //System.out.println("Current Field "+field.fieldName+" "+ field.fieldType + " Value " + field.fieldValue);
+                //System.out.println("/Kn Field "+knownField.fieldName+" "+ knownField.fieldType + " Value " + knownField.fieldValue);
+                //System.out.println("Known Field "+ knownField.fieldType);
+                if (knownField.isMandatory && field.fieldName.equals(knownField.fieldName) && field.fieldType.equals(knownField.fieldType) && field.fieldValue.equals(knownField.fieldValue)) {
+                    Flag = true;
+                    break;
+                }
+                if (!knownField.isMandatory && field.fieldName.equals(knownField.fieldName) && field.fieldType.equals(knownField.fieldType)) {
+                    Flag = true;
+                    break;
+                }
+            }
+            if (!Flag) {
+                break;
+            }
+        }
+        if (Flag) {
+            System.out.println("Found");
+        }
+
     }
 
 }

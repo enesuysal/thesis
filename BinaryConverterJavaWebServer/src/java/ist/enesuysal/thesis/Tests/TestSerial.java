@@ -16,12 +16,12 @@ public class TestSerial {
     public  TestSerial(){
         
     }
-    @Mandatory
-    public byte version = 100;
-    @Mandatory
-    public byte count = 0;
-    @Mandatory
-    public byte deneme = 50;
+    //@Mandatory
+    public int version;
+    //@Mandatory
+    public String count="";
+    //@Mandatory
+    public boolean deneme;
     public int test;
     public String mak = "ds";
    public boolean de = true;

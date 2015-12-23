@@ -32,13 +32,13 @@ public class Helper {
 
         switch (type) {
             case "byte":
-                return o[0];
-            case "integer":
-                return CentralSerializer.ByteArrayToInt(o);
-            case "string":
-                return CentralSerializer.ByteArrayToString(o);
+                return (null==o)?0:o[0];
+            case "int":
+                return (null==o)?0:CentralSerializer.ByteArrayToInt(o);
+            case "class java.lang.String":
+                return (null==o)?null:CentralSerializer.ByteArrayToString(o);
             case "boolean":
-                return CentralSerializer.ByteArrayToBool(o);
+                return (null==o)?false:CentralSerializer.ByteArrayToBool(o);
         }
         return null;
 
@@ -55,9 +55,9 @@ public class Helper {
             case 0x01:
                 return "byte";
             case 0x02:
-                return "integer";
+                return "int";
             case 0x03:
-                return "string";
+                return "class java.lang.String";
             case 0x04:
                 return "boolean";
         }
@@ -69,9 +69,9 @@ public class Helper {
         switch (type) {
             case "byte":
                 return 1;
-            case "integer":
+            case "int":
                 return 8;
-            case "string":
+            case "class java.lang.String":
                 return 22;
             case "boolean":
                 return 1;
