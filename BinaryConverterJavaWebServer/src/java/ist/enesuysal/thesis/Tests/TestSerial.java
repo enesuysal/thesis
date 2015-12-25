@@ -1,28 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ist.enesuysal.thesis.Tests;
 
-import ist.enesuysal.thesis.Annotation.Mandatory;
-
-/**
- *
- * @author enes
- */
-
 public class TestSerial {
-    public  TestSerial(){
-        
+
+    public TestSerial() {
+
     }
+    // Public primitive with default value
     public int version;
-    public String count="";
+    // Public primitive with no value
+    public String count = "";
+    // Public primitive with default value 
     public boolean deneme;
+    // Public primitive with default value
     public int test;
-    public String mak = "ds";
-   public boolean de = true;
-   private boolean denee = false;
-   private String enes;
-    
+    // Public primitive with a value
+    public String mak = "Test";
+    // Public primitive with value
+    public boolean de = true;
+    // Private primitive with value 
+    private boolean denee = false;
+    // Private primitive with value 
+    private String enes = "TestValue";
+
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ist.enesuysal.thesis;
 
 import java.io.IOException;
@@ -11,10 +6,6 @@ import java.util.logging.Logger;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
-/**
- *
- * @author enesuysal
- */
 public class Message {
 
     int messageInt;
@@ -49,7 +40,6 @@ public class Message {
 
     public String Seriliaze() {
         byte[] arrayByte = null;
-
         BASE64Encoder encoder = new BASE64Encoder();
         String temp_inBase64 = encoder.encode(messageSerilized);
         return temp_inBase64;
@@ -57,7 +47,6 @@ public class Message {
 
     public byte[] DeSeriliaze(String temp_inBase64) {
         byte[] arrayByte = null;
-
         BASE64Decoder decoder = new BASE64Decoder();
         try {
             arrayByte = decoder.decodeBuffer(temp_inBase64);

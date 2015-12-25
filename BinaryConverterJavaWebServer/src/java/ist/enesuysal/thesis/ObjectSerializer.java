@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ist.enesuysal.thesis;
 
+import ist.enesuysal.thesis.Helper.Helper;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
-/**
- *
- * @author enes
- */
 public class ObjectSerializer {
 
     Object obj;
@@ -29,12 +21,10 @@ public class ObjectSerializer {
         byte[] byteArray = new byte[0];
         byte[] START_SERIALIZE = new byte[]{(byte) 0xAC, (byte) 0xAE};// Specifies that this is a serialization 
         byteArray = push(byteArray, START_SERIALIZE);
-        System.out.println("START_SERIALIZE: " + Arrays.toString(START_SERIALIZE));
         byte[] OBJECT_START = new byte[]{(byte) 0x73};//Specifies that Object starts here.
         byteArray = push(byteArray, OBJECT_START);
-        System.out.println("OBJECT_START: " + Arrays.toString(OBJECT_START));
         //Check Fields
-        byteArray = CheckFields(obj,byteArray);
+        byteArray = CheckFields(obj, byteArray);
         byte[] OBJECT_END = new byte[]{(byte) 0x74};//Specifies that Object finishes here.
         byteArray = push(byteArray, OBJECT_END);
         byte[] FINISH_SERIALIZE = new byte[]{(byte) 0x75};// Specifies that this is a serialization 
@@ -43,65 +33,60 @@ public class ObjectSerializer {
         return byteArray;
     }
 
-    public Object DeSerialize() throws Exception {
-        if (!Helper.IsSerializable(byteArray)) {
-            throw new Exception("Array is not in correct format");
-        }
-        System.err.println("Last Array" + Arrays.toString(byteArray));
-        byteArray = pop(byteArray);
-        byteArray = pop(byteArray);
-        System.err.println("Last Array" + Arrays.toString(byteArray));
-        if (Helper.IsPrimitive()) {
-            throw new Exception("It is primative not a class");
-        }
-        byteArray = pop(byteArray);
-        System.err.println("Last Array" + Arrays.toString(byteArray));
-        //Create Object
-        int FieldLength = 0;
-        byte[] FieldLengthByte = new byte[8];
-        System.arraycopy(byteArray, 0, FieldLengthByte, 0, FieldLengthByte.length);
-        byteArray = pop(byteArray,FieldLengthByte);
-        System.err.println("Last Array" + Arrays.toString(byteArray));
-        FieldLength = CentralSerializer.ByteArrayToInt(FieldLengthByte);
-        int iteration = 0;
-        //FieldLength = 1;
-        for (int i = 0; i < FieldLength; i++) {
-            String type = (Helper.GetFieldType(byteArray[iteration])); //FieldType
-            System.err.println(type);
-            byteArray = pop(byteArray);
-            byte[] FieldNameByte = new byte[8];
-            System.arraycopy(byteArray, 0, FieldNameByte, 0, FieldNameByte.length);
-            byteArray = pop(byteArray,FieldNameByte);
-            System.err.println("Last Array" + Arrays.toString(byteArray));
-            byte[] GetFieldNameByte = new byte[CentralSerializer.ByteArrayToInt(FieldNameByte)];
-            System.arraycopy(byteArray, 0, GetFieldNameByte, 0, GetFieldNameByte.length);
-            System.err.println(CentralSerializer.ByteArrayToString(GetFieldNameByte));
-            byteArray = pop(byteArray,GetFieldNameByte);
-            System.err.println("Last Array" + Arrays.toString(byteArray));
-            //Check if has value
-            byte HasValue = byteArray[0];
-            byteArray = pop(byteArray);
-            System.err.println("Last Array" + Arrays.toString(byteArray));
-            if(HasValue==1){
-                byte[] FieldValueLenghtByte = new byte[8];
-            System.arraycopy(byteArray, 0, FieldValueLenghtByte, 0, FieldValueLenghtByte.length);
-            int FieldValueLenght = CentralSerializer.ByteArrayToInt(FieldValueLenghtByte);
-              System.err.println("Last Array" + Arrays.toString(byteArray));
-              byteArray = pop(byteArray,FieldValueLenghtByte);
-              System.err.println("Last Array" + Arrays.toString(byteArray));
-              byte[] FieldValue = new byte[FieldValueLenght];
-              System.arraycopy(byteArray, 0, FieldValue, 0, FieldValue.length);
-               byteArray = pop(byteArray,FieldValue); // REmove Value
-               System.err.println("Last Array" + Arrays.toString(byteArray));
-            }
-            
-            
-            
-           
-        }
-
-        return null;
-    }
+//    public Object DeSerialize() throws Exception {
+//        if (!Helper.IsSerializable(byteArray)) {
+//            throw new Exception("Array is not in correct format");
+//        }
+//        System.err.println("Last Array" + Arrays.toString(byteArray));
+//        byteArray = pop(byteArray);
+//        byteArray = pop(byteArray);
+//        System.err.println("Last Array" + Arrays.toString(byteArray));
+//        if (Helper.IsPrimitive()) {
+//            throw new Exception("It is primative not a class");
+//        }
+//        byteArray = pop(byteArray);
+//        System.err.println("Last Array" + Arrays.toString(byteArray));
+//        //Create Object
+//        int FieldLength = 0;
+//        byte[] FieldLengthByte = new byte[8];
+//        System.arraycopy(byteArray, 0, FieldLengthByte, 0, FieldLengthByte.length);
+//        byteArray = pop(byteArray, FieldLengthByte);
+//        System.err.println("Last Array" + Arrays.toString(byteArray));
+//        FieldLength = CentralSerializer.ByteArrayToInt(FieldLengthByte);
+//        int iteration = 0;
+//        //FieldLength = 1;
+//        for (int i = 0; i < FieldLength; i++) {
+//            String type = (Helper.GetFieldType(byteArray[iteration])); //FieldType
+//            System.err.println(type);
+//            byteArray = pop(byteArray);
+//            byte[] FieldNameByte = new byte[8];
+//            System.arraycopy(byteArray, 0, FieldNameByte, 0, FieldNameByte.length);
+//            byteArray = pop(byteArray, FieldNameByte);
+//            System.err.println("Last Array" + Arrays.toString(byteArray));
+//            byte[] GetFieldNameByte = new byte[CentralSerializer.ByteArrayToInt(FieldNameByte)];
+//            System.arraycopy(byteArray, 0, GetFieldNameByte, 0, GetFieldNameByte.length);
+//            System.err.println(CentralSerializer.ByteArrayToString(GetFieldNameByte));
+//            byteArray = pop(byteArray, GetFieldNameByte);
+//            System.err.println("Last Array" + Arrays.toString(byteArray));
+//            //Check if has value
+//            byte HasValue = byteArray[0];
+//            byteArray = pop(byteArray);
+//            System.err.println("Last Array" + Arrays.toString(byteArray));
+//            if (HasValue == 1) {
+//                byte[] FieldValueLenghtByte = new byte[8];
+//                System.arraycopy(byteArray, 0, FieldValueLenghtByte, 0, FieldValueLenghtByte.length);
+//                int FieldValueLenght = CentralSerializer.ByteArrayToInt(FieldValueLenghtByte);
+//                System.err.println("Last Array" + Arrays.toString(byteArray));
+//                byteArray = pop(byteArray, FieldValueLenghtByte);
+//                System.err.println("Last Array" + Arrays.toString(byteArray));
+//                byte[] FieldValue = new byte[FieldValueLenght];
+//                System.arraycopy(byteArray, 0, FieldValue, 0, FieldValue.length);
+//                byteArray = pop(byteArray, FieldValue); // REmove Value
+//                System.err.println("Last Array" + Arrays.toString(byteArray));
+//            }
+//        }
+//        return null;
+//    }
 
     private static byte[] push(byte[] array, byte[] push) {
         byte[] longer = new byte[array.length + push.length];
@@ -110,10 +95,11 @@ public class ObjectSerializer {
 
         return longer;
     }
-     private static byte[] pop(byte[] array, byte[] pop) {
+
+    private static byte[] pop(byte[] array, byte[] pop) {
         byte[] longer = new byte[array.length - pop.length];
         System.arraycopy(array, pop.length, longer, 0, longer.length);
-       // System.arraycopy(push, 0, longer, array.length, push.length);
+        // System.arraycopy(push, 0, longer, array.length, push.length);
 
         return longer;
     }
@@ -124,15 +110,16 @@ public class ObjectSerializer {
         longer[array.length] = push;
         return longer;
     }
+
     private static byte[] pop(byte[] array) {
         byte[] longer = new byte[array.length - 1];
         System.arraycopy(array, 1, longer, 0, longer.length);
-        
+
         return longer;
     }
 
-    private byte[] CheckFields(Object obj, byte [] byteArray) throws IllegalArgumentException, IllegalAccessException {
-         //GET Fields
+    private byte[] CheckFields(Object obj, byte[] byteArray) throws IllegalArgumentException, IllegalAccessException {
+        //GET Fields
         Field[] fields = obj.getClass().getDeclaredFields();
         byte[] FIELDS_LENGH = CentralSerializer.intToByteArray(fields.length, null);// Length of the class name
         byteArray = push(byteArray, FIELDS_LENGH);
@@ -156,7 +143,7 @@ public class ObjectSerializer {
             Object value = oneField.get(obj);
             if (FIELD_HASVALUE[0] != 0) // If Field has value 
             {
-                
+
                 byte[] FIELD_VALUE = Helper.GetFieldValue(FIELD_TYPE[0], value);
                 byte[] FIELD_VALUE_LENGHT = CentralSerializer.intToByteArray(FIELD_VALUE.length, null);
                 byteArray = push(byteArray, FIELD_VALUE_LENGHT);
@@ -164,7 +151,7 @@ public class ObjectSerializer {
                 System.out.println("Field  value" + Arrays.toString(FIELD_VALUE));
             }
         }
-        
+
         return byteArray;
     }
 }

@@ -1,10 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ist.enesuysal.thesis;
 
+import ist.enesuysal.thesis.Helper.MyMethod;
+import ist.enesuysal.thesis.Helper.MyField;
+import ist.enesuysal.thesis.Helper.Helper;
 import ist.enesuysal.thesis.Annotation.AvaliableMethod;
 import ist.enesuysal.thesis.Annotation.Mandatory;
 import ist.enesuysal.thesis.Tests.Test1;
@@ -16,10 +14,6 @@ import java.lang.reflect.Method;
 import java.util.List;
 import sun.misc.BASE64Decoder;
 
-/**
- *
- * @author enesuysal
- */
 public class Receiver {
 
     public MyMethod[] knownMethods = null;
@@ -37,7 +31,6 @@ public class Receiver {
             knownMethods[i].methodName = myClass.getName();
             for (int j = 0; j < fields.length; j++) {
                 if (fields[j].isAnnotationPresent(Mandatory.class)) {
-                    System.out.println("Field: " + fields[j].getName());
                     MyField myField = new MyField();
                     myField.fieldName = fields[j].getName();
                     myField.fieldType = fields[j].getType().toString();
@@ -46,7 +39,6 @@ public class Receiver {
                     knownMethods[i].myfields[j] = myField;
 
                 } else {
-                    System.out.println("Not Mandatory Field: " + fields[j].getName());
                     MyField myField = new MyField();
                     myField.fieldName = fields[j].getName();
                     myField.fieldType = fields[j].getType().toString();
@@ -61,7 +53,7 @@ public class Receiver {
 
     }
 
-    public static Object GetMessage(String BASE64String) throws ClassNotFoundException, Exception {
+    public static byte[] GetMessage(String BASE64String) throws ClassNotFoundException, Exception {
         BASE64Decoder decoder = new BASE64Decoder();
         try {
             byte[] decodedBytes = decoder.decodeBuffer(BASE64String);
@@ -137,13 +129,9 @@ public class Receiver {
     @AvaliableMethod
     public void MakeObjectB(Byte[] binary, Test2 test) {
     }
-    
+
     @AvaliableMethod
     public void MakeObjectC(Byte[] binary, Test3 test) {
-    }
-
-    public void PrintAllClassValues() {
-        System.out.println("#####################");
     }
 
     private static byte[] push(byte[] array, byte[] push) {
@@ -176,7 +164,7 @@ public class Receiver {
         return longer;
     }
 
-    private void findMethod(MyMethod currentMethods) {
+    private void findMethod(MyMethod currentMethods) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         // For each field
         boolean Flag = false;
         MyField[] currentFields = currentMethods.myfields;
@@ -185,9 +173,6 @@ public class Receiver {
 
                 Flag = false;
                 for (MyField knownField : currentFields) {
-                    //System.out.println("Current Field "+field.fieldName+" "+ field.fieldType + " Value " + field.fieldValue);
-                    //System.out.println("/Kn Field "+knownField.fieldName+" "+ knownField.fieldType + " Value " + knownField.fieldValue);
-                    //System.out.println("Known Field "+ knownField.fieldType);
                     if (knownField.isMandatory && field.fieldName.equals(knownField.fieldName) && field.fieldType.equals(knownField.fieldType) && field.fieldValue.equals(knownField.fieldValue)) {
                         Flag = true;
                         break;
@@ -202,7 +187,9 @@ public class Receiver {
                 }
             }
             if (Flag) {
-                System.out.println("Found at " + method.methodName);
+                System.out.println("Avaliable Method Found");
+                Class myClass = Class.forName(method.methodName);
+                myClass.newInstance();
                 break;
             }
 
