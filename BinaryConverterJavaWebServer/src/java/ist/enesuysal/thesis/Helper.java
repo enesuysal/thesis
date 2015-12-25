@@ -5,7 +5,13 @@
  */
 package ist.enesuysal.thesis;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -28,27 +34,31 @@ public class Helper {
         return null;
 
     }
+
     public static Object GetFieldValue(String type, byte[] o) {
 
         switch (type) {
             case "byte":
-                return (null==o)?0:o[0];
+                return (null == o) ? 0 : o[0];
             case "int":
-                return (null==o)?0:CentralSerializer.ByteArrayToInt(o);
+                return (null == o) ? 0 : CentralSerializer.ByteArrayToInt(o);
             case "class java.lang.String":
-                return (null==o)?null:CentralSerializer.ByteArrayToString(o);
+                return (null == o) ? null : CentralSerializer.ByteArrayToString(o);
             case "boolean":
-                return (null==o)?false:CentralSerializer.ByteArrayToBool(o);
+                return (null == o) ? false : CentralSerializer.ByteArrayToBool(o);
         }
         return null;
 
     }
-    public static boolean CheckNameTypeValue(){
+
+    public static boolean CheckNameTypeValue() {
         return false;
     }
-    public static boolean CheckNameType(){
+
+    public static boolean CheckNameType() {
         return false;
     }
+
     public static String GetFieldType(byte type) {
 
         switch (type) {
@@ -98,15 +108,15 @@ public class Helper {
     }
 
     public static byte CheckHasValue(Object o, Field field) throws IllegalArgumentException, IllegalAccessException {
-         field.setAccessible(true);
+        field.setAccessible(true);
         Class t = field.getType();
         Object v = field.get(o);
-        
-        if(t.getName().equals("boolean") && (boolean)v==false )
+
+        if (t.getName().equals("boolean") && (boolean) v == false) {
             return (byte) 0X00;
-        else if(t.getName().equals("boolean") && (boolean)v==true )
+        } else if (t.getName().equals("boolean") && (boolean) v == true) {
             return (byte) 0X01;
-        else if (boolean.class.equals(t) && Boolean.FALSE.equals(v)) {
+        } else if (boolean.class.equals(t) && Boolean.FALSE.equals(v)) {
             return (byte) 0X00;
         } else if (char.class.equals(t) && ((Character) v) != Character.MIN_VALUE) {
             return (byte) 0X00;
@@ -123,7 +133,7 @@ public class Helper {
         //Check START_SERIALIZE and FINISH SERIALIZE
         byte[] START_SERIALIZE = new byte[]{(byte) 0xAC, (byte) 0xAE};
         byte[] FINISH_SERIALIZE = new byte[]{(byte) 0x75};
-        return byteArray[0] == START_SERIALIZE[0] && byteArray[1] == START_SERIALIZE[1] && byteArray[byteArray.length-1] == FINISH_SERIALIZE[0];
+        return byteArray[0] == START_SERIALIZE[0] && byteArray[1] == START_SERIALIZE[1] && byteArray[byteArray.length - 1] == FINISH_SERIALIZE[0];
     }
 
     public static boolean IsPrimitive() {
@@ -132,7 +142,38 @@ public class Helper {
     }
 
     static int GetValueByteLenght(String type) {
-           return 1;
+        return 1;
+    }
+
+    public static List<Method> getMethodsAnnotatedWith(final Class<?> type, final Class<? extends Annotation> annotation) {
+        final List<Method> methods = new ArrayList<Method>();
+        Class<?> klass = type;
+        while (klass != Object.class) { // need to iterated thought hierarchy in order to retrieve methods from above the current instance
+            // iterate though the list of methods declared in the class represented by klass variable, and add those annotated with the specified annotation
+            final List<Method> allMethods = new ArrayList<Method>(Arrays.asList(klass.getDeclaredMethods()));
+            for (final Method method : allMethods) {
+                if (method.isAnnotationPresent(annotation)) {
+                    Annotation annotInstance = method.getAnnotation(annotation);
+                    // TODO process annotInstance
+                    methods.add(method);
+                }
+            }
+            // move to the upper class in the hierarchy in search for more methods
+            klass = klass.getSuperclass();
+        }
+        return methods;
+    }
+    public static Field[] getAnnotatedDeclaredFields(Class clazz,
+                                                     Class<? extends Annotation> annotationClass) {
+        Field[] allFields = clazz.getDeclaredFields();
+        List<Field> annotatedFields = new LinkedList<Field>();
+
+        for (Field field : allFields) {
+            if(field.isAnnotationPresent(annotationClass))
+                annotatedFields.add(field);
+        }
+
+        return annotatedFields.toArray(new Field[annotatedFields.size()]);
     }
 
 }

@@ -16,11 +16,8 @@ public class TestSerial {
     public  TestSerial(){
         
     }
-    //@Mandatory
     public int version;
-    //@Mandatory
     public String count="";
-    //@Mandatory
     public boolean deneme;
     public int test;
     public String mak = "ds";

@@ -14,7 +14,7 @@ import ist.enesuysal.thesis.Annotation.Mandatory;
 public class Test1 {
 
     @Mandatory
-    public String count = "";
+    public String counta = "";
     @Mandatory
     public int version;
     @Mandatory
