@@ -1,0 +1,19 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ist.enesuysal.thesis.Helper;
+
+import ist.enesuysal.thesis.Helper.MyField;
+
+/**
+ *
+ * @author enes
+ */
+public class MyMethod {
+    public MyField[] myfields;
+    public String methodName;
+    public MyMethod(){}
+    
+}

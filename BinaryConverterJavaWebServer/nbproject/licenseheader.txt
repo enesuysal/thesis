@@ -1,0 +1,12 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix} Information Systems and Computer Engineering
+${licensePrefix} Distributed programming in cloud computing
+${licensePrefix} Enes UYSAL
+${licensePrefix} Enes UYSAL
+${licensePrefix}  
+${licensePrefix}  Supervisor: José Carlos Martins Delgado
+<#if licenseLast??>
+${licenseLast}
+</#if>
