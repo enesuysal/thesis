@@ -94,3 +94,4 @@ public float convertByteArrayToFloat(byte[] b, int offset) {
    return ByteBuffer.wrap(b, offset, 4).order(ByteOrder.LITTLE_ENDIAN).getFloat();
 }
 }
+//http://www.java2s.com/Book/Java/Examples/Convert_data_to_byte_array_back_and_forth.htm
