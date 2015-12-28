@@ -92,8 +92,8 @@ public class Helper {
 
     }
 
-    public static byte GetFieldCode(Object o) {
-        switch (o.toString()) {
+    public static byte GetFieldCode(String o) {
+        switch (o) {
             case "byte":
                 return (byte) 0x01;
             case "int":

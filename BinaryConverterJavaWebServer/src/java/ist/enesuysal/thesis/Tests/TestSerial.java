@@ -21,5 +21,11 @@ public class TestSerial {
     private boolean denee = false;
     // Private primitive with value 
     private String enes = "TestValue";
+    
+    public void foo() { }
+
+    public int bar() { return 12; }
+
+    public String baz() { return ""; }
 
 }
