@@ -11,9 +11,10 @@ public class Test1 {
     public int version;
     @Mandatory
     public boolean deneme;
-    public int test = 66;
+    @Mandatory
+    public int test = 233;
 
-    public Test1() {
+    public void printString() {
         StringBuilder result = new StringBuilder();
         String newLine = System.getProperty("line.separator");
 

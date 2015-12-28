@@ -10,6 +10,7 @@ import ist.enesuysal.thesis.Tests.Test2;
 import ist.enesuysal.thesis.Tests.Test3;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 import sun.misc.BASE64Decoder;
@@ -164,7 +165,7 @@ public class Receiver {
         return longer;
     }
 
-    private void findMethod(MyMethod currentMethods) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    private void findMethod(MyMethod currentMethods) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
         // For each field
         boolean Flag = false;
         MyField[] currentFields = currentMethods.myfields;
@@ -173,11 +174,11 @@ public class Receiver {
 
                 Flag = false;
                 for (MyField knownField : currentFields) {
-                    if (knownField.isMandatory && field.fieldName.equals(knownField.fieldName) && field.fieldType.equals(knownField.fieldType) && field.fieldValue.equals(knownField.fieldValue)) {
+                    if (field.isMandatory && field.fieldName.equals(knownField.fieldName) && field.fieldType.equals(knownField.fieldType) && field.fieldValue.equals(knownField.fieldValue)) {
                         Flag = true;
                         break;
                     }
-                    if (!knownField.isMandatory && field.fieldName.equals(knownField.fieldName) && field.fieldType.equals(knownField.fieldType)) {
+                    if (!field.isMandatory && field.fieldName.equals(knownField.fieldName) && field.fieldType.equals(knownField.fieldType)) {
                         Flag = true;
                         break;
                     }
@@ -187,9 +188,10 @@ public class Receiver {
                 }
             }
             if (Flag) {
-                System.out.println("Avaliable Method Found");
+                System.out.println("Avaliable Method Found" + method.methodName);
                 Class myClass = Class.forName(method.methodName);
                 myClass.newInstance();
+               
                 break;
             }
 

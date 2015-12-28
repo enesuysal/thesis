@@ -12,7 +12,7 @@ public class TestSerial {
     // Public primitive with default value 
     public boolean deneme;
     // Public primitive with default value
-    public int test;
+    public int test=23;
     // Public primitive with a value
     public String mak = "Test";
     // Public primitive with value

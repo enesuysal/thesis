@@ -7,10 +7,10 @@ public class Test2 {
 
     @Mandatory
     public String count = "";
-    private boolean deneeme = false;
+    private boolean deneme = false;
     private String enes;
 
-    public Test2() {
+    public void printString() {
         StringBuilder result = new StringBuilder();
         String newLine = System.getProperty("line.separator");
 

@@ -10,7 +10,7 @@ public class Run {
         Message msg = new Message(new TestSerial());
         String msgToSend = msg.Seriliaze();
         
-        //Receive Message
+        //Receive Messaged
         Receiver.GetMessage(msgToSend);
 
     }

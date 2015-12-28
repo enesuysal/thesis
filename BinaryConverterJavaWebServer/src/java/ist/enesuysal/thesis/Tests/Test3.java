@@ -6,7 +6,7 @@ public class Test3 {
 
     private String enes2 = "deneme";
 
-    public Test3() {
+    public void printString() {
         StringBuilder result = new StringBuilder();
         String newLine = System.getProperty("line.separator");
 
