@@ -76,4 +76,14 @@ public class CentralSerializer {
 //        }
 //        return null;
 //    }
+public short bytesToShort(byte[] bytes) {
+     return ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN).getShort();
+}
+
+public byte[] shortToBytes(short value) {
+    byte[] returnByteArray = new byte[2];
+    returnByteArray[0] = (byte) (value & 0xff);
+    returnByteArray[1] = (byte) ((value >>> 8) & 0xff);
+    return returnByteArray;
+}
 }
