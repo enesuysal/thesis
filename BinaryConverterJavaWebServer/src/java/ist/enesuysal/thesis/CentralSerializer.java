@@ -86,4 +86,11 @@ public byte[] shortToBytes(short value) {
     returnByteArray[1] = (byte) ((value >>> 8) & 0xff);
     return returnByteArray;
 }
+public void convertFloatToByteArray(float f, byte[] b, int offset) {
+   ByteBuffer.wrap(b, offset, 4).order(ByteOrder.LITTLE_ENDIAN).putFloat(f);
+}
+
+public float convertByteArrayToFloat(byte[] b, int offset) {
+   return ByteBuffer.wrap(b, offset, 4).order(ByteOrder.LITTLE_ENDIAN).getFloat();
+}
 }
