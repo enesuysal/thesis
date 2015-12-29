@@ -4,14 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/enes/Dropbox/Works/ThesisV2/svn/BinaryConverterJavaWebServer/src/java/ist/enesuysal/thesis/CentralSerializer.java</file>
+            <file>file:/Users/enes/Dropbox/Works/ThesisV2/svn/BinaryConverterJavaWebServer/src/java/ist/enesuysal/thesis/ObjectSerializer.java</file>
+            <file>file:/Users/enes/Dropbox/Works/ThesisV2/svn/BinaryConverterJavaWebServer/src/java/ist/enesuysal/thesis/Tests/Test1.java</file>
             <file>file:/Users/enes/Dropbox/Works/ThesisV2/svn/BinaryConverterJavaWebServer/src/java/ist/enesuysal/thesis/Tests/TestSerial.java</file>
-            <file>file:/Users/enes/Dropbox/Works/ThesisV2/svn/BinaryConverterJavaWebServer/src/java/ist/enesuysal/thesis/Helper/MyField.java</file>
-            <file>file:/Users/enes/Dropbox/Works/ThesisV2/svn/BinaryConverterJavaWebServer/src/java/ist/enesuysal/thesis/Run.java</file>
-            <file>file:/Users/enes/Dropbox/Works/ThesisV2/svn/BinaryConverterJavaWebServer/src/java/ist/enesuysal/thesis/Annotation/AvaliableMethod.java</file>
-            <file>file:/Users/enes/Dropbox/Works/ThesisV2/svn/BinaryConverterJavaWebServer/src/java/ist/enesuysal/thesis/Helper/MyMethod.java</file>
+            <file>file:/Users/enes/Dropbox/Works/ThesisV2/svn/BinaryConverterJavaWebServer/src/java/ist/enesuysal/thesis/Tests/TestSubObject.java</file>
             <file>file:/Users/enes/Dropbox/Works/ThesisV2/svn/BinaryConverterJavaWebServer/src/java/ist/enesuysal/thesis/Receiver.java</file>
             <file>file:/Users/enes/Dropbox/Works/ThesisV2/svn/BinaryConverterJavaWebServer/src/java/ist/enesuysal/thesis/Helper/Helper.java</file>
-            <file>file:/Users/enes/Dropbox/Works/ThesisV2/svn/BinaryConverterJavaWebServer/src/java/ist/enesuysal/thesis/Annotation/Mandatory.java</file>
         </group>
     </open-files>
 </project-private>

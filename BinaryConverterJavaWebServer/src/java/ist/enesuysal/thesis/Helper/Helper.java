@@ -31,6 +31,16 @@ public class Helper {
                 return CentralSerializer.stringToByteArray((String) o, null);
             case 0x04:
                 return CentralSerializer.boolToByteArray((boolean) o, null);
+            case 0x05:
+                return CentralSerializer.convertToByteArray((char) o);
+            case 0x06:
+                return CentralSerializer.convertToByteArray((long) o);
+            case 0x07:
+                return CentralSerializer.convertToByteArray((short) o);
+            case 0x08:
+                return CentralSerializer.convertToByteArray((float) o);
+            case 0x09:
+                return CentralSerializer.convertToByteArray((double) o);
         }
         return null;
 
@@ -47,6 +57,16 @@ public class Helper {
                 return (null == o) ? null : CentralSerializer.ByteArrayToString(o);
             case "boolean":
                 return (null == o) ? false : CentralSerializer.ByteArrayToBool(o);
+            case "char":
+                return (null == o) ? 0 : CentralSerializer.convertToCharacter(o);
+            case "long":
+                return (null == o) ? 0 : CentralSerializer.convertToLong(o);
+            case "short":
+                return (null == o) ? 0 : CentralSerializer.convertToShort(o);
+            case "float":
+                return (null == o) ? 0 : CentralSerializer.convertToFloat(o);
+            case "double":
+                return (null == o) ? 0 : CentralSerializer.convertToDouble(o);
         }
         return null;
 
@@ -71,6 +91,16 @@ public class Helper {
                 return "class java.lang.String";
             case 0x04:
                 return "boolean";
+            case 0x05:
+                return "char";
+            case 0x06:
+                return "long";
+            case 0x07:
+                return "short";
+            case 0x08:
+                return "float";
+            case 0x09:
+                return "double";
         }
         return null;
 
@@ -86,6 +116,16 @@ public class Helper {
                 return 22;
             case "boolean":
                 return 1;
+            case "char":
+                return 2;
+            case "long":
+                return 8;
+            case "short":
+                return 2;
+            case "float":
+                return 4;
+            case "double":
+                return 8;
             default:
                 return 0;
         }
@@ -102,6 +142,16 @@ public class Helper {
                 return (byte) 0x03;
             case "boolean":
                 return (byte) 0x04;
+            case "char":
+                return (byte) 0x05;
+            case "long":
+                return (byte) 0x06;
+            case "short":
+                return (byte) 0x07;
+            case "float":
+                return (byte) 0x08;
+            case "double":
+                return (byte) 0x09;
             default:
                 return (byte) 0x00;
         }
@@ -164,14 +214,16 @@ public class Helper {
         }
         return methods;
     }
+
     public static Field[] getAnnotatedDeclaredFields(Class clazz,
-                                                     Class<? extends Annotation> annotationClass) {
+            Class<? extends Annotation> annotationClass) {
         Field[] allFields = clazz.getDeclaredFields();
         List<Field> annotatedFields = new LinkedList<Field>();
 
         for (Field field : allFields) {
-            if(field.isAnnotationPresent(annotationClass))
+            if (field.isAnnotationPresent(annotationClass)) {
                 annotatedFields.add(field);
+            }
         }
 
         return annotatedFields.toArray(new Field[annotatedFields.size()]);
