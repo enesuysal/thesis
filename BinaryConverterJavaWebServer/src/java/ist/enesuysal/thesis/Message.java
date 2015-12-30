@@ -14,27 +14,22 @@ public class Message {
     Object messageObject;
     byte[] messageSerilized;
 
-    public Message() {
-
+    public Message(byte message) {
+        messageSerilized = new byte[message];
     }
-
     public Message(int message) {
-        this.messageInt = message;
-        messageSerilized = CentralSerializer.intToByteArray(messageInt, messageSerilized);
+        messageSerilized = CentralSerializer.intToByteArray(message, messageSerilized);
     }
 
     public Message(String message) {
-        this.messageString = message;
         messageSerilized = CentralSerializer.stringToByteArray(message, messageSerilized);
     }
 
-    public Message(Boolean message) {
-        this.messageBool = message;
+    public Message(boolean message) {
         messageSerilized = CentralSerializer.boolToByteArray(message, messageSerilized);
     }
 
     public Message(Object message) throws IllegalArgumentException, IllegalAccessException, Exception {
-        this.messageObject = message;
         messageSerilized = CentralSerializer.objectToByteArray(message, messageSerilized);
     }
 

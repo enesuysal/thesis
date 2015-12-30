@@ -123,7 +123,7 @@ public class ObjectSerializer {
     private byte[] CheckFields(Object obj, byte[] byteArray) throws IllegalArgumentException, IllegalAccessException {
         //GET Fields
         Field[] fields = obj.getClass().getDeclaredFields();
-        byte[] FIELDS_LENGH = CentralSerializer.intToByteArray(fields.length, null);// Length of the class name
+        byte[] FIELDS_LENGH = CentralSerializer.convertToByteArray(fields.length, null);// Length of the class name
         byteArray = push(byteArray, FIELDS_LENGH);
         System.out.println("FIELDS_LENGH: " + Arrays.toString(FIELDS_LENGH));
         //For each Field 
@@ -133,10 +133,10 @@ public class ObjectSerializer {
             byte[] FIELD_TYPE = new byte[]{Helper.GetFieldCode(fieldType.toString())}; // Get Field Code
             byteArray = push(byteArray, FIELD_TYPE);
             System.out.println(Arrays.toString(FIELD_TYPE));
-            byte[] FIELDNAME_LENGH = CentralSerializer.intToByteArray(oneField.getName().length(), null); //Get fieldname Length 
+            byte[] FIELDNAME_LENGH = CentralSerializer.convertToByteArray(oneField.getName().length(), null); //Get fieldname Length 
             byteArray = push(byteArray, FIELDNAME_LENGH);
             System.out.println("FieldName Lengh " + Arrays.toString(FIELDNAME_LENGH));
-            byte[] FIELDNAME = CentralSerializer.stringToByteArray(oneField.getName(), null); // Get FieldName
+            byte[] FIELDNAME = CentralSerializer.convertToByteArray(oneField.getName(), null); // Get FieldName
             byteArray = push(byteArray, FIELDNAME);
             System.out.println("FieldName " + Arrays.toString(FIELDNAME));
             byte[] FIELD_HASVALUE = new byte[]{Helper.CheckHasValue(obj, oneField)}; // Get FieldName
@@ -147,7 +147,7 @@ public class ObjectSerializer {
             {
 
                 byte[] FIELD_VALUE = Helper.GetFieldValue(FIELD_TYPE[0], value);
-                byte[] FIELD_VALUE_LENGHT = CentralSerializer.intToByteArray(FIELD_VALUE.length, null);
+                byte[] FIELD_VALUE_LENGHT = CentralSerializer.convertToByteArray(FIELD_VALUE.length, null);
                 byteArray = push(byteArray, FIELD_VALUE_LENGHT);
                 byteArray = push(byteArray, FIELD_VALUE);
                 System.out.println("Field  value" + Arrays.toString(FIELD_VALUE));
@@ -160,7 +160,7 @@ public class ObjectSerializer {
     private byte[] CheckMethods(Object obj, byte[] byteArray) {
         //GET Methods
         Method[] methods = obj.getClass().getDeclaredMethods();
-        byte[] METHODS_LENGH = CentralSerializer.intToByteArray(methods.length, null);// Length of the class name
+        byte[] METHODS_LENGH = CentralSerializer.convertToByteArray(methods.length, null);// Length of the class name
         byteArray = push(byteArray, METHODS_LENGH);
         System.out.println("METHODS_LENGH: " + Arrays.toString(METHODS_LENGH));
         //For each Field 
@@ -170,10 +170,10 @@ public class ObjectSerializer {
             byte[] METHOD_RETURN_TYPE = new byte[]{Helper.GetFieldCode(methodReturnType)}; // Get Type Code 
             byteArray = push(byteArray, METHOD_RETURN_TYPE);
             System.out.println(Arrays.toString(METHOD_RETURN_TYPE));
-            byte[] METHOD_NAME_LENGH = CentralSerializer.intToByteArray(oneMethod.getName().length(), null); //Get fieldname Length 
+            byte[] METHOD_NAME_LENGH = CentralSerializer.convertToByteArray(oneMethod.getName().length(), null); //Get fieldname Length 
             byteArray = push(byteArray, METHOD_NAME_LENGH);
             System.out.println("Method Name Lengh " + Arrays.toString(METHOD_NAME_LENGH));
-            byte[] METHODNAME = CentralSerializer.stringToByteArray(oneMethod.getName(), null); // Get FieldName
+            byte[] METHODNAME = CentralSerializer.convertToByteArray(oneMethod.getName(), null); // Get FieldName
             byteArray = push(byteArray, METHODNAME);
             System.out.println("MethodName " + Arrays.toString(METHODNAME));
 //            byte[] METHOD_HASPARAM = new byte[]{Helper.CheckHasValue(obj, oneField)}; // Get FieldName

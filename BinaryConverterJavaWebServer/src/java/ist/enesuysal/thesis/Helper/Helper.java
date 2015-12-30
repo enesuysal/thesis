@@ -26,21 +26,21 @@ public class Helper {
             case 0x01:
                 return new byte[]{(byte) o};
             case 0x02:
-                return CentralSerializer.intToByteArray((int) o, null);
+                return CentralSerializer.convertToByteArray((int) o, null);
             case 0x03:
-                return CentralSerializer.stringToByteArray((String) o, null);
+                return CentralSerializer.convertToByteArray((String) o, null);
             case 0x04:
-                return CentralSerializer.boolToByteArray((boolean) o, null);
+                return CentralSerializer.convertToByteArray((boolean) o, null);
             case 0x05:
-                return CentralSerializer.convertToByteArray((char) o);
+                return CentralSerializer.convertToByteArray((char) o,null);
             case 0x06:
-                return CentralSerializer.convertToByteArray((long) o);
+                return CentralSerializer.convertToByteArray((long) o,null);
             case 0x07:
-                return CentralSerializer.convertToByteArray((short) o);
+                return CentralSerializer.convertToByteArray((short) o,null);
             case 0x08:
-                return CentralSerializer.convertToByteArray((float) o);
+                return CentralSerializer.convertToByteArray((float) o,null);
             case 0x09:
-                return CentralSerializer.convertToByteArray((double) o);
+                return CentralSerializer.convertToByteArray((double) o,null);
         }
         return null;
 

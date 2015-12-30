@@ -6,7 +6,7 @@ import java.nio.charset.Charset;
 public class CentralSerializer {
 
     // Primitive Int to ByteArray
-    public static byte[] intToByteArray(int intValue, byte[] arrayByte) {
+    public static byte[] convertToByteArray(int intValue, byte[] arrayByte) {
         arrayByte = new byte[8];
         arrayByte[0] = (byte) (intValue >> 56);
         arrayByte[1] = (byte) (intValue >> 48);
@@ -21,14 +21,14 @@ public class CentralSerializer {
     }
 
     // Primitive Bool to ByteArray
-    public static byte[] boolToByteArray(Boolean input, byte[] arrayByte) {
+    public static byte[] convertToByteArray(Boolean input, byte[] arrayByte) {
         arrayByte = new byte[1];
         arrayByte[0] = input ? (byte) 1 : (byte) 0;
         return arrayByte;
     }
 
     // Primitive String to ByteArray
-    public static byte[] stringToByteArray(String input, byte[] arrayByte) {
+    public static byte[] convertToByteArray(String input, byte[] arrayByte) {
         arrayByte = input.getBytes(Charset.forName("UTF-8"));
         return arrayByte;
     }
@@ -41,14 +41,14 @@ public class CentralSerializer {
         return arrayByte;
     }
 
-    public static byte[] convertToByteArray(char value) {
+    public static byte[] convertToByteArray(char value,byte[] arrayByte) {
         byte[] bytes = new byte[2];
         ByteBuffer buffer = ByteBuffer.allocate(bytes.length);
         buffer.putChar(value);
         return buffer.array();
     }
 
-    public static byte[] convertToByteArray(long value) {
+    public static byte[] convertToByteArray(long value,byte[] arrayByte) {
 
         byte[] bytes = new byte[8];
         ByteBuffer buffer = ByteBuffer.allocate(bytes.length);
@@ -56,7 +56,7 @@ public class CentralSerializer {
         return buffer.array();
     }
 
-    public static byte[] convertToByteArray(short value) {
+    public static byte[] convertToByteArray(short value,byte[] arrayByte) {
 
         byte[] bytes = new byte[2];
         ByteBuffer buffer = ByteBuffer.allocate(bytes.length);
@@ -64,14 +64,14 @@ public class CentralSerializer {
         return buffer.array();
     }
 
-    public static byte[] convertToByteArray(float value) {
+    public static byte[] convertToByteArray(float value,byte[] arrayByte) {
         byte[] bytes = new byte[4];
         ByteBuffer buffer = ByteBuffer.allocate(bytes.length);
         buffer.putFloat(value);
         return buffer.array();
     }
 
-    public static byte[] convertToByteArray(double value) {
+    public static byte[] convertToByteArray(double value,byte[] arrayByte) {
         byte[] bytes = new byte[8];
         ByteBuffer buffer = ByteBuffer.allocate(bytes.length);
         buffer.putDouble(value);
