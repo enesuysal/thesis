@@ -19,7 +19,13 @@ import java.util.List;
  * @author enes
  */
 public class Helper {
+    public static byte[] push(byte[] array, byte[] push) {
+        byte[] longer = new byte[array.length + push.length];
+        System.arraycopy(array, 0, longer, 0, array.length);
+        System.arraycopy(push, 0, longer, array.length, push.length);
 
+        return longer;
+    }
     public static byte[] GetFieldValue(byte type, Object o) {
 
         switch (type) {
@@ -52,11 +58,11 @@ public class Helper {
             case "byte":
                 return (null == o) ? 0 : o[0];
             case "int":
-                return (null == o) ? 0 : CentralSerializer.ByteArrayToInt(o);
+                return (null == o) ? 0 : CentralSerializer.convertToInt(o);
             case "class java.lang.String":
-                return (null == o) ? null : CentralSerializer.ByteArrayToString(o);
+                return (null == o) ? null : CentralSerializer.convertToString(o);
             case "boolean":
-                return (null == o) ? false : CentralSerializer.ByteArrayToBool(o);
+                return (null == o) ? false : CentralSerializer.convertToBool(o);
             case "char":
                 return (null == o) ? 0 : CentralSerializer.convertToCharacter(o);
             case "long":

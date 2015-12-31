@@ -12,23 +12,38 @@ public class Message {
     String messageString;
     Boolean messageBool;
     Object messageObject;
-    byte[] messageSerilized;
+    byte[] messageSerilized= new byte[0];
 
     public Message(byte message) {
         messageSerilized = new byte[message];
     }
     public Message(int message) {
-        messageSerilized = CentralSerializer.intToByteArray(message, messageSerilized);
+        messageSerilized = CentralSerializer.convertToByteArray(message, messageSerilized);
     }
 
     public Message(String message) {
-        messageSerilized = CentralSerializer.stringToByteArray(message, messageSerilized);
+        messageSerilized = CentralSerializer.convertToByteArray(message, messageSerilized);
     }
 
     public Message(boolean message) {
-        messageSerilized = CentralSerializer.boolToByteArray(message, messageSerilized);
+        messageSerilized = CentralSerializer.convertToByteArray(message, messageSerilized);
     }
-
+    
+    public Message(char message) {
+        messageSerilized = CentralSerializer.convertToByteArray(message,messageSerilized);
+    }
+     public Message(long message) {
+        messageSerilized = CentralSerializer.convertToByteArray(message,messageSerilized);
+    }
+      public Message(short message) {
+        messageSerilized = CentralSerializer.convertToByteArray(message,messageSerilized);
+    }
+     public Message(float message) {
+        messageSerilized = CentralSerializer.convertToByteArray(message,messageSerilized);
+    }
+     public Message(double message) {
+        messageSerilized = CentralSerializer.convertToByteArray(message,messageSerilized);
+    }
     public Message(Object message) throws IllegalArgumentException, IllegalAccessException, Exception {
         messageSerilized = CentralSerializer.objectToByteArray(message, messageSerilized);
     }

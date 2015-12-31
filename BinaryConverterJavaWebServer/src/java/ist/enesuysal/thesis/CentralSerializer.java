@@ -1,13 +1,14 @@
 package ist.enesuysal.thesis;
 
+import ist.enesuysal.thesis.Helper.Helper;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 
 public class CentralSerializer {
 
     // Primitive Int to ByteArray
-    public static byte[] convertToByteArray(int intValue, byte[] arrayByte) {
-        arrayByte = new byte[8];
+    public static byte[] convertToByteArray(int intValue, byte[] item) {
+        byte[] arrayByte = new byte[8];
         arrayByte[0] = (byte) (intValue >> 56);
         arrayByte[1] = (byte) (intValue >> 48);
         arrayByte[2] = (byte) (intValue >> 40);
@@ -16,21 +17,20 @@ public class CentralSerializer {
         arrayByte[5] = (byte) (intValue >> 16);
         arrayByte[6] = (byte) (intValue >> 8);
         arrayByte[7] = (byte) (intValue /*>> 0*/);
-
-        return arrayByte;
+        return Helper.push(item, arrayByte);
     }
 
     // Primitive Bool to ByteArray
-    public static byte[] convertToByteArray(Boolean input, byte[] arrayByte) {
-        arrayByte = new byte[1];
+    public static byte[] convertToByteArray(Boolean input, byte[] item) {
+        byte[] arrayByte = new byte[1];
         arrayByte[0] = input ? (byte) 1 : (byte) 0;
-        return arrayByte;
+        return Helper.push(item, arrayByte);
     }
 
     // Primitive String to ByteArray
-    public static byte[] convertToByteArray(String input, byte[] arrayByte) {
-        arrayByte = input.getBytes(Charset.forName("UTF-8"));
-        return arrayByte;
+    public static byte[] convertToByteArray(String input, byte[] item) {
+        byte[]  arrayByte = input.getBytes(Charset.forName("UTF-8"));
+        return Helper.push(item, arrayByte);
     }
 
     // Serilizable object to ByteArray
@@ -41,41 +41,41 @@ public class CentralSerializer {
         return arrayByte;
     }
 
-    public static byte[] convertToByteArray(char value,byte[] arrayByte) {
+    public static byte[] convertToByteArray(char value,byte[] item) {
         byte[] bytes = new byte[2];
         ByteBuffer buffer = ByteBuffer.allocate(bytes.length);
         buffer.putChar(value);
-        return buffer.array();
+        return Helper.push(item, buffer.array());
     }
 
-    public static byte[] convertToByteArray(long value,byte[] arrayByte) {
+    public static byte[] convertToByteArray(long value,byte[] item) {
 
         byte[] bytes = new byte[8];
         ByteBuffer buffer = ByteBuffer.allocate(bytes.length);
         buffer.putLong(value);
-        return buffer.array();
+        return Helper.push(item, buffer.array());
     }
 
-    public static byte[] convertToByteArray(short value,byte[] arrayByte) {
+    public static byte[] convertToByteArray(short value,byte[] item) {
 
         byte[] bytes = new byte[2];
         ByteBuffer buffer = ByteBuffer.allocate(bytes.length);
         buffer.putShort(value);
-        return buffer.array();
+        return Helper.push(item, buffer.array());
     }
 
-    public static byte[] convertToByteArray(float value,byte[] arrayByte) {
+    public static byte[] convertToByteArray(float value,byte[] item) {
         byte[] bytes = new byte[4];
         ByteBuffer buffer = ByteBuffer.allocate(bytes.length);
         buffer.putFloat(value);
-        return buffer.array();
+        return Helper.push(item, buffer.array());
     }
 
-    public static byte[] convertToByteArray(double value,byte[] arrayByte) {
+    public static byte[] convertToByteArray(double value,byte[] item) {
         byte[] bytes = new byte[8];
         ByteBuffer buffer = ByteBuffer.allocate(bytes.length);
         buffer.putDouble(value);
-        return buffer.array();
+        return Helper.push(item, buffer.array());
     }
 
     /*
@@ -85,21 +85,19 @@ public class CentralSerializer {
      *
      */
     // ByteArray to Integer
-    public static int ByteArrayToInt(byte[] bytes) {
+    public static int convertToInt(byte[] bytes) {
         return bytes[0] << 56 | (bytes[1] & 0xFF) << 48 | (bytes[2] & 0xFF) << 40 | (bytes[3] & 0xFF) << 32 | (bytes[4] & 0xFF) << 24 | (bytes[5] & 0xFF) << 16 | (bytes[6] & 0xFF) << 8 | (bytes[7] & 0xFF);
     }
 
     // Boolean
     // ByteArray to Bool
-    public static boolean ByteArrayToBool(byte[] bytes) {
-
-        boolean output = (bytes[0] != 0);
-        return output;
+    public static boolean convertToBool(byte[] bytes) {
+        return   (bytes[0] != 0);
     }
 
     // String
     // ByteArray to String
-    public static String ByteArrayToString(byte[] bytes) {
+    public static String convertToString(byte[] bytes) {
         return new String(bytes);
     }
 
