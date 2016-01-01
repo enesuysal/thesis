@@ -21,13 +21,17 @@ public class Receiver {
 
     public Receiver() throws IllegalArgumentException, IllegalAccessException, InstantiationException, ClassNotFoundException {
         //Get ALL KNown AvaliableMethods
-        List<Method> allAvaliableMethods = Helper.getMethodsAnnotatedWith(this.getClass(), AvaliableMethod.class);
-        knownMethods = new MyMethod[allAvaliableMethods.size()];
-        for (int i = 0; i < allAvaliableMethods.size(); i++) {
-            knownMethods[i] = new MyMethod();
-            Type paramType = allAvaliableMethods.get(i).getParameters()[0].getType();
-            String paramName = allAvaliableMethods.get(i).getParameters()[0].getName();
-            
+//        List<Method> allAvaliableMethods = Helper.getMethodsAnnotatedWith(this.getClass(), AvaliableMethod.class);
+//        knownMethods = new MyMethod[allAvaliableMethods.size()];
+//        for (int i = 0; i < allAvaliableMethods.size(); i++) {
+//            knownMethods[i] = new MyMethod();
+//            Class paramType = allAvaliableMethods.get(i).getParameters()[0].getType();
+//           if(paramType.isPrimitive())
+//           {
+//               //CentralSerializer
+//           }else{
+//               
+//           }            
             
 //            Field[] fields = myClass.getDeclaredFields();
 //            knownMethods[i].myfields = new MyField[fields.length];
@@ -52,7 +56,7 @@ public class Receiver {
 //                }
 
         //    }
-        }
+        //}
 
     }
 

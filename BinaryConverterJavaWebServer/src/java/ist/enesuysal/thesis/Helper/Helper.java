@@ -11,8 +11,10 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -86,7 +88,7 @@ public class Helper {
         return false;
     }
 
-    public static String GetFieldType(byte type) {
+    public static String GetFieldType(byte type) throws Exception {
 
         switch (type) {
             case 0x01:
@@ -108,8 +110,7 @@ public class Helper {
             case 0x09:
                 return "double";
         }
-        return null;
-
+        throw new Exception("No Primitive Type Found");
     }
 
     public static int GetFieldSize(String type) {
@@ -137,7 +138,32 @@ public class Helper {
         }
 
     }
+    private static final Set<Class<?>> WRAPPER_TYPES = getWrapperTypes();
 
+    public static boolean isWrapperType(Class<?> clazz)
+    {
+        return WRAPPER_TYPES.contains(clazz);
+    }
+
+    private static Set<Class<?>> getWrapperTypes()
+    {
+        Set<Class<?>> ret = new HashSet<Class<?>>();
+        ret.add(Boolean.class);
+        ret.add(Character.class);
+        ret.add(Byte.class);
+        ret.add(Short.class);
+        ret.add(Integer.class);
+        ret.add(Long.class);
+        ret.add(Float.class);
+        ret.add(Double.class);
+        ret.add(Void.class);
+        return ret;
+    }
+     public static String GetFieldType(byte[] o) throws Exception {
+         byte[] fieldNameLenghtBytes = new byte[2];
+         System.arraycopy(o, 0, fieldNameLenghtBytes, 0, 2);
+         return GetFieldType(fieldNameLenghtBytes[1]);
+     }
     public static byte GetFieldCode(String o) {
         switch (o) {
             case "byte":

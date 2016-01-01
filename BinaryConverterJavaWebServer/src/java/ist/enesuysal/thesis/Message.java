@@ -1,6 +1,7 @@
 package ist.enesuysal.thesis;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import sun.misc.BASE64Decoder;
@@ -18,7 +19,8 @@ public class Message {
         messageSerilized = new byte[message];
     }
     public Message(int message) {
-        messageSerilized = CentralSerializer.convertToByteArray(message, messageSerilized);
+        messageSerilized = CentralSerializer.serializePrimitive(int.class, message, messageSerilized);//convertToByteArray(message,messageSerilized);
+       
     }
 
     public Message(String message) {

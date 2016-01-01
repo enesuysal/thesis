@@ -2,6 +2,8 @@ package ist.enesuysal.thesis;
 
 import DOM.ComplianceTest;
 import ist.enesuysal.thesis.Tests.TestSerial;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class Run {
 
@@ -11,8 +13,10 @@ public class Run {
         Message msg = new Message(test);
         String msgToSend = msg.Seriliaze();
         
-        //Receive Message
-        ComplianceTest.GetMessage(msgToSend);
+        ComplianceTest complience = new ComplianceTest();
+        complience.GetMessage(msgToSend);
+        byte[] result = CentralSerializer.serializePrimitive("test", true, test, new byte[0]);
+        System.out.println(Arrays.toString(result));
 
     }
 
