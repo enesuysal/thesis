@@ -1,6 +1,7 @@
 package ist.enesuysal.thesis;
 
 import ist.enesuysal.thesis.Helper.Helper;
+import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
@@ -114,32 +115,59 @@ public class CentralSerializer {
 //    }
     public static byte[] serializePrimitive(String fieldName, boolean isOptional, int fieldValue, byte[] item) {
         //FieldType
-        
-        item = convertToByteArray(Helper.GetFieldCode("int"), item);
+        item = convertToByteArray(Helper.GetFieldCode("int")[0], item);
         //append FieldNameLenght
         item = Helper.push(item, convertToByteArray(fieldName.length(), item));
         //Append FieldName
         item = convertToByteArray(fieldName, item);
-        
         //Append isOptional
-         item = convertToByteArray(isOptional, item);
+        item = convertToByteArray(isOptional, item);
         //Append Value
-         item = convertToByteArray(fieldValue, item);
+        item = convertToByteArray(fieldValue, item);
         return item;
-    }
-     public static byte[] serializePrimitive(Type type,int fieldValue, byte[] item) {
-        //FieldType
-        item = convertToByteArray(Helper.GetFieldCode(type.getTypeName()), item);
-         //Append Value
-         item = convertToByteArray(fieldValue, item);
-        
-       
-        
-        return item;
-    }
-    
-    // Primitive Int to ByteArray
 
+    }
+
+    public static byte[] serializePrimitive(Type type, int fieldValue, byte[] item) {
+        //FieldType
+        item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
+        //append FieldNameLenght
+        item = convertToByteArray(0, item);
+        //Append Value
+        item = convertToByteArray(fieldValue, item);
+        return item;
+    }
+
+    public static byte[] serializePrimitive(Type type, boolean fieldValue, byte[] item) {
+        //FieldType
+        item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
+        //append FieldNameLenght
+        item = convertToByteArray(0, item);
+        //Append Value
+        item = convertToByteArray(fieldValue, item);
+        return item;
+    }
+     public static byte[] serializePrimitive(Type type, long fieldValue, byte[] item) {
+        //FieldType
+        item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
+        //append FieldNameLenght
+        item = convertToByteArray(0, item);
+        //Append Value
+        item = convertToByteArray(fieldValue, item);
+        return item;
+    }
+
+    public static byte[] serializePrimitive(Type type, String fieldValue, byte[] item) {
+        //FieldType
+        item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
+        //append FieldNameLenght
+        item = convertToByteArray(0, item);
+        //Append Value
+        item = convertToByteArray(fieldValue, item);
+        return item;
+    }
+
+    // Primitive Int to ByteArray
     public static byte[] convertToByteArray(int intValue, byte[] item) {
         byte[] arrayByte = new byte[8];
         arrayByte[0] = (byte) (intValue >> 56);

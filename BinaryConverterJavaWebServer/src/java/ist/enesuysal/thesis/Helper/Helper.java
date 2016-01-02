@@ -164,29 +164,41 @@ public class Helper {
          System.arraycopy(o, 0, fieldNameLenghtBytes, 0, 2);
          return GetFieldType(fieldNameLenghtBytes[1]);
      }
-    public static byte GetFieldCode(String o) {
+    public static byte[] GetFieldCode(String o) {
+        byte[] fieldTypeBytes = new byte[1];
         switch (o) {
             case "byte":
-                return (byte) 0x01;
+                fieldTypeBytes[0]= (byte) 0x01;
+                break;
             case "int":
-                return (byte) 0x02;
-            case "class java.lang.String":
-                return (byte) 0x03;
+                fieldTypeBytes[0]= (byte) 0x02;
+                 break;
+            case "java.lang.String":
+                fieldTypeBytes[0]= (byte) 0x03;
+                 break;
             case "boolean":
-                return (byte) 0x04;
+                fieldTypeBytes[0]= (byte) 0x04;
+                 break;
             case "char":
-                return (byte) 0x05;
+                fieldTypeBytes[0]= (byte) 0x05;
+                 break;
             case "long":
-                return (byte) 0x06;
+                fieldTypeBytes[0]= (byte) 0x06;
+                 break;
             case "short":
-                return (byte) 0x07;
+                fieldTypeBytes[0]= (byte) 0x07;
+                 break;
             case "float":
-                return (byte) 0x08;
+                fieldTypeBytes[0]= (byte) 0x08;
+                 break;
             case "double":
-                return (byte) 0x09;
+                fieldTypeBytes[0]= (byte) 0x09;
+                 break;
             default:
-                return (byte) 0x00;
+                fieldTypeBytes[0]= (byte) 0x00;
+             
         }
+       return fieldTypeBytes;
 
     }
 

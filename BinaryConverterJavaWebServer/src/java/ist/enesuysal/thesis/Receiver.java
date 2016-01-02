@@ -4,16 +4,9 @@ import ist.enesuysal.thesis.Helper.MyMethod;
 import ist.enesuysal.thesis.Helper.MyField;
 import ist.enesuysal.thesis.Helper.Helper;
 import ist.enesuysal.thesis.Annotation.AvaliableMethod;
-import ist.enesuysal.thesis.Annotation.Mandatory;
-import ist.enesuysal.thesis.Tests.Test1;
 import ist.enesuysal.thesis.Tests.Test2;
 import ist.enesuysal.thesis.Tests.Test3;
-import java.io.IOException;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.Type;
-import java.util.List;
-import sun.misc.BASE64Decoder;
 
 public class Receiver {
 
@@ -32,7 +25,7 @@ public class Receiver {
 //           }else{
 //               
 //           }            
-            
+
 //            Field[] fields = myClass.getDeclaredFields();
 //            knownMethods[i].myfields = new MyField[fields.length];
 //            knownMethods[i].methodName = myClass.getName();
@@ -54,24 +47,69 @@ public class Receiver {
 //                    knownMethods[i].myfields[j] = myField;
 //
 //                }
-
         //    }
         //}
-
     }
 
-    
+    public void createObject(byte[] bytes) throws Exception {
+        //Deserialize and Print
+        String type = (Helper.GetFieldType(bytes[1])); //FieldType
+        int FieldNameLength = 0;
+        byte[] FieldNameLengthByte = new byte[8];
+        System.arraycopy(bytes, 2, FieldNameLengthByte, 0, FieldNameLengthByte.length);
+        String fieldName = "";
+        byte[] FieldNameByte = new byte[FieldNameLength];
+        System.arraycopy(bytes, 10, FieldNameByte, 0, FieldNameByte.length);
+        if (FieldNameLength > 0) {
+            fieldName = CentralSerializer.convertToString(bytes);
+        }
+        //Field hasValue
+        byte[] FieldValueByte = new byte[bytes.length - (10 + FieldNameLength)];
+        System.arraycopy(bytes, 10 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
+         System.out.println("Primitive Value " + Helper.GetFieldValue(type, FieldValueByte));
+        PrintObject(Helper.GetFieldValue(type, FieldValueByte));
+    }
+
+    public void PrintObject(Object o) {
+        StringBuilder result = new StringBuilder();
+        String newLine = System.getProperty("line.separator");
+
+        result.append(o.getClass().getName());
+        result.append(" Object {");
+        result.append(newLine);
+
+        //determine fields declared in this class only (no fields of superclass)
+        Field[] fields = o.getClass().getDeclaredFields();
+
+        //print field names paired with their values
+        for (Field field : fields) {
+            result.append("  ");
+            try {
+                result.append(field.getName());
+                result.append(": ");
+                //requires access to private field:
+                result.append(field.get(o));
+            } catch (IllegalAccessException ex) {
+                //System.out.println(ex);
+            }
+            result.append(newLine);
+        }
+        result.append("}");
+
+        System.out.println(result.toString());
+    }
 
     @AvaliableMethod
     public void MakeObjectA(int test) {
+
     }
 
     @AvaliableMethod
-    public void MakeObjectB(Test2 test) {
+    public void MakeObjectB(boolean test) {
     }
 
     @AvaliableMethod
-    public void MakeObjectC(Test3 test) {
+    public void MakeObjectC(long test) {
     }
 
     private static byte[] push(byte[] array, byte[] push) {

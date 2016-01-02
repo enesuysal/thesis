@@ -24,18 +24,18 @@ public class Message {
     }
 
     public Message(String message) {
-        messageSerilized = CentralSerializer.convertToByteArray(message, messageSerilized);
+        messageSerilized = CentralSerializer.serializePrimitive(String.class, message, messageSerilized);
     }
 
     public Message(boolean message) {
-        messageSerilized = CentralSerializer.convertToByteArray(message, messageSerilized);
+        messageSerilized = CentralSerializer.serializePrimitive(boolean.class, message, messageSerilized);
     }
     
     public Message(char message) {
         messageSerilized = CentralSerializer.convertToByteArray(message,messageSerilized);
     }
      public Message(long message) {
-        messageSerilized = CentralSerializer.convertToByteArray(message,messageSerilized);
+        messageSerilized = CentralSerializer.serializePrimitive(long.class,message,messageSerilized);
     }
       public Message(short message) {
         messageSerilized = CentralSerializer.convertToByteArray(message,messageSerilized);

@@ -130,7 +130,7 @@ public class ObjectSerializer {
         for (Field oneField : fields) {
             Object fieldType = oneField.getType(); //Get Field Type
             System.out.println(fieldType.toString());
-            byte[] FIELD_TYPE = new byte[]{Helper.GetFieldCode(fieldType.toString())}; // Get Field Code
+            byte[] FIELD_TYPE = Helper.GetFieldCode(fieldType.toString()); // Get Field Code
             byteArray = push(byteArray, FIELD_TYPE);
             System.out.println(Arrays.toString(FIELD_TYPE));
             byte[] FIELDNAME_LENGH = CentralSerializer.convertToByteArray(oneField.getName().length(), null); //Get fieldname Length 
@@ -167,7 +167,7 @@ public class ObjectSerializer {
         for (Method oneMethod : methods) {
             String methodReturnType = oneMethod.getReturnType().toString();  
             System.err.println(oneMethod.getReturnType().toString());
-            byte[] METHOD_RETURN_TYPE = new byte[]{Helper.GetFieldCode(methodReturnType)}; // Get Type Code 
+            byte[] METHOD_RETURN_TYPE = new byte[]{Helper.GetFieldCode(methodReturnType)[0]}; // Get Type Code 
             byteArray = push(byteArray, METHOD_RETURN_TYPE);
             System.out.println(Arrays.toString(METHOD_RETURN_TYPE));
             byte[] METHOD_NAME_LENGH = CentralSerializer.convertToByteArray(oneMethod.getName().length(), null); //Get fieldname Length 

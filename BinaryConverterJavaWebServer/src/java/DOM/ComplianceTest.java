@@ -35,9 +35,10 @@ public class ComplianceTest {
                 if (paramType.isPrimitive()) {
                     System.out.println(allAvaliableMethods.get(i).getName() + " arg is primitive");
                     //Check Type
-                    System.out.println(allAvaliableMethods.get(i).getParameters()[0].getType());
                     if (Helper.GetFieldType(decodedBytes).equals(allAvaliableMethods.get(i).getParameters()[0].getType().toString())) {
                         System.out.println("Found");
+                        //Create New bytearray
+                        r.createObject(decodedBytes);
                     }
                 } else {
                     System.out.println(allAvaliableMethods.get(i).getName() + " arg is not primitive");
