@@ -64,6 +64,7 @@ public class Helper {
             case "class java.lang.String":
                 return (null == o) ? null : CentralSerializer.convertToString(o);
             case "boolean":
+            case "class java.lang.Boolean":
                 return (null == o) ? false : CentralSerializer.convertToBool(o);
             case "char":
                 return (null == o) ? 0 : CentralSerializer.convertToCharacter(o);
@@ -109,6 +110,8 @@ public class Helper {
                 return "float";
             case 0x09:
                 return "double";
+            case 0x10:
+                return "class java.lang.Boolean";
         }
         throw new Exception("No Primitive Type Found");
     }
@@ -156,7 +159,7 @@ public class Helper {
         ret.add(Long.class);
         ret.add(Float.class);
         ret.add(Double.class);
-        ret.add(Void.class);
+        ret.add(String.class);
         return ret;
     }
      public static String GetFieldType(byte[] o) throws Exception {
@@ -193,6 +196,9 @@ public class Helper {
                  break;
             case "double":
                 fieldTypeBytes[0]= (byte) 0x09;
+                 break;
+            case "java.lang.Boolean":
+                fieldTypeBytes[0]= (byte) 0x10;
                  break;
             default:
                 fieldTypeBytes[0]= (byte) 0x00;

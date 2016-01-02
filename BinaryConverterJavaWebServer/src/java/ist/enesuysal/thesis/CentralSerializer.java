@@ -138,7 +138,17 @@ public class CentralSerializer {
         return item;
     }
 
+    
     public static byte[] serializePrimitive(Type type, boolean fieldValue, byte[] item) {
+        //FieldType
+        item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
+        //append FieldNameLenght
+        item = convertToByteArray(0, item);
+        //Append Value
+        item = convertToByteArray(fieldValue, item);
+        return item;
+    }
+    public static byte[] serializePrimitive(Type type, Boolean fieldValue, byte[] item) {
         //FieldType
         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
         //append FieldNameLenght

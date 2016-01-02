@@ -51,7 +51,7 @@ public class Receiver {
         //}
     }
 
-    public void createObject(byte[] bytes) throws Exception {
+    public void createPrimitive(byte[] bytes) throws Exception {
         //Deserialize and Print
         String type = (Helper.GetFieldType(bytes[1])); //FieldType
         int FieldNameLength = 0;
@@ -67,6 +67,25 @@ public class Receiver {
         byte[] FieldValueByte = new byte[bytes.length - (10 + FieldNameLength)];
         System.arraycopy(bytes, 10 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
          System.out.println("Primitive Value " + Helper.GetFieldValue(type, FieldValueByte));
+        PrintObject(Helper.GetFieldValue(type, FieldValueByte));
+    }
+    
+       public void createWrapper(byte[] bytes) throws Exception {
+        //Deserialize and Print
+        String type = (Helper.GetFieldType(bytes[1])); //FieldType
+        int FieldNameLength = 0;
+        byte[] FieldNameLengthByte = new byte[8];
+        System.arraycopy(bytes, 2, FieldNameLengthByte, 0, FieldNameLengthByte.length);
+        String fieldName = "";
+        byte[] FieldNameByte = new byte[FieldNameLength];
+        System.arraycopy(bytes, 10, FieldNameByte, 0, FieldNameByte.length);
+        if (FieldNameLength > 0) {
+            fieldName = CentralSerializer.convertToString(bytes);
+        }
+        //Field hasValue
+        byte[] FieldValueByte = new byte[bytes.length - (10 + FieldNameLength)];
+        System.arraycopy(bytes, 10 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
+         System.out.println("Wrapper Value " + Helper.GetFieldValue(type, FieldValueByte));
         PrintObject(Helper.GetFieldValue(type, FieldValueByte));
     }
 
@@ -109,38 +128,14 @@ public class Receiver {
     }
 
     @AvaliableMethod
-    public void MakeObjectC(long test) {
+    public void MakeObjectC(String test) {
+    }
+    
+     @AvaliableMethod
+    public void MakeObjectC(Boolean test) {
     }
 
-    private static byte[] push(byte[] array, byte[] push) {
-        byte[] longer = new byte[array.length + push.length];
-        System.arraycopy(array, 0, longer, 0, array.length);
-        System.arraycopy(push, 0, longer, array.length, push.length);
-
-        return longer;
-    }
-
-    private static byte[] pop(byte[] array, byte[] pop) {
-        byte[] longer = new byte[array.length - pop.length];
-        System.arraycopy(array, pop.length, longer, 0, longer.length);
-        // System.arraycopy(push, 0, longer, array.length, push.length);
-
-        return longer;
-    }
-
-    private static byte[] push(byte[] array, byte push) {
-        byte[] longer = new byte[array.length + 1];
-        System.arraycopy(array, 0, longer, 0, array.length);
-        longer[array.length] = push;
-        return longer;
-    }
-
-    private static byte[] pop(byte[] array) {
-        byte[] longer = new byte[array.length - 1];
-        System.arraycopy(array, 1, longer, 0, longer.length);
-
-        return longer;
-    }
+    
 
     private void findMethod(MyMethod currentMethods) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         // For each field

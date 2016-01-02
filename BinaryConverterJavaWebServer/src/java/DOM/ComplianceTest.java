@@ -38,10 +38,19 @@ public class ComplianceTest {
                     if (Helper.GetFieldType(decodedBytes).equals(allAvaliableMethods.get(i).getParameters()[0].getType().toString())) {
                         System.out.println("Found");
                         //Create New bytearray
-                        r.createObject(decodedBytes);
+                        r.createPrimitive(decodedBytes);
                     }
                 } else {
                     System.out.println(allAvaliableMethods.get(i).getName() + " arg is not primitive");
+                    if (Helper.isWrapperType(paramType)) {
+                        System.out.println(" Wrapper Type");
+                        if (Helper.GetFieldType(decodedBytes).equals(allAvaliableMethods.get(i).getParameters()[0].getType().toString())) {
+                            System.out.println("Found");
+                            //Create New bytearray
+                            r.createWrapper(decodedBytes);
+                        }
+                    }
+
                 }
 
             }

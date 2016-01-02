@@ -11,8 +11,10 @@ public class Run {
         int test = 5;
         boolean test2 = false;
         long test3 = 0;
+        String test4 = "Deneme";
+        Boolean test5 = true;
         // Create Message 
-        Message msg = new Message(test3);
+        Message msg = new Message(test5);
         String msgToSend = msg.Seriliaze();
         
         ComplianceTest complience = new ComplianceTest();

@@ -26,7 +26,9 @@ public class Message {
     public Message(String message) {
         messageSerilized = CentralSerializer.serializePrimitive(String.class, message, messageSerilized);
     }
-
+     public Message(Boolean message) {
+        messageSerilized = CentralSerializer.serializePrimitive(Boolean.class, message, messageSerilized);
+    }
     public Message(boolean message) {
         messageSerilized = CentralSerializer.serializePrimitive(boolean.class, message, messageSerilized);
     }
