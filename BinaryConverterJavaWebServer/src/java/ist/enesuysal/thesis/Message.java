@@ -1,6 +1,8 @@
 package ist.enesuysal.thesis;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,8 +47,13 @@ public class Message {
      public Message(float message) {
         messageSerilized = CentralSerializer.convertToByteArray(message,messageSerilized);
     }
-     public Message(double message) {
+    public Message(double message) {
         messageSerilized = CentralSerializer.convertToByteArray(message,messageSerilized);
+    }
+    
+    public Message(Object message) throws NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        Method m = message.getClass().getMethod("Serialize", new Class[] {});
+        messageSerilized = (byte[])m.invoke(message, new Object[] {});
     }
    
 
@@ -57,14 +64,5 @@ public class Message {
         return temp_inBase64;
     }
 
-    public byte[] DeSeriliaze(String temp_inBase64) {
-        byte[] arrayByte = null;
-        BASE64Decoder decoder = new BASE64Decoder();
-        try {
-            arrayByte = decoder.decodeBuffer(temp_inBase64);
-        } catch (IOException ex) {
-            Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return arrayByte;
-    }
+    
 }

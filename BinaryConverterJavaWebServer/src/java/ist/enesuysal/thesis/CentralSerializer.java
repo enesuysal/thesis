@@ -26,6 +26,22 @@ public class CentralSerializer {
         return item;
 
     }
+    
+    public static byte[] serializePrimitive(Type type, String fieldName,   Object fieldValue, byte[] item) {
+        
+        //FieldType
+         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
+        //append FieldNameLenght
+        item =  convertToByteArray(fieldName.length(), item);
+        //Append ValueLenght
+        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
+        //Append FieldName
+        item = convertToByteArray(fieldName, item);
+        //Append Value
+        item = Helper.GetFieldValueByte(type.toString(),fieldValue,item);//convertToByteArray(fieldValue, item);
+        return item;
+
+    }
 
     public static byte[] serializePrimitive(Type type, int fieldValue, byte[] item) {
         //FieldType

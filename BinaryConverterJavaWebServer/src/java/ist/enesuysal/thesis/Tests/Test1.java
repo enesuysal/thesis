@@ -6,27 +6,28 @@ import java.lang.reflect.Field;
 
 public class Test1 {
 
-    @Mandatory
-   // public String count = "";
+    //@Mandatory
+    public int version;
+   // @Mandatory
+    public String count = "aa";
     //@Mandatory
     //public int version;
     //@Mandatory
-    public boolean deneme;
+    //public boolean deneme;
     //public int test = 66;
 
     public byte[] Serialize() {
-         byte[] arrayResult  = new byte[0];
+        byte[] arrayResult = new byte[0];
         Field[] fields = this.getClass().getDeclaredFields();
         //print field names paired with their values
         for (Field field : fields) {
             try {
-               arrayResult = CentralSerializer.serializePrimitive(field.getType(),field.getName(), true, field.get(this), arrayResult);
-               
+                arrayResult = CentralSerializer.serializePrimitive(field.getType(), field.getName(), true, field.get(this), arrayResult);
             } catch (IllegalAccessException ex) {
                 System.out.println(ex);
             }
         }
-         return arrayResult;
+        return arrayResult;
         //System.out.println(result.toString());
     }
 }

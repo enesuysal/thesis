@@ -14,15 +14,13 @@ public class Run {
         long test3 = 0;
         String test4 = "Deneme";
         Boolean test5 = true;
-        // Create Message 
-        Message msg = new Message(test5);
+        TestSerial tt = new TestSerial();
+        Message msg = new Message(tt);
         String msgToSend = msg.Seriliaze();
-        
-        //ComplianceTest complience = new ComplianceTest();
-        //complience.GetMessage(msgToSend);
-        
-        Test1 tt = new Test1();
-        System.out.println( Arrays.toString(tt.Serialize()));
+        ComplianceTest complience = new ComplianceTest();
+        complience.GetMessage(msgToSend);
+
+        //System.out.println( Arrays.toString(tt.Serialize()));
     }
 
 }

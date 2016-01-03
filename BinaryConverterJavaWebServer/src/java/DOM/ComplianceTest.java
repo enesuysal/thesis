@@ -29,34 +29,45 @@ public class ComplianceTest {
             byte[] decodedBytes = decoder.decodeBuffer(BASE64String);
             System.out.println(Arrays.toString(decodedBytes));
             Receiver r = new Receiver();
-            List<Method> allAvaliableMethods = Helper.getMethodsAnnotatedWith(r.getClass(), AvaliableMethod.class);
-            for (int i = 0; i < allAvaliableMethods.size(); i++) {
-                Class paramType = allAvaliableMethods.get(i).getParameters()[0].getType();
-                if (paramType.isPrimitive()) {
-                    System.out.println(allAvaliableMethods.get(i).getName() + " arg is primitive");
+            for (int i = 0; i < r.knownMethods.length; i++) {
+
+                if (r.knownMethods[i].myfields.length == 2) {
                     //Check Type
-                    if (Helper.GetFieldType(decodedBytes).equals(allAvaliableMethods.get(i).getParameters()[0].getType().toString())) {
-                        System.out.println("Found");
-                        //Create New bytearray
-                        r.createPrimitive(decodedBytes);
-                    }
+                    //if()
+                    //Create New bytearray
+                    //r.createPrimitive(decodedBytes);
+
+//                        if (Helper.GetFieldType(decodedBytes).equals(allAvaliableMethods.get(i).getParameters()[0].getType().toString())) {
+//                            System.out.println("Found");
+//                            //Create New bytearray
+//                          r.createWrapper(decodedBytes);
+//                        }
                 } else {
-                    System.out.println(allAvaliableMethods.get(i).getName() + " arg is not primitive");
-                    if (Helper.isWrapperType(paramType)) {
-                        System.out.println(" Wrapper Type");
-                        if (Helper.GetFieldType(decodedBytes).equals(allAvaliableMethods.get(i).getParameters()[0].getType().toString())) {
-                            System.out.println("Found");
-                            //Create New bytearray
-                            r.createWrapper(decodedBytes);
+                    //Object 
+                    System.out.println(Arrays.toString(r.knownMethods[i].myfields));
+                    boolean found = false;
+                    while (r.knownMethods[i].myfields.length != 0) {
+                        byte[] fieldByte = Helper.GetFieldBytes(r.knownMethods[i].myfields);
+                        if (fieldByte[0] == 1) {
+                            System.out.println("Mandatotory");
+                            if (Helper.indexOf(r.knownMethods[i].myfields, fieldByte) != -1) {
+                                found=true;
+                                 
+                            }
+                        }else{
+                            System.out.println("Optional");
+                            if (Helper.indexOf(r.knownMethods[i].myfields, fieldByte) != -1) {
+                                found=true;
+                            }else{
+                                
+                                 if (Helper.indexOf(r.knownMethods[i].myfields, fieldByte) != -1) 
+                                found=true;
+                            }
                         }
-                    }else{
-                        //Object 
-                        
-                        
+                        r.knownMethods[i].myfields = Helper.pop(r.knownMethods[i].myfields,fieldByte); 
                     }
-
+                    System.out.println(found);
                 }
-
             }
 
         } catch (IOException ex) {

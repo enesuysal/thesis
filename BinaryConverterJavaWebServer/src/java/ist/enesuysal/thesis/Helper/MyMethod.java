@@ -12,7 +12,7 @@ import ist.enesuysal.thesis.Helper.MyField;
  * @author enes
  */
 public class MyMethod {
-    public MyField[] myfields;
+    public byte[] myfields;
     public String methodName;
     public MyMethod(){}
     

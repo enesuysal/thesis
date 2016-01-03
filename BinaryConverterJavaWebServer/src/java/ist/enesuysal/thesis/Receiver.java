@@ -4,9 +4,14 @@ import ist.enesuysal.thesis.Helper.MyMethod;
 import ist.enesuysal.thesis.Helper.MyField;
 import ist.enesuysal.thesis.Helper.Helper;
 import ist.enesuysal.thesis.Annotation.AvaliableMethod;
+import ist.enesuysal.thesis.Annotation.Mandatory;
+import static ist.enesuysal.thesis.CentralSerializer.convertToByteArray;
+import ist.enesuysal.thesis.Tests.Test1;
 import ist.enesuysal.thesis.Tests.Test2;
 import ist.enesuysal.thesis.Tests.Test3;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.List;
 
 public class Receiver {
 
@@ -14,41 +19,30 @@ public class Receiver {
 
     public Receiver() throws IllegalArgumentException, IllegalAccessException, InstantiationException, ClassNotFoundException {
         //Get ALL KNown AvaliableMethods
-//        List<Method> allAvaliableMethods = Helper.getMethodsAnnotatedWith(this.getClass(), AvaliableMethod.class);
-//        knownMethods = new MyMethod[allAvaliableMethods.size()];
-//        for (int i = 0; i < allAvaliableMethods.size(); i++) {
-//            knownMethods[i] = new MyMethod();
-//            Class paramType = allAvaliableMethods.get(i).getParameters()[0].getType();
-//           if(paramType.isPrimitive())
-//           {
-//               //CentralSerializer
-//           }else{
-//               
-//           }            
+        List<Method> allAvaliableMethods = Helper.getMethodsAnnotatedWith(this.getClass(), AvaliableMethod.class);
+        knownMethods = new MyMethod[allAvaliableMethods.size()];
+        for (int i = 0; i < allAvaliableMethods.size(); i++) {
+            knownMethods[i] = new MyMethod();
+            Class myClass = allAvaliableMethods.get(i).getParameters()[0].getType();
+            if (myClass.isPrimitive() || Helper.isWrapperType(myClass)) {
+                knownMethods[i].myfields = convertToByteArray(Helper.GetFieldCode(allAvaliableMethods.get(i).getParameters()[0].getType().getTypeName())[0], new byte[0]);
+            } else {
 
-//            Field[] fields = myClass.getDeclaredFields();
-//            knownMethods[i].myfields = new MyField[fields.length];
-//            knownMethods[i].methodName = myClass.getName();
-//            for (int j = 0; j < fields.length; j++) {
-//                if (fields[j].isAnnotationPresent(Mandatory.class)) {
-//                    MyField myField = new MyField();
-//                    myField.fieldName = fields[j].getName();
-//                    myField.fieldType = fields[j].getType().toString();
-//                    myField.fieldValue = fields[j].get(objectInstance);
-//                    myField.isMandatory = true;
-//                    knownMethods[i].myfields[j] = myField;
-//
-//                } else {
-//                    MyField myField = new MyField();
-//                    myField.fieldName = fields[j].getName();
-//                    myField.fieldType = fields[j].getType().toString();
-//                    //myField.fieldValue = field.get(myClass);
-//                    myField.isMandatory = false;
-//                    knownMethods[i].myfields[j] = myField;
-//
-//                }
-        //    }
-        //}
+                Object objectInstance = myClass.newInstance();
+                Field[] fields = myClass.getDeclaredFields();
+                knownMethods[i].methodName = myClass.getName();
+                byte[] fieldbytes = new byte[0];
+                knownMethods[i].myfields = new byte[0];
+                for (int j = 0; j < fields.length; j++) {
+                    if (fields[j].isAnnotationPresent(Mandatory.class)) {
+                        fieldbytes = CentralSerializer.serializePrimitive(fields[j].getType(), fields[j].getName(), true, fields[j].get(objectInstance), new byte[0]);
+                    } else {
+                        fieldbytes =  CentralSerializer.serializePrimitive(fields[j].getType(), fields[j].getName(), false, fields[j].get(objectInstance), new byte[0]);
+                    }
+                    knownMethods[i].myfields = Helper.push(knownMethods[i].myfields, fieldbytes);
+                }
+            }
+        }
     }
 
     public void createPrimitive(byte[] bytes) throws Exception {
@@ -66,11 +60,11 @@ public class Receiver {
         //Field hasValue
         byte[] FieldValueByte = new byte[bytes.length - (10 + FieldNameLength)];
         System.arraycopy(bytes, 10 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
-         System.out.println("Primitive Value " + Helper.GetFieldValue(type, FieldValueByte));
+        System.out.println("Primitive Value " + Helper.GetFieldValue(type, FieldValueByte));
         PrintObject(Helper.GetFieldValue(type, FieldValueByte));
     }
-    
-       public void createWrapper(byte[] bytes) throws Exception {
+
+    public void createWrapper(byte[] bytes) throws Exception {
         //Deserialize and Print
         String type = (Helper.GetFieldType(bytes[1])); //FieldType
         int FieldNameLength = 0;
@@ -85,7 +79,7 @@ public class Receiver {
         //Field hasValue
         byte[] FieldValueByte = new byte[bytes.length - (10 + FieldNameLength)];
         System.arraycopy(bytes, 10 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
-         System.out.println("Wrapper Value " + Helper.GetFieldValue(type, FieldValueByte));
+        System.out.println("Wrapper Value " + Helper.GetFieldValue(type, FieldValueByte));
         PrintObject(Helper.GetFieldValue(type, FieldValueByte));
     }
 
@@ -130,46 +124,9 @@ public class Receiver {
     @AvaliableMethod
     public void MakeObjectC(String test) {
     }
-    
-     @AvaliableMethod
-    public void MakeObjectC(Boolean test) {
+
+    @AvaliableMethod
+    public void MakeObjectC(Test1 test) {
     }
 
-    
-
-    private void findMethod(MyMethod currentMethods) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        // For each field
-        boolean Flag = false;
-        MyField[] currentFields = currentMethods.myfields;
-        for (MyMethod method : knownMethods) {
-            for (MyField field : method.myfields) {
-
-                Flag = false;
-                for (MyField knownField : currentFields) {
-                    if (knownField.isMandatory && field.fieldName.equals(knownField.fieldName) && field.fieldType.equals(knownField.fieldType) && field.fieldValue.equals(knownField.fieldValue)) {
-                        Flag = true;
-                        break;
-                    }
-                    if (!knownField.isMandatory && field.fieldName.equals(knownField.fieldName) && field.fieldType.equals(knownField.fieldType)) {
-                        Flag = true;
-                        break;
-                    }
-                }
-                if (!Flag) {
-                    break;
-                }
-            }
-            if (Flag) {
-                System.out.println("Avaliable Method Found");
-                Class myClass = Class.forName(method.methodName);
-                myClass.newInstance();
-                break;
-            }
-
-        }
-        if (!Flag) {
-            System.out.println("No method matches..");
-
-        }
-    }
 }
