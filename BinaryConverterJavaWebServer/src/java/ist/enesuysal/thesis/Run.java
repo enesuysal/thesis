@@ -1,6 +1,7 @@
 package ist.enesuysal.thesis;
 
 import DOM.ComplianceTest;
+import ist.enesuysal.thesis.Tests.Test1;
 import ist.enesuysal.thesis.Tests.TestSerial;
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -17,8 +18,11 @@ public class Run {
         Message msg = new Message(test5);
         String msgToSend = msg.Seriliaze();
         
-        ComplianceTest complience = new ComplianceTest();
-        complience.GetMessage(msgToSend);
+        //ComplianceTest complience = new ComplianceTest();
+        //complience.GetMessage(msgToSend);
+        
+        Test1 tt = new Test1();
+        System.out.println( Arrays.toString(tt.Serialize()));
     }
 
 }

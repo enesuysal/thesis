@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ist.enesuysal.thesis.Helper;
 
 import ist.enesuysal.thesis.CentralSerializer;
@@ -16,11 +12,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-/**
- *
- * @author enes
- */
 public class Helper {
+
     public static byte[] push(byte[] array, byte[] push) {
         byte[] longer = new byte[array.length + push.length];
         System.arraycopy(array, 0, longer, 0, array.length);
@@ -28,38 +21,20 @@ public class Helper {
 
         return longer;
     }
-    public static byte[] GetFieldValue(byte type, Object o) {
 
-        switch (type) {
-            case 0x01:
-                return new byte[]{(byte) o};
-            case 0x02:
-                return CentralSerializer.convertToByteArray((int) o, null);
-            case 0x03:
-                return CentralSerializer.convertToByteArray((String) o, null);
-            case 0x04:
-                return CentralSerializer.convertToByteArray((boolean) o, null);
-            case 0x05:
-                return CentralSerializer.convertToByteArray((char) o,null);
-            case 0x06:
-                return CentralSerializer.convertToByteArray((long) o,null);
-            case 0x07:
-                return CentralSerializer.convertToByteArray((short) o,null);
-            case 0x08:
-                return CentralSerializer.convertToByteArray((float) o,null);
-            case 0x09:
-                return CentralSerializer.convertToByteArray((double) o,null);
-        }
-        return null;
-
+    
+    public static byte[] GetFieldBytes(){
+        byte[] bytes = new byte[0];
+        return bytes;
     }
-
     public static Object GetFieldValue(String type, byte[] o) {
 
         switch (type) {
             case "byte":
+            case "class java.lang.Byte":
                 return (null == o) ? 0 : o[0];
             case "int":
+            case "class java.lang.Integer":
                 return (null == o) ? 0 : CentralSerializer.convertToInt(o);
             case "class java.lang.String":
                 return (null == o) ? null : CentralSerializer.convertToString(o);
@@ -67,28 +42,59 @@ public class Helper {
             case "class java.lang.Boolean":
                 return (null == o) ? false : CentralSerializer.convertToBool(o);
             case "char":
+            case "class java.lang.Character":
                 return (null == o) ? 0 : CentralSerializer.convertToCharacter(o);
             case "long":
+            case "class java.lang.Long":
                 return (null == o) ? 0 : CentralSerializer.convertToLong(o);
             case "short":
+            case "class java.lang.Short":
                 return (null == o) ? 0 : CentralSerializer.convertToShort(o);
             case "float":
+            case "class java.lang.Float":
                 return (null == o) ? 0 : CentralSerializer.convertToFloat(o);
             case "double":
+            case "class java.lang.Double":
                 return (null == o) ? 0 : CentralSerializer.convertToDouble(o);
         }
         return null;
 
     }
+    public static byte[] GetFieldValueByte(String type, Object o,byte[] bytes) {
 
-    public static boolean CheckNameTypeValue() {
-        return false;
+        switch (type) {
+            case "byte":
+            case "class java.lang.Byte":
+                return  CentralSerializer.convertToByteArray((byte)o,bytes);
+            case "int":
+            case "class java.lang.Integer":
+                return  CentralSerializer.convertToByteArray((int)o,bytes);
+            case "class java.lang.String":
+                return  CentralSerializer.convertToByteArray((String)o,bytes);
+            case "boolean":
+            case "class java.lang.Boolean":
+                return  CentralSerializer.convertToByteArray((boolean)o,bytes);
+            case "char":
+            case "class java.lang.Character":
+                return  CentralSerializer.convertToByteArray((char)o,bytes);
+            case "long":
+            case "class java.lang.Long":
+                return  CentralSerializer.convertToByteArray((long)o,bytes);
+            case "short":
+            case "class java.lang.Short":
+                return  CentralSerializer.convertToByteArray((short)o,bytes);
+            case "float":
+            case "class java.lang.Float":
+                return  CentralSerializer.convertToByteArray((float)o,bytes);
+            case "double":
+            case "class java.lang.Double":
+                return  CentralSerializer.convertToByteArray((double)o,bytes);
+        }
+        return null;
+
     }
 
-    public static boolean CheckNameType() {
-        return false;
-    }
-
+    
     public static String GetFieldType(byte type) throws Exception {
 
         switch (type) {
@@ -113,43 +119,17 @@ public class Helper {
             case 0x10:
                 return "class java.lang.Boolean";
         }
-        throw new Exception("No Primitive Type Found");
+        throw new Exception("No Primitive or Wrapper Type Found");
     }
 
-    public static int GetFieldSize(String type) {
-        switch (type) {
-            case "byte":
-                return 1;
-            case "int":
-                return 8;
-            case "class java.lang.String":
-                return 22;
-            case "boolean":
-                return 1;
-            case "char":
-                return 2;
-            case "long":
-                return 8;
-            case "short":
-                return 2;
-            case "float":
-                return 4;
-            case "double":
-                return 8;
-            default:
-                return 0;
-        }
-
-    }
+ 
     private static final Set<Class<?>> WRAPPER_TYPES = getWrapperTypes();
 
-    public static boolean isWrapperType(Class<?> clazz)
-    {
+    public static boolean isWrapperType(Class<?> clazz) {
         return WRAPPER_TYPES.contains(clazz);
     }
 
-    private static Set<Class<?>> getWrapperTypes()
-    {
+    private static Set<Class<?>> getWrapperTypes() {
         Set<Class<?>> ret = new HashSet<Class<?>>();
         ret.add(Boolean.class);
         ret.add(Character.class);
@@ -162,49 +142,51 @@ public class Helper {
         ret.add(String.class);
         return ret;
     }
-     public static String GetFieldType(byte[] o) throws Exception {
-         byte[] fieldNameLenghtBytes = new byte[2];
-         System.arraycopy(o, 0, fieldNameLenghtBytes, 0, 2);
-         return GetFieldType(fieldNameLenghtBytes[1]);
-     }
+
+    public static String GetFieldType(byte[] o) throws Exception {
+        byte[] fieldNameLenghtBytes = new byte[2];
+        System.arraycopy(o, 0, fieldNameLenghtBytes, 0, 2);
+        return GetFieldType(fieldNameLenghtBytes[1]);
+    }
+
     public static byte[] GetFieldCode(String o) {
         byte[] fieldTypeBytes = new byte[1];
         switch (o) {
             case "byte":
-                fieldTypeBytes[0]= (byte) 0x01;
+                fieldTypeBytes[0] = (byte) 0x01;
                 break;
             case "int":
-                fieldTypeBytes[0]= (byte) 0x02;
-                 break;
+                fieldTypeBytes[0] = (byte) 0x02;
+                break;
             case "java.lang.String":
-                fieldTypeBytes[0]= (byte) 0x03;
-                 break;
+                fieldTypeBytes[0] = (byte) 0x03;
+                break;
             case "boolean":
-                fieldTypeBytes[0]= (byte) 0x04;
-                 break;
+                fieldTypeBytes[0] = (byte) 0x04;
+                break;
             case "char":
-                fieldTypeBytes[0]= (byte) 0x05;
-                 break;
+                fieldTypeBytes[0] = (byte) 0x05;
+                break;
             case "long":
-                fieldTypeBytes[0]= (byte) 0x06;
-                 break;
+                fieldTypeBytes[0] = (byte) 0x06;
+                break;
             case "short":
-                fieldTypeBytes[0]= (byte) 0x07;
-                 break;
+                fieldTypeBytes[0] = (byte) 0x07;
+                break;
             case "float":
-                fieldTypeBytes[0]= (byte) 0x08;
-                 break;
+                fieldTypeBytes[0] = (byte) 0x08;
+                break;
             case "double":
-                fieldTypeBytes[0]= (byte) 0x09;
-                 break;
+                fieldTypeBytes[0] = (byte) 0x09;
+                break;
             case "java.lang.Boolean":
-                fieldTypeBytes[0]= (byte) 0x10;
-                 break;
+                fieldTypeBytes[0] = (byte) 0x10;
+                break;
             default:
-                fieldTypeBytes[0]= (byte) 0x00;
-             
+                fieldTypeBytes[0] = (byte) 0x00;
+
         }
-       return fieldTypeBytes;
+        return fieldTypeBytes;
 
     }
 
@@ -230,21 +212,9 @@ public class Helper {
         return (byte) 0x01;
     }
 
-    public static boolean IsSerializable(byte[] byteArray) {
-        //Check START_SERIALIZE and FINISH SERIALIZE
-        byte[] START_SERIALIZE = new byte[]{(byte) 0xAC, (byte) 0xAE};
-        byte[] FINISH_SERIALIZE = new byte[]{(byte) 0x75};
-        return byteArray[0] == START_SERIALIZE[0] && byteArray[1] == START_SERIALIZE[1] && byteArray[byteArray.length - 1] == FINISH_SERIALIZE[0];
-    }
 
-    public static boolean IsPrimitive() {
-        //Check OBJECT_START
-        return false;
-    }
 
-    static int GetValueByteLenght(String type) {
-        return 1;
-    }
+    
 
     public static List<Method> getMethodsAnnotatedWith(final Class<?> type, final Class<? extends Annotation> annotation) {
         final List<Method> methods = new ArrayList<Method>();

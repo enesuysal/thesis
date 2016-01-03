@@ -5,125 +5,24 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.util.Arrays;
 
 public class CentralSerializer {
 
-//    public static byte[] serializePrimitive(String fieldName, boolean isOptional, byte fieldValue, byte[] item) {
-//    //FieldType
-//    item = convertToByteArray(Helper.GetFieldCode("byte"), item);        
-//    //append FieldNameLenght
-//        item = Helper.push(item, convertToByteArray(fieldName.length(), item));
-//        //Append FieldName
-//        item = convertToByteArray(fieldName, item);
-//         
-//        //Append isOptional
-//         item = convertToByteArray(isOptional, item);
-//        //Append Value
-//         item = convertToByteArray(fieldValue, item);
-//        return item;
-//    }
-//    public static byte[] serializePrimitive(String fieldName, boolean isOptional, boolean fieldValue, byte[] item) {
-//        //append FieldNameLenght
-//        item = Helper.push(item, convertToByteArray(fieldName.length(), item));
-//        //Append FieldName
-//        item = convertToByteArray(fieldName, item);
-//         //FieldType
-//        item = convertToByteArray(Helper.GetFieldCode("boolean"), item);
-//        //Append isOptional
-//         item = convertToByteArray(isOptional, item);
-//        //Append Value
-//         item = convertToByteArray(fieldValue, item);
-//        return item;
-//    }
-//    public static byte[] serializePrimitive(String fieldName, boolean isOptional, String fieldValue, byte[] item) {
-//        //append FieldNameLenght
-//        item = Helper.push(item, convertToByteArray(fieldName.length(), item));
-//        //Append FieldName
-//        item = convertToByteArray(fieldName, item);
-//         //FieldType
-//        item = convertToByteArray(Helper.GetFieldCode("class java.lang.String"), item);
-//        //Append isOptional
-//         item = convertToByteArray(isOptional, item);
-//        //Append Value
-//         item = convertToByteArray(fieldValue, item);
-//        return item;
-//    }
-//    public static byte[] serializePrimitive(String fieldName, boolean isOptional, char fieldValue, byte[] item) {
-//        //append FieldNameLenght
-//        item = Helper.push(item, convertToByteArray(fieldName.length(), item));
-//        //Append FieldName
-//        item = convertToByteArray(fieldName, item);
-//         //FieldType
-//        item = convertToByteArray(Helper.GetFieldCode("char"), item);
-//        //Append isOptional
-//         item = convertToByteArray(isOptional, item);
-//        //Append Value
-//         item = convertToByteArray(fieldValue, item);
-//        return item;
-//    }
-//    public static byte[] serializePrimitive(String fieldName, boolean isOptional, long fieldValue, byte[] item) {
-//        //append FieldNameLenght
-//        item = Helper.push(item, convertToByteArray(fieldName.length(), item));
-//        //Append FieldName
-//        item = convertToByteArray(fieldName, item);
-//         //FieldType
-//        item = convertToByteArray(Helper.GetFieldCode("long"), item);
-//        //Append isOptional
-//         item = convertToByteArray(isOptional, item);
-//        //Append Value
-//         item = convertToByteArray(fieldValue, item);
-//        return item;
-//    }
-//    public static byte[] serializePrimitive(String fieldName, boolean isOptional, short fieldValue, byte[] item) {
-//        //append FieldNameLenght
-//        item = Helper.push(item, convertToByteArray(fieldName.length(), item));
-//        //Append FieldName
-//        item = convertToByteArray(fieldName, item);
-//         //FieldType
-//        item = convertToByteArray(Helper.GetFieldCode("short"), item);
-//        //Append isOptional
-//         item = convertToByteArray(isOptional, item);
-//        //Append Value
-//         item = convertToByteArray(fieldValue, item);
-//        return item;
-//    }
-//    public static byte[] serializePrimitive(String fieldName, boolean isOptional, double fieldValue, byte[] item) {
-//        //append FieldNameLenght
-//        item = Helper.push(item, convertToByteArray(fieldName.length(), item));
-//        //Append FieldName
-//        item = convertToByteArray(fieldName, item);
-//         //FieldType
-//        item = convertToByteArray(Helper.GetFieldCode("double"), item);
-//        //Append isOptional
-//         item = convertToByteArray(isOptional, item);
-//        //Append Value
-//         item = convertToByteArray(fieldValue, item);
-//        return item;
-//    }
-//    public static byte[] serializePrimitive(String fieldName, boolean isOptional, float fieldValue, byte[] item) {
-//        //append FieldNameLenght
-//        item = Helper.push(item, convertToByteArray(fieldName.length(), item));
-//        //Append FieldName
-//        item = convertToByteArray(fieldName, item);
-//         //FieldType
-//        item = convertToByteArray(Helper.GetFieldCode("float"), item);
-//        //Append isOptional
-//         item = convertToByteArray(isOptional, item);
-//        //Append Value
-//         item = convertToByteArray(fieldValue, item);
-//        return item;
-//    }
-    public static byte[] serializePrimitive(String fieldName, boolean isOptional, int fieldValue, byte[] item) {
-        //FieldType
-        item = convertToByteArray(Helper.GetFieldCode("int")[0], item);
-        //append FieldNameLenght
-        item = Helper.push(item, convertToByteArray(fieldName.length(), item));
-        //Append FieldName
-        item = convertToByteArray(fieldName, item);
+
+    public static byte[] serializePrimitive(Type type, String fieldName, boolean isOptional, Object fieldValue, byte[] item) {
         //Append isOptional
         item = convertToByteArray(isOptional, item);
+        //FieldType
+         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
+        //append FieldNameLenght
+        item =  convertToByteArray(fieldName.length(), item);
+        //Append ValueLenght
+        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
+        //Append FieldName
+        item = convertToByteArray(fieldName, item);
         //Append Value
-        item = convertToByteArray(fieldValue, item);
+        item = Helper.GetFieldValueByte(type.toString(),fieldValue,item);//convertToByteArray(fieldValue, item);
         return item;
 
     }
@@ -200,17 +99,13 @@ public class CentralSerializer {
 
     // Primitive String to ByteArray
     public static byte[] convertToByteArray(String input, byte[] item) {
+        //if (input == null)
+          //  input="";
         byte[] arrayByte = input.getBytes(Charset.forName("UTF-8"));
         return Helper.push(item, arrayByte);
     }
 
-    // Serilizable object to ByteArray
-    public static byte[] objectToByteArray(Object o, byte[] arrayByte) throws IllegalArgumentException, IllegalAccessException, Exception {
-        ObjectSerializer serializer = new ObjectSerializer(o);
-        arrayByte = serializer.Serialize();
-
-        return arrayByte;
-    }
+   
 
     public static byte[] convertToByteArray(char value, byte[] item) {
         byte[] bytes = new byte[2];

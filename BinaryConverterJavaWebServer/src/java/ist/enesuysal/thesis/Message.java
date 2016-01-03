@@ -48,9 +48,7 @@ public class Message {
      public Message(double message) {
         messageSerilized = CentralSerializer.convertToByteArray(message,messageSerilized);
     }
-    public Message(Object message) throws IllegalArgumentException, IllegalAccessException, Exception {
-        messageSerilized = CentralSerializer.objectToByteArray(message, messageSerilized);
-    }
+   
 
     public String Seriliaze() {
         byte[] arrayByte = null;
