@@ -13,5 +13,8 @@ package ist.enesuysal.thesis.Tests;
  * @author enes
  */
 class TestSubObject {
+    
+    public String count = "aa";
     int containVersion = 11;
+    
 }

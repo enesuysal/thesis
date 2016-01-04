@@ -289,12 +289,12 @@ public class Helper {
     public static boolean CheckOptional(byte[] decodedBytes, byte[] newFieldByte) {
         byte[] NameSize = new byte[8];
         boolean found =false;
-        System.arraycopy(decodedBytes, 2, NameSize, 0, NameSize.length);
+        System.arraycopy(newFieldByte, 2, NameSize, 0, NameSize.length);
         byte[] Name = new byte[CentralSerializer.convertToInt(NameSize)];
             if(indexOf(decodedBytes, NameSize)!=-1){
                 System.out.println("Bulundu");
                 System.out.println(Arrays.toString(decodedBytes));
-                System.arraycopy(decodedBytes, 18, Name, 0, Name.length);
+                System.arraycopy(newFieldByte, 18, Name, 0, Name.length);
                 System.out.println(Arrays.toString(Name));
                 System.out.println(indexOf(decodedBytes, NameSize)+16);
                  byte[] Name2 = new byte[CentralSerializer.convertToInt(NameSize)];

@@ -9,6 +9,7 @@ public class Test1 {
     public String count = "aa";
     //@Mandatory
     public int version;
+     public boolean deneme =false;
    // @Mandatory
 
     //@Mandatory
