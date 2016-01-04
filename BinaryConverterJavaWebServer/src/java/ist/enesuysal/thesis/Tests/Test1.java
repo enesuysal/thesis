@@ -6,16 +6,16 @@ import java.lang.reflect.Field;
 
 public class Test1 {
 
+    public String count = "aa";
     //@Mandatory
     public int version;
    // @Mandatory
-    public String count = "aa";
+
     //@Mandatory
     //public int version;
     //@Mandatory
     //public boolean deneme;
     //public int test = 66;
-
     public byte[] Serialize() {
         byte[] arrayResult = new byte[0];
         Field[] fields = this.getClass().getDeclaredFields();

@@ -20,6 +20,7 @@ public class Helper {
 
         return longer;
     }
+
     public static byte[] pop(byte[] array, byte[] pop) {
         byte[] longer = new byte[array.length - pop.length];
         System.arraycopy(array, pop.length, longer, 0, longer.length);
@@ -27,6 +28,13 @@ public class Helper {
 
         return longer;
     }
+
+    public static byte[] pop(byte[] array) {
+        byte[] longer = new byte[array.length - 1];
+        System.arraycopy(array, 1, longer, 0, longer.length);
+        return longer;
+    }
+
     public static int indexOf(byte[] outerArray, byte[] smallerArray) {
         for (int i = 0; i < outerArray.length - smallerArray.length + 1; ++i) {
             boolean found = true;
@@ -45,13 +53,18 @@ public class Helper {
 
     public static byte[] GetFieldBytes(byte[] value) {
 
-        byte[] FieldNameLenghtbytes = new byte[8];
-        byte[] FieldValueLenghtbytes = new byte[8];
-        System.arraycopy(value, 3, FieldNameLenghtbytes, 0, FieldNameLenghtbytes.length);
-        System.arraycopy(value, 11, FieldValueLenghtbytes, 0, FieldValueLenghtbytes.length);
-        byte[] bytes = new byte[19 + CentralSerializer.convertToInt(FieldNameLenghtbytes) + CentralSerializer.convertToInt(FieldValueLenghtbytes)];
-        System.arraycopy(value, 0, bytes, 0, bytes.length);
-        return bytes;
+        try {
+            byte[] FieldNameLenghtbytes = new byte[8];
+            byte[] FieldValueLenghtbytes = new byte[8];
+            System.arraycopy(value, 3, FieldNameLenghtbytes, 0, FieldNameLenghtbytes.length);
+            System.arraycopy(value, 11, FieldValueLenghtbytes, 0, FieldValueLenghtbytes.length);
+            byte[] bytes = new byte[19 + CentralSerializer.convertToInt(FieldNameLenghtbytes) + CentralSerializer.convertToInt(FieldValueLenghtbytes)];
+            System.arraycopy(value, 0, bytes, 0, bytes.length);
+            return bytes;
+        } catch (Exception e) {
+            return new byte[0];
+        }
+
     }
 
     public static Object GetFieldValue(String type, byte[] o) {
@@ -271,6 +284,27 @@ public class Helper {
         }
 
         return annotatedFields.toArray(new Field[annotatedFields.size()]);
+    }
+
+    public static boolean CheckOptional(byte[] decodedBytes, byte[] newFieldByte) {
+        byte[] NameSize = new byte[8];
+        boolean found =false;
+        System.arraycopy(decodedBytes, 2, NameSize, 0, NameSize.length);
+        byte[] Name = new byte[CentralSerializer.convertToInt(NameSize)];
+            if(indexOf(decodedBytes, NameSize)!=-1){
+                System.out.println("Bulundu");
+                System.out.println(Arrays.toString(decodedBytes));
+                System.arraycopy(decodedBytes, 18, Name, 0, Name.length);
+                System.out.println(Arrays.toString(Name));
+                System.out.println(indexOf(decodedBytes, NameSize)+16);
+                 byte[] Name2 = new byte[CentralSerializer.convertToInt(NameSize)];
+                 System.arraycopy(decodedBytes, indexOf(decodedBytes, NameSize)+16, Name2, 0, Name.length);
+                 System.out.println(Arrays.toString(Name2));
+                 if(Arrays.equals(Name, Name2))
+                     found = true;
+            }
+            
+           return found;
     }
 
 }

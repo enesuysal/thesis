@@ -27,7 +27,7 @@ public class ComplianceTest {
         BASE64Decoder decoder = new BASE64Decoder();
         try {
             byte[] decodedBytes = decoder.decodeBuffer(BASE64String);
-            System.out.println(Arrays.toString(decodedBytes));
+            //System.out.println(Arrays.toString(decodedBytes));
             Receiver r = new Receiver();
             for (int i = 0; i < r.knownMethods.length; i++) {
 
@@ -44,27 +44,40 @@ public class ComplianceTest {
 //                        }
                 } else {
                     //Object 
-                    System.out.println(Arrays.toString(r.knownMethods[i].myfields));
+                    //System.out.println(Arrays.toString(r.knownMethods[i].myfields));
                     boolean found = false;
-                    while (r.knownMethods[i].myfields.length != 0) {
+                    while (Helper.GetFieldBytes(r.knownMethods[i].myfields).length != 0) {
+                        found = false;
                         byte[] fieldByte = Helper.GetFieldBytes(r.knownMethods[i].myfields);
                         if (fieldByte[0] == 1) {
                             System.out.println("Mandatotory");
-                            if (Helper.indexOf(r.knownMethods[i].myfields, fieldByte) != -1) {
-                                found=true;
-                                 
+
+                            if (Helper.indexOf(decodedBytes, fieldByte) != -1) {
+                                found = true;
+
                             }
-                        }else{
+                        } else {
+                            //fieldByte= Helper.pop(fieldByte);
+                            byte[] newFieldByte = Helper.pop(fieldByte);
                             System.out.println("Optional");
-                            if (Helper.indexOf(r.knownMethods[i].myfields, fieldByte) != -1) {
-                                found=true;
-                            }else{
-                                
-                                 if (Helper.indexOf(r.knownMethods[i].myfields, fieldByte) != -1) 
-                                found=true;
+                            System.out.println(Arrays.toString(decodedBytes));
+                            System.out.println(Arrays.toString(fieldByte));
+
+                            if (Helper.indexOf(decodedBytes, newFieldByte) != -1) {
+                                found = true;
+                                System.out.println("New"+Arrays.toString(newFieldByte));
+                            } else {
+
+                                if (Helper.CheckOptional(decodedBytes, newFieldByte)) {
+                                    System.out.println("--- Found2---");
+                                    found = true;
+                                } else {
+                                    System.out.println("---Not Found---");
+                                    break;
+                                }
                             }
                         }
-                        r.knownMethods[i].myfields = Helper.pop(r.knownMethods[i].myfields,fieldByte); 
+                        r.knownMethods[i].myfields = Helper.pop(r.knownMethods[i].myfields, fieldByte);
                     }
                     System.out.println(found);
                 }
