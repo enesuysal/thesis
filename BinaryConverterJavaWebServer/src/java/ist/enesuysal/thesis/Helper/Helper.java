@@ -307,4 +307,12 @@ public class Helper {
            return found;
     }
 
+    public static boolean  CheckPrimitive(byte[] decodedBytes) {
+        byte[] NameLenghtSize = new byte[8];
+        System.arraycopy(decodedBytes, 2, NameLenghtSize, 0, NameLenghtSize.length);
+        byte[] ValueLenghtSize = new byte[8];
+        System.arraycopy(decodedBytes, 10, ValueLenghtSize, 0, ValueLenghtSize.length);
+        return (decodedBytes.length ==(CentralSerializer.convertToInt(NameLenghtSize)+18+CentralSerializer.convertToInt(ValueLenghtSize)));
+    }
+
 }

@@ -11,6 +11,7 @@ import ist.enesuysal.thesis.Tests.Test2;
 import ist.enesuysal.thesis.Tests.Test3;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.List;
 
 public class Receiver {
@@ -47,6 +48,7 @@ public class Receiver {
 
     public void createPrimitive(byte[] bytes) throws Exception {
         //Deserialize and Print
+        System.out.println("ss" + Arrays.toString(bytes));
         String type = (Helper.GetFieldType(bytes[1])); //FieldType
         int FieldNameLength = 0;
         byte[] FieldNameLengthByte = new byte[8];
@@ -58,8 +60,8 @@ public class Receiver {
             fieldName = CentralSerializer.convertToString(bytes);
         }
         //Field hasValue
-        byte[] FieldValueByte = new byte[bytes.length - (10 + FieldNameLength)];
-        System.arraycopy(bytes, 10 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
+        byte[] FieldValueByte = new byte[bytes.length - (18 + FieldNameLength)];
+        System.arraycopy(bytes, 18 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
         System.out.println("Primitive Value " + Helper.GetFieldValue(type, FieldValueByte));
         PrintObject(Helper.GetFieldValue(type, FieldValueByte));
     }

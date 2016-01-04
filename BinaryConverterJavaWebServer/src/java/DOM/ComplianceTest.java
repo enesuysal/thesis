@@ -31,18 +31,18 @@ public class ComplianceTest {
             Receiver r = new Receiver();
             for (int i = 0; i < r.knownMethods.length; i++) {
 
-                if (r.knownMethods[i].myfields.length == 2) {
+                if (r.knownMethods[i].myfields.length == 2 && Helper.CheckPrimitive(decodedBytes)) {
                     //Check Type
-                    //if()
+                    if(decodedBytes[1]==r.knownMethods[i].myfields[1])
                     //Create New bytearray
-                    //r.createPrimitive(decodedBytes);
+                    r.createPrimitive(decodedBytes);
 
 //                        if (Helper.GetFieldType(decodedBytes).equals(allAvaliableMethods.get(i).getParameters()[0].getType().toString())) {
 //                            System.out.println("Found");
 //                            //Create New bytearray
 //                          r.createWrapper(decodedBytes);
 //                        }
-                } else {
+                } else if(!Helper.CheckPrimitive(decodedBytes)){
                     //Object 
                     //System.out.println(Arrays.toString(r.knownMethods[i].myfields));
                     boolean found = false;

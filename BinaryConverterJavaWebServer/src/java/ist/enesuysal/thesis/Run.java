@@ -15,7 +15,7 @@ public class Run {
         String test4 = "Deneme";
         Boolean test5 = true;
         TestSerial tt = new TestSerial();
-        Message msg = new Message(tt);
+        Message msg = new Message(test2);
         String msgToSend = msg.Seriliaze();
         ComplianceTest complience = new ComplianceTest();
         complience.GetMessage(msgToSend);
