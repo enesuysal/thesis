@@ -14,7 +14,7 @@ public class CentralSerializer {
         //Append isOptional
         item = convertToByteArray(isOptional, item);
         //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
+         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName()), item);
         //append FieldNameLenght
         item =  convertToByteArray(fieldName.length(), item);
         //Append ValueLenght
@@ -30,7 +30,7 @@ public class CentralSerializer {
     public static byte[] serializePrimitive(Type type, String fieldName,   Object fieldValue, byte[] item) {
         
         //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
+         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName()), item);
         //append FieldNameLenght
         item =  convertToByteArray(fieldName.length(), item);
         //Append ValueLenght
@@ -44,153 +44,43 @@ public class CentralSerializer {
     }
 
     public static byte[] serializePrimitive(Type type, int fieldValue, byte[] item) {
-       //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
-        //append FieldNameLenght
-        item =  convertToByteArray(0, item);
-        //Append ValueLenght
-        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
-        //Append FieldName
-        item = convertToByteArray("", item);
-        //Append Value
-        item = Helper.GetFieldValueByte(type.toString(),fieldValue,item);//convertToByteArray(fieldValue, item);
-        return item;
+       return serializePrimitive(type,"", fieldValue, item);
     }
     public static byte[] serializePrimitive(Type type, byte fieldValue, byte[] item) {
-       //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
-        //append FieldNameLenght
-        item =  convertToByteArray(0, item);
-        //Append ValueLenght
-        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
-        //Append FieldName
-        item = convertToByteArray("", item);
-        //Append Value
-        item = Helper.GetFieldValueByte(type.toString(),fieldValue,item);//convertToByteArray(fieldValue, item);
-        return item;
+        return serializePrimitive(type,"", fieldValue, item);
     }
     public static byte[] serializePrimitive(Type type, char fieldValue, byte[] item) {
-       //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
-        //append FieldNameLenght
-        item =  convertToByteArray(0, item);
-        //Append ValueLenght
-        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
-        //Append FieldName
-        item = convertToByteArray("", item);
-        //Append Value
-        item = Helper.GetFieldValueByte(type.toString(),fieldValue,item);//convertToByteArray(fieldValue, item);
-        return item;
+       return serializePrimitive(type,"", fieldValue, item);
     }
 
     
     public static byte[] serializePrimitive(Type type, boolean fieldValue, byte[] item) {
-         //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
-        //append FieldNameLenght
-        item =  convertToByteArray(0, item);
-        //Append ValueLenght
-        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
-        //Append FieldName
-        item = convertToByteArray("", item);
-        //Append Value
-        item = convertToByteArray(fieldValue, item);
-        return item;
+        return serializePrimitive(type,"", fieldValue, item);
     }
     public static byte[] serializePrimitive(Type type, Boolean fieldValue, byte[] item) {
-        //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
-        //append FieldNameLenght
-        item =  convertToByteArray(0, item);
-        //Append ValueLenght
-        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
-        //Append FieldName
-        item = convertToByteArray("", item);
-        //Append Value
-        item = convertToByteArray(fieldValue, item);
-        return item;
+        return serializePrimitive(type,"", fieldValue, item);
     }
     public static byte[] serializePrimitive(Type type, Character fieldValue, byte[] item) {
-        //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
-        //append FieldNameLenght
-        item =  convertToByteArray(0, item);
-        //Append ValueLenght
-        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
-        //Append FieldName
-        item = convertToByteArray("", item);
-        //Append Value
-        item = convertToByteArray(fieldValue, item);
-        return item;
+        return serializePrimitive(type,"", fieldValue, item);
     }
      public static byte[] serializePrimitive(Type type, long fieldValue, byte[] item) {
-        //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
-        //append FieldNameLenght
-        item =  convertToByteArray(0, item);
-        //Append ValueLenght
-        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
-        //Append FieldName
-        item = convertToByteArray("", item);
-        //Append Value
-        item = convertToByteArray(fieldValue, item);
-        return item;
+        return serializePrimitive(type,"", fieldValue, item);
     }
      public static byte[] serializePrimitive(Type type, short fieldValue, byte[] item) {
-        //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
-        //append FieldNameLenght
-        item =  convertToByteArray(0, item);
-        //Append ValueLenght
-        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
-        //Append FieldName
-        item = convertToByteArray("", item);
-        //Append Value
-        item = convertToByteArray(fieldValue, item);
-        return item;
+       return serializePrimitive(type,"", fieldValue, item);
     }
      public static byte[] serializePrimitive(Type type, float fieldValue, byte[] item) {
-        //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
-        //append FieldNameLenght
-        item =  convertToByteArray(0, item);
-        //Append ValueLenght
-        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
-        //Append FieldName
-        item = convertToByteArray("", item);
-        //Append Value
-        item = convertToByteArray(fieldValue, item);
-        return item;
+        return serializePrimitive(type,"", fieldValue, item);
     }
      public static byte[] serializePrimitive(Type type, double fieldValue, byte[] item) {
-        //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
-        //append FieldNameLenght
-        item =  convertToByteArray(0, item);
-        //Append ValueLenght
-        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
-        //Append FieldName
-        item = convertToByteArray("", item);
-        //Append Value
-        item = convertToByteArray(fieldValue, item);
-        return item;
+        return serializePrimitive(type,"", fieldValue, item);
     }
 
     public static byte[] serializePrimitive(Type type, String fieldValue, byte[] item) {
-         //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName())[0], item);
-        //append FieldNameLenght
-        item =  convertToByteArray(0, item);
-        //Append ValueLenght
-        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
-        //Append FieldName
-        item = convertToByteArray("", item);
-        //Append Value
-        item = convertToByteArray(fieldValue, item);
-        return item;
+         return serializePrimitive(type,"", fieldValue, item);
     }
     public static byte[] convertToByteArray(byte data, byte[] item) {
-    return Helper.push(item, new byte[]{0x0,data});
+    return Helper.push(item, new byte[]{data});
 }
     // Primitive Int to ByteArray
     public static byte[] convertToByteArray(int intValue, byte[] item) {

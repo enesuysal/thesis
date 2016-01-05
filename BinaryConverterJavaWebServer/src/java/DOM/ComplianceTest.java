@@ -31,9 +31,9 @@ public class ComplianceTest {
             Receiver r = new Receiver();
             for (int i = 0; i < r.knownMethods.length; i++) {
 
-                if (r.knownMethods[i].myfields.length == 2 && Helper.CheckPrimitive(decodedBytes)) {
+                if (r.knownMethods[i].myfields.length == 1 && Helper.CheckPrimitive(decodedBytes)) {
                     //Check Type
-                    if(decodedBytes[1]==r.knownMethods[i].myfields[1])
+                    if(decodedBytes[0]==r.knownMethods[i].myfields[0])
                     //Create New bytearray
                     r.createPrimitive(decodedBytes);
                 } else if(!Helper.CheckPrimitive(decodedBytes)){

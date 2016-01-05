@@ -11,7 +11,7 @@ public class Run {
     public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException, Exception {
         
         byte test1 = 0x15;
-        int test2 = 0;
+        int test2 = 10;
         String test3 = "Deneme";
         boolean test4 = true;
         char test5 = 'a';
@@ -29,7 +29,7 @@ public class Run {
         Double test9_1 = 34.4;
         
         TestSerial tt = new TestSerial();
-        Message msg = new Message(test1_1);
+        Message msg = new Message(tt);
         String msgToSend = msg.Seriliaze();
         ComplianceTest complience = new ComplianceTest();
         complience.GetMessage(msgToSend);

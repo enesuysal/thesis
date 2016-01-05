@@ -6,10 +6,9 @@ import java.lang.reflect.Field;
 
 public class Test1 {
 
-    public String count = "aa";
+    public String count="";
     //@Mandatory
-    public int version;
-     public boolean deneme =false;
+    public int version=0;
    // @Mandatory
 
     //@Mandatory

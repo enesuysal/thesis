@@ -26,7 +26,7 @@ public class Receiver {
             knownMethods[i] = new MyMethod();
             Class myClass = allAvaliableMethods.get(i).getParameters()[0].getType();
             if (myClass.isPrimitive() || Helper.isWrapperType(myClass)) {
-                knownMethods[i].myfields = convertToByteArray(Helper.GetFieldCode(allAvaliableMethods.get(i).getParameters()[0].getType().getTypeName())[0], new byte[0]);
+                knownMethods[i].myfields = convertToByteArray(Helper.GetFieldCode(allAvaliableMethods.get(i).getParameters()[0].getType().getTypeName()), new byte[0]);
             } else {
 
                 Object objectInstance = myClass.newInstance();
@@ -38,7 +38,7 @@ public class Receiver {
                     if (fields[j].isAnnotationPresent(Mandatory.class)) {
                         fieldbytes = CentralSerializer.serializePrimitive(fields[j].getType(), fields[j].getName(), true, fields[j].get(objectInstance), new byte[0]);
                     } else {
-                        fieldbytes =  CentralSerializer.serializePrimitive(fields[j].getType(), fields[j].getName(), false, fields[j].get(objectInstance), new byte[0]);
+                        fieldbytes = CentralSerializer.serializePrimitive(fields[j].getType(), fields[j].getName(), false, fields[j].get(objectInstance), new byte[0]);
                     }
                     knownMethods[i].myfields = Helper.push(knownMethods[i].myfields, fieldbytes);
                 }
@@ -49,19 +49,19 @@ public class Receiver {
     public void createPrimitive(byte[] bytes) throws Exception {
         //Deserialize and Print
         //System.out.println("ss" + Arrays.toString(bytes));
-        String type = (Helper.GetFieldType(bytes[1])); //FieldType
+        String type = (Helper.GetFieldType(bytes[0])); //FieldType
         int FieldNameLength = 0;
         byte[] FieldNameLengthByte = new byte[8];
-        System.arraycopy(bytes, 2, FieldNameLengthByte, 0, FieldNameLengthByte.length);
+        System.arraycopy(bytes, 1, FieldNameLengthByte, 0, FieldNameLengthByte.length);
         String fieldName = "";
         byte[] FieldNameByte = new byte[FieldNameLength];
-        System.arraycopy(bytes, 10, FieldNameByte, 0, FieldNameByte.length);
+        System.arraycopy(bytes, 9, FieldNameByte, 0, FieldNameByte.length);
         if (FieldNameLength > 0) {
             fieldName = CentralSerializer.convertToString(bytes);
         }
         //Field hasValue
-        byte[] FieldValueByte = new byte[bytes.length - (18 + FieldNameLength)];
-        System.arraycopy(bytes, 18 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
+        byte[] FieldValueByte = new byte[bytes.length - (17 + FieldNameLength)];
+        System.arraycopy(bytes, 17 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
         System.out.println("Value " + Helper.GetFieldValue(type, FieldValueByte));
         PrintObject(Helper.GetFieldValue(type, FieldValueByte));
     }
@@ -118,54 +118,72 @@ public class Receiver {
     public void MakeObjectA(int test) {
 
     }
+
     @AvaliableMethod
     public void MakeObjectA(byte test) {
 
     }
+
     @AvaliableMethod
     public void MakeObjectA(char test) {
 
     }
+
     @AvaliableMethod
     public void MakeObjectA(long test) {
 
     }
+
     @AvaliableMethod
     public void MakeObjectA(short test) {
 
     }
+
     @AvaliableMethod
     public void MakeObjectA(float test) {
 
     }
+
     @AvaliableMethod
     public void MakeObjectA(double test) {
 
     }
+
     @AvaliableMethod
     public void MakeObjectA(boolean test) {
     }
-@AvaliableMethod
+
+    @AvaliableMethod
     public void MakeObjectB(Byte test) {
     }
     @AvaliableMethod
+    public void MakeObjectB(String test) {
+    }
+
+    @AvaliableMethod
     public void MakeObjectB(Integer test) {
     }
+
     @AvaliableMethod
     public void MakeObjectB(Boolean test) {
     }
+
     @AvaliableMethod
     public void MakeObjectB(Character test) {
     }
+
     @AvaliableMethod
     public void MakeObjectB(Short test) {
     }
+
     @AvaliableMethod
     public void MakeObjectB(Long test) {
     }
+
     @AvaliableMethod
     public void MakeObjectB(Double test) {
     }
+
     @AvaliableMethod
     public void MakeObjectB(Float test) {
     }

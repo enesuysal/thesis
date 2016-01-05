@@ -56,9 +56,9 @@ public class Helper {
         try {
             byte[] FieldNameLenghtbytes = new byte[8];
             byte[] FieldValueLenghtbytes = new byte[8];
-            System.arraycopy(value, 3, FieldNameLenghtbytes, 0, FieldNameLenghtbytes.length);
-            System.arraycopy(value, 11, FieldValueLenghtbytes, 0, FieldValueLenghtbytes.length);
-            byte[] bytes = new byte[19 + CentralSerializer.convertToInt(FieldNameLenghtbytes) + CentralSerializer.convertToInt(FieldValueLenghtbytes)];
+            System.arraycopy(value, 2, FieldNameLenghtbytes, 0, FieldNameLenghtbytes.length);
+            System.arraycopy(value, 10, FieldValueLenghtbytes, 0, FieldValueLenghtbytes.length);
+            byte[] bytes = new byte[18 + CentralSerializer.convertToInt(FieldNameLenghtbytes) + CentralSerializer.convertToInt(FieldValueLenghtbytes)];
             System.arraycopy(value, 0, bytes, 0, bytes.length);
             return bytes;
         } catch (Exception e) {
@@ -72,7 +72,7 @@ public class Helper {
         switch (type) {
             case "byte":
             case "class java.lang.Byte":
-                return (null == o) ? 0 : o[1];
+                return (null == o) ? 0 : o[0];
             case "int":
             case "class java.lang.Integer":
                 return (null == o) ? 0 : CentralSerializer.convertToInt(o);
@@ -204,62 +204,62 @@ public class Helper {
         return GetFieldType(fieldNameLenghtBytes[1]);
     }
 
-    public static byte[] GetFieldCode(String o) {
-        byte[] fieldTypeBytes = new byte[1];
+    public static byte GetFieldCode(String o) {
+        byte fieldTypeBytes;
         switch (o) {
             case "byte":
-                fieldTypeBytes[0] = (byte) 0x01;
+                fieldTypeBytes = (byte) 0x01;
                 break;
             case "int":
-                fieldTypeBytes[0] = (byte) 0x02;
+                fieldTypeBytes = (byte) 0x02;
                 break;
             case "java.lang.String":
-                fieldTypeBytes[0] = (byte) 0x03;
+                fieldTypeBytes = (byte) 0x03;
                 break;
             case "boolean":
-                fieldTypeBytes[0] = (byte) 0x04;
+                fieldTypeBytes = (byte) 0x04;
                 break;
             case "char":
-                fieldTypeBytes[0] = (byte) 0x05;
+                fieldTypeBytes = (byte) 0x05;
                 break;
             case "long":
-                fieldTypeBytes[0] = (byte) 0x06;
+                fieldTypeBytes = (byte) 0x06;
                 break;
             case "short":
-                fieldTypeBytes[0] = (byte) 0x07;
+                fieldTypeBytes = (byte) 0x07;
                 break;
             case "float":
-                fieldTypeBytes[0] = (byte) 0x08;
+                fieldTypeBytes = (byte) 0x08;
                 break;
             case "double":
-                fieldTypeBytes[0] = (byte) 0x09;
+                fieldTypeBytes = (byte) 0x09;
                 break;
             case "java.lang.Boolean":
-                fieldTypeBytes[0] = (byte) 0x10;
+                fieldTypeBytes = (byte) 0x10;
                 break;
             case "java.lang.Integer":
-                fieldTypeBytes[0] = (byte) 0x11;
+                fieldTypeBytes = (byte) 0x11;
                 break;
             case "java.lang.Character":
-                fieldTypeBytes[0] = (byte) 0x12;
+                fieldTypeBytes = (byte) 0x12;
                 break;
             case "java.lang.Byte":
-                fieldTypeBytes[0] = (byte) 0x13;
+                fieldTypeBytes = (byte) 0x13;
                 break;
             case "java.lang.Long":
-                fieldTypeBytes[0] = (byte) 0x14;
+                fieldTypeBytes = (byte) 0x14;
                 break;
             case "java.lang.Short":
-                fieldTypeBytes[0] = (byte) 0x15;
+                fieldTypeBytes = (byte) 0x15;
                 break;
             case "java.lang.Float":
-                fieldTypeBytes[0] = (byte) 0x16;
+                fieldTypeBytes = (byte) 0x16;
                 break;
             case "java.lang.Double":
-                fieldTypeBytes[0] = (byte) 0x17;
+                fieldTypeBytes = (byte) 0x17;
                 break;    
             default:
-                fieldTypeBytes[0] = (byte) 0x00;
+                fieldTypeBytes = (byte) 0x00;
 
         }
         return fieldTypeBytes;
@@ -324,14 +324,14 @@ public class Helper {
     public static boolean CheckOptional(byte[] decodedBytes, byte[] newFieldByte) {
         byte[] NameSize = new byte[8];
         boolean found = false;
-        System.arraycopy(newFieldByte, 2, NameSize, 0, NameSize.length);
+        System.arraycopy(newFieldByte, 1, NameSize, 0, NameSize.length);
         byte[] Name = new byte[CentralSerializer.convertToInt(NameSize)];
         if (indexOf(decodedBytes, NameSize) != -1) {
             System.out.println("Bulundu");
             System.out.println(Arrays.toString(decodedBytes));
-            System.arraycopy(newFieldByte, 18, Name, 0, Name.length);
+            System.arraycopy(newFieldByte, 17, Name, 0, Name.length);
             System.out.println(Arrays.toString(Name));
-            System.out.println(indexOf(decodedBytes, NameSize) + 16);
+            System.out.println(indexOf(decodedBytes, NameSize) + 15);
             byte[] Name2 = new byte[CentralSerializer.convertToInt(NameSize)];
             System.arraycopy(decodedBytes, indexOf(decodedBytes, NameSize) + 16, Name2, 0, Name.length);
             System.out.println(Arrays.toString(Name2));
@@ -345,10 +345,10 @@ public class Helper {
 
     public static boolean CheckPrimitive(byte[] decodedBytes) {
         byte[] NameLenghtSize = new byte[8];
-        System.arraycopy(decodedBytes, 2, NameLenghtSize, 0, NameLenghtSize.length);
+        System.arraycopy(decodedBytes, 1, NameLenghtSize, 0, NameLenghtSize.length);
         byte[] ValueLenghtSize = new byte[8];
-        System.arraycopy(decodedBytes, 10, ValueLenghtSize, 0, ValueLenghtSize.length);
-        return (decodedBytes.length == (CentralSerializer.convertToInt(NameLenghtSize) + 18 + CentralSerializer.convertToInt(ValueLenghtSize)));
+        System.arraycopy(decodedBytes, 9, ValueLenghtSize, 0, ValueLenghtSize.length);
+        return (decodedBytes.length == (CentralSerializer.convertToInt(NameLenghtSize) + 17 + CentralSerializer.convertToInt(ValueLenghtSize)));
     }
 
 }
