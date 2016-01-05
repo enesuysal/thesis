@@ -8,13 +8,10 @@
  */
 package DOM;
 
-import ist.enesuysal.thesis.Annotation.AvaliableMethod;
 import ist.enesuysal.thesis.Helper.Helper;
 import ist.enesuysal.thesis.Receiver;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.util.Arrays;
-import java.util.List;
 import sun.misc.BASE64Decoder;
 
 /**
@@ -33,10 +30,11 @@ public class ComplianceTest {
 
                 if (r.knownMethods[i].myfields.length == 1 && Helper.CheckPrimitive(decodedBytes)) {
                     //Check Type
-                    if(decodedBytes[0]==r.knownMethods[i].myfields[0])
-                    //Create New bytearray
-                    r.createPrimitive(decodedBytes);
-                } else if(!Helper.CheckPrimitive(decodedBytes)){
+                    if (decodedBytes[0] == r.knownMethods[i].myfields[0]) //Create New bytearray
+                    {
+                        r.createPrimitive(decodedBytes);
+                    }
+                } else if (!Helper.CheckPrimitive(decodedBytes)) {
                     //Object 
                     //System.out.println(Arrays.toString(r.knownMethods[i].myfields));
                     boolean found = false;
@@ -44,36 +42,37 @@ public class ComplianceTest {
                         found = false;
                         byte[] fieldByte = Helper.GetFieldBytes(r.knownMethods[i].myfields);
                         if (fieldByte[0] == 1) {
-                            System.out.println("Mandatotory");
 
-                            if (Helper.indexOf(decodedBytes, fieldByte) != -1) {
+                            byte[] newFieldByte = Helper.pop(fieldByte);
+                            if (Helper.indexOf(decodedBytes, newFieldByte) != -1) {
                                 found = true;
-
+                                System.out.println("Mandatotory field found");
                             }
                         } else {
                             //fieldByte= Helper.pop(fieldByte);
                             byte[] newFieldByte = Helper.pop(fieldByte);
-                            System.out.println("Optional");
-                            System.out.println(Arrays.toString(decodedBytes));
-                            System.out.println(Arrays.toString(fieldByte));
-
+                            //System.out.println(Arrays.toString(decodedBytes));
+                            //System.out.println(Arrays.toString(fieldByte));
                             if (Helper.indexOf(decodedBytes, newFieldByte) != -1) {
                                 found = true;
-                                System.out.println("New"+Arrays.toString(newFieldByte));
+                                System.out.println("Optional field found with field name and value equlity");
                             } else {
 
                                 if (Helper.CheckOptional(decodedBytes, newFieldByte)) {
-                                    System.out.println("--- Found2---");
+                                    System.out.println("Optional field found with field name equlity");
                                     found = true;
                                 } else {
-                                    System.out.println("---Not Found---");
+                                    System.out.println("Optional field is not found");
                                     break;
                                 }
                             }
                         }
                         r.knownMethods[i].myfields = Helper.pop(r.knownMethods[i].myfields, fieldByte);
                     }
+                    if(found){
                     System.out.println(found);
+                    r.createObject(decodedBytes);
+                    }
                 }
             }
 

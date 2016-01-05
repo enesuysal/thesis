@@ -327,19 +327,13 @@ public class Helper {
         System.arraycopy(newFieldByte, 1, NameSize, 0, NameSize.length);
         byte[] Name = new byte[CentralSerializer.convertToInt(NameSize)];
         if (indexOf(decodedBytes, NameSize) != -1) {
-            System.out.println("Bulundu");
-            System.out.println(Arrays.toString(decodedBytes));
             System.arraycopy(newFieldByte, 17, Name, 0, Name.length);
-            System.out.println(Arrays.toString(Name));
-            System.out.println(indexOf(decodedBytes, NameSize) + 15);
             byte[] Name2 = new byte[CentralSerializer.convertToInt(NameSize)];
             System.arraycopy(decodedBytes, indexOf(decodedBytes, NameSize) + 16, Name2, 0, Name.length);
-            System.out.println(Arrays.toString(Name2));
             if (Arrays.equals(Name, Name2)) {
                 found = true;
             }
         }
-
         return found;
     }
 

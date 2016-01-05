@@ -7,8 +7,10 @@ import java.lang.reflect.Field;
 public class Test1 {
 
     public String count="";
-    //@Mandatory
+    @Mandatory
     public int version=0;
+    //@Mandatory
+    public boolean test=false;
    // @Mandatory
 
     //@Mandatory

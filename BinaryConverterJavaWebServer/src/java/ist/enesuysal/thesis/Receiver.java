@@ -192,4 +192,8 @@ public class Receiver {
     public void MakeObjectC(Test1 test) {
     }
 
+    public void createObject(byte[] decodedBytes) {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

@@ -10,9 +10,9 @@ import java.util.Arrays;
 public class CentralSerializer {
 
 
-    public static byte[] serializePrimitive(Type type, String fieldName, boolean isOptional, Object fieldValue, byte[] item) {
+    public static byte[] serializePrimitive(Type type, String fieldName, boolean isMandatory, Object fieldValue, byte[] item) {
         //Append isOptional
-        item = convertToByteArray(isOptional, item);
+        item = convertToByteArray(isMandatory, item);
         //FieldType
          item = convertToByteArray(Helper.GetFieldCode(type.getTypeName()), item);
         //append FieldNameLenght
