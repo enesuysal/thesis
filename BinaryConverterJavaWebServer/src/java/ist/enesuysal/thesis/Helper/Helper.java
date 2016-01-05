@@ -72,7 +72,7 @@ public class Helper {
         switch (type) {
             case "byte":
             case "class java.lang.Byte":
-                return (null == o) ? 0 : o[0];
+                return (null == o) ? 0 : o[1];
             case "int":
             case "class java.lang.Integer":
                 return (null == o) ? 0 : CentralSerializer.convertToInt(o);
@@ -158,6 +158,20 @@ public class Helper {
                 return "double";
             case 0x10:
                 return "class java.lang.Boolean";
+            case 0x11:
+                return "class java.lang.Integer";
+            case 0x12:
+                return "class java.lang.Character";
+            case 0x13:
+                return "class java.lang.Byte";
+            case 0x14:
+                return "class java.lang.Long";
+            case 0x15:
+                return "class java.lang.Short";
+            case 0x16:
+                return "class java.lang.Float";
+            case 0x17:
+                return "class java.lang.Double";
             default:
                 return "class java.lang.Object";
         }
@@ -223,6 +237,27 @@ public class Helper {
             case "java.lang.Boolean":
                 fieldTypeBytes[0] = (byte) 0x10;
                 break;
+            case "java.lang.Integer":
+                fieldTypeBytes[0] = (byte) 0x11;
+                break;
+            case "java.lang.Character":
+                fieldTypeBytes[0] = (byte) 0x12;
+                break;
+            case "java.lang.Byte":
+                fieldTypeBytes[0] = (byte) 0x13;
+                break;
+            case "java.lang.Long":
+                fieldTypeBytes[0] = (byte) 0x14;
+                break;
+            case "java.lang.Short":
+                fieldTypeBytes[0] = (byte) 0x15;
+                break;
+            case "java.lang.Float":
+                fieldTypeBytes[0] = (byte) 0x16;
+                break;
+            case "java.lang.Double":
+                fieldTypeBytes[0] = (byte) 0x17;
+                break;    
             default:
                 fieldTypeBytes[0] = (byte) 0x00;
 
@@ -288,31 +323,32 @@ public class Helper {
 
     public static boolean CheckOptional(byte[] decodedBytes, byte[] newFieldByte) {
         byte[] NameSize = new byte[8];
-        boolean found =false;
+        boolean found = false;
         System.arraycopy(newFieldByte, 2, NameSize, 0, NameSize.length);
         byte[] Name = new byte[CentralSerializer.convertToInt(NameSize)];
-            if(indexOf(decodedBytes, NameSize)!=-1){
-                System.out.println("Bulundu");
-                System.out.println(Arrays.toString(decodedBytes));
-                System.arraycopy(newFieldByte, 18, Name, 0, Name.length);
-                System.out.println(Arrays.toString(Name));
-                System.out.println(indexOf(decodedBytes, NameSize)+16);
-                 byte[] Name2 = new byte[CentralSerializer.convertToInt(NameSize)];
-                 System.arraycopy(decodedBytes, indexOf(decodedBytes, NameSize)+16, Name2, 0, Name.length);
-                 System.out.println(Arrays.toString(Name2));
-                 if(Arrays.equals(Name, Name2))
-                     found = true;
+        if (indexOf(decodedBytes, NameSize) != -1) {
+            System.out.println("Bulundu");
+            System.out.println(Arrays.toString(decodedBytes));
+            System.arraycopy(newFieldByte, 18, Name, 0, Name.length);
+            System.out.println(Arrays.toString(Name));
+            System.out.println(indexOf(decodedBytes, NameSize) + 16);
+            byte[] Name2 = new byte[CentralSerializer.convertToInt(NameSize)];
+            System.arraycopy(decodedBytes, indexOf(decodedBytes, NameSize) + 16, Name2, 0, Name.length);
+            System.out.println(Arrays.toString(Name2));
+            if (Arrays.equals(Name, Name2)) {
+                found = true;
             }
-            
-           return found;
+        }
+
+        return found;
     }
 
-    public static boolean  CheckPrimitive(byte[] decodedBytes) {
+    public static boolean CheckPrimitive(byte[] decodedBytes) {
         byte[] NameLenghtSize = new byte[8];
         System.arraycopy(decodedBytes, 2, NameLenghtSize, 0, NameLenghtSize.length);
         byte[] ValueLenghtSize = new byte[8];
         System.arraycopy(decodedBytes, 10, ValueLenghtSize, 0, ValueLenghtSize.length);
-        return (decodedBytes.length ==(CentralSerializer.convertToInt(NameLenghtSize)+18+CentralSerializer.convertToInt(ValueLenghtSize)));
+        return (decodedBytes.length == (CentralSerializer.convertToInt(NameLenghtSize) + 18 + CentralSerializer.convertToInt(ValueLenghtSize)));
     }
 
 }

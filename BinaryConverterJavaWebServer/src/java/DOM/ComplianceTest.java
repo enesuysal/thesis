@@ -27,7 +27,7 @@ public class ComplianceTest {
         BASE64Decoder decoder = new BASE64Decoder();
         try {
             byte[] decodedBytes = decoder.decodeBuffer(BASE64String);
-            //System.out.println(Arrays.toString(decodedBytes));
+            System.out.println(Arrays.toString(decodedBytes));
             Receiver r = new Receiver();
             for (int i = 0; i < r.knownMethods.length; i++) {
 
@@ -36,12 +36,6 @@ public class ComplianceTest {
                     if(decodedBytes[1]==r.knownMethods[i].myfields[1])
                     //Create New bytearray
                     r.createPrimitive(decodedBytes);
-
-//                        if (Helper.GetFieldType(decodedBytes).equals(allAvaliableMethods.get(i).getParameters()[0].getType().toString())) {
-//                            System.out.println("Found");
-//                            //Create New bytearray
-//                          r.createWrapper(decodedBytes);
-//                        }
                 } else if(!Helper.CheckPrimitive(decodedBytes)){
                     //Object 
                     //System.out.println(Arrays.toString(r.knownMethods[i].myfields));

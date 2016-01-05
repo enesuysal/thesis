@@ -48,7 +48,7 @@ public class Receiver {
 
     public void createPrimitive(byte[] bytes) throws Exception {
         //Deserialize and Print
-        System.out.println("ss" + Arrays.toString(bytes));
+        //System.out.println("ss" + Arrays.toString(bytes));
         String type = (Helper.GetFieldType(bytes[1])); //FieldType
         int FieldNameLength = 0;
         byte[] FieldNameLengthByte = new byte[8];
@@ -62,7 +62,7 @@ public class Receiver {
         //Field hasValue
         byte[] FieldValueByte = new byte[bytes.length - (18 + FieldNameLength)];
         System.arraycopy(bytes, 18 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
-        System.out.println("Primitive Value " + Helper.GetFieldValue(type, FieldValueByte));
+        System.out.println("Value " + Helper.GetFieldValue(type, FieldValueByte));
         PrintObject(Helper.GetFieldValue(type, FieldValueByte));
     }
 
@@ -118,13 +118,56 @@ public class Receiver {
     public void MakeObjectA(int test) {
 
     }
-
     @AvaliableMethod
-    public void MakeObjectB(boolean test) {
+    public void MakeObjectA(byte test) {
+
     }
-
     @AvaliableMethod
-    public void MakeObjectC(String test) {
+    public void MakeObjectA(char test) {
+
+    }
+    @AvaliableMethod
+    public void MakeObjectA(long test) {
+
+    }
+    @AvaliableMethod
+    public void MakeObjectA(short test) {
+
+    }
+    @AvaliableMethod
+    public void MakeObjectA(float test) {
+
+    }
+    @AvaliableMethod
+    public void MakeObjectA(double test) {
+
+    }
+    @AvaliableMethod
+    public void MakeObjectA(boolean test) {
+    }
+@AvaliableMethod
+    public void MakeObjectB(Byte test) {
+    }
+    @AvaliableMethod
+    public void MakeObjectB(Integer test) {
+    }
+    @AvaliableMethod
+    public void MakeObjectB(Boolean test) {
+    }
+    @AvaliableMethod
+    public void MakeObjectB(Character test) {
+    }
+    @AvaliableMethod
+    public void MakeObjectB(Short test) {
+    }
+    @AvaliableMethod
+    public void MakeObjectB(Long test) {
+    }
+    @AvaliableMethod
+    public void MakeObjectB(Double test) {
+    }
+    @AvaliableMethod
+    public void MakeObjectB(Float test) {
     }
 
     @AvaliableMethod
