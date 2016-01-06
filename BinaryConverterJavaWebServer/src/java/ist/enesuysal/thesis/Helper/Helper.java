@@ -345,4 +345,15 @@ public class Helper {
         return (decodedBytes.length == (CentralSerializer.convertToInt(NameLenghtSize) + 17 + CentralSerializer.convertToInt(ValueLenghtSize)));
     }
 
+    public static Object GetValue(byte[] decodedBytes, String name, Class<?> type) {
+        byte[] bytes = new byte[0];
+        byte[] ValueSizebytes = new byte[8];
+        bytes = push(bytes, CentralSerializer.convertToByteArray(name.length(),push(bytes, CentralSerializer.convertToByteArray(GetFieldCode(type.getTypeName()),new byte[0]))));
+        System.arraycopy(decodedBytes, indexOf(decodedBytes,bytes)+9, ValueSizebytes, 0, ValueSizebytes.length);
+        int ValueLenght = CentralSerializer.convertToInt(ValueSizebytes);
+        byte[] Valuebytes = new byte[ValueLenght];
+        System.arraycopy(decodedBytes, indexOf(decodedBytes,bytes)+16   +ValueLenght, Valuebytes, 0, Valuebytes.length);
+        return Helper.GetFieldValue(type.toString(), Valuebytes);
+    }
+
 }

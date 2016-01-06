@@ -192,8 +192,18 @@ public class Receiver {
     public void MakeObjectC(Test1 test) {
     }
 
-    public void createObject(byte[] decodedBytes) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void createObject(String className, byte[] decodedBytes) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    Class c = Class.forName(className);
+    Object obj = c.newInstance();
+    Field[] methods = c.getFields();
+        for (Field f : methods) {
+            f.set(obj,Helper.GetValue(decodedBytes,f.getName(),f.getType()));
+             
+            
+        }
+        PrintObject(obj);
+    
+        
     }
 
 }

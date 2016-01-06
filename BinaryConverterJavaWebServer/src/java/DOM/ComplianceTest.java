@@ -38,6 +38,8 @@ public class ComplianceTest {
                     //Object 
                     //System.out.println(Arrays.toString(r.knownMethods[i].myfields));
                     boolean found = false;
+                    byte[] finalArray = new byte[0];
+                    String className = "";
                     while (Helper.GetFieldBytes(r.knownMethods[i].myfields).length != 0) {
                         found = false;
                         byte[] fieldByte = Helper.GetFieldBytes(r.knownMethods[i].myfields);
@@ -46,7 +48,12 @@ public class ComplianceTest {
                             byte[] newFieldByte = Helper.pop(fieldByte);
                             if (Helper.indexOf(decodedBytes, newFieldByte) != -1) {
                                 found = true;
+                                className = r.knownMethods[i].methodName;
                                 System.out.println("Mandatotory field found");
+                                finalArray = Helper.push(finalArray, newFieldByte);
+                            } else {
+                                System.out.println("Mandatotory field is not found");
+                                break;
                             }
                         } else {
                             //fieldByte= Helper.pop(fieldByte);
@@ -55,11 +62,15 @@ public class ComplianceTest {
                             //System.out.println(Arrays.toString(fieldByte));
                             if (Helper.indexOf(decodedBytes, newFieldByte) != -1) {
                                 found = true;
+                                className = r.knownMethods[i].methodName;
                                 System.out.println("Optional field found with field name and value equlity");
+                                finalArray = Helper.push(finalArray, newFieldByte);
                             } else {
 
                                 if (Helper.CheckOptional(decodedBytes, newFieldByte)) {
                                     System.out.println("Optional field found with field name equlity");
+                                    className = r.knownMethods[i].methodName;
+                                    finalArray = Helper.push(finalArray, newFieldByte);
                                     found = true;
                                 } else {
                                     System.out.println("Optional field is not found");
@@ -69,9 +80,8 @@ public class ComplianceTest {
                         }
                         r.knownMethods[i].myfields = Helper.pop(r.knownMethods[i].myfields, fieldByte);
                     }
-                    if(found){
-                    System.out.println(found);
-                    r.createObject(decodedBytes);
+                    if (found) {
+                        r.createObject(className, finalArray);
                     }
                 }
             }

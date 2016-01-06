@@ -9,13 +9,13 @@ public class TestSerial {
 
     }
     // Public primitive with default value
-    public int version=0;
+    public int version=56;
     // Public primitive with no value
     public String count = "";
     // Public primitive with default value 
     public boolean deneme;
     
-    public boolean test=true;
+    public boolean test=false;
 //    // Public primitive with default value
 //    public int test;
 //    // Public primitive with a value
