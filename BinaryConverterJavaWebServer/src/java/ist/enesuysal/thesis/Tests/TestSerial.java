@@ -11,7 +11,7 @@ public class TestSerial {
     // Public primitive with default value
     public int version=56;
     // Public primitive with no value
-    public String count = "";
+    public String ekes2 = "affff";
     // Public primitive with default value 
     public boolean deneme;
     

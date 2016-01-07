@@ -35,6 +35,7 @@ public class Receiver {
                 byte[] fieldbytes = new byte[0];
                 knownMethods[i].myfields = new byte[0];
                 for (int j = 0; j < fields.length; j++) {
+                    fields[j].setAccessible(true);
                     if (fields[j].isAnnotationPresent(Mandatory.class)) {
                         fieldbytes = CentralSerializer.serializePrimitive(fields[j].getType(), fields[j].getName(), true, fields[j].get(objectInstance), new byte[0]);
                     } else {
@@ -86,6 +87,7 @@ public class Receiver {
     }
 
     public void PrintObject(Object o) {
+        System.out.println("Found Object");
         StringBuilder result = new StringBuilder();
         String newLine = System.getProperty("line.separator");
 
@@ -156,6 +158,7 @@ public class Receiver {
     @AvaliableMethod
     public void MakeObjectB(Byte test) {
     }
+
     @AvaliableMethod
     public void MakeObjectB(String test) {
     }
@@ -192,18 +195,24 @@ public class Receiver {
     public void MakeObjectC(Test1 test) {
     }
 
+    @AvaliableMethod
+    public void MakeObjectC(Test2 test) {
+    }
+
+    @AvaliableMethod
+    public void MakeObjectC(Test3 test) {
+    }
+
     public void createObject(String className, byte[] decodedBytes) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-    Class c = Class.forName(className);
-    Object obj = c.newInstance();
-    Field[] methods = c.getFields();
+        Class c = Class.forName(className);
+        Object obj = c.newInstance();
+        Field[] methods = c.getFields();
         for (Field f : methods) {
-            f.set(obj,Helper.GetValue(decodedBytes,f.getName(),f.getType()));
-             
-            
+            f.set(obj, Helper.GetValue(decodedBytes, f.getName(), f.getType()));
+
         }
         PrintObject(obj);
-    
-        
+
     }
 
 }

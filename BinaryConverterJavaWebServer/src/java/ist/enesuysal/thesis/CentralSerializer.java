@@ -9,80 +9,89 @@ import java.util.Arrays;
 
 public class CentralSerializer {
 
-
     public static byte[] serializePrimitive(Type type, String fieldName, boolean isMandatory, Object fieldValue, byte[] item) {
         //Append isOptional
         item = convertToByteArray(isMandatory, item);
         //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName()), item);
+        item = convertToByteArray(Helper.GetFieldCode(type.getTypeName()), item);
         //append FieldNameLenght
-        item =  convertToByteArray(fieldName.length(), item);
+        item = convertToByteArray(fieldName.length(), item);
         //Append ValueLenght
-        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
+        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(), fieldValue, new byte[0]).length, item);
         //Append FieldName
         item = convertToByteArray(fieldName, item);
         //Append Value
-        item = Helper.GetFieldValueByte(type.toString(),fieldValue,item);//convertToByteArray(fieldValue, item);
+        item = Helper.GetFieldValueByte(type.toString(), fieldValue, item);//convertToByteArray(fieldValue, item);
         return item;
 
     }
-    
-    public static byte[] serializePrimitive(Type type, String fieldName,   Object fieldValue, byte[] item) {
-        
+
+    public static byte[] serializePrimitive(Type type, String fieldName, Object fieldValue, byte[] item) {
+
         //FieldType
-         item = convertToByteArray(Helper.GetFieldCode(type.getTypeName()), item);
+        item = convertToByteArray(Helper.GetFieldCode(type.getTypeName()), item);
         //append FieldNameLenght
-        item =  convertToByteArray(fieldName.length(), item);
+        item = convertToByteArray(fieldName.length(), item);
         //Append ValueLenght
-        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(),fieldValue,new byte[0]).length, item);
+        item = convertToByteArray(Helper.GetFieldValueByte(type.toString(), fieldValue, new byte[0]).length, item);
         //Append FieldName
         item = convertToByteArray(fieldName, item);
         //Append Value
-        item = Helper.GetFieldValueByte(type.toString(),fieldValue,item);//convertToByteArray(fieldValue, item);
+        item = Helper.GetFieldValueByte(type.toString(), fieldValue, item);//convertToByteArray(fieldValue, item);
         return item;
 
     }
 
     public static byte[] serializePrimitive(Type type, int fieldValue, byte[] item) {
-       return serializePrimitive(type,"", fieldValue, item);
-    }
-    public static byte[] serializePrimitive(Type type, byte fieldValue, byte[] item) {
-        return serializePrimitive(type,"", fieldValue, item);
-    }
-    public static byte[] serializePrimitive(Type type, char fieldValue, byte[] item) {
-       return serializePrimitive(type,"", fieldValue, item);
+        return serializePrimitive(type, "", fieldValue, item);
     }
 
-    
+    public static byte[] serializePrimitive(Type type, byte fieldValue, byte[] item) {
+        return serializePrimitive(type, "", fieldValue, item);
+    }
+
+    public static byte[] serializePrimitive(Type type, char fieldValue, byte[] item) {
+        return serializePrimitive(type, "", fieldValue, item);
+    }
+
     public static byte[] serializePrimitive(Type type, boolean fieldValue, byte[] item) {
-        return serializePrimitive(type,"", fieldValue, item);
+        return serializePrimitive(type, "", fieldValue, item);
     }
+
     public static byte[] serializePrimitive(Type type, Boolean fieldValue, byte[] item) {
-        return serializePrimitive(type,"", fieldValue, item);
+        return serializePrimitive(type, "", fieldValue, item);
     }
+
     public static byte[] serializePrimitive(Type type, Character fieldValue, byte[] item) {
-        return serializePrimitive(type,"", fieldValue, item);
+        return serializePrimitive(type, "", fieldValue, item);
     }
-     public static byte[] serializePrimitive(Type type, long fieldValue, byte[] item) {
-        return serializePrimitive(type,"", fieldValue, item);
+
+    public static byte[] serializePrimitive(Type type, long fieldValue, byte[] item) {
+        return serializePrimitive(type, "", fieldValue, item);
     }
-     public static byte[] serializePrimitive(Type type, short fieldValue, byte[] item) {
-       return serializePrimitive(type,"", fieldValue, item);
+
+    public static byte[] serializePrimitive(Type type, short fieldValue, byte[] item) {
+        return serializePrimitive(type, "", fieldValue, item);
     }
-     public static byte[] serializePrimitive(Type type, float fieldValue, byte[] item) {
-        return serializePrimitive(type,"", fieldValue, item);
+
+    public static byte[] serializePrimitive(Type type, float fieldValue, byte[] item) {
+        return serializePrimitive(type, "", fieldValue, item);
     }
-     public static byte[] serializePrimitive(Type type, double fieldValue, byte[] item) {
-        return serializePrimitive(type,"", fieldValue, item);
+
+    public static byte[] serializePrimitive(Type type, double fieldValue, byte[] item) {
+        return serializePrimitive(type, "", fieldValue, item);
     }
 
     public static byte[] serializePrimitive(Type type, String fieldValue, byte[] item) {
-         return serializePrimitive(type,"", fieldValue, item);
+        return serializePrimitive(type, "", fieldValue, item);
     }
+
     public static byte[] convertToByteArray(byte data, byte[] item) {
-    return Helper.push(item, new byte[]{data});
-}
+        return Helper.push(item, new byte[]{data});
+    }
+
     // Primitive Int to ByteArray
+
     public static byte[] convertToByteArray(int intValue, byte[] item) {
         byte[] arrayByte = new byte[8];
         arrayByte[0] = (byte) (intValue >> 56);
@@ -106,12 +115,10 @@ public class CentralSerializer {
     // Primitive String to ByteArray
     public static byte[] convertToByteArray(String input, byte[] item) {
         //if (input == null)
-          //  input="";
+        //  input="";
         byte[] arrayByte = input.getBytes(Charset.forName("UTF-8"));
         return Helper.push(item, arrayByte);
     }
-
-   
 
     public static byte[] convertToByteArray(char value, byte[] item) {
         byte[] bytes = new byte[2];
@@ -159,7 +166,9 @@ public class CentralSerializer {
     public static byte convertToByte(byte[] data) {
         return (data == null || data.length == 0) ? 0x0 : data[1];
     }
+
     // ByteArray to Integer
+
     public static int convertToInt(byte[] bytes) {
         return bytes[0] << 56 | (bytes[1] & 0xFF) << 48 | (bytes[2] & 0xFF) << 40 | (bytes[3] & 0xFF) << 32 | (bytes[4] & 0xFF) << 24 | (bytes[5] & 0xFF) << 16 | (bytes[6] & 0xFF) << 8 | (bytes[7] & 0xFF);
     }

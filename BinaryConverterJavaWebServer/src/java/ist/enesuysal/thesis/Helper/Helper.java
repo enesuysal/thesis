@@ -257,7 +257,7 @@ public class Helper {
                 break;
             case "java.lang.Double":
                 fieldTypeBytes = (byte) 0x17;
-                break;    
+                break;
             default:
                 fieldTypeBytes = (byte) 0x00;
 
@@ -346,13 +346,17 @@ public class Helper {
     }
 
     public static Object GetValue(byte[] decodedBytes, String name, Class<?> type) {
+
         byte[] bytes = new byte[0];
         byte[] ValueSizebytes = new byte[8];
-        bytes = push(bytes, CentralSerializer.convertToByteArray(name.length(),push(bytes, CentralSerializer.convertToByteArray(GetFieldCode(type.getTypeName()),new byte[0]))));
-        System.arraycopy(decodedBytes, indexOf(decodedBytes,bytes)+9, ValueSizebytes, 0, ValueSizebytes.length);
+        bytes = push(bytes, CentralSerializer.convertToByteArray(name.length(), push(bytes, CentralSerializer.convertToByteArray(GetFieldCode(type.getTypeName()), new byte[0]))));
+        System.out.println(Arrays.toString(bytes));
+        System.arraycopy(decodedBytes, indexOf(decodedBytes, bytes) + 9, ValueSizebytes, 0, ValueSizebytes.length);
+        System.out.println(Arrays.toString(ValueSizebytes));
         int ValueLenght = CentralSerializer.convertToInt(ValueSizebytes);
         byte[] Valuebytes = new byte[ValueLenght];
-        System.arraycopy(decodedBytes, indexOf(decodedBytes,bytes)+16   +ValueLenght, Valuebytes, 0, Valuebytes.length);
+        int addNumber = 17;
+        System.arraycopy(decodedBytes, indexOf(decodedBytes, bytes) + addNumber + name.length(), Valuebytes, 0, Valuebytes.length);
         return Helper.GetFieldValue(type.toString(), Valuebytes);
     }
 

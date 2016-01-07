@@ -26,6 +26,7 @@ public class ComplianceTest {
             byte[] decodedBytes = decoder.decodeBuffer(BASE64String);
             System.out.println(Arrays.toString(decodedBytes));
             Receiver r = new Receiver();
+            outerloop:
             for (int i = 0; i < r.knownMethods.length; i++) {
 
                 if (r.knownMethods[i].myfields.length == 1 && Helper.CheckPrimitive(decodedBytes)) {
@@ -40,16 +41,18 @@ public class ComplianceTest {
                     boolean found = false;
                     byte[] finalArray = new byte[0];
                     String className = "";
+                    
                     while (Helper.GetFieldBytes(r.knownMethods[i].myfields).length != 0) {
                         found = false;
                         byte[] fieldByte = Helper.GetFieldBytes(r.knownMethods[i].myfields);
+                       
                         if (fieldByte[0] == 1) {
 
                             byte[] newFieldByte = Helper.pop(fieldByte);
                             if (Helper.indexOf(decodedBytes, newFieldByte) != -1) {
                                 found = true;
                                 className = r.knownMethods[i].methodName;
-                                System.out.println("Mandatotory field found");
+                                System.out.println("Mandatotory field found @"+ r.knownMethods[i].methodName);
                                 finalArray = Helper.push(finalArray, newFieldByte);
                             } else {
                                 System.out.println("Mandatotory field is not found");
@@ -63,25 +66,29 @@ public class ComplianceTest {
                             if (Helper.indexOf(decodedBytes, newFieldByte) != -1) {
                                 found = true;
                                 className = r.knownMethods[i].methodName;
-                                System.out.println("Optional field found with field name and value equlity");
+                                System.out.println("Optional field found with field name and value equlity @"+ r.knownMethods[i].methodName);
                                 finalArray = Helper.push(finalArray, newFieldByte);
                             } else {
 
                                 if (Helper.CheckOptional(decodedBytes, newFieldByte)) {
-                                    System.out.println("Optional field found with field name equlity");
+                                    System.out.println("Optional field found with field name equlity @"+ r.knownMethods[i].methodName);
+                                    System.out.println(Arrays.toString(newFieldByte));
                                     className = r.knownMethods[i].methodName;
                                     finalArray = Helper.push(finalArray, newFieldByte);
+                                    
                                     found = true;
                                 } else {
                                     System.out.println("Optional field is not found");
-                                    break;
+                                   break;
                                 }
                             }
                         }
                         r.knownMethods[i].myfields = Helper.pop(r.knownMethods[i].myfields, fieldByte);
                     }
                     if (found) {
+                        System.out.println(Arrays.toString(finalArray));
                         r.createObject(className, finalArray);
+                         break outerloop;
                     }
                 }
             }
