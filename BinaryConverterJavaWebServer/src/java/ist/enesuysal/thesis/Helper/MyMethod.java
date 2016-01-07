@@ -5,7 +5,6 @@
  */
 package ist.enesuysal.thesis.Helper;
 
-import ist.enesuysal.thesis.Helper.MyField;
 
 /**
  *

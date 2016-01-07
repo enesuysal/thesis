@@ -1,7 +1,6 @@
 package ist.enesuysal.thesis;
 
 import ist.enesuysal.thesis.Helper.MyMethod;
-import ist.enesuysal.thesis.Helper.MyField;
 import ist.enesuysal.thesis.Helper.Helper;
 import ist.enesuysal.thesis.Annotation.AvaliableMethod;
 import ist.enesuysal.thesis.Annotation.Mandatory;
