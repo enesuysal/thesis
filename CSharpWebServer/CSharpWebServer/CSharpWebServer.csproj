@@ -39,11 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CentralSerializer.cs" />
-    <Compile Include="Message.cs" />
+    <Compile Include="ist.enesuysal.thesis.Helper\Helper.cs" />
+    <Compile Include="ist.enesuysal.thesis\CentralSerializer.cs" />
+    <Compile Include="ist.enesuysal.thesis\Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Receiver.cs" />
-    <Compile Include="Test.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DOM\" />
+    <Folder Include="ist.enesuysal.thesis.Annotation\" />
+    <Folder Include="ist.enesuysal.thesis.Tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
