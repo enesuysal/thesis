@@ -18,33 +18,33 @@ namespace CSharpWebServer.ist.enesuysal.thesis
         }
         public Message(int message)
         {
-            // messageSerilized = CentralSerializer.serializePrimitive(int.class, message, messageSerilized);//convertToByteArray(message,messageSerilized);
+             messageSerilized = CentralSerializer.serializePrimitive(typeof(int), message, messageSerilized);//convertToByteArray(message,messageSerilized);
 
         }
         public Message(bool message)
         {
-            // messageSerilized = CentralSerializer.serializePrimitive(boolean.class, message, messageSerilized);
+            messageSerilized = CentralSerializer.serializePrimitive(typeof(bool), message, messageSerilized);
         }
 
         public Message(char message)
         {
-            // messageSerilized = CentralSerializer.serializePrimitive(char.class, message, messageSerilized);
+            messageSerilized = CentralSerializer.serializePrimitive(typeof(char), message, messageSerilized);
         }
         public Message(long message)
         {
-            //messageSerilized = CentralSerializer.serializePrimitive(long.class,message,messageSerilized);
+            messageSerilized = CentralSerializer.serializePrimitive(typeof(long), message, messageSerilized);
         }
         public Message(short message)
         {
-            //messageSerilized = CentralSerializer.serializePrimitive(short.class,message,messageSerilized);
+            messageSerilized = CentralSerializer.serializePrimitive(typeof(short), message, messageSerilized);
         }
         public Message(float message)
         {
-            //messageSerilized = CentralSerializer.serializePrimitive(float.class,message,messageSerilized);
+            messageSerilized = CentralSerializer.serializePrimitive(typeof(float), message, messageSerilized);
         }
         public Message(double message)
         {
-            //messageSerilized = CentralSerializer.serializePrimitive(double.class,message,messageSerilized);
+            messageSerilized = CentralSerializer.serializePrimitive(typeof(double), message, messageSerilized);
         }
     }
 }

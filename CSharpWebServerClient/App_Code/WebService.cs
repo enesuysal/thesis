@@ -25,6 +25,7 @@ public class WebService : System.Web.Services.WebService {
  
         try {
             //return Receiver.GetMessage(value);
+            return null;
         } catch (Exception ex) {
             return null;
         }

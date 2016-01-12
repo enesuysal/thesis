@@ -25,7 +25,7 @@ namespace ConsoleTest
             Boolean test4_1 = true;
             Char test5_1 = 'a';
             Double test9_1 = 34.4;
-            Message msg = new Message(test9);
+            Message msg = new Message(test1);
         }
     }
 }
