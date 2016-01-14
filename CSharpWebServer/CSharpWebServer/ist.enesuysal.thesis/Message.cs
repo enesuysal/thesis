@@ -16,6 +16,11 @@ namespace CSharpWebServer.ist.enesuysal.thesis
         {
             messageSerilized = CentralSerializer.serializePrimitive(typeof(byte), message, messageSerilized);
         }
+        public Message(string message)
+        {
+            messageSerilized = CentralSerializer.serializePrimitive(typeof(string), message, messageSerilized);
+        }
+      
         public Message(int message)
         {
              messageSerilized = CentralSerializer.serializePrimitive(typeof(int), message, messageSerilized);//convertToByteArray(message,messageSerilized);
@@ -46,5 +51,11 @@ namespace CSharpWebServer.ist.enesuysal.thesis
         {
             messageSerilized = CentralSerializer.serializePrimitive(typeof(double), message, messageSerilized);
         }
+
+        public string Seriliaze()
+        {
+            string temp_inBase64 = Convert.ToBase64String(messageSerilized);
+            return temp_inBase64;
+        } 
     }
 }

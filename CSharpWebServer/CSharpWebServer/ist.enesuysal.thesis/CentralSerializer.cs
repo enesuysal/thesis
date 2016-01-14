@@ -24,12 +24,22 @@ namespace CSharpWebServer.ist.enesuysal.thesis
             return item;
 
         }
-
+        public static byte[] serializePrimitive(Type type, String fieldValue, byte[] item)
+        {
+            return serializePrimitive(type, "", fieldValue, item);
+        }
+        public static byte[] serializePrimitive(Type type, byte fieldValue, byte[] item)
+        {
+            return serializePrimitive(type, "", fieldValue, item);
+        }
         public static byte[] serializePrimitive(Type type, int fieldValue, byte[] item)
         {
             return serializePrimitive(type, "", fieldValue, item);
         }
-
+        public static byte[] serializePrimitive(Type type, char fieldValue, byte[] item)
+        {
+            return serializePrimitive(type, "", fieldValue, item);
+        }
         public static byte[] serializePrimitive(Type type, bool fieldValue, byte[] item)
         {
             return serializePrimitive(type, "", fieldValue, item);
@@ -80,7 +90,9 @@ namespace CSharpWebServer.ist.enesuysal.thesis
         // Primitive Bool to ByteArray
         public static byte[] convertToByteArray(bool input, byte[] item)
         {
-            throw new NotImplementedException();
+            byte[] arrayByte = new byte[1];
+            arrayByte[0] = input ? (byte)1 : (byte)0;
+            return Helper.push(item, arrayByte);
         }
 
 
@@ -88,13 +100,15 @@ namespace CSharpWebServer.ist.enesuysal.thesis
 
         public static byte[] convertToByteArray(char value, byte[] item)
         {
-            throw new NotImplementedException();
+            byte[] arrayByte = BitConverter.GetBytes(value);
+            return Helper.push(item, arrayByte);
         }
 
         public static byte[] convertToByteArray(long value, byte[] item)
         {
 
-            throw new NotImplementedException();
+            byte[] arrayByte = BitConverter.GetBytes(value);
+            return Helper.push(item, arrayByte);
         }
 
         public static byte[] convertToByteArray(short value, byte[] item)
@@ -105,7 +119,8 @@ namespace CSharpWebServer.ist.enesuysal.thesis
 
         public static byte[] convertToByteArray(float value, byte[] item)
         {
-            throw new NotImplementedException();
+            byte[] arrayByte = BitConverter.GetBytes(value);
+            return Helper.push(item, arrayByte);
         }
 
         public static byte[] convertToByteArray(double value, byte[] item)

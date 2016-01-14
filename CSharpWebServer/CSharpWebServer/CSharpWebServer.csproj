@@ -39,14 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DOM\ComplianceTest.cs" />
+    <Compile Include="ist.enesuysal.thesis.Annotation\AvaliableMethod.cs" />
     <Compile Include="ist.enesuysal.thesis.Helper\Helper.cs" />
+    <Compile Include="ist.enesuysal.thesis.Helper\MyMethod.cs" />
     <Compile Include="ist.enesuysal.thesis\CentralSerializer.cs" />
     <Compile Include="ist.enesuysal.thesis\Message.cs" />
+    <Compile Include="ist.enesuysal.thesis\Receiver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DOM\" />
-    <Folder Include="ist.enesuysal.thesis.Annotation\" />
     <Folder Include="ist.enesuysal.thesis.Tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

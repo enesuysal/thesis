@@ -81,8 +81,8 @@ namespace CSharpWebServer.ist.enesuysal.thesis
             {
                 case "System.Byte":
                     return CentralSerializer.convertToByteArray((byte)o, bytes);
-                case "int":
-                case "System.Integer":
+              
+                case "System.Int32":
                     return CentralSerializer.convertToByteArray((int)o, bytes);
                 case "System.String":
                     return CentralSerializer.convertToByteArray((String)o, bytes);
@@ -90,16 +90,18 @@ namespace CSharpWebServer.ist.enesuysal.thesis
                 case "System.Boolean":
                     return CentralSerializer.convertToByteArray((bool)o, bytes);
                 case "char":
-                case "System.Character":
+                case "System.Char":
                     return CentralSerializer.convertToByteArray((char)o, bytes);
                 case "long":
                 case "System.Long":
+                case "System.Int64":
                     return CentralSerializer.convertToByteArray((long)o, bytes);
                 case "short":
+                case "System.Int16":
                 case "System.Short":
                     return CentralSerializer.convertToByteArray((short)o, bytes);
                 case "float":
-                case "System.Float":
+                case "System.Single":
                     return CentralSerializer.convertToByteArray((float)o, bytes);
                 case "System.Double":
                     return CentralSerializer.convertToByteArray((double)o, bytes);
