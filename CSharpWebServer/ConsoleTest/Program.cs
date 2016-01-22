@@ -12,12 +12,12 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-            byte test1 = 0x15;
+            byte test1 = 0x15; //hata
             int test2 = 10;
-            String test3 = "Deneme";
+            string test3 = "Deneme"; //Primitive Degil
             bool test4 = true;
-            char test5 = 'a';
-            long test6 = 4666;
+            char test5 = 'a'; //hata
+            long test6 = 4666; //hata
             short test7 = 12345;//Hata
             float test8 = 4666;
             double test9 = 34.4;
@@ -26,8 +26,8 @@ namespace ConsoleTest
             Boolean test4_1 = true;
             Char test5_1 = 'a';
             Double test9_1 = 34.4;
-            Message msg = new Message(test9_1);
-            string msgToSend = msg.Seriliaze();
+            Message msg = new Message(test3);
+            string msgToSend = "AgAAAAAAAAAAAAAACAAAAAgAAAAKAAAACg==";//msg.Seriliaze();
             ComplianceTest complience = new ComplianceTest();
             complience.GetMessage(msgToSend);
             Console.ReadLine();

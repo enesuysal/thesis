@@ -24,6 +24,8 @@ namespace CSharpWebServer.ist.enesuysal.thesis
             return item;
 
         }
+
+
         public static byte[] serializePrimitive(Type type, String fieldValue, byte[] item)
         {
             return serializePrimitive(type, "", fieldValue, item);
@@ -141,14 +143,15 @@ namespace CSharpWebServer.ist.enesuysal.thesis
 
         public static int convertToInt(byte[] bytes)
         {
-            throw new NotImplementedException();
+            return bytes[0] << 56 | bytes[1] << 48 | bytes[2] << 40 | bytes[3] << 32 | bytes[4] << 24 | (bytes[5] & 0xFF) << 16 | (bytes[6] & 0xFF) << 8 | (bytes[7] & 0xFF);
         }
 
         // Boolean
         // ByteArray to Bool
         public static bool convertToBool(byte[] bytes)
         {
-            throw new NotImplementedException();
+            bool output = Convert.ToBoolean(bytes[0]);
+            return output;
         }
 
         // String
@@ -170,17 +173,20 @@ namespace CSharpWebServer.ist.enesuysal.thesis
 
         public static char convertToCharacter(byte[] array)
         {
-            throw new NotImplementedException();
+            char output = BitConverter.ToChar(array, 0);
+            return output;
         }
 
         public static double convertToDouble(byte[] array)
         {
-            throw new NotImplementedException();
+            double output = BitConverter.ToDouble(array, 0);
+            return output;
         }
 
         public static float convertToFloat(byte[] array)
         {
-            throw new NotImplementedException();
+            float  output = BitConverter.ToSingle(array, 0);
+            return output;
         }
 
     }

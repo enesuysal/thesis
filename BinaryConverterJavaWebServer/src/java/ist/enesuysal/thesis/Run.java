@@ -29,12 +29,12 @@ public class Run {
         Double test9_1 = 34.4;
         
         TestSerial tt = new TestSerial();
-        Message msg = new Message(tt);
+        Message msg = new Message(test2);
         String msgToSend = msg.Seriliaze();
-        ComplianceTest complience = new ComplianceTest();
-        complience.GetMessage(msgToSend);
+        //ComplianceTest complience = new ComplianceTest();
+        //complience.GetMessage(msgToSend);
 
-        //System.out.println( Arrays.toString(tt.Serialize()));
+        System.out.println(msgToSend);
     }
 
 }

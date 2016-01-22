@@ -10,18 +10,29 @@ namespace CSharpWebServer.DOM
     {
         public void GetMessage(string BASE64String)
         {
-            try
-            {
+            //try
+            //{
                 byte[] decodedBytes = Convert.FromBase64String(BASE64String);
                 Receiver r = new Receiver();
-               
+               for (int i = 0; i < r.knownMethods.Count; i++) {
+
+                if (r.knownMethods[i].myfields.Length == 1 && Helper.CheckPrimitive(decodedBytes)) {
+                    //Check Type
+                    if (decodedBytes[0] == r.knownMethods[i].myfields[0]) //Create New bytearray
+                    {
+                       
+                        r.createPrimitive(decodedBytes);
+                    }
+                }
+                
+            }
 
 
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw ex;
+            //}
         }
     }
 }
