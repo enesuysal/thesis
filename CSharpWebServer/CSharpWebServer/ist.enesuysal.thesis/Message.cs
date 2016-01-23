@@ -56,6 +56,7 @@ namespace CSharpWebServer.ist.enesuysal.thesis
         {
             string temp_inBase64 = Convert.ToBase64String(messageSerilized);
             return temp_inBase64;
-        } 
+        }
+       
     }
 }

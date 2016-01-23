@@ -18,7 +18,7 @@ namespace CSharpWebServer.DOM
 
                 if (r.knownMethods[i].myfields.Length == 1 && Helper.CheckPrimitive(decodedBytes)) {
                     //Check Type
-                    if (decodedBytes[0] == r.knownMethods[i].myfields[0]) //Create New bytearray
+                    if (Helper.GetFieldType(decodedBytes[0]) == Helper.GetFieldType(r.knownMethods[i].myfields[0])) //Create New bytearray
                     {
                        
                         r.createPrimitive(decodedBytes);

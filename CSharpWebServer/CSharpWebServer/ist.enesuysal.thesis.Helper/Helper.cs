@@ -29,44 +29,47 @@ namespace CSharpWebServer.ist.enesuysal.thesis
             switch (type)
             {
                 case 0x01:
+                case 0x13:
                     return "System.Byte";
                 case 0x02:
+                case 0x11:
                     return "System.Int32";
                 case 0x03:
                     return "System.String";
                 case 0x04:
+                case 0x10:
                     return "System.Boolean";
                 case 0x05:
+                case 0x12:
                     return "System.Char";
                 case 0x06:
+                case 0x14:
                     return "System.Long";
                 case 0x07:
+                case 0x15:
                     return "System.Short";
                 case 0x08:
+                case 0x16:
                     return "System.Single";
                 case 0x09:
-                    return "System.Double";
-                case 0x10:
-                    return "class java.lang.Boolean";
-                case 0x11:
-                    return "class java.lang.Integer";
-                case 0x12:
-                    return "class java.lang.Character";
-                case 0x13:
-                    return "class java.lang.Byte";
-                case 0x14:
-                    return "class java.lang.Long";
-                case 0x15:
-                    return "class java.lang.Short";
-                case 0x16:
-                    return "class java.lang.Float";
                 case 0x17:
-                    return "class java.lang.Double";
+                    return "System.Double";
                 default:
-                    return "class java.lang.Object";
+                    return "System.Object";
             }
 
         }
+        
+        public static bool isWrapperType(string clazz) {
+            return getWrapperTypes().Contains(clazz);
+    }
+
+    private static List<string> getWrapperTypes() {
+        List<string> ret = new List<string>();
+        ret.Add("System.String");
+        
+        return ret;
+    }
         public static byte GetFieldCode(String o)
         {
             byte fieldTypeBytes = (byte)0x00;
@@ -156,7 +159,7 @@ namespace CSharpWebServer.ist.enesuysal.thesis
                 case "short":
                 case "System.Int16":
                 case "System.Short":
-                    return CentralSerializer.convertToByteArray((short)o, bytes);
+                    return CentralSerializer.convertToByteArray(Convert.ToInt16(o), bytes);
                 case "float":
                 case "System.Single":
                     return CentralSerializer.convertToByteArray((float)o, bytes);
@@ -165,7 +168,12 @@ namespace CSharpWebServer.ist.enesuysal.thesis
             }
             return null;
         }
-
+        public static sbyte[] toSignedByteArray(byte[] unsigned)
+        {
+            sbyte[] signed = new sbyte[unsigned.Length];
+            Buffer.BlockCopy(unsigned, 0, signed, 0, unsigned.Length);
+            return signed;
+        }
         public static Object GetFieldValue(String type, byte[] o)
         {
 
@@ -182,11 +190,11 @@ namespace CSharpWebServer.ist.enesuysal.thesis
                     return (null == o) ? false : CentralSerializer.convertToBool(o);
                 case "char":
                 case "System.Char":
-                    return (null == o) ? 0 : CentralSerializer.convertToCharacter(o);
-                case "long":
+                    return (null == o) ? "" : Char.ConvertFromUtf32(CentralSerializer.convertToCharacter(o));
+                case "System.Long":
                 case "System.Int64":
                     return (null == o) ? 0 : CentralSerializer.convertToLong(o);
-                case "short":
+                case "System.Short":
                 case "System.Int16":
                     return (null == o) ? 0 : CentralSerializer.convertToShort(o);
                 case "float":

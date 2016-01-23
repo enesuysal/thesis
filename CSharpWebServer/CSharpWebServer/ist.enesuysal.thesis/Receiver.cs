@@ -24,7 +24,7 @@ namespace CSharpWebServer.ist.enesuysal.thesis
                 {
                    
                     ParameterInfo o = myArrayMethodInfo[i].GetParameters()[0];
-                    if (o.ParameterType.IsPrimitive)
+                    if (o.ParameterType.IsPrimitive ||  Helper.isWrapperType(o.ParameterType.ToString()))
                     {
                         knownMethods.Add(new MyMethod());
                         knownMethods[knownMethods.Count-1].myfields = CentralSerializer.convertToByteArray(Helper.GetFieldCode(o.ParameterType.ToString()), new byte[0]);
@@ -55,41 +55,16 @@ namespace CSharpWebServer.ist.enesuysal.thesis
         //Field hasValue
         byte[] FieldValueByte = new byte[bytes.Length - (17 + FieldNameLength)];
         Array.Copy(bytes, 17 + FieldNameLength, FieldValueByte, 0, FieldValueByte.Length);
-        Console.WriteLine("Value " + Helper.GetFieldValue(type, FieldValueByte));
-        PrintObject(Helper.GetFieldValue(type, FieldValueByte));
+         
+        PrintObject(Helper.GetFieldValue(type, FieldValueByte),type);
     }
 
 
 
 
-    public void PrintObject(Object o) {
-        Console.WriteLine("Found Object");
-        StringBuilder result = new StringBuilder();
-        String newLine = System.Environment.NewLine;
-
-        result.Append(o.GetType().Name);
-        result.Append(" Object {");
-         
-
-        ////determine fields declared in this class only (no fields of superclass)
-        //Field[] fields = o.getClass().getDeclaredFields();
-
-        ////print field names paired with their values
-        //for (Field field : fields) {
-        //    result.append("  ");
-        //    try {
-        //        result.append(field.getName());
-        //        result.append(": ");
-        //        //requires access to private field:
-        //        result.append(field.get(o));
-        //    } catch (IllegalAccessException ex) {
-        //        //System.out.println(ex);
-        //    }
-            result.Append(newLine);
-       // }
-        result.Append("}");
-
-        Console.WriteLine(result.ToString());
+    public void PrintObject(Object o,string type) {
+        Console.WriteLine("TYPE: " + type);
+        Console.WriteLine("Value: " + o);
     }
     [AvaliableMethod]
     public void MakeObjectA(int test) {
@@ -103,7 +78,7 @@ namespace CSharpWebServer.ist.enesuysal.thesis
     }
 
     [AvaliableMethod]
-    public void MakeObjectA(char test)
+    public void MakeObjectA(Char test)
     {
 
     }
@@ -137,40 +112,18 @@ namespace CSharpWebServer.ist.enesuysal.thesis
     {
     }
 
-    [AvaliableMethod]
-    public void MakeObjectB(Byte test)
-    {
-    }
 
     [AvaliableMethod]
     public void MakeObjectB(string test)
     {
     }
-
-    [AvaliableMethod]
-    public void MakeObjectB(int test)
-    {
-    }
-
-    [AvaliableMethod]
-    public void MakeObjectB(Boolean test)
-    {
-    }
-
-    [AvaliableMethod]
-    public void MakeObjectB(char test)
-    {
-    }
+  
 
     [AvaliableMethod]
     public void MakeObjectB(short test)
     {
     }
 
-    [AvaliableMethod]
-    public void MakeObjectB(long test)
-    {
-    }
 
     [AvaliableMethod]
     public void MakeObjectB(double test)

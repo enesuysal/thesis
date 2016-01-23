@@ -102,33 +102,34 @@ namespace CSharpWebServer.ist.enesuysal.thesis
 
         public static byte[] convertToByteArray(char value, byte[] item)
         {
-            byte[] arrayByte = BitConverter.GetBytes(value);
+            byte[] arrayByte = BitConverter.GetBytes(value).Reverse().ToArray();
             return Helper.push(item, arrayByte);
         }
 
         public static byte[] convertToByteArray(long value, byte[] item)
         {
-
-            byte[] arrayByte = BitConverter.GetBytes(value);
+            //REverse for Java
+            byte[] arrayByte = BitConverter.GetBytes(value).Reverse().ToArray();
             return Helper.push(item, arrayByte);
         }
 
         public static byte[] convertToByteArray(short value, byte[] item)
         {
 
-            throw new NotImplementedException();
+            byte[] arrayByte = BitConverter.GetBytes(value).Reverse().ToArray();
+            return Helper.push(item, arrayByte);
         }
 
         public static byte[] convertToByteArray(float value, byte[] item)
         {
-            byte[] arrayByte = BitConverter.GetBytes(value);
+            byte[] arrayByte = BitConverter.GetBytes(value).Reverse().ToArray();
             return Helper.push(item, arrayByte);
         }
 
         public static byte[] convertToByteArray(double value, byte[] item)
         {
            byte[] bytes = new byte[8];
-           bytes =  BitConverter.GetBytes(value);
+           bytes = BitConverter.GetBytes(value).Reverse().ToArray();
            return Helper.push(item, bytes);
         }
 
@@ -158,34 +159,37 @@ namespace CSharpWebServer.ist.enesuysal.thesis
         // ByteArray to String
         public static String convertToString(byte[] bytes)
         {
-            throw new NotImplementedException();
+            return System.Text.Encoding.UTF8.GetString(bytes);
         }
 
         public static long convertToLong(byte[] array)
         {
-            throw new NotImplementedException();
+            long output = BitConverter.ToInt64(array.Reverse().ToArray(), 0);
+            return output;
         }
 
         public static short convertToShort(byte[] array)
         {
-            throw new NotImplementedException();
+            short output = BitConverter.ToInt16(array.Reverse().ToArray(), 0);
+            return output;
         }
 
         public static char convertToCharacter(byte[] array)
         {
-            char output = BitConverter.ToChar(array, 0);
+
+            Char output = BitConverter.ToChar(array.Reverse().ToArray(), 0);
             return output;
         }
 
         public static double convertToDouble(byte[] array)
         {
-            double output = BitConverter.ToDouble(array, 0);
+            double output = BitConverter.ToDouble(array.Reverse().ToArray(), 0);
             return output;
         }
 
         public static float convertToFloat(byte[] array)
         {
-            float  output = BitConverter.ToSingle(array, 0);
+            float output = BitConverter.ToSingle(array.Reverse().ToArray(), 0);
             return output;
         }
 
