@@ -4,19 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CSharpWebServer.ist.enesuysal.thesis.Tests
 {
-    public class Test1
+    public class Test3
     {
         [Mandatory]
         public String ekes2 = "affff";
+        [Mandatory]
+        public int version = 56;
 
-        //@Mandatory
-        //public int version;
-        //@Mandatory
-        //public boolean deneme;
-        //public int test = 66;
+        public bool deneme;
+
+        public bool test = true;
         public byte[] Serialize()
         {
             byte[] arrayResult = new byte[0];

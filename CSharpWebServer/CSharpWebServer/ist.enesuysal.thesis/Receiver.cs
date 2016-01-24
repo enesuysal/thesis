@@ -101,11 +101,11 @@ namespace CSharpWebServer.ist.enesuysal.thesis
                 field.SetValue(instance, Helper.GetValue(decodedBytes, field.Name, field.FieldType.FullName)); //.set(obj, Helper.GetValue(decodedBytes, f.getName(), f.getType()));
 
             }
-            PrintObject2(instance);
+            PrintObject(instance);
 
         }
 
-        public void PrintObject2(Object o)
+        public void PrintObject(Object o)
         {
             Type type = o.GetType(); // Get type pointer
             FieldInfo[] fields = type.GetFields(); // Obtain all fields
@@ -125,88 +125,90 @@ namespace CSharpWebServer.ist.enesuysal.thesis
             Console.WriteLine("TYPE: " + type);
             Console.WriteLine("Value: " + o);
         }
-        //[AvaliableMethod]
-        //public void MakeObjectA(int test)
-        //{
+        [AvaliableMethod]
+        public void MakeObjectA(int test)
+        {
 
-        //}
+        }
 
-        //[AvaliableMethod]
-        //public void MakeObjectA(byte test)
-        //{
+        [AvaliableMethod]
+        public void MakeObjectA(byte test)
+        {
 
-        //}
+        }
 
-        //[AvaliableMethod]
-        //public void MakeObjectA(Char test)
-        //{
+        [AvaliableMethod]
+        public void MakeObjectA(Char test)
+        {
 
-        //}
+        }
 
-        //[AvaliableMethod]
-        //public void MakeObjectA(long test)
-        //{
+        [AvaliableMethod]
+        public void MakeObjectA(long test)
+        {
 
-        //}
+        }
 
-        //[AvaliableMethod]
-        //public void MakeObjectA(short test)
-        //{
+        [AvaliableMethod]
+        public void MakeObjectA(short test)
+        {
 
-        //}
+        }
 
-        //[AvaliableMethod]
-        //public void MakeObjectA(float test)
-        //{
+        [AvaliableMethod]
+        public void MakeObjectA(float test)
+        {
 
-        //}
+        }
 
-        //[AvaliableMethod]
-        //public void MakeObjectA(double test)
-        //{
+        [AvaliableMethod]
+        public void MakeObjectA(double test)
+        {
 
-        //}
+        }
 
-        //[AvaliableMethod]
-        //public void MakeObjectA(bool test)
-        //{
-        //}
-
-
-        //[AvaliableMethod]
-        //public void MakeObjectB(string test)
-        //{
-        //}
+        [AvaliableMethod]
+        public void MakeObjectA(bool test)
+        {
+        }
 
 
-        //[AvaliableMethod]
-        //public void MakeObjectB(short test)
-        //{
-        //}
+        [AvaliableMethod]
+        public void MakeObjectB(string test)
+        {
+        }
 
 
-        //[AvaliableMethod]
-        //public void MakeObjectB(double test)
-        //{
-        //}
+        [AvaliableMethod]
+        public void MakeObjectB(short test)
+        {
+        }
 
-        //[AvaliableMethod]
-        //public void MakeObjectB(float test)
-        //{
-        //}
+
+        [AvaliableMethod]
+        public void MakeObjectB(double test)
+        {
+        }
+
+        [AvaliableMethod]
+        public void MakeObjectB(float test)
+        {
+        }
 
         [AvaliableMethod]
         public void MakeObjectC(Test1 test)
         {
         }
 
-        // [AvaliableMethod]
-        //public void MakeObjectC(Test2 test) {
-        //}
+        [AvaliableMethod]
+        public void MakeObjectC(Test2 test)
+        {
+        }
 
-        // [AvaliableMethod]
-        //public void MakeObjectC(Test3 test) {
-        //}
+        [AvaliableMethod]
+        public void MakeObjectC(Test3 test)
+        {
+        }
 
 
     }
