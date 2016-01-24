@@ -1,6 +1,7 @@
 ﻿using CSharpWebServer;
 using CSharpWebServer.DOM;
 using CSharpWebServer.ist.enesuysal.thesis;
+using CSharpWebServer.ist.enesuysal.thesis.Tests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,11 +27,12 @@ namespace ConsoleTest
             Boolean test4_1 = false;
             Char test5_1 = 'f';
             Double test9_1 = 34.4;
-            Message msg = new Message(test5);
+            TestSerial tt = new TestSerial();
+            Message msg = new Message(tt);
             //Console.WriteLine(test5);
             string msgToSend = msg.Seriliaze();
             //string msgToSend = "BQAAAAAAAAAAAAAAAgAAAAIAYQ==";
-            Console.WriteLine(msgToSend);
+            //Console.WriteLine(msgToSend);
             ComplianceTest complience = new ComplianceTest();
             complience.GetMessage(msgToSend);
             Console.ReadLine();

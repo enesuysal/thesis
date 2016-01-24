@@ -14,7 +14,20 @@ namespace CSharpWebServer.ist.enesuysal.thesis
             Array.Copy(push, 0, longer, array.Length, push.Length);
             return longer;
         }
+         public static Object GetValue(byte[] decodedBytes, string name, string type) {
 
+        byte[] bytes = new byte[0];
+        byte[] ValueSizebytes = new byte[8];
+        bytes = push(bytes, CentralSerializer.convertToByteArray(name.Length, push(bytes, CentralSerializer.convertToByteArray(GetFieldCode(type),new byte[0]))));
+        //Console.WriteLine(Arrays.toString(bytes));
+       Array.Copy(decodedBytes, indexOf(decodedBytes, bytes) + 9, ValueSizebytes, 0, ValueSizebytes.Length);
+       // System.out.println(Arrays.toString(ValueSizebytes));
+        int ValueLenght = CentralSerializer.convertToInt(ValueSizebytes);
+        byte[] Valuebytes = new byte[ValueLenght];
+        int addNumber = 17;
+        Array.Copy(decodedBytes, indexOf(decodedBytes, bytes) + addNumber + name.Length, Valuebytes, 0, Valuebytes.Length);
+        return Helper.GetFieldValue(type.ToString(), Valuebytes);
+    }
         public static bool CheckPrimitive(byte[] decodedBytes)
         {
             byte[] NameLenghtSize = new byte[8];
@@ -205,6 +218,77 @@ namespace CSharpWebServer.ist.enesuysal.thesis
                     return (null == o) ? 0 : CentralSerializer.convertToDouble(o);
             }
             return null;
+
+        }
+        public static byte[] pop(byte[] array)
+        {
+            byte[] longer = new byte[array.Length - 1];
+            Array.Copy(array, 1, longer, 0, longer.Length);
+            return longer;
+        }
+        public static byte[] pop(byte[] array, byte[] pop)
+        {
+            byte[] longer = new byte[array.Length - pop.Length];
+            Array.Copy(array, pop.Length, longer, 0, longer.Length);
+            // System.arraycopy(push, 0, longer, array.length, push.length);
+
+            return longer;
+        }
+        public static bool CheckOptional(byte[] decodedBytes, byte[] newFieldByte)
+        {
+            byte[] NameSize = new byte[8];
+            bool found = false;
+            Array.Copy(newFieldByte, 1, NameSize, 0, NameSize.Length);
+            byte[] Name = new byte[CentralSerializer.convertToInt(NameSize)];
+            if (indexOf(decodedBytes, NameSize) != -1)
+            {
+                Array.Copy(newFieldByte, 17, Name, 0, Name.Length);
+                byte[] Name2 = new byte[CentralSerializer.convertToInt(NameSize)];
+                Array.Copy(decodedBytes, indexOf(decodedBytes, NameSize) + 16, Name2, 0, Name.Length);
+                if (Array.Equals(Name, Name2))
+                {
+                    found = true;
+                }
+            }
+            return found;
+        }
+        public static int indexOf(byte[] outerArray, byte[] smallerArray)
+        {
+            for (int i = 0; i < outerArray.Length - smallerArray.Length + 1; ++i)
+            {
+                bool found = true;
+                for (int j = 0; j < smallerArray.Length; ++j)
+                {
+                    if (outerArray[i + j] != smallerArray[j])
+                    {
+                        found = false;
+                        break;
+                    }
+                }
+                if (found)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        public static byte[] GetFieldBytes(byte[] value)
+        {
+
+            try
+            {
+                byte[] FieldNameLenghtbytes = new byte[8];
+                byte[] FieldValueLenghtbytes = new byte[8];
+                Array.Copy(value, 2, FieldNameLenghtbytes, 0, FieldNameLenghtbytes.Length);
+                Array.Copy(value, 10, FieldValueLenghtbytes, 0, FieldValueLenghtbytes.Length);
+                byte[] bytes = new byte[18 + CentralSerializer.convertToInt(FieldNameLenghtbytes) + CentralSerializer.convertToInt(FieldValueLenghtbytes)];
+                Array.Copy(value, 0, bytes, 0, bytes.Length);
+                return bytes;
+            }
+            catch (Exception e)
+            {
+                return new byte[0];
+            }
 
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace CSharpWebServer.ist.enesuysal.thesis
@@ -51,6 +52,11 @@ namespace CSharpWebServer.ist.enesuysal.thesis
         {
             messageSerilized = CentralSerializer.serializePrimitive(typeof(double), message, messageSerilized);
         }
+        public Message(Object message)  {
+
+            MethodInfo method = message.GetType().GetMethod("Serialize");
+            messageSerilized = (byte[])method.Invoke(message, new Object[] { });
+    }
 
         public string Seriliaze()
         {

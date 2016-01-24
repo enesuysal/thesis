@@ -24,7 +24,23 @@ namespace CSharpWebServer.ist.enesuysal.thesis
             return item;
 
         }
+        public static byte[] serializePrimitive(string type, String fieldName, bool isMandatory, Object fieldValue, byte[] item)
+        {
+            //Append isOptional
+            item = convertToByteArray(isMandatory, item);
+            //FieldType
+            item = convertToByteArray(Helper.GetFieldCode(type.ToString()), item);
+            //append FieldNameLenght
+            item = convertToByteArray(fieldName.Length, item);
+            //Append ValueLenght
+            item = convertToByteArray(Helper.GetFieldValueByte(type.ToString(), fieldValue, new byte[0]).Length, item);
+            //Append FieldName
+            item = convertToByteArray(fieldName, item);
+            //Append Value
+            item = Helper.GetFieldValueByte(type.ToString(), fieldValue, item);//convertToByteArray(fieldValue, item);
+            return item;
 
+        }
 
         public static byte[] serializePrimitive(Type type, String fieldValue, byte[] item)
         {

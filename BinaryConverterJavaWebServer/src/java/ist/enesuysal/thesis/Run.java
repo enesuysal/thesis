@@ -22,7 +22,7 @@ public class Run {
         Byte test1_1 = 0x2;  
         Integer test2_1 = 10;
         Boolean test4_1 = true;
-        Character test5_1 = 'a'; //HATA
+        Character test5_1 = 'a'; 
         Long test6_1 = 12345678910L;
         Short test7_1 = 4666;
         Float test8_1 = 3.6f;
