@@ -8,11 +8,12 @@ namespace CSharpWebServer.DOM
 {
     public class ComplianceTest
     {
-        public void GetMessage(string BASE64String)
+        public string GetMessage(string BASE64String)
         {
             //try
             //{
             byte[] decodedBytes = Convert.FromBase64String(BASE64String);
+            StringBuilder sb = new StringBuilder();
             Receiver r = new Receiver();
             for (int i = 0; i < r.knownMethods.Count; i++)
             {
@@ -23,7 +24,7 @@ namespace CSharpWebServer.DOM
                     if (Helper.GetFieldType(decodedBytes[0]) == Helper.GetFieldType(r.knownMethods[i].myfields[0])) //Create New bytearray
                     {
 
-                        r.createPrimitive(decodedBytes);
+                        sb.AppendLine(r.createPrimitive(decodedBytes));
                     }
                 }
                 else if (!Helper.CheckPrimitive(decodedBytes))
@@ -43,10 +44,10 @@ namespace CSharpWebServer.DOM
                             if (Helper.indexOf(decodedBytes, newFieldByte) != -1) {
                                 found = true;
                                 className = r.knownMethods[i].methodName;
-                               Console.WriteLine("Mandatotory field found @"+ r.knownMethods[i].methodName);
+                                sb.AppendLine("Mandatotory field found @" + r.knownMethods[i].methodName);
                                 finalArray = Helper.push(finalArray, newFieldByte);
                             } else {
-                                Console.WriteLine("Mandatotory field is not found");
+                                sb.AppendLine("Mandatotory field is not found");
                                 break;
                             }
                         }else {
@@ -57,19 +58,19 @@ namespace CSharpWebServer.DOM
                             if (Helper.indexOf(decodedBytes, newFieldByte) != -1) {
                                 found = true;
                                 className = r.knownMethods[i].methodName;
-                                Console.WriteLine("Optional field found with field name and value equlity @"+ r.knownMethods[i].methodName);
+                                sb.AppendLine("Optional field found with field name and value equlity @"+ r.knownMethods[i].methodName);
                                 finalArray = Helper.push(finalArray, newFieldByte);
                             } else {
 
                                 if (Helper.CheckOptional(decodedBytes, newFieldByte)) {
-                                    Console.WriteLine("Optional field found with field name equlity @"+ r.knownMethods[i].methodName);
+                                    sb.AppendLine("Optional field found with field name equlity @" + r.knownMethods[i].methodName);
                                    // Console.WriteLine(Array.T.toString(newFieldByte));
                                     className = r.knownMethods[i].methodName;
                                     finalArray = Helper.push(finalArray, newFieldByte);
                                     
                                     found = true;
                                 } else {
-                                    Console.WriteLine("Optional field is not found");
+                                    sb.AppendLine("Optional field is not found");
                                    break;
                                 }
                             }
@@ -78,13 +79,13 @@ namespace CSharpWebServer.DOM
                     }
                     if (found) {
                        //Console.WriteLine(Arrays.toString(finalArray));
-                        r.createObject(className, finalArray);
+                        sb.AppendLine(r.createObject(className, finalArray));
                          break;
                     }
                 }
 
             }
-
+            return sb.ToString();
 
             //}
             //catch (Exception ex)

@@ -1,4 +1,5 @@
 ﻿using CSharpWebServer;
+using CSharpWebServer.DOM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,8 @@ public class WebService : System.Web.Services.WebService {
     {
  
         try {
-            //return Receiver.GetMessage(value);
+            ComplianceTest complience = new ComplianceTest();
+            complience.GetMessage(value);
             return null;
         } catch (Exception ex) {
             return null;

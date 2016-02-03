@@ -59,7 +59,7 @@ namespace CSharpWebServer.ist.enesuysal.thesis
             }
 
         }
-        public void createPrimitive(byte[] bytes)
+        public string createPrimitive(byte[] bytes)
         {
             //Deserialize and Print
             //System.out.println("ss" + Arrays.toString(bytes));
@@ -78,10 +78,10 @@ namespace CSharpWebServer.ist.enesuysal.thesis
             byte[] FieldValueByte = new byte[bytes.Length - (17 + FieldNameLength)];
             Array.Copy(bytes, 17 + FieldNameLength, FieldValueByte, 0, FieldValueByte.Length);
 
-            PrintObject(Helper.GetFieldValue(type, FieldValueByte), type);
+            return PrintObject(Helper.GetFieldValue(type, FieldValueByte), type);
         }
 
-        public void createObject(String className, byte[] decodedBytes)
+        public string createObject(String className, byte[] decodedBytes)
         {
             //Class c = Class.forName(className);
             //Object obj = c.newInstance();
@@ -101,29 +101,34 @@ namespace CSharpWebServer.ist.enesuysal.thesis
                 field.SetValue(instance, Helper.GetValue(decodedBytes, field.Name, field.FieldType.FullName)); //.set(obj, Helper.GetValue(decodedBytes, f.getName(), f.getType()));
 
             }
-            PrintObject(instance);
+            return PrintObject(instance);
 
         }
 
-        public void PrintObject(Object o)
+        public string PrintObject(Object o)
         {
             Type type = o.GetType(); // Get type pointer
             FieldInfo[] fields = type.GetFields(); // Obtain all fields
-           
+            StringBuilder sb = new StringBuilder();
             foreach (var field in fields) // Loop through fields
             {
                 string name = field.Name; // Get string name
                 object temp = field.GetValue(o); // Get value
-                Console.WriteLine("TYPE: " + field.FieldType.FullName);
-                Console.WriteLine("Name: " + name);
-                Console.WriteLine("Value: " + temp);
+               
+                sb.AppendLine("TYPE: " + field.FieldType.FullName);
+                sb.AppendLine("Name: " + name);
+                sb.AppendLine("Value: " + temp);
             }
+            return sb.ToString();
         }
 
-        public void PrintObject(Object o, string type)
+        public string PrintObject(Object o, string type)
         {
-            Console.WriteLine("TYPE: " + type);
-            Console.WriteLine("Value: " + o);
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("TYPE: " + type);
+            sb.AppendLine("Value: " + o);
+
+            return sb.ToString();
         }
         [AvaliableMethod]
         public void MakeObjectA(int test)
