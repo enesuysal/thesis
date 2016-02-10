@@ -28,13 +28,13 @@ namespace ConsoleTest
             Char test5_1 = 'f';
             Double test9_1 = 34.4;
             TestSerial tt = new TestSerial();
-            Message msg = new Message(tt);
+            Message msg = new Message(test3);
             //Console.WriteLine(test5);
             string msgToSend = msg.Seriliaze();
             //string msgToSend = "BQAAAAAAAAAAAAAAAgAAAAIAYQ==";
-            //Console.WriteLine(msgToSend);
+            Console.WriteLine(msgToSend);
             ComplianceTest complience = new ComplianceTest();
-            complience.GetMessage(msgToSend);
+            Console.WriteLine(complience.GetMessage(msgToSend));
             Console.ReadLine();
         }
 

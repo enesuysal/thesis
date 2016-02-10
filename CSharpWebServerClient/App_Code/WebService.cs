@@ -26,8 +26,8 @@ public class WebService : System.Web.Services.WebService {
  
         try {
             ComplianceTest complience = new ComplianceTest();
-            complience.GetMessage(value);
-            return null;
+
+            return complience.GetMessage(value);
         } catch (Exception ex) {
             return null;
         }

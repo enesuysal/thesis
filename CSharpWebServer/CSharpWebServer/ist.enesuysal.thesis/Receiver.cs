@@ -178,10 +178,10 @@ namespace CSharpWebServer.ist.enesuysal.thesis
         }
 
 
-        [AvaliableMethod]
-        public void MakeObjectB(string test)
-        {
-        }
+        //[AvaliableMethod]
+        //public void MakeObjectB(string test)
+        //{
+        //}
 
 
         [AvaliableMethod]
