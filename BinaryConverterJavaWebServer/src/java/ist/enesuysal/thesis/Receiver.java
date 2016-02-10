@@ -46,7 +46,7 @@ public class Receiver {
         }
     }
 
-    public void createPrimitive(byte[] bytes) throws Exception {
+    public String createPrimitive(byte[] bytes) throws Exception {
         //Deserialize and Print
         //System.out.println("ss" + Arrays.toString(bytes));
         String type = (Helper.GetFieldType(bytes[0])); //FieldType
@@ -62,11 +62,13 @@ public class Receiver {
         //Field hasValue
         byte[] FieldValueByte = new byte[bytes.length - (17 + FieldNameLength)];
         System.arraycopy(bytes, 17 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
-        System.out.println("Value " + Helper.GetFieldValue(type, FieldValueByte));
-        PrintObject(Helper.GetFieldValue(type, FieldValueByte));
+        StringBuilder result = new StringBuilder();
+        result.append("Value " + Helper.GetFieldValue(type, FieldValueByte));
+        result.append(PrintObject(Helper.GetFieldValue(type, FieldValueByte)));
+        return result.toString();
     }
 
-    public void createWrapper(byte[] bytes) throws Exception {
+    public String  createWrapper(byte[] bytes) throws Exception {
         //Deserialize and Print
         String type = (Helper.GetFieldType(bytes[1])); //FieldType
         int FieldNameLength = 0;
@@ -81,12 +83,14 @@ public class Receiver {
         //Field hasValue
         byte[] FieldValueByte = new byte[bytes.length - (10 + FieldNameLength)];
         System.arraycopy(bytes, 10 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
-        System.out.println("Wrapper Value " + Helper.GetFieldValue(type, FieldValueByte));
-        PrintObject(Helper.GetFieldValue(type, FieldValueByte));
+        StringBuilder result = new StringBuilder();
+        result.append("Wrapper Value " + Helper.GetFieldValue(type, FieldValueByte));
+        result.append(PrintObject(Helper.GetFieldValue(type, FieldValueByte)));
+        return result.toString();
     }
 
-    public void PrintObject(Object o) {
-        System.out.println("Found Object");
+    public String PrintObject(Object o) {
+         
         StringBuilder result = new StringBuilder();
         String newLine = System.getProperty("line.separator");
 
@@ -112,7 +116,7 @@ public class Receiver {
         }
         result.append("}");
 
-        System.out.println(result.toString());
+       return result.toString();
     }
 
     @AvaliableMethod
@@ -202,7 +206,7 @@ public class Receiver {
     public void MakeObjectC(Test3 test) {
     }
 
-    public void createObject(String className, byte[] decodedBytes) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public String createObject(String className, byte[] decodedBytes) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         Class c = Class.forName(className);
         Object obj = c.newInstance();
         Field[] methods = c.getFields();
@@ -210,7 +214,7 @@ public class Receiver {
             f.set(obj, Helper.GetValue(decodedBytes, f.getName(), f.getType()));
 
         }
-        PrintObject(obj);
+        return PrintObject(obj);
 
     }
 

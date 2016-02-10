@@ -20,10 +20,12 @@ import sun.misc.BASE64Decoder;
  */
 public class ComplianceTest {
 
-    public byte[] GetMessage(String BASE64String) throws ClassNotFoundException, Exception {
+    public String GetMessage(String BASE64String) throws ClassNotFoundException, Exception {
         BASE64Decoder decoder = new BASE64Decoder();
+        StringBuilder sb = new StringBuilder();
         try {
             byte[] decodedBytes = decoder.decodeBuffer(BASE64String);
+            
             System.out.println(Arrays.toString(decodedBytes));
             Receiver r = new Receiver();
             outerloop:
@@ -33,7 +35,7 @@ public class ComplianceTest {
                     //Check Type
                     if (decodedBytes[0] == r.knownMethods[i].myfields[0]) //Create New bytearray
                     {
-                        r.createPrimitive(decodedBytes);
+                       sb.append(r.createPrimitive(decodedBytes));
                     }
                 } else if (!Helper.CheckPrimitive(decodedBytes)) {
                     //Object 
@@ -52,10 +54,10 @@ public class ComplianceTest {
                             if (Helper.indexOf(decodedBytes, newFieldByte) != -1) {
                                 found = true;
                                 className = r.knownMethods[i].methodName;
-                                System.out.println("Mandatotory field found @"+ r.knownMethods[i].methodName);
+                                sb.append("Mandatotory field found @"+ r.knownMethods[i].methodName);
                                 finalArray = Helper.push(finalArray, newFieldByte);
                             } else {
-                                System.out.println("Mandatotory field is not found");
+                                sb.append("Mandatotory field is not found");
                                 break;
                             }
                         } else {
@@ -66,7 +68,7 @@ public class ComplianceTest {
                             if (Helper.indexOf(decodedBytes, newFieldByte) != -1) {
                                 found = true;
                                 className = r.knownMethods[i].methodName;
-                                System.out.println("Optional field found with field name and value equlity @"+ r.knownMethods[i].methodName);
+                                sb.append("Optional field found with field name and value equlity @"+ r.knownMethods[i].methodName);
                                 finalArray = Helper.push(finalArray, newFieldByte);
                             } else {
 
@@ -78,7 +80,7 @@ public class ComplianceTest {
                                     
                                     found = true;
                                 } else {
-                                    System.out.println("Optional field is not found");
+                                    sb.append("Optional field is not found");
                                    break;
                                 }
                             }
@@ -86,8 +88,8 @@ public class ComplianceTest {
                         r.knownMethods[i].myfields = Helper.pop(r.knownMethods[i].myfields, fieldByte);
                     }
                     if (found) {
-                        System.out.println(Arrays.toString(finalArray));
-                        r.createObject(className, finalArray);
+                        sb.append(Arrays.toString(finalArray));
+                        sb.append(r.createObject(className, finalArray));
                          break outerloop;
                     }
                 }
@@ -96,7 +98,7 @@ public class ComplianceTest {
         } catch (IOException ex) {
             System.err.println("The Error Occured " + ex.getMessage());
         }
-        return null;
+        return sb.toString();
     }
 
     public boolean IsPrimitiveArraySame(byte[] array1, byte[] array2) {
