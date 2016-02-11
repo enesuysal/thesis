@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c534b825-7d3f-4034-9977-02aae6951ff6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2e9c4ac7-3de1-42da-be04-e14f48615699" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
@@ -18,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://enes:8080/BinaryConverterJavaWebServer/CallWebServer?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/BinaryConverterJavaWebServer/JavaWebService?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CallWebServer.wsdl" MetadataType="Wsdl" ID="7cca8206-eac4-4bc1-b8bd-6e6b8587320c" SourceId="1" SourceUrl="http://enes:8080/BinaryConverterJavaWebServer/CallWebServer?wsdl" />
-    <MetadataFile FileName="CallWebServer.xsd" MetadataType="Schema" ID="9e768f76-368b-4574-9136-46d9ad4f25a3" SourceId="1" SourceUrl="http://enes:8080/BinaryConverterJavaWebServer/CallWebServer?xsd=1" />
+    <MetadataFile FileName="JavaWebService.wsdl" MetadataType="Wsdl" ID="24833c3a-5492-498b-a451-7b3abb13cc49" SourceId="1" SourceUrl="http://localhost:8080/BinaryConverterJavaWebServer/JavaWebService?WSDL" />
+    <MetadataFile FileName="JavaWebService.xsd" MetadataType="Schema" ID="906f995d-033a-44ae-9105-9bb8fd84f31d" SourceId="1" SourceUrl="http://localhost:8080/BinaryConverterJavaWebServer/JavaWebService?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

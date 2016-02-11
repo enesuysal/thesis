@@ -1,4 +1,5 @@
-﻿using CSharpWebServer;
+﻿using ConsoleTest.WebServiceReference;
+using CSharpWebServer;
 using CSharpWebServer.DOM;
 using CSharpWebServer.ist.enesuysal.thesis;
 using CSharpWebServer.ist.enesuysal.thesis.Tests;
@@ -13,28 +14,13 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-            byte test1 = 0x15;  
-            int test2 = 10;
-            string test3 = "Deneme";  
-            bool test4 = true;
-            char test5 = 'a'; 
-            long test6 = 4666; 
-            short test7 = 4666; 
-            float test8 = 4666f;
-            double test9 = 34.4;
-            Byte test1_1 = 0x2;
-            Int64 test2_1 = 10;
-            Boolean test4_1 = false;
-            Char test5_1 = 'f';
-            Double test9_1 = 34.4;
+
             TestSerial tt = new TestSerial();
-            Message msg = new Message(test3);
-            //Console.WriteLine(test5);
+            Message msg = new Message(tt);
             string msgToSend = msg.Seriliaze();
-            //string msgToSend = "BQAAAAAAAAAAAAAAAgAAAAIAYQ==";
-            Console.WriteLine(msgToSend);
-            ComplianceTest complience = new ComplianceTest();
-            Console.WriteLine(complience.GetMessage(msgToSend));
+            JavaWebServiceClient service = new JavaWebServiceClient();
+            // Show result from server
+            Console.WriteLine(" REsult From Server: " + service.GetResult(msgToSend));
             Console.ReadLine();
         }
 

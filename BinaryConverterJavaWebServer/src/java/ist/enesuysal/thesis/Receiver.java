@@ -64,7 +64,9 @@ public class Receiver {
         System.arraycopy(bytes, 17 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
         StringBuilder result = new StringBuilder();
         result.append("Value " + Helper.GetFieldValue(type, FieldValueByte));
+        result.append(System.getProperty("line.separator"));
         result.append(PrintObject(Helper.GetFieldValue(type, FieldValueByte)));
+        result.append(System.getProperty("line.separator"));
         return result.toString();
     }
 
@@ -85,7 +87,9 @@ public class Receiver {
         System.arraycopy(bytes, 10 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
         StringBuilder result = new StringBuilder();
         result.append("Wrapper Value " + Helper.GetFieldValue(type, FieldValueByte));
+        result.append(System.getProperty("line.separator"));
         result.append(PrintObject(Helper.GetFieldValue(type, FieldValueByte)));
+        result.append(System.getProperty("line.separator"));
         return result.toString();
     }
 

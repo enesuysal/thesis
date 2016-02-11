@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\CallWebServerClient\Reference.cs">
+    <Compile Include="Service References\WebServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -65,22 +65,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Service References\CallWebServerClient\CallWebServer.wsdl" />
-    <None Include="Service References\CallWebServerClient\CallWebServer.xsd">
+    <None Include="Service References\WebServiceReference\ConsoleTest.WebServiceReference.GetResultResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceReference\JavaWebService.wsdl" />
+    <None Include="Service References\WebServiceReference\JavaWebService.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\CallWebServerClient\" />
+    <WCFMetadataStorage Include="Service References\WebServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CallWebServerClient\configuration91.svcinfo" />
+    <None Include="Service References\WebServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CallWebServerClient\configuration.svcinfo" />
+    <None Include="Service References\WebServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CallWebServerClient\Reference.svcmap">
+    <None Include="Service References\WebServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

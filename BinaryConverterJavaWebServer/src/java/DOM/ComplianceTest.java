@@ -36,6 +36,7 @@ public class ComplianceTest {
                     if (decodedBytes[0] == r.knownMethods[i].myfields[0]) //Create New bytearray
                     {
                        sb.append(r.createPrimitive(decodedBytes));
+                       sb.append(System.getProperty("line.separator"));
                     }
                 } else if (!Helper.CheckPrimitive(decodedBytes)) {
                     //Object 
@@ -55,9 +56,11 @@ public class ComplianceTest {
                                 found = true;
                                 className = r.knownMethods[i].methodName;
                                 sb.append("Mandatotory field found @"+ r.knownMethods[i].methodName);
+                                sb.append(System.getProperty("line.separator"));
                                 finalArray = Helper.push(finalArray, newFieldByte);
                             } else {
                                 sb.append("Mandatotory field is not found");
+                                sb.append(System.getProperty("line.separator"));
                                 break;
                             }
                         } else {
@@ -69,6 +72,7 @@ public class ComplianceTest {
                                 found = true;
                                 className = r.knownMethods[i].methodName;
                                 sb.append("Optional field found with field name and value equlity @"+ r.knownMethods[i].methodName);
+                                sb.append(System.getProperty("line.separator"));
                                 finalArray = Helper.push(finalArray, newFieldByte);
                             } else {
 
@@ -81,6 +85,7 @@ public class ComplianceTest {
                                     found = true;
                                 } else {
                                     sb.append("Optional field is not found");
+                                    sb.append(System.getProperty("line.separator"));
                                    break;
                                 }
                             }
@@ -89,7 +94,9 @@ public class ComplianceTest {
                     }
                     if (found) {
                         sb.append(Arrays.toString(finalArray));
+                        sb.append(System.getProperty("line.separator"));
                         sb.append(r.createObject(className, finalArray));
+                        sb.append(System.getProperty("line.separator"));
                          break outerloop;
                     }
                 }
