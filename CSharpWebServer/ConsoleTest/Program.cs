@@ -15,12 +15,12 @@ namespace ConsoleTest
         static void Main(string[] args)
         {
 
-            TestSerial tt = new TestSerial();
-            Message msg = new Message(tt);
+            Char test = 'a'; 
+            Message msg = new Message(test);
             string msgToSend = msg.Seriliaze();
             JavaWebServiceClient service = new JavaWebServiceClient();
             // Show result from server
-            Console.WriteLine(" REsult From Server: " + service.GetResult(msgToSend));
+            Console.WriteLine(" Result From Server: \n" + service.GetResult(msgToSend));
             Console.ReadLine();
         }
 

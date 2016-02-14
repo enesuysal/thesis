@@ -65,7 +65,7 @@ public class Receiver {
         StringBuilder result = new StringBuilder();
         result.append("Value " + Helper.GetFieldValue(type, FieldValueByte));
         result.append(System.getProperty("line.separator"));
-        result.append(PrintObject(Helper.GetFieldValue(type, FieldValueByte)));
+        result.append(PrintPrimitiveObject(Helper.GetFieldValue(type, FieldValueByte)));
         result.append(System.getProperty("line.separator"));
         return result.toString();
     }
@@ -122,6 +122,21 @@ public class Receiver {
 
        return result.toString();
     }
+    
+    public String PrintPrimitiveObject(Object o) {
+         
+        StringBuilder result = new StringBuilder();
+        String newLine = System.getProperty("line.separator");
+
+        result.append(o.getClass().getName());
+        result.append(" Object {");
+        result.append(newLine);
+
+       
+        result.append("}");
+
+       return result.toString();
+    }
 
     @AvaliableMethod
     public void MakeObjectA(int test) {
@@ -166,9 +181,9 @@ public class Receiver {
     public void MakeObjectB(Byte test) {
     }
 
-//    @AvaliableMethod
-//    public void MakeObjectB(String test) {
-//    }
+    @AvaliableMethod
+    public void MakeObjectB(String test) {
+    }
 
     @AvaliableMethod
     public void MakeObjectB(Integer test) {

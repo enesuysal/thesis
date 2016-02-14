@@ -26,7 +26,7 @@ public class ComplianceTest {
         try {
             byte[] decodedBytes = decoder.decodeBuffer(BASE64String);
             
-            System.out.println(Arrays.toString(decodedBytes));
+            
             Receiver r = new Receiver();
             outerloop:
             for (int i = 0; i < r.knownMethods.length; i++) {
@@ -77,8 +77,8 @@ public class ComplianceTest {
                             } else {
 
                                 if (Helper.CheckOptional(decodedBytes, newFieldByte)) {
-                                    System.out.println("Optional field found with field name equlity @"+ r.knownMethods[i].methodName);
-                                    System.out.println(Arrays.toString(newFieldByte));
+                                   sb.append("Optional field found with field name equlity @"+ r.knownMethods[i].methodName);
+                                    sb.append(System.getProperty("line.separator")); 
                                     className = r.knownMethods[i].methodName;
                                     finalArray = Helper.push(finalArray, newFieldByte);
                                     
@@ -103,7 +103,7 @@ public class ComplianceTest {
             }
 
         } catch (IOException ex) {
-            System.err.println("The Error Occured " + ex.getMessage());
+            sb.append("The Error Occured " + ex.getMessage());
         }
         return sb.toString();
     }
