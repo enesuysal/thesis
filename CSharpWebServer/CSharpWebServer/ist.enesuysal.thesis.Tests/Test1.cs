@@ -10,7 +10,7 @@ namespace CSharpWebServer.ist.enesuysal.thesis.Tests
     public class Test1
     {
         [Mandatory]
-        public String ekes2 = "affff";
+        public String test2 = "affff";
 
         //@Mandatory
         //public int version;

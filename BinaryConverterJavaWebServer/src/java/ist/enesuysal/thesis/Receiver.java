@@ -166,9 +166,9 @@ public class Receiver {
     public void MakeObjectB(Byte test) {
     }
 
-    @AvaliableMethod
-    public void MakeObjectB(String test) {
-    }
+//    @AvaliableMethod
+//    public void MakeObjectB(String test) {
+//    }
 
     @AvaliableMethod
     public void MakeObjectB(Integer test) {

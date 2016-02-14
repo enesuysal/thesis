@@ -93,8 +93,8 @@ public class ComplianceTest {
                         r.knownMethods[i].myfields = Helper.pop(r.knownMethods[i].myfields, fieldByte);
                     }
                     if (found) {
-                        sb.append(Arrays.toString(finalArray));
-                        sb.append(System.getProperty("line.separator"));
+                       // sb.append(Arrays.toString(finalArray));
+                       // sb.append(System.getProperty("line.separator"));
                         sb.append(r.createObject(className, finalArray));
                         sb.append(System.getProperty("line.separator"));
                          break outerloop;
