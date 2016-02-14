@@ -15,7 +15,7 @@ namespace ConsoleTest
         static void Main(string[] args)
         {
 
-            Char test = 'a'; 
+            TestSerial test = new TestSerial();
             Message msg = new Message(test);
             string msgToSend = msg.Seriliaze();
             JavaWebServiceClient service = new JavaWebServiceClient();

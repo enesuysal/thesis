@@ -11,7 +11,7 @@ namespace CSharpWebServer.ist.enesuysal.thesis.Tests
         // Public primitive with default value
         public int version = 56;
         // Public primitive with no value
-        public String ekes2 = "affff";
+        public String ekes2rrr = "affff";
         // Public primitive with default value 
         public bool deneme;
 
