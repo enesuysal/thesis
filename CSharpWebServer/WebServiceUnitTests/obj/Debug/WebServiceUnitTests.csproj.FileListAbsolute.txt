@@ -1,1 +1,0 @@
-C:\Users\enesuysal\Dropbox\Works\ThesisV2\svn\CSharpWebServer\WebServiceUnitTests\obj\Debug\WebServiceUnitTests.csprojResolveAssemblyReference.cache
