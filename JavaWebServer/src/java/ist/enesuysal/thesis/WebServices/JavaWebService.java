@@ -29,7 +29,7 @@ public class JavaWebService {
             ComplianceTest complience = new ComplianceTest();
             return complience.GetMessage(value);
         } catch (Exception ex) {
-            return "hata";
+            return "Error with Message";
         }
     }
 }
