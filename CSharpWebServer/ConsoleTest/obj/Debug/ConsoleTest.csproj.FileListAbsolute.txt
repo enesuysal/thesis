@@ -17,3 +17,8 @@ C:\Users\enesuysal\Dropbox\Works\ThesisV2\svn\CSharpWebServer\ConsoleTest\obj\De
 C:\Users\enesuysal\Dropbox\Works\ThesisV3\CSharpWebServer\ConsoleTest\bin\Debug\ConsoleTest.exe.config
 C:\Users\enesuysal\Dropbox\Works\ThesisV3\CSharpWebServer\ConsoleTest\obj\Debug\ConsoleTest.exe
 C:\Users\enesuysal\Dropbox\Works\ThesisV3\CSharpWebServer\ConsoleTest\obj\Debug\ConsoleTest.pdb
+C:\Users\enesuysal\Dropbox\Works\ThesisV3\CSharpWebServer\ConsoleTest\bin\Debug\ConsoleTest.exe
+C:\Users\enesuysal\Dropbox\Works\ThesisV3\CSharpWebServer\ConsoleTest\bin\Debug\ConsoleTest.pdb
+C:\Users\enesuysal\Dropbox\Works\ThesisV3\CSharpWebServer\ConsoleTest\bin\Debug\CSharpWebServer.dll
+C:\Users\enesuysal\Dropbox\Works\ThesisV3\CSharpWebServer\ConsoleTest\bin\Debug\CSharpWebServer.pdb
+C:\Users\enesuysal\Dropbox\Works\ThesisV3\CSharpWebServer\ConsoleTest\obj\Debug\ConsoleTest.csprojResolveAssemblyReference.cache

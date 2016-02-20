@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpWebServer", "CSharpWe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{B8F01481-A746-4534-BF46-0688E8BE4F12}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CSharpWebServerClient(1)", "http://localhost:41646", "{4EA9E38F-3D56-4BDC-96F3-26684C09AB2F}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CSharpWebServerClient", "http://localhost:41646", "{4EA9E38F-3D56-4BDC-96F3-26684C09AB2F}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
@@ -29,6 +29,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CSharpWebServerClient(1)", 
 		SlnRelativePath = "CSharpWebServerClient\"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTfulWebService", "RESTfulWebService\RESTfulWebService.csproj", "{15811A9C-611A-4BF0-89D0-A40D0ECA3457}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{4EA9E38F-3D56-4BDC-96F3-26684C09AB2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EA9E38F-3D56-4BDC-96F3-26684C09AB2F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{4EA9E38F-3D56-4BDC-96F3-26684C09AB2F}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{15811A9C-611A-4BF0-89D0-A40D0ECA3457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15811A9C-611A-4BF0-89D0-A40D0ECA3457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15811A9C-611A-4BF0-89D0-A40D0ECA3457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15811A9C-611A-4BF0-89D0-A40D0ECA3457}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
