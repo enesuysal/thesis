@@ -11,6 +11,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CSharpWebServerClient(1)", 
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{b0192df3-5eb4-4511-aa84-ae93f30e7cb9}|CSharpWebServer.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_41646"
 		Debug.AspNetCompiler.PhysicalPath = "CSharpWebServerClient\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_41646\"
