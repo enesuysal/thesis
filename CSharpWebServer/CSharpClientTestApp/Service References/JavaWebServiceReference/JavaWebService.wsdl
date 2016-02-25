@@ -2,7 +2,7 @@
 <definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://WebServices.thesis.enesuysal.ist/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="JavaWebService" targetNamespace="http://WebServices.thesis.enesuysal.ist/" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema>
-      <xsd:import schemaLocation="http://localhost:8080/BinaryConverterJavaWebServer/JavaWebService?xsd=1" namespace="http://WebServices.thesis.enesuysal.ist/" />
+      <xsd:import schemaLocation="http://javatomcatthesis.azurewebsites.net:80/JavaWebServer/JavaWebService?xsd=1" namespace="http://WebServices.thesis.enesuysal.ist/" />
     </xsd:schema>
   </types>
   <message name="GetResult">
@@ -31,7 +31,7 @@
   </binding>
   <service name="JavaWebService">
     <port name="JavaWebServicePort" binding="tns:JavaWebServicePortBinding">
-      <soap:address location="http://localhost:8080/BinaryConverterJavaWebServer/JavaWebService" />
+      <soap:address location="http://javatomcatthesis.azurewebsites.net:80/JavaWebServer/JavaWebService" />
     </port>
   </service>
 </definitions>

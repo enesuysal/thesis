@@ -68,10 +68,6 @@
     <None Include="Service References\WebServiceReference\ConsoleTest.WebServiceReference.GetResultResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\WebServiceReference\JavaWebService.wsdl" />
-    <None Include="Service References\WebServiceReference\JavaWebService.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\WebServiceReference\" />
@@ -83,6 +79,10 @@
     <None Include="Service References\WebServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\WebServiceReference\JavaWebService1.wsdl" />
+    <None Include="Service References\WebServiceReference\JavaWebService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\WebServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

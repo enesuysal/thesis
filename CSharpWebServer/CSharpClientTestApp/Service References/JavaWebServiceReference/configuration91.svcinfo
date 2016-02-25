@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="nAcDjnjlN6agI7him8kUX98zR+U=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="NQw4RcntC5rK/wiRx6+G8DofbQ8=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="JavaWebServicePortBinding">
       <properties>
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="JavaWebServicePort" contract="WebServiceReference.JavaWebService" bindingType="basicHttpBinding" address="http://javatomcatthesis.azurewebsites.net/JavaWebServer/JavaWebService" bindingConfiguration="JavaWebServicePortBinding">
+    <endpoint name="JavaWebServicePort" contract="JavaWebServiceReference.JavaWebService" bindingType="basicHttpBinding" address="http://javatomcatthesis.azurewebsites.net/JavaWebServer/JavaWebService" bindingConfiguration="JavaWebServicePortBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://javatomcatthesis.azurewebsites.net:80/JavaWebServer/JavaWebService</serializedValue>
@@ -127,7 +127,7 @@
           <serializedValue>JavaWebServicePortBinding</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WebServiceReference.JavaWebService</serializedValue>
+          <serializedValue>JavaWebServiceReference.JavaWebService</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
