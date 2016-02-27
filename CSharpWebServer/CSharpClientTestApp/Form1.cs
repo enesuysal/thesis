@@ -52,12 +52,12 @@ namespace CSharpClientTestApp
                        
                         break;
                      case 2:
-                        textBox2.Text =  GetJavaRestMessage(msgToSend);;
-                  
+                        textBox2.Text = "Java RESTful WebServices";
+                        GetRestMessage(msgToSend);
                         break;
                      case 3:
-                        textBox2.Text = GetCSharpRestMessage(msgToSend);;
-                        
+                        textBox2.Text = "C# RESTful WebServices";
+                        GetRestMessage(msgToSend);
                         break;
                     default:
                         break;
@@ -70,27 +70,18 @@ namespace CSharpClientTestApp
            
 
         }
-      public string GetCSharpRestMessage(string message)
-      {
-          return GetRestMessage("http://csharpserverthesis.azurewebsites.net/restservice.svc/GetResult/" + message, message, "GET");
-      }
-
-      public string GetJavaRestMessage(string message)
-      {
-          return GetRestMessage("http://javatomcatthesis.azurewebsites.net/JavaWebServer/webresources/RESTful", message,"POST");
-      }
-
-
-
         //http://www.codeproject.com/Articles/255684/Create-and-Consume-RESTFul-Service-in-NET-Framewor
-        public string GetRestMessage(string url, string message, string method)
+        public string GetRestMessage(string message)
         {
 
             try
             {
                 string content;
-                string Method = method;//Console.ReadLine();
-                string uri = url;
+               // Console.WriteLine("Enter Method:");
+                string Method = "GET";//Console.ReadLine();
+
+                //Console.WriteLine("Enter URI:");
+                string uri = Console.ReadLine();
 
                 HttpWebRequest req = WebRequest.Create(uri) as HttpWebRequest;
                 req.KeepAlive = false;
@@ -100,9 +91,10 @@ namespace CSharpClientTestApp
                 {
                    
                     content = message;
+
                     byte[] buffer = Encoding.ASCII.GetBytes(content);
                     req.ContentLength = buffer.Length;
-                    req.ContentType = "text/plain";
+                    req.ContentType = "text/xml";
                     Stream PostData = req.GetRequestStream();
                     PostData.Write(buffer, 0, buffer.Length);
                     PostData.Close();
