@@ -50,6 +50,8 @@
     <Compile Include="ist.enesuysal.thesis.Tests\Test1.cs" />
     <Compile Include="ist.enesuysal.thesis.Tests\Test2.cs" />
     <Compile Include="ist.enesuysal.thesis.Tests\Test3.cs" />
+    <Compile Include="ist.enesuysal.thesis.Tests\TestSerial3.cs" />
+    <Compile Include="ist.enesuysal.thesis.Tests\TestSerial2.cs" />
     <Compile Include="ist.enesuysal.thesis.Tests\TestSerial.cs" />
     <Compile Include="ist.enesuysal.thesis\CentralSerializer.cs" />
     <Compile Include="ist.enesuysal.thesis\Message.cs" />
