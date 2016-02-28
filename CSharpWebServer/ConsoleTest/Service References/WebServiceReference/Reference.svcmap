@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://javatomcatthesis.azurewebsites.net/JavaWebServer/JavaWebService?WSDL" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://javatomcatthesis.azurewebsites.net/JavaWebServer/JavaWebService?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="JavaWebService1.xsd" MetadataType="Schema" ID="e310464a-18de-483c-906b-996ae103b6a0" SourceId="1" SourceUrl="http://javatomcatthesis.azurewebsites.net/JavaWebServer/JavaWebService?xsd=1" />
-    <MetadataFile FileName="JavaWebService1.wsdl" MetadataType="Wsdl" ID="a3e157e3-2928-4551-86fe-a476367bfa8b" SourceId="1" SourceUrl="http://javatomcatthesis.azurewebsites.net/JavaWebServer/JavaWebService?WSDL" />
+    <MetadataFile FileName="JavaWebService1.xsd" MetadataType="Schema" ID="28701808-867d-4acf-b57d-4d5c1ec2e8db" SourceId="1" SourceUrl="http://javatomcatthesis.azurewebsites.net/JavaWebServer/JavaWebService?xsd=1" />
+    <MetadataFile FileName="JavaWebService1.wsdl" MetadataType="Wsdl" ID="e58ee79a-daf4-4564-8c50-6ba002b54e93" SourceId="1" SourceUrl="http://javatomcatthesis.azurewebsites.net/JavaWebServer/JavaWebService?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

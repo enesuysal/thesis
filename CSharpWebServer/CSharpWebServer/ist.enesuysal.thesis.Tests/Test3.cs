@@ -14,7 +14,7 @@ namespace CSharpWebServer.ist.enesuysal.thesis.Tests
         public String ekes2 = "affff";
         [Mandatory]
         public int version = 56;
-
+        
         public bool deneme;
 
         public bool test = true;

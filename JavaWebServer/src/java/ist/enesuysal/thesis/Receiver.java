@@ -63,7 +63,7 @@ public class Receiver {
         byte[] FieldValueByte = new byte[bytes.length - (17 + FieldNameLength)];
         System.arraycopy(bytes, 17 + FieldNameLength, FieldValueByte, 0, FieldValueByte.length);
         StringBuilder result = new StringBuilder();
-        result.append("Value " + Helper.GetFieldValue(type, FieldValueByte));
+        result.append("Value: " + Helper.GetFieldValue(type, FieldValueByte));
         result.append(System.getProperty("line.separator"));
         result.append(PrintPrimitiveObject(Helper.GetFieldValue(type, FieldValueByte)));
         result.append(System.getProperty("line.separator"));
@@ -128,12 +128,8 @@ public class Receiver {
         StringBuilder result = new StringBuilder();
         String newLine = System.getProperty("line.separator");
 
-        result.append(o.getClass().getName());
-        result.append(" Object {");
-        result.append(newLine);
-
+        result.append("Type: ").append(o.getClass().getName());
        
-        result.append("}");
 
        return result.toString();
     }

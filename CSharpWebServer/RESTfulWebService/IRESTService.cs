@@ -13,7 +13,7 @@ namespace RESTfulWebService
     public interface IRESTService
     {
         [OperationContract]
-        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Xml,
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,  
                                    BodyStyle = WebMessageBodyStyle.Bare,
                                    UriTemplate = "GetResult/{value}")]
         string GetResult(string value);

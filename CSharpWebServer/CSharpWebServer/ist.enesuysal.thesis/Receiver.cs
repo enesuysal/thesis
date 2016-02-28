@@ -125,7 +125,7 @@ namespace CSharpWebServer.ist.enesuysal.thesis
         public string PrintObject(Object o, string type)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("TYPE: " + type);
+            sb.AppendLine("Type: " + type);
             sb.AppendLine("Value: " + o);
 
             return sb.ToString();

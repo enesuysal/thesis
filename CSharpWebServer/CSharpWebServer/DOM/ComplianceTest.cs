@@ -33,8 +33,9 @@ namespace CSharpWebServer.DOM
                     bool found = false;
                     byte[] finalArray = new byte[0];
                     String className = "";
-
+                    bool flag = false;
                     while (Helper.GetFieldBytes(r.knownMethods[i].myfields).Length != 0) {
+                       // if (!flag)
                         found = false;
                         byte[] fieldByte = Helper.GetFieldBytes(r.knownMethods[i].myfields);
                        
@@ -44,10 +45,10 @@ namespace CSharpWebServer.DOM
                             if (Helper.indexOf(decodedBytes, newFieldByte) != -1) {
                                 found = true;
                                 className = r.knownMethods[i].methodName;
-                                sb.AppendLine("Mandatotory field found @" + r.knownMethods[i].methodName);
+                               // sb.AppendLine("Mandatotory field found @" + r.knownMethods[i].methodName);
                                 finalArray = Helper.push(finalArray, newFieldByte);
                             } else {
-                                sb.AppendLine("Mandatotory field is not found");
+                                //sb.AppendLine("Mandatotory field is not found");
                                 break;
                             }
                         }else {
@@ -58,28 +59,37 @@ namespace CSharpWebServer.DOM
                             if (Helper.indexOf(decodedBytes, newFieldByte) != -1) {
                                 found = true;
                                 className = r.knownMethods[i].methodName;
-                                sb.AppendLine("Optional field found with field name and value equlity @"+ r.knownMethods[i].methodName);
+                                //sb.AppendLine("Optional field found with field name and value equlity @"+ r.knownMethods[i].methodName);
                                 finalArray = Helper.push(finalArray, newFieldByte);
                             } else {
 
                                 if (Helper.CheckOptional(decodedBytes, newFieldByte)) {
-                                    sb.AppendLine("Optional field found with field name equlity @" + r.knownMethods[i].methodName);
+                                   // sb.AppendLine("Optional field found with field name equlity @" + r.knownMethods[i].methodName);
                                    // Console.WriteLine(Array.T.toString(newFieldByte));
                                     className = r.knownMethods[i].methodName;
                                     finalArray = Helper.push(finalArray, newFieldByte);
                                     
                                     found = true;
                                 } else {
-                                    sb.AppendLine("Optional field is not found");
-                                   break;
+                                    //sb.AppendLine("Optional field is not found");
+                                    if (r.createPrimitive(newFieldByte) != "")
+                                    {
+                                        found = true;
+                                        finalArray = Helper.push(finalArray, newFieldByte);
+                                        //break;
+                                    }
+                                  
                                 }
                             }
                         }
                         r.knownMethods[i].myfields = Helper.pop(r.knownMethods[i].myfields, fieldByte);
                     }
                     if (found) {
+                        sb.AppendLine("" + r.knownMethods[i].methodName);
+                        sb.AppendLine("Class Values{");
                        //Console.WriteLine(Arrays.toString(finalArray));
                         sb.AppendLine(r.createObject(className, finalArray));
+                        sb.AppendLine("}");
                          break;
                     }
                 }

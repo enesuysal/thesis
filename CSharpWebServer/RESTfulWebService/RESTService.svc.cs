@@ -15,7 +15,7 @@ namespace RESTfulWebService
     {
         public string GetResult(string value)
         {
-            WebOperationContext.Current.OutgoingResponse.ContentType = "text/html";
+            WebOperationContext.Current.OutgoingResponse.ContentType = "text/plain";
             try
             {
                 ComplianceTest complience = new ComplianceTest();

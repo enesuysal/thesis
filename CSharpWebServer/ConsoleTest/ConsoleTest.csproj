@@ -55,12 +55,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSharpWebServer\CSharpWebServer.csproj">
-      <Project>{b0192df3-5eb4-4511-aa84-ae93f30e7cb9}</Project>
-      <Name>CSharpWebServer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +81,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSharpWebServer\CSharpWebServer.csproj">
+      <Project>{b0192df3-5eb4-4511-aa84-ae93f30e7cb9}</Project>
+      <Name>CSharpWebServer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
