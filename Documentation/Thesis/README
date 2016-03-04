@@ -1,27 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% README %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                                      %
-%  ---------- Master of Science Dissertation template ----------       %
-%                                                                      %
-%  Template for the Master Thesis according to the regulations         %
-%  published by the Academic Board (Direcção Académica) at IST.        %
-%                                                                      %
-%  For up-to-date guide, please refer to the offical website           %
-%  http://da.tecnico.ulisboa.pt/dissertacao-de-mestrado/               %
-%                                                                      %
-%       Andre C. Marta                                                 %
-%       Area Cientifica de Mecanica Aplicada e Aeroespacial            %
-%       Departamento de Engenharia Mecanica                            %
-%       Instituto Superior Tecnico                                     %
-%       Av. Rovisco Pais                                               %
-%       1049-001 Lisboa                                                %
-%       Portugal                                                       %
-%       Tel: +351 21 841 9469                                          %
-%                        3469 (extension)                              %
-%       Email: andre.marta@ist.utl.pt                                  %
-%                                                                      %
-%  Created:       Jan 20, 2011                                         %
-%  Last Modified: Jul  1, 2015                                         %
-%                                                                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Contents                                                            %
 %  1 - Package contents                                                %
@@ -58,7 +34,7 @@ in the ZIP package:
 		Thesis_bib_DB.bib
 		abbrvunsrtnat.bst
 		glossary.sty
-		IST_A_CMYK_POS.pdf		
+		IST_A_CMYK_POS.pdf
 		Makefile
 
 It is not required that you are familiar with LaTeX since the files
@@ -138,11 +114,11 @@ Compile (left menu) -> User
 
 Add the following commands without line breaks (this replicates the makefile used in Linux):
 
-pdflatex %.tex | 
-makeindex %.glo -s %.ist -t %.glg -o %.gls | 
-makeindex %.nlo -s nomencl.ist -o %.nls | 
-bibtex %.aux | 
-pdflatex -synctex=1 -interaction=nonstopmode %.tex | 
+pdflatex %.tex |
+makeindex %.glo -s %.ist -t %.glg -o %.gls |
+makeindex %.nlo -s nomencl.ist -o %.nls |
+bibtex %.aux |
+pdflatex -synctex=1 -interaction=nonstopmode %.tex |
 pdflatex -synctex=1 -interaction=nonstopmode %.tex
 
 The last command is optional and depends on the version of Acrobat
@@ -158,11 +134,11 @@ Press "+Add"
 Rename command from "user0:" to "THESIS"
 Add the following commands without line breaks (this replicates the makefile used in Linux):
 
-pdflatex.exe -synctex=1 -interaction=nonstopmode %.tex | 
-makeindex %.glo -s %.ist -t %.glg -o %.gls | 
-makeindex %.nlo -s nomencl.ist -o %.nls | 
-bibtex.exe % | 
-pdflatex.exe -synctex=1 -interaction=nonstopmode %.tex | 
+pdflatex.exe -synctex=1 -interaction=nonstopmode %.tex |
+makeindex %.glo -s %.ist -t %.glg -o %.gls |
+makeindex %.nlo -s nomencl.ist -o %.nls |
+bibtex.exe % |
+pdflatex.exe -synctex=1 -interaction=nonstopmode %.tex |
 pdflatex.exe -synctex=1 -interaction=nonstopmode %.tex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -197,4 +173,3 @@ Menu -> Tools -> User
 edit Current Shortcut F5
 
 Now to compile the entire document, just press F5
-
