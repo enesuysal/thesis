@@ -1,0 +1,64 @@
+[*** State of Art ***]
+
+Existing Technologies
+
+- SOA (Youtube)
+
+- REST (YouTube)
+
+Tools
+Tomcat 
+.Net Framework 4.5
+
+Language (C# - Java) 
+Deployment - 
+Azure Web Services Cloud Technoloies
+
+Limit ---- Pazar Gunu
+
+[*** Architecture of the solution ***]
+(architectural details on how you implemented the interoperability, your primitive data formats, and so on. Your proposal)
+
+- Define
+
+
+Limit ---- 13 Mart
+
+[*** Implementation ***]
+(implementation details, experiences that you made, using Azure, etc.)
+
+- Binary Level
+- Primitive 
+- Notations
+- String64
+- Reflection
+
+Limit ---- 20 Mart
+
+[*** Interoperability ***]
+ (compliance, conformance, coupling – how they are in WS and REST and the asymmetric interoperability solution based on compliance)
+ 
+  **To be Completed
+  
+ Limit ---- 25 Mart
+ 
+ [*** Comparison with existing technologies ***]
+ (as described above, and if possible including more aspects. Examples of applications, in WS, REST and in your solution This is the main result of your thesis. Is your solution better or worthwhile?)
+
+**To be completed
+
+Limit ---- 30 Mart
+
+
+//////////////////////Last Instroduction - Conclucion////////////////////////
+Nisan 5 Tamamlanmis
+
+
+Duzeltmeler 10 Nisan
+Duzeltmeler 15 Nisan
+Duzeltmeler Son 20 Nisan
+Presentation Hazirlama 21 Nisan
+
+Yukeleme 23 Nisan
+
+
