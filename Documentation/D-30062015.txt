@@ -1,0 +1,13 @@
+Hi, Enes,
+
+ 
+
+Yes, it seems fine. As long as you control the serialization format, you can perform the serialization in one language and the deserialization in another. Transferring the array of bytes from sender to receiver now requires a binary channel (Web Sockets or HTTP2), or you can be more classical by encoding and decoding the binary array with BASE64 and then use typical HTTP-based solutions (Web Services or REST). The classical solution is of course non-optimal compared to the other ones, but may be easier to implement given existent tools.
+
+ 
+
+Regards,
+
+ 
+
+Delgado 

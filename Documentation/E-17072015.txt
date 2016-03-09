@@ -1,0 +1,33 @@
+Hi, Enes,
+
+ 
+
+BASE64 is just to overcome the limitation of HTTP of not supporting binary data. So, you serialize everything to the binary, then encode in BASE64 and decode at the receiver to recover the binary data. This will not have to be done in HTTP 2 or any other protocol that supports binary.
+
+ 
+
+The binary format is always the result of serializing data in each language, with a tag, the number of bytes that follow and the serialized content. Recovering the serialized data is simply testing the tag to find the data type and then using the number of bytes and the serialized content, as you already did.
+
+ 
+
+This means that, with classical HTTP, you always use BASE64 blindly, to encode a sequence of bytes, independently of what it is, and only upon recovering those bytes at the receiver you check the tag to find out which data type it is. OK?
+
+ 
+
+It seems to me that probably you should change the focus of your thesis to the advantages of using a binary format like this with respect to a text-based format such as XML or JSON. This should include the ability of adding further information to data, namely the name of each component, and data validation by compliance (rather than schema validation). Components can be matched by name. This avoids having to define a language to define a schema, although it will be useful to allow components with multiplicity limits (minOccurs and maxOccurs in XML schema). These limits can be specified in the serialization methods, since you do not have SIL and its compiler.
+
+ 
+
+Objects with variables should be serialized to a compound data (composed of inner data). This means having a compound data type, with its own tag, and inner components serialized according to their own data type (composition can be recursive). This is always recoverable at the receiver, thanks to the tag.
+
+ 
+
+You can still use SIL and its ideas, but the implementation part would focus only on the usefulness of the binary format (which can still include metada). Otherwise, you will not be able to produce the thesis in time.
+
+ 
+
+Regards,
+
+ 
+
+Delgado 

@@ -1,0 +1,17 @@
+Hi, Enes,
+
+ 
+
+I’m sending you 3 dissertations that seem to follow the right pattern: problem, solution, evaluation.
+
+ 
+
+In your case, note that is not enough to present details on what you have done. You should validate your solution by comparing it, qualitatively as much as possible quantitatively (tables/graphics with be very good), with Web Services and REST. It should become clear what are the advantages and disadvantages of your solution, ignoring of course that your implementation is rudimentary in comparison to the others.
+
+ 
+
+Regards,
+
+ 
+
+Delgado

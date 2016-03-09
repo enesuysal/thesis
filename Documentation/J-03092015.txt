@@ -1,0 +1,29 @@
+Enes,
+
+ 
+
+Thinking in more detail, I think the best is to centralize the serialization into one static object/class. A message to be sent should be an object (in Java or C#) that should provide a serialization method, which basically builds a serialized message (an array of bytes) by sucessively adding each of its components, serialized. This is done by invoking the methods of the serialization class for primitive data (ints, bools, etc), or by recursively invoking the serialization method of structured objects that constitute the message.
+
+ 
+
+The receiver does not reconstruct the message object serialized at the sender (contrary to what is done in DOM). Rather, compliance is done at the binary level, with primitive components, as I described in my last email. Only the components that match are assigned to the formal argument of the operation.
+
+ 
+
+To make compliance possible, you should also serialize the formal argument of each operation. These should also support optional components (that use the formal argument component if none in the message matches it). Therefore, the serialization methods in the static serialization class should include the name of the component, whether it is optional (a boolean), the type (encoded in the tag) and the value. I think that the best is for each (primitive) data type to have two tags, one for mandatory and another for optional. Messages sent use only mandatory values. Serialized formal arguments can use both mandatory and optional.
+
+ 
+
+When a service is created, this is practice is an object (in Java or C#) that needs to registered in the HTTP (or whatever protocol) server, with a structure composed of the serialized formal arguments, one for each operation (this corresponds to the WSDL). The types of the results can also be included, but let’s start with just the arguments. This means that a class that is developed to work as service needs a method to generate the serialized version of each of the operations. This could be automated with annotations, just as WS do, but let’s start manually.
+
+ 
+
+Are getting a better picture of the system?
+
+ 
+
+Regards,
+
+ 
+
+Delgado

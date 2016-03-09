@@ -1,0 +1,57 @@
+I don’t know if you progressed something since my last mail.
+
+ 
+
+On my part, I had to go formal with SIL. When I tried to write the document, I really needed to use a formal language to describe things, because plain English became very vague and the underlying ideas could not be expressed in a rigorous way. I also wanted to make sure that semantics were readily supported by the resource model and by the syntax of SIL from scratch, rather than an add-on such as OWL (the semantics language of the Web, on top of XML). That implied studying Model Theory and Description Logic, which took time.
+
+ 
+
+My main motivation was to be able to describe resource relations (roles, in OWL parlance) as resources, which I have been able to do both by composition (structure) and by a delegation chain. In OWL, roles cannot describe the internal structure of resource relations.
+
+ 
+
+This is very interesting but implied an additional delay. At this moment, it is obvious that SIL will not be working in time for you. Therefore, I’ve elaborated a plan B.
+
+ 
+
+The idea is still to compare current technologies (Web Services, REST, XML, JSON) with the philosophy of SIL, but now in a simplified way and without a complier. The major ideas are:
+
+ 
+
+-          Like SOA, each resource offers a set of service specific operations, but it also offers structure with data fields (non-operations), traversable via a path (similar to dot notation in objects and paths in REST)
+
+-          The requests to and responses from services are also structured and can contain links. To simplify, we define structures as compound resources without operations (only data fields). Requests and responses must be either primitive resources (e.g., integers) or structures (not complete resources)
+
+-          Like REST, resources can include other resources and links, but are not limited to a fixed set of operations
+
+-          There are no schemas or data types that need to be shared or agreed upon beforehand. When a resource receives a message, it tries to match it against the type of the input parameter of each of its operations. If one is found, the message received is partially assigned to that argument and the operation invoked. Partial assignment means that the input parameter is created first, then each matching component (by name) of the message is assigned to the parameter. This means that some components of the message can be ignored and some components of the argument may stay unassigned (these are the components that do not match). This a simplified implementation of compliance
+
+ 
+
+To implement this, you need:
+
+ 
+
+-          To define a set of predefined resource types. I suggest: integer, boolean, string, array, link (corresponding to a URL), compound resource and operation (this is basically only the interface. The actual code is a method invoked by reflexion, given its name)
+
+-          To define a binary format to which messages are serialized on send and recovered on reception. I suggest using an array of bytes with each resource serialized in a tag (a byte codifying each resource type), size, name (only on structure and resource components) and value (the actual sequence of bytes resulting from serializing the resource.
+
+-          To define a set of classes implementing each type of resource, including serialization to the binary format and recovery from that format (each resource knows how to produce its bytes and to recover from bytes with its tag). The tag permits to reconstruct completely a given resource that has been serialized
+
+-          Given a message received, you can reconstruct the corresponding resource (in effect, this corresponds to a DOM, with parsing based on tags simplifying the reconstruction)
+
+-          Compliance checking (matching the message received and the argument) is done at the level of the programming language, by reflection (or you can define a method in a subclass of the operation class to do this) 
+
+-          To define a directory of resources available to invoke (a rudimentary UDDI). Actually, this can simply be a root resource, with all other resources available within it by structure traversal, REST style
+
+-          Compound resources need to support traversal (return a link to one of its components, given its name)
+
+-          Link resources can be made out of two parts: the URL of the “SIL” server and the path of the resource starting at that server’s root. The “SIL” server can actually be a simple web server (such as Jetty, Tomcat, etc), used only as transport of messages
+
+ 
+
+The idea would be to implement this in Java, then adapt it to C# (or vice-versa), so that two different languages can use the SIL binary format and compliance philosophy. You can start by only basic stuff (just one or two primitive resources) and then go up to where you can (there is no need to implement all this simplified SIL). The goal is basically to demonstrate the concept, not build a full system.
+
+ 
+
+I don’t know if this is comprehensible to you or in which state of the work (regarding WS and REST), but please let me know what are your comments, doubts and perspective, so that we can continue.

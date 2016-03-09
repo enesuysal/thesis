@@ -1,0 +1,49 @@
+Hi, Enes,
+
+ 
+
+To tell you the truth, I couldn´t understand very well your video, namely the difference between the SOAP and REST servers. It seems that all you do is to send primitive or structured data and recover them at the other side, but I’m not really sure whether I understood what I saw in the video.
+
+ 
+
+Anyway, the ideal goal was to have an alternative solution (to Web Services and REST) to implement a distributed application, with a client programmed in one language and a remote service programmed in possibly another language. Sending and recovering the data is just a part of it. You should reach for the service/application level, with operations available to be invoked, just like in a WSDL. You should have a service more suitable for WS and another more suitable for REST. One of the goals of your solution is to show that it supports equally well both the service-based and resource-based approaches.
+
+ 
+
+You should compare your solution to both WS and REST, with respect to service description (WSDL), service discovery/matching, ease of programming, coupling (better in our case due to compliance). The basic questions to answer are whether your solution is better than WS or REST and why, and whether it is worth it to pursue this research. Obviously, your work is not professional, but the basic principles and ideas are the relevant points to consider.
+
+ 
+
+So, the structure of your dissertation could be something like this:
+
+ 
+
+- Introduction (problem statement, motivational example, general idea about the solution)
+
+- State-of-the-art (description of existing technologies and tools that you will use)
+
+- Interoperability (compliance, conformance, coupling – how they are in WS and REST and the asymmetric interoperability solution based on compliance)
+
+- Architecture of the solution (architectural details on how you implemented the interoperability, your primitive data formats, and so on. Your proposal)
+
+- Implementation (implementation details, experiences that you made, using Azure, etc.)
+
+- Comparison with existing technologies (as described above, and if possible including more aspects. Examples of applications, in WS, REST and in your solution This is the main result of your thesis. Is your solution better or worthwhile?)
+
+- Conclusions
+
+- References
+
+- Eventually, appendices with some further implementation details
+
+ 
+
+ Each of these lines could be a chapter. Overall, they tell the story of you proposed solution. Look at each and try to outline what to say for each of them. The goal is to convince the jury that you work is worthwhile and is well described and evaluated.
+
+ 
+
+Regards,
+
+ 
+
+Delgado

@@ -1,0 +1,17 @@
+I never used C# and I don’t know if I’m getting all the details, but:
+
+ 
+
+-          It seems you are outputting a string of 0s and 1s. This was not the idea. The goal is to generate a sequence of bytes (hence the name binary), or a byte array (byte [], in java), not a string. The shifts should be 8 bits at a time, not one bit. This means that no padding is necessary
+
+-          I don’t see the tag being transmitted. You will need it at the receiver to distinguish the various data types. The size (in bytes) is not necessary here, because all integers are the same size and hence the tag says it all, but you will need it for other data types, such as strings (better serialize them using UTF-8, because it already is partitioned into bytes)
+
+-          Why is the class declared as serializable? You will control the serialization and deserialization, because it has to be done in a compatible way between C# and java.
+
+ 
+
+Regards,
+
+ 
+
+Delgado

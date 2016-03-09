@@ -1,0 +1,51 @@
+Enes,
+
+ 
+
+I can’t give you deadlines to do these tasks because I don’t know how long they take or how fast you can do them. So we will have to see how it goes and make adjustments if necessary.
+
+ 
+
+Ok to start in C# and then adapt to Java. Probably the best is to do a first prototype (client and server) all in C# and then reproduce to Java, to interlink two systems in two different languages.
+
+ 
+
+I can’t also give all the details because some things can only be decided as things go, but I can try to help in detailing them.
+
+ 
+
+I think you should do everything locally first, then insert the network. This means having client and server classes all in the same application and simulating the network by a simple file or even just as a byte array (a message is an array of bytes).
+
+ 
+
+You should start by serializing several objects to the binary format. Each will have a tag, a size (number of bytes it occupies after the tag). I suggest:
+
+ 
+
+-          An integer is always 64 bits (longs), with each byte serialized in sequence (with masks and shifts). You should decide which byte goes first (lowest or highest). The receiver will recover the integer in the same way.
+
+-          Booleans can use just two different tags (no size or content, since the tag says it all)
+
+-          Strings. Better use a UTF-8 encoding, since it is already byte oriented. Again, decide which byte of each character goes first, if it has more than one byte. Check in both C# and Java which is the best way to deal with strings, in terms of serialization. You cannot use predefined serialization, unless you know exactly how it is done. It cannot be language dependent.
+
+-          Structures. Sequence of fields, in which, for each field, you should include: name (a string) and the component proper (serialized according to its type of resource)
+
+ 
+
+You can probably define a class Resource from which all resource types inherit. At the sender, to send a message you define a corresponding class (inheriting from Resource) and serialize it. The resulting byte sequence is the binary message. At the receiver, you parse this binary sequence of bytes and construct a suitable resource class. The tags and sizes enable you to easily parse the binary sequence.
+
+ 
+
+You then need to check whether this reconstructed resource complies with some object, at the receiver. You will need this to search for a suitable operation with an argument which the message complies with. I suggest having a method compliesWith in class Resource that receives an Object and checks, via reflection, whether the reconstructed message complies (recursively) with that Object. If it does, then it assigns the fields that match from the message to the argument, always by reflection. Actually, this is done only between structures. The more primitive resources (integers, strings, etc) are compliant only with an identical type.
+
+ 
+
+This is just the basic interoperability, but needs to be done. Think about the details to do this, and let me know when you have something working (or have some doubts...).
+
+ 
+
+Regards,
+
+ 
+
+Delgado

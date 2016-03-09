@@ -1,0 +1,9 @@
+Good. Now the idea is to compare this solution with those based on XML, JSON, Web Services and REST, including schemas and data binding (generation of stubs to link with client code).
+
+ 
+
+Regards,
+
+ 
+
+Delgado

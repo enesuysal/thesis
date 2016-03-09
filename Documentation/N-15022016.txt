@@ -1,0 +1,37 @@
+Hi, Enes,
+
+ 
+
+Congratulations, it seems that we’re cooking, finally! Apparently, you have now working the interaction between two different languages, using primitive data types and a generic data structuring mechanism.  Nevertheless:
+
+ 
+
+- I hope that your thesis presentation will not be like this! The first part is only text and, although generically it seems correct, it does not convey the message clearly. It should have diagrams, more than text. The second part, with code, seems a demo, but too detailed and exhaustive, not really optimized to be readily understood by a juri. Don’t forget that we will have another member of the juri (the president, assigned only when the thesis is delivered).
+
+ 
+
+- You should now move to a comparison with Web Services and REST, i.e., to services, rather than just language interoperability. Ideally, you should have two simple examples, one more suitable for Web Services (with services and their interfaces, in WSDL) and another more suitable for REST (resource-based). The conclusion should be that, thanks to the asymmetric compliance and structured data, your solution should be equally suitable for both examples, allowing both service interfaces and structured resources, all at the level of the programming languages.
+
+ 
+
+- You can also describe how you have implemented annotations in the programming languages and how you can generate service or resource descriptions from them (I don’t know if it is feasible to implement this generation. It would be nice to have a description to discover services, a la UDDI)
+
+ 
+
+- More than just an implementation, the value of your thesis lie in the demonstration of your conclusions, with respect to WS and REST. Did you find a better solution for application interoperability? Is it easier to implement? Ideally, you should also assess performance, although testing a demo implementation against professional tools is not a true comparison. Nevertheless, you should try at least provide some arguments.
+
+ 
+
+I think that you once you can invoke a service in Java from C# and vice-versa, and be able to compare this with WS and REST examples, what should be written in the thesis become clear, but we naturally can tune that up later.
+
+ 
+
+Do these comments enlighten you enough for now? Do you know how to proceed?
+
+ 
+
+Regards,
+
+ 
+
+Delgado

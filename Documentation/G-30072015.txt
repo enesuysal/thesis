@@ -1,0 +1,29 @@
+Yes, it seems ok.
+
+ 
+
+All these technologies (XML, Web Services) originated from the same problem: interoperability (how to interconnect different programs written in different languages, running in different platforms. Given that HTML was basically text, the solutions were also based on text (XML), under the assumption that both sides use the same schema (XML Schema, WSDL).
+
+ 
+
+The idea now is to simplify the technology in the following main ways:
+
+ 
+
+- Use binary directly, instead of text (faster to write, communicate and read, while maintaining all the information necessary to communicate in a standard and platform-independent way: the tag-based format). This is what you have been doing
+
+- Use compliance and conformance instead of sharing the same schema. This means that two partners will be able to communicate as long as the sender complies with receiver (obeys what the receiver requires), just in the features actually used) and the receiver conforms to what the sender expects (supports all the features that the sender requires), again just in the features actually invoked by the sender
+
+- Eliminate the need for static data binding (generation of stubs based on a schema), because the receiver has always a default value for the message, and only the message components that comply with what the receiver expects are assigned to the matching receiver argument’s components. Matching in your case is done by name. This means that the argument (just one) is either primitive (int, bool, string) or structured, with named components. Matching is either the same type (primitive types) or name by name (if the argument is a structured type).
+
+ 
+
+Basically, this is an alternative to XML-based technologies, for document sharing or service invocation, between two completely different systems. You need to implement a demonstrator (a service programmed in C# invoked by a java program, for example).
+
+ 
+
+Regards,
+
+ 
+
+Delgado

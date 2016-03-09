@@ -1,0 +1,21 @@
+To clarify the compliance, the idea is to serialize the argument (only one, but it can be structured) of each operation of a service (receiving object). This acts like a default value, against which the message received is matched. A service receiving a message matches it against the argument of each operation, until it finds one, assigns the message to that argument (partial assignment, see below) and runs the operation, returning eventually a result.
+
+ 
+
+Multiplicities make sense only in the components of structured arguments. If the lower bound is zero, the component is optional. If greater than zero, at least that number of elements of the component are required. A component with multiplicities is in fact an array, with all elements with the same name. XML and SIL allow specifying several named components with the same name, but in your case the best is to use just an array. If you want to simplify even further, use just 0 or 1 in the multiplicities to make components optional and avoiding arrays.
+
+ 
+
+When checking for compliance, a component in the message with the same name as a component in the operation’s argument matches it and can be assigned to it (if the message complies with the argument, as a whole). If not, it is ignored. If a component in the argument is not matched by any of the message’s components and is optional (lower multiplicity zero), retains the argument’s value (which acts as a default value). If all non-optional (lower multiplicity bound > 0) components in the argument are matched, there is compliance, the matching components of the message are assigned to those of the argument with the same name and those that do not match are ignored. Thus the designation partial assignment.
+
+ 
+
+The matching algorithm of SIL is more elaborate, matching by name, position and type, but you can use the simple matching that I described to avoid complexity in the implementation and still achieve interoperability based on compliance and show that two different messages can still match a given operation’s argument.
+
+ 
+
+Regards,
+
+ 
+
+Delgado 
