@@ -21,7 +21,7 @@ resource.
 
 - Structures. Sequence of fields, in which, for each field, you should include: name (a string) and the component proper (serialized according to its type of resource)
 
-
+  
 -- Receiver 
  In receiver we define a set of predefined resource types.They are primitive types such as 
  integer, boolean, string, etc and compound resource and operation 
