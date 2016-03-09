@@ -1,10 +1,9 @@
 
 
+First thing is serializing objects to the binary format. Each primitive type object will have a tag which is a byte codifying 
+each resource type and size which number of bytes it occupies after the tag. Each Structure object  will have a tag, name and size.
 
--- Receiver 
- In receiver we define a set of predefined resource types.They are primitive types such as 
- integer, boolean, string, etc and compound resource and operation 
- (this is basically only the interface. The actual code is a method invoked by reflexion, given its name)
+
 
 
 --Binary format
@@ -13,6 +12,23 @@ We need define binary format to which messages are serialized on send and recove
 We started using an array of bytes with each resource serialized in a tag which is a byte codifying each resource type, size, 
 name that only on structure and resource components and value which is the actual sequence of bytes resulting from serializing the 
 resource.
+
+- An integer is always 64 bits (longs), with each byte serialized in sequence (with masks and shifts). You should decide which byte goes first (lowest or highest). The receiver will recover the integer in the same way.
+
+- Booleans can use just two different tags (no size or content, since the tag says it all)
+
+- Strings. Better use a UTF-8 encoding, since it is already byte oriented. Again, decide which byte of each character goes first, if it has more than one byte. Check in both C# and Java which is the best way to deal with strings, in terms of serialization. You cannot use predefined serialization, unless you know exactly how it is done. It cannot be language dependent.
+
+- Structures. Sequence of fields, in which, for each field, you should include: name (a string) and the component proper (serialized according to its type of resource)
+
+
+-- Receiver 
+ In receiver we define a set of predefined resource types.They are primitive types such as 
+ integer, boolean, string, etc and compound resource and operation 
+ (this is basically only the interface. The actual code is a method invoked by reflexion, given its name)
+
+
+
 
 -- Serializer
 
