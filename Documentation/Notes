@@ -29,7 +29,7 @@ Limit ---- 13 Mart
 
 - Binary Level
 - Primitive 
-- Notations
+- Notations -- You can also describe how you have implemented annotations in the programming languages and how you can generate service or resource descriptions from them (I don’t know if it is feasible to implement this generation. It would be nice to have a description to discover services, a la UDDI)
 - String64
 - Reflection
 
@@ -44,13 +44,22 @@ Limit ---- 20 Mart
  
  [*** Comparison with existing technologies ***]
  (as described above, and if possible including more aspects. Examples of applications, in WS, REST and in your solution This is the main result of your thesis. Is your solution better or worthwhile?)
-
+[NOTE]
+You should now move to a comparison with Web Services and REST, i.e., to services, rather than just language interoperability. Ideally, you should have two simple examples, one more suitable for Web Services (with services and their interfaces, in WSDL) and another more suitable for REST (resource-based). The conclusion should be that, thanks to the asymmetric compliance and structured data, your solution should be equally suitable for both examples, allowing both service interfaces and structured resources, all at the level of the programming languages.
+[/NOTE]
 **To be completed
 
 Limit ---- 30 Mart
 
-
+[NOTE]
+More than just an implementation, the value of your thesis lie in the demonstration of your conclusions, with respect to WS and REST. Did you find a better solution for application interoperability? Is it easier to implement? Ideally, you should also assess performance, although testing a demo implementation against professional tools is not a true comparison. Nevertheless, you should try at least provide some arguments.
+[/NOTE]
 //////////////////////Last Instroduction - Conclucion////////////////////////
+
+[NOTE]
+Anyway, the ideal goal was to have an alternative solution (to Web Services and REST) to implement a distributed application, with a client programmed in one language and a remote service programmed in possibly another language. Sending and recovering the data is just a part of it. You should reach for the service/application level, with operations available to be invoked, just like in a WSDL. You should have a service more suitable for WS and another more suitable for REST. One of the goals of your solution is to show that it supports equally well both the service-based and resource-based approaches.
+[/NOTE]
+
 Nisan 5 Tamamlanmis
 
 
