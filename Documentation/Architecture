@@ -1,0 +1,37 @@
+
+
+
+-- Receiver 
+ In receiver we define a set of predefined resource types.They are primitive types such as 
+ integer, boolean, string, etc and compound resource and operation 
+ (this is basically only the interface. The actual code is a method invoked by reflexion, given its name)
+
+
+--Binary format
+
+We need define binary format to which messages are serialized on send and recovered on reception. 
+We started using an array of bytes with each resource serialized in a tag which is a byte codifying each resource type, size, 
+name that only on structure and resource components and value which is the actual sequence of bytes resulting from serializing the 
+resource.
+
+-- Serializer
+
+We define a set of classes implementing each type of resource, including serialization to the binary format and
+recovery from that format (each resource knows how to produce its bytes and to recover from bytes with its tag). 
+The tag permits to reconstruct completely a given resource that has been serialized
+
+
+-- DOM - Document Object Model 
+
+ Given a message received, you can reconstruct the corresponding resource (in effect, this corresponds to a DOM, 
+ with parsing based on tags simplifying the reconstruction)
+ 
+ Compliance checking (matching the message received and the argument) is done at the level of the programming language, by reflection (or you can define a method in a subclass of the operation class to do this) 
+
+ Compound resources support traversal (return a link to one of its components, given its name)
+ 
+ 
+ 
+ The idea would be to implement this in Java, then adapt it to C# (or vice-versa), so that two different languages can 
+ use the SIL binary format and compliance philosophy. You can start by only basic stuff (just one or two primitive resources) and 
+ then go up to where you can (there is no need to implement all this simplified SIL). The goal is basically to demonstrate the concept, not build a full system.
