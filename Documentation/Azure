@@ -1,0 +1,19 @@
+Azure App Service - Digital Ocenan
+
+Azure App Service includes the Web App + Mobile App capabilities that we previously delivered separately (as Azure Websites + Azure Mobile Services).  It also includes powerful new Logic/Workflow App and API App capabilities that we are introducing today for the very first time - along with built-in connectors that make it super easy to build logic workflows that integrate with dozens of popular SaaS and on-premises applications (Office 365, SalesForce, Dynamics, OneDrive, Box, DropBox, Twilio, Twitter, Facebook, Marketo, and more).  
+
+All of these features can be used together at one low price.  In fact, the new Azure App Service pricing is exactly the same price as our previous Azure Websites offering.  If you are familiar with our Websites service you now get all of the features it previously supported, plus additional new mobile support, plus additional new workflow support, plus additional new connectors to dozens of SaaS and on-premises solutions at no extra charge.  
+
+
+Web Apps 
+
+The Web App support within Azure App Service includes 100% of the capabilities previously supported by Azure Websites.  This includes: 
+•Support for .NET, Node.js, Java, PHP, and Python code 
+•Built-in AutoScale support (automatically scale up/down based on real-world load) 
+•Integrated Visual Studio publishing as well as FTP publishing 
+•Continuous Integration/Deployment support with Visual Studio Online, GitHub, and BitBucket 
+•Virtual networking support and hybrid connections to on-premises networks and databases 
+•Staged deployment and test in production support 
+•WebJob support for long running background tasks
+
+Customers who have previously deployed an app using the Azure Website service will notice today that they these apps are now called "Web Apps" within the Azure management portals.  You can continue to run these apps exactly as before - or optionally now also add mobile + logic + API app support to your solution as well without having to pay anything more. 
