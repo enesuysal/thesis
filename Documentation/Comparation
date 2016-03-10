@@ -1,0 +1,4 @@
+Advantage of Binary (NOTHERE)
+ 
+It seems to me that probably you should change the focus of your thesis to the advantages of using a binary format like this with respect to a text-based format such as XML or JSON. This should include the ability of adding further information to data, namely the name of each component, and data validation by compliance (rather than schema validation). Components can be matched by name. This avoids having to define a language to define a schema, although it will be useful to allow components with multiplicity limits (minOccurs and maxOccurs in XML schema). These limits can be specified in the serialization methods, since you do not have SIL and its compiler.
+ 
