@@ -21,6 +21,8 @@ resource.
 
 - Structures. Sequence of fields, in which, for each field, you should include: name (a string) and the component proper (serialized according to its type of resource)
 
+The binary format is always the result of serializing data in each language, with a tag, the number of bytes that follow and the serialized content. Recovering the serialized data is simply testing the tag to find the data type and then using the number of bytes and the serialized content, as you already did.
+
   
 -- Receiver 
  In receiver we define a set of predefined resource types.They are primitive types such as 
@@ -45,6 +47,13 @@ The tag permits to reconstruct completely a given resource that has been seriali
  Compliance checking (matching the message received and the argument) is done at the level of the programming language, by reflection (or you can define a method in a subclass of the operation class to do this) 
 
  Compound resources support traversal (return a link to one of its components, given its name)
+ 
+ --Communicatiuon
+ 
+ BASE64 is just to overcome the limitation of HTTP of not supporting binary data. So, you serialize everything to the binary, 
+ then encode in BASE64 and decode at the receiver to recover the binary data. This will not have to be done in HTTP 2 or any other protocol that supports binary.
+ 
+ This means that, with classical HTTP, you always use BASE64 blindly, to encode a sequence of bytes, independently of what it is, and only upon recovering those bytes at the receiver you check the tag to find out which data type it is. 
  
  
  
