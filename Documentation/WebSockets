@@ -1,0 +1,10 @@
+I thought it might be useful to take a look at WebSockets which is a relatively new technology which promises to make websites more reactive by allowing lower latency interaction between users and the server. In this series of articles I’ll show you some sample applications you can build using WebSockets and Java EE7.
+
+What is WebSocket?
+
+WebSocket is a protocol which allows for communication between the client and the server/endpoint using a single TCP connection. Sounds a bit like http doesn’t it? The advantage WebSocket has over HTTP is that the protocol is full-duplex (allows for simultaneous two-way communcation) and it’s header is much smaller than that of a HTTP header, allowing for more efficient communcation even over small packets of data.
+
+The life cycle of a WebSocket is easy to understand as well:
+1.Client sends the Server a handshake request in the form of a HTTP upgrade header with data about the WebSocket it’s attempting to connect to.
+2.The Server responds to the request with another HTTP header, this is the last time a HTTP header gets used in the WebSocket connection. If the handshake was successful, they server sends a HTTP header telling the client it’s switching to the WebSocket protocol.
+3.Now a constant connection is opened and the client and server can send any number of messages to each other until the connection is closed. These messages only have about 2 bytes of overhead.
