@@ -256,6 +256,8 @@ INPUT Thesis_State_of_the_art.tex
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omsphv.fd
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omsphv.fd
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT Thesis_Architecture.tex
+INPUT Thesis_Architecture.tex
 INPUT Thesis_Implementation.tex
 INPUT Thesis_Implementation.tex
 INPUT Thesis_Results.tex

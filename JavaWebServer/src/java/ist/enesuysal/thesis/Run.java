@@ -11,7 +11,7 @@ public class Run {
 
     public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException, Exception {
         
-        TestSerial test = new TestSerial();
+         String test = "Deneme";
         Message msg = new Message(test);
         String msgToSend =  msg.Seriliaze();
 //        WebService service  = new WebService();

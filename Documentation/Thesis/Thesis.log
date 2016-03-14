@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.2)  10 MAR 2016 20:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.2)  12 MAR 2016 18:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -698,6 +698,36 @@ File: pppdftex.def 2015/05/11 v0.4x Pdfpages driver for pdfTeX (AM)
 
 LaTeX Warning: Label `section:overview' multiply defined.
 
+
+LaTeX Warning: Label `section:theory2' multiply defined.
+
+
+LaTeX Warning: Label `section:theory2' multiply defined.
+
+
+LaTeX Warning: Label `section:theory2' multiply defined.
+
+
+LaTeX Warning: Label `section:theory2' multiply defined.
+
+
+LaTeX Warning: Label `section:overview' multiply defined.
+
+
+LaTeX Warning: Label `section:theory2' multiply defined.
+
+
+LaTeX Warning: Label `section:theory2' multiply defined.
+
+
+LaTeX Warning: Label `section:theory2' multiply defined.
+
+
+LaTeX Warning: Label `section:theory2' multiply defined.
+
+
+LaTeX Warning: Label `section:theory1' multiply defined.
+
 )
 \openout1 = `Thesis.aux'.
 
@@ -809,14 +839,14 @@ LaTeX Info: Redefining \nameref on input line 19.
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 14.
 
-<IST_A_CMYK_POS.pdf, id=148, 845.0471pt x 597.51233pt>
+<IST_A_CMYK_POS.pdf, id=213, 845.0471pt x 597.51233pt>
 File: IST_A_CMYK_POS.pdf Graphic file (type pdf)
 
 <use IST_A_CMYK_POS.pdf>
 Package pdftex.def Info: IST_A_CMYK_POS.pdf used on input line 14.
 (pdftex.def)             Requested size: -78.38533pt x -90.76195pt.
 
-<Figures/cloudPlatform.png, id=149, 401.5pt x 325.215pt>
+<Figures/cloudPlatform.png, id=214, 401.5pt x 325.215pt>
 File: Figures/cloudPlatform.png Graphic file (type png)
 
 <use Figures/cloudPlatform.png>
@@ -903,7 +933,7 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <20.74> not available
 ] (./Thesis_State_of_the_art.tex
 Chapter 2.
 ! You can't use `macro parameter character #' in horizontal mode.
-l.28 Language (C#
+l.24 Language (C#
                   - Java)
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -916,13 +946,13 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.69 ...books.google.fr/books/about/Understanding_
+l.65 ...books.google.fr/books/about/Understanding_
                                                   Web_Services.html?id=SHSBr...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Misplaced alignment tab character &.
-l.69 ...tanding_Web_Services.html?id=SHSBri-rMyQC&
+l.65 ...tanding_Web_Services.html?id=SHSBri-rMyQC&
                                                   redir_esc=y
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -934,13 +964,13 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.70 
+l.66 
      
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (46.18823pt too wide) in paragraph at lines 68--70
+Overfull \hbox (46.18823pt too wide) in paragraph at lines 64--66
 []\OT1/phv/m/n/10 xXXX https://books.google.fr/books/about/Understanding$[]\OML
 /cmm/m/it/10 eb[]ervices:html\OT1/cmr/m/n/10 ?\OML/cmm/m/it/10 id \OT1/cmr/m/n/
 10 = \OML/cmm/m/it/10 SHSBri \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 rMyQCredir[]
@@ -948,7 +978,7 @@ sc \OT1/cmr/m/n/10 =
  []
 
 ! You can't use `macro parameter character #' in horizontal mode.
-l.80 be C#
+l.76 be C#
            application or C++ application, so if you have a java web service...
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -956,27 +986,27 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--87
+Underfull \hbox (badness 10000) in paragraph at lines 69--83
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--97
+Underfull \hbox (badness 10000) in paragraph at lines 86--93
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
 
  []
 
 ! You can't use `macro parameter character #' in horizontal mode.
-l.103 ...ava obviously different from string in C#
+l.99 in java obviously different from string in C#
                                                   . How do you exchange this...
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -984,74 +1014,124 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--110
+Underfull \hbox (badness 10000) in paragraph at lines 96--106
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--115
+Underfull \hbox (badness 10000) in paragraph at lines 107--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--117
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 118--130
+Underfull \hbox (badness 10000) in paragraph at lines 114--126
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
+Underfull \hbox (badness 10000) in paragraph at lines 127--129
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 144.
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 174.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omsphv.fd
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 144.
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 174.
+ [6]
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 159
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 189
 .
-LaTeX Font Info:    No file OMScmtt.fd. on input line 159.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 189.
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 159.
+(Font)              for symbol `textbackslash' on input line 189.
 
-[6]) [7] [8
+) [7] [8
 
-] (./Thesis_Implementation.tex
+] (./Thesis_Architecture.tex
 Chapter 3.
 
-LaTeX Warning: Reference `chapter:background' on page 9 undefined on input line
- 20.
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
 
-) [9
+ []
 
-] [10
+
+Overfull \hbox (11.23088pt too wide) in paragraph at lines 27--32
+\OT1/phv/m/n/10 formats-frameworks-xmldatacontractserializer-xmlserializer-bina
+ryformatter-json-newtonsoft-servicestack-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--41
+
+ []
+
+[9
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 49--54
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--60
+
+ []
+
+
+Underfull \vbox (badness 1831) has occurred while \output is active []
+
+ [10]
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+
+ []
+
+) [11] [12
+
+] (./Thesis_Implementation.tex
+Chapter 4.
+
+LaTeX Warning: Reference `chapter:background' on page 13 undefined on input lin
+e 20.
+
+) [13
+
+] [14
 
 ] (./Thesis_Results.tex
-Chapter 4.
+Chapter 5.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 39.
-<Figures/Airbus_A350.jpg, id=358, 1027.84pt x 770.88pt>
+<Figures/Airbus_A350.jpg, id=466, 1027.84pt x 770.88pt>
 File: Figures/Airbus_A350.jpg Graphic file (type jpg)
 
 <use Figures/Airbus_A350.jpg>
 Package pdftex.def Info: Figures/Airbus_A350.jpg used on input line 53.
 (pdftex.def)             Requested size: 113.81102pt x 85.3499pt.
 
-<Figures/Airbus_A320_sharklets.png, id=359, 401.5pt x 262.9825pt>
+<Figures/Airbus_A320_sharklets.png, id=467, 401.5pt x 262.9825pt>
 File: Figures/Airbus_A320_sharklets.png Graphic file (type png)
 
 <use Figures/Airbus_A320_sharklets.png>
@@ -1059,45 +1139,45 @@ Package pdftex.def Info: Figures/Airbus_A320_sharklets.png used on input line 6
 0.
 (pdftex.def)             Requested size: 223.07211pt x 146.11751pt.
 
-<Figures/Bombardier_CRJ200.png, id=361, 803.0pt x 602.25pt>
+<Figures/Bombardier_CRJ200.png, id=469, 803.0pt x 602.25pt>
 File: Figures/Bombardier_CRJ200.png Graphic file (type png)
 
 <use Figures/Bombardier_CRJ200.png>
 Package pdftex.def Info: Figures/Bombardier_CRJ200.png used on input line 61.
 (pdftex.def)             Requested size: 223.07211pt x 167.30554pt.
- [11
+ [15
 
  <./Figures/Airbus_A350.jpg>]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 69.
- [12 <./Figures/Airbus_A320_sharklets.png> <./Figures/Bombardier_CRJ200.png>]
+ [16 <./Figures/Airbus_A320_sharklets.png> <./Figures/Bombardier_CRJ200.png>]
 File: Figures/Bombardier_CRJ200.png Graphic file (type png)
 
 <use Figures/Bombardier_CRJ200.png>
 Package pdftex.def Info: Figures/Bombardier_CRJ200.png used on input line 294.
 (pdftex.def)             Requested size: 273.14923pt x 204.86337pt.
- [13]) [14] [15] [16
+ [17]) [18] [19] [20
 
 ]
 (./Thesis_Conclusions.tex
-Chapter 5.
-) [17
-
-] [18
-
-] (./Thesis.bbl) [19
-
-] [20
-
-] (./Thesis_Appendix_A.tex
-Appendix A.
+Chapter 6.
 ) [21
 
 ] [22
 
+] (./Thesis.bbl) [23
+
+] [24
+
+] (./Thesis_Appendix_A.tex
+Appendix A.
+) [25
+
+] [26
+
 ] (./Thesis_Appendix_B.tex
 Appendix B.
-<Figures/SolarCell_Sunpower_C60.pdf, id=450, 597.50829pt x 845.0471pt>
+<Figures/SolarCell_Sunpower_C60.pdf, id=558, 597.50829pt x 845.0471pt>
 File: Figures/SolarCell_Sunpower_C60.pdf Graphic file (type pdf)
 
 <use Figures/SolarCell_Sunpower_C60.pdf>
@@ -1111,7 +1191,7 @@ Package pdftex.def Info: Figures/SolarCell_Sunpower_C60.pdf used on input line
 22.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 
-<Figures/SolarCell_Sunpower_C60.pdf, id=453, page=1, 597.50829pt x 845.0471pt>
+<Figures/SolarCell_Sunpower_C60.pdf, id=561, page=1, 597.50829pt x 845.0471pt>
 File: Figures/SolarCell_Sunpower_C60.pdf Graphic file (type pdf)
 
 <use Figures/SolarCell_Sunpower_C60.pdf, page 1>
@@ -1136,10 +1216,10 @@ File: Figures/SolarCell_Sunpower_C60.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figures/SolarCell_Sunpower_C60.pdf, page1 used on inpu
 t line 22.
 (pdftex.def)             Requested size: 422.50157pt x 597.53772pt.
- [23
+ [27
 
 ]
-<Figures/SolarCell_Sunpower_C60.pdf, id=458, page=2, 597.50829pt x 845.0471pt>
+<Figures/SolarCell_Sunpower_C60.pdf, id=567, page=2, 597.50829pt x 845.0471pt>
 File: Figures/SolarCell_Sunpower_C60.pdf Graphic file (type pdf)
 
 <use Figures/SolarCell_Sunpower_C60.pdf, page 2>
@@ -1164,13 +1244,13 @@ File: Figures/SolarCell_Sunpower_C60.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figures/SolarCell_Sunpower_C60.pdf, page2 used on inpu
 t line 22.
 (pdftex.def)             Requested size: 422.50157pt x 597.53772pt.
- [24 <./Figures/SolarCell_Sunpower_C60.pdf> <./Figures/SolarCell_Sunpower_C60.p
+ [28 <./Figures/SolarCell_Sunpower_C60.pdf> <./Figures/SolarCell_Sunpower_C60.p
 df>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 208.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 208.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 203.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 203.
  (./Thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 208.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 208.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 203.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 203.
 
 
 Package rerunfilecheck Warning: File `Thesis.out' has changed.
@@ -1178,8 +1258,8 @@ Package rerunfilecheck Warning: File `Thesis.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `Thesis.out':
-(rerunfilecheck)             Before: 61DA02AC70FB61ED05936FB8E22FD83F;2134
-(rerunfilecheck)             After:  0F9F8B9D31DE3EF1FDD821D70088579C;2201.
+(rerunfilecheck)             Before: 449F5C8A5497556F2299DEFDCC84D0FC;3240
+(rerunfilecheck)             After:  91CBF42298700B7F2904E15ADC26AD2A;3030.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1189,36 +1269,45 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 208.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 203.
  ) 
 Here is how much of TeX's memory you used:
- 9657 strings out of 493089
- 136983 string characters out of 6134843
- 264368 words of memory out of 5000000
- 12769 multiletter control sequences out of 15000+600000
+ 9700 strings out of 493089
+ 137544 string characters out of 6134843
+ 264662 words of memory out of 5000000
+ 12790 multiletter control sequences out of 15000+600000
  40553 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,18n,42p,312b,488s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texl
-ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2015/texmf-di
-st/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Thesis.pdf (40 pages, 2251465 bytes).
+ 39i,18n,42p,312b,484s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{section.3.9} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.3.8} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.3.7} has been referenced but does not exist
+, replaced by a fixed one
+
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive
+/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2015/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb></usr/local/texlive/2015/t
+exmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on Thesis.pdf (44 pages, 2259187 bytes).
 PDF statistics:
- 578 PDF objects out of 1000 (max. 8388607)
- 469 compressed objects within 5 object streams
- 106 named destinations out of 1000 (max. 500000)
- 339 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 691 PDF objects out of 1000 (max. 8388607)
+ 577 compressed objects within 6 object streams
+ 125 named destinations out of 1000 (max. 500000)
+ 467 words of extra memory for PDF output out of 10000 (max. 10000000)
 
