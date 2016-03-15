@@ -2,8 +2,8 @@ var wsUri = "ws://" + document.location.host + document.location.pathname + "jav
 var websocket = new WebSocket(wsUri);
 websocket.binaryType = "arraybuffer";
 websocket.onerror = function(evt) {  
-    
-    writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data); };
+     alert("received: " + evt.data); };
+   // writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data); };
 websocket.onmessage = function(evt) {  
     
     alert("received: " + evt.data); };

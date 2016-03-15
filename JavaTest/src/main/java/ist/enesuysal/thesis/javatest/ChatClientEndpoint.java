@@ -40,7 +40,7 @@ public class ChatClientEndpoint {
                     .getWebSocketContainer();
             container.connectToServer(this, endpointURI);
         } catch (Exception e) {
-            System.err.println("Errorrrr");
+            System.err.println(e.getMessage());
         }
     }
 
@@ -96,16 +96,12 @@ public class ChatClientEndpoint {
      * @param user
      * @param message
      */
-    public void sendMessage(String message) {
-        BASE64Decoder decoder = new BASE64Decoder();
-       
-        
+    public void sendMessage(byte[] message) {
          try {
-            byte[] decodedBytes = decoder.decodeBuffer(message);
-            	ByteBuffer buf = ByteBuffer.wrap(decodedBytes);
+             ByteBuffer buf = ByteBuffer.wrap(message);
              this.userSession.getAsyncRemote().sendBinary(buf);
         } catch (Exception e) {
-             System.err.println("Erorr");
+             System.err.println(e.getMessage());
         }
            
        
