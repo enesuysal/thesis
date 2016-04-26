@@ -1,0 +1,116 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%     File: Thesis_Results.tex                                         %
+%     Tex Master: Thesis.tex                                           %
+%                                                                      %
+%     Author: Andre C. Marta                                           %
+%     Last modified :  2 Jul 2015                                      %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\chapter{Comparison with existing technologies}
+\label{chapter:comparison}
+
+
+\section{Overview}
+\label{section:overview}
+
+Current integration technologies for distributed systems in Cloud environment are generally supported on
+textual data description languages (XML and JSON) and HTTP protocol.
+These technologies especially designed for human-level interaction and that creates integration problems.
+In this section we will do comparison qualitatively and quantitevely with these current technologies and our new approach.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Qualitatively Comparison}
+\subsection{Textual or binary representation}
+\label{section:textualbinary}
+Current integration technologies for distributed systems in Cloud environment are generally supported on
+textual data description languages (XML and JSON) and HTTP protocol.
+These technologies especially designed for human-level interaction and that creates integration problems.
+In this section we will do comparison with these current technologies and our new approach.\\
+
+SOA is usually implemented by Web Services with WSDL, which is a set of conventions on XML usage to describe
+services at the interface level and SOAP as a message protocol, which is again based on XML.\\
+
+Many developers found SOAP cumbersome and hard to use. For example, working with SOAP in JavaScript means writing
+a ton of code to perform extremely simple tasks because you must create the required XML structure absolutely
+every time. one perceived disadvantage is the use of XML because of the verboseness of it and the time it takes
+to parse.\\
+
+
+REST also requires that data types, which are usually, called media types and standardized or previously agreed,
+when they are application specific.
+REST doesn’t have to use XML to provide the response. You can find REST-based Web services that output
+the data in Command Separated Value (CSV), JavaScript Object Notation (JSON) and Really Simple Syndication (RSS).
+The point is that you can obtain the output you need in a form that’s easy to parse within the language you need
+for your application. While this may seem like it adds complexity to REST because you need to handle multiple
+formats, JSON usually is a better fit for data and parses much faster. REST allows better support for browser
+clients due to its support for JSON.
+
+SOA and REST use textual representation but textual representation brings parsing expenses and poor support
+for binary data. Instead of using textual representation, the binary representation provides native support for
+binary data, has a smaller length and is faster to parse.
+
+Our approach is designed to work with binary representation. The binary representation uses a modified version
+of the TLV format (Tag, Length and Value) used by ASN.1 \citep{asn1:opt}. This not only supports the direct integration of
+binary information but also facilitates parsing, since each resource, primitive or structured.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Message protocol}
+\label{section:mprotocol}
+
+SOAP is language, platform, and transport independent SOAP can use almost any transport to send the request,
+using everything from the afore mentioned to SMTP (Simple Mail Transfer Protocol) and even
+JMS (Java Messaging Service), but REST requires use of HTTP/HTTPS. \\
+Our approach does not depend on any particular transport protocol, relying only on message delivery.
+Any existing server can be used, based on HTTP, WebSockets or any other protocol. In fact, several servers can
+be used simultaneously, receiving messages that are handed over to the message handlers that are able to process
+them. \\
+New protocols, such as WebSockets, reduce some of the problems. Web Sockets,
+now part of the HTML5 world, removes this restriction, adds binary support and increases performance.  
+XML is verbose and complex, has limited support for binary formats, is inefficient in computer terms due to
+parsing and exhibits symmetric interoperability, based on both sender and receiver using the same schema,
+which constitutes a relevant coupling problem.  \\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The interoperability problem}
+\label{section:interoperabilityProblem}
+
+In both SOA and REST, interoperability is achieved by using common data types (usually structured),
+either by sharing a schema (i.e., WSDL files) or by using a previously agreed data type
+(typical in RESTful applications). There is usually no support for partial interoperability and
+polymorphism in distributed systems.\\
+
+The basis of data interoperability with XML and JSON is schema sharing(at runtime or with previously standardized
+or agreed upon internet media types). Both the producer and consumer (reader) of a document should use the same
+schema, to ensure that any document produced (with that schema) can be read by the consumer. This means that
+both producer and consumer will be coupled by this schema. Schemas must be shared between interacting Web Services,
+ establishing coupling for all the possible values satisfying each schema, even if they are not actually used.
+ In this case, a reference to a schema acts like its name.\\
+ 
+REST also requires that data types (usually called media types) must have been previously agreed, either
+standardized or application specific.\\
+Searching for an interoperable Web Service is usually done by schema matching with similarity algorithms \citep{expertsystems:x1}
+and ontology matching and mapping \citep{Ontology:matching}. This does not ensure interoperability and manual adaptations are usually
+inevitable. \\
+In our solution, we propose to use partial interoperability, based on the concepts of compliance and conformance.
+It introduces a different
+perspective, stronger than similarity but weaker than commonality (sharing). The trick is to allow partial
+interoperability, by considering only the intersection between what the consumer needs and what the provider offers.
+It allow us for increased interoperability, adaptability and changeability, without the need to have resource types
+necessarily shared or previously agreed. 
+Building interoperability on compliance and conformance avoids the problem of having to define schemas as
+separate documents and to agree upon them beforehand. As long as compliance and conformance hold, any two
+resources can interoperate, even if they were designed unawares to each other.
+
+\section{Quantatively Comparison}
+In this section we present some results obtained with implemented solution and current solutions. We tested our
+tool in Microsoft Azure Cloud Service.
+
+In Figure 15 we have a graph where the execution times of each test case are visible. For each test case the time of the Front-end implementation represents the PinaVM runtime.
+
+Figure 15 - Execution times (milliseconds).

@@ -5,7 +5,7 @@ Enes,
 I can’t give you deadlines to do these tasks because I don’t know how long they take or how fast you can do them. So we will have to see how it goes and make adjustments if necessary.
 
  
-
+I
 Ok to start in C# and then adapt to Java. Probably the best is to do a first prototype (client and server) all in C# and then reproduce to Java, to interlink two systems in two different languages.
 
  

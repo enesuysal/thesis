@@ -1,0 +1,79 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%     File: Thesis_Architecture.tex                                %
+%     Tex Master: Thesis.tex                                           %
+%                                                                      %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Architecture of the solution}
+\label{chapter:architecture}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Overview}
+\label{section:overview}
+(architectural details on how you implemented the interoperability, your primitive data formats, and so on. Your proposal)\\
+
+As we discussed before, The idea is to compare current technologies (Web Services, REST, XML, JSON) with the philosophy of
+SIL in a simplified way and without a complier.This solution is a new programming technology alternative current solutions.
+Basically, this is an alternative to XML-based technologies, for document sharing or service invocation, between two
+completely different systems. Following sections will explain about solution of binary level compliance and comformance.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Binary Format}
+\label{section:binary}
+
+The one of ideas in this technology is using binary format instead of using text or other formats. Because binary is faster to
+write, communicate and read. When we compare serialization or deserialization performance with binary, XML and JSON.
+We easily see that binary format gives faster speed than the others especially with large data
+[REF-http://maxondev.com/serialization-performance-comparison-c-net-formats-frameworks-xmldatacontractserializer-xmlserializer-binaryformatter-json-newtonsoft-servicestack-text/]
+\\
+
+On the other hand, Text is far more flexible. Textual representation leads parsing overheads. Messages received are parsed
+directly in binary, much faster than text parsing. The binary representation provides native support for binary data, has a
+smaller length and is faster to parse, all very important for the small devices that grow up IoT applications.\\
+
+The binary format used to serialize the resources with TLV (Tag, Length and Value) binary markup. This supports the direct
+integration of binary information but also facilitates parsing, since each resource, primitive or structured. Binary message
+format resulting from compilation of the source program and that uses self-description information and only when needed.
+This allow us maintaining all the information necessary to communicate in a standard and platform-independent way.\\
+
+Image TVL
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Compliance and Conformance}
+\label{section:Compliance}
+
+The other idea in this technology is using compliance and conformance instead of sharing the same schema. There are no
+schemas or data types that need to be shared or agreed upon beforehand. This means that two partners will be able to
+communicate as long as the sender complies with receiver (obeys what the receiver requires) and the receiver conforms to
+what the sender expects (supports all the features that the sender requires), just in the features actually invoked by the
+sender.\\
+
+When a resource receives a message, it tries to match it against the type of the input parameter of each of its operations.
+If one is found, the message received is partially assigned to that argument and the operation invoked. Partial assignment
+means that the input parameter is created first, then each matching component (by name) of the message is assigned to the
+parameter. This means that some components of the message can be ignored and some components of the argument may stay
+unassigned (these are the components that do not match).\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{No static data binding}
+\label{section:noDataBinding}
+
+The other idea is eliminating the need for static data binding (generation of stubs based on a schema). The receiver has
+always a default value for the message, and only the message components that comply with what the receiver expects are
+assigned to the matching receiver argument's components. Matching is done by name. This means that the argument is either
+primitive (int, bool, string) or structured, with named components. Matching is either the same type (primitive types) or
+name by name (if the argument is a structured type). Only the components that match are assigned to the formal argument of
+the operation.
+-ADD HERE  ANOTATION
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Theoretical Model 2}
+\label{section:theory2}
+
+Other models...
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

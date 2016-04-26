@@ -11,32 +11,57 @@
 \chapter{Introduction}
 \label{chapter:introduction}
 
-Insert your chapter material here...
+Distributed applications are a necessity in most central application sectors of the modern information society,
+including e-commerce, e-bank, e-learn, e-health, telecommunication and transportation. This results from a huge
+growth of the role that the Internet plays in business, administration and our everyday activities.
+The fundamental problem is the programming of distributed applications with all the basic interoperability problems
+involving distributed platforms and heterogeneous components.\\
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Motivation}
-\label{section:motivation}
+On the other way, Clouds create a new challenge for distribution. They bring new opportunities such as scalability,
+dynamic instantiation, location independence, application management and multi-tenancy (several users using the same
+application independently). However, they also create distributed platforms and that’s why they need to be able to
+support distributed applications as easily as possible.\\
 
-Relevance of the subject...
+Taking as an example the your Android mobile phone, let's say you have an application in your phone that informs you with current
+weathercast of your city. That application is most probably written in Java since your phone is using Android system and gets
+current weathercast over Internet, so basically that application asks query to weathercast provider over Internet and gets
+response data then parse that data and display to you. During this request and response both your mobile phone and weathercast
+provider must understand each other even they don’t use the same language because the provider could be working in a Cloud
+provider and written in C\# language. This interoperability (how to interconnect different programs written in different
+languages, running in different platforms) issue can be solved with current integration technologies such as SOA or REST and both
+platforms can communicate between each other. You can get last weathercast information from your Android phone or your IPhone
+using same weathercast provider.\\
 
+The traditional integration technologies, based on either SOA or REST, is that they use the document concept as the foundation,
+with a data description language as the representation format and schema sharing as the interoperability mechanism (both sides
+use the same schema such XML Schema). Other factors, such as a connectionless protocol (HTTP) and the lack of native support for
+binary data because the solutions were also based on text (XML) and contextual information, are limiting for many applications.\\
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Topic Overview}
-\label{section:overview}
+As a solution to the problems mentioned above, in our solution we use binary directly, instead of text and compliance and
+conformance instead of sharing the same schema. The main task of this solution is to show that there can be an alternative
+solution to XML-based technologies, for document sharing or service invocation between two completely different systems.\\
 
-Provide an overview of the topic to be studied...
+The objective of dissertation is aimed to show an alternative solution to Web Services and REST.
+Implementing a distributed application with a client programmed in one language and a remote service programmed in possibly
+another language.\\
 
+The main goal of this dissertation is more than just an implementation and the value of this dissertation lie in the
+demonstration of conclusions, with respect to Web Services and REST. Showing results that if it is a better solution for
+application interoperability and also if it is easier to implement. We also assess performance, with comparison current solutions.\\
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Objectives}
-\label{section:objectives}
+This remainder of this dissertation is organized as follows:
 
-Explicitly state the objectives set to be achieved with this thesis...
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Thesis Outline}
-\label{section:outline}
-
-Briefly explain the contents of the different chapters...
-
+\begin{itemize}
+\item State of Art - Chapter 2 details some aspects of existing solutions for distributed systems for cloud environment, namely SOA and REST. it also details
+about new tools that we will use, namely Web Sockets. 
+\item Interoperability - Chapter 3 starts describing interoperability and explaining different perspective from classical
+solutions to our new solution to overcome interoperability problem.
+\item Architecture of the solution - Chapter 4 provides some insight on how our system can be used and gives a general overview of
+how and why it works.
+\item Implementation - Chapter 5 goes more in depth on the inner workings of our system than the previous chapter and presents one implementation
+for our system.
+\item Comparison with existing technologies - Chapter 6 presents the benchmarks used to evaluate our system with current solutions and
+the results obtained.
+\item Conclusions - Chapter 7 summarizes the work described in this dissertation, the results achieved, and what are its main contributions.
+It also presents some possible future improvements to our proposed solution.
+\end{itemize}

@@ -13,12 +13,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Overview}
 \label{section:overview}
-(architectural details on how you implemented the interoperability, your primitive data formats, and so on. Your proposal)\\
 
-As we discussed before, The idea is to compare current technologies (Web Services, REST, XML, JSON) with the philosophy of
-SIL in a simplified way and without a complier.This solution is a new programming technology alternative current solutions.
-Basically, this is an alternative to XML-based technologies, for document sharing or service invocation, between two
-completely different systems. Following sections will explain about solution of binary level compliance and comformance.
+As we discussed before, The idea is to compare current technologies (Web Services, REST, XML, JSON) with our solution.
+This solution is a new programming technology alternative current solutions. Basically, this is an alternative to
+XML-based technologies, for document sharing or service invocation, between two completely different systems.
+Following sections will explain about how we implemented the interoperability, our primitive data formats and solution
+of binary level compliance and comformance.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Binary Format}
@@ -27,19 +27,55 @@ completely different systems. Following sections will explain about solution of 
 The one of ideas in this technology is using binary format instead of using text or other formats. Because binary is faster to
 write, communicate and read. When we compare serialization or deserialization performance with binary, XML and JSON.
 We easily see that binary format gives faster speed than the others especially with large data
-[REF-http://maxondev.com/serialization-performance-comparison-c-net-formats-frameworks-xmldatacontractserializer-xmlserializer-binaryformatter-json-newtonsoft-servicestack-text/]
-\\
+\citep{binary:2016:Online}.\\
 
-On the other hand, Text is far more flexible. Textual representation leads parsing overheads. Messages received are parsed
-directly in binary, much faster than text parsing. The binary representation provides native support for binary data, has a
-smaller length and is faster to parse, all very important for the small devices that grow up IoT applications.\\
+On the other hand, Text is far more flexible. Textual representation leads parsing overheads. Messages received are
+parsed directly in binary, much faster than text parsing. The binary representation provides native support for
+binary data, has a smaller length and is faster to parse.\\
 
-The binary format used to serialize the resources with TLV (Tag, Length and Value) binary markup. This supports the direct
-integration of binary information but also facilitates parsing, since each resource, primitive or structured. Binary message
-format resulting from compilation of the source program and that uses self-description information and only when needed.
-This allow us maintaining all the information necessary to communicate in a standard and platform-independent way.\\
+We define a binary format to which messages are serialized on send and recovered on reception. For binary format using
+TLV (Tag, Length and Value) binary markup\citep{asn1:opt}, we use an array of bytes with each resource serialized in a tag (a byte
+codifying each resource type), size, name (only on structure and resource components) and value (the actual sequence
+of bytes resulting from serializing the resource.\\
 
-Image TVL
+The binary format used to serialize the resources with TLV (Tag, Length and Value) binary markup. This supports the
+direct integration of binary information but also facilitates parsing, since each resource, primitive or structured.
+Binary message format resulting from compilation of the source program and that uses self-description information and
+only when needed. This allow us maintaining all the information necessary to communicate in a standard and platform
+independent way.\\
+
+Resources can be represented with or without variable names:\\ 
+
+Binary, no variable names (components are referred to by their position index in the resource); 
+Variable names, in a dictionary that maps names to position indices; 
+
+int 2;   000 RESIM GELECEK
+
+As long as we control the serialization format, we can perform the serialization in one language and the
+deserialization in another. The binary format is always the result of serializing data in each language, with a tag,
+the number of bytes that follow and the serialized content. Recovering the serialized data is simply testing the tag
+to find the data type and then using the number of bytes and the serialized content.\\
+
+We start by serializing several objects to the binary format. Each will have a tag, a size (number of bytes it occupies after
+the tag). This is implemented as following:
+
+\begin{itemize}
+
+\item 	An integer is always 64 bits, with each byte serialized in sequence. The receiver will recover the integer in the
+same way.
+\item 	Booleans can use just two different tags. There is no size or content, since the tag says it all
+\item 	Strings use a UTF-8 encoding, since it is already byte oriented. We decided which byte of each character goes first, if it has more than one byte. Check in both C# and Java which is the best way to deal with strings, in terms of serialization. You cannot use predefined serialization, unless you know exactly how it is done. It cannot be language dependent.
+\item 	Structures. Sequence of fields, in which, for each field, you should include: name (a string) and the component proper (serialized according to its type of resource)
+\end{itemize}
+
+Objects with variables should be serialized to a compound data (composed of inner data). This means having a compound
+data type, with its own tag, and inner components serialized according to their own data type (composition can be
+recursive). This is always recoverable at the receiver, with advantage of the tag.
+
+To define a set of classes implementing each type of resource, including serialization to the binary format and recovery
+from that format (each resource knows how to produce its bytes and to recover from bytes with its tag). The tag permits to
+reconstruct completely a given resource that has been serialized.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -48,7 +84,7 @@ Image TVL
 
 The other idea in this technology is using compliance and conformance instead of sharing the same schema. There are no
 schemas or data types that need to be shared or agreed upon beforehand. This means that two partners will be able to
-communicate as long as the sender complies with receiver (obeys what the receiver requires) and the receiver conforms to
+communicate as long as the sender complies with receiver which follow what the receiver requires and the receiver conforms to
 what the sender expects (supports all the features that the sender requires), just in the features actually invoked by the
 sender.\\
 
@@ -56,7 +92,12 @@ When a resource receives a message, it tries to match it against the type of the
 If one is found, the message received is partially assigned to that argument and the operation invoked. Partial assignment
 means that the input parameter is created first, then each matching component (by name) of the message is assigned to the
 parameter. This means that some components of the message can be ignored and some components of the argument may stay
-unassigned (these are the components that do not match).\\
+unassigned (these are the components that do not match). If all non-optional components in the argument are matched,
+there is compliance, the matching components of the message are assigned to those of the argument with the same name and
+those that do not match are ignored. Thus the designation partial assignment.\\
+
+Using the simple matching that we described above to avoid complexity in the implementation and  still achieve
+interoperability based on compliance and show that two different messages can still match a given operation's argument.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{No static data binding}
@@ -68,12 +109,18 @@ assigned to the matching receiver argument's components. Matching is done by nam
 primitive (int, bool, string) or structured, with named components. Matching is either the same type (primitive types) or
 name by name (if the argument is a structured type). Only the components that match are assigned to the formal argument of
 the operation.
--ADD HERE  ANOTATION
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Theoretical Model 2}
-\label{section:theory2}
+\section{Anotations}
+\label{section:anotations}
+To make compliance possible, we should also serialize the formal argument of each operation. These should also support
+optional components which use the formal argument component if none in the message matches it. Therefore,
+the serialization methods in the static serialization class should include  whether it is optional.
+The best is for each primitive data type to have two tags, one for mandatory and another for optional. Annotations allow us
+define tags for primitive data type.
+Messages sent use only mandatory values. Serialized formal arguments can use both mandatory and optional.
 
-Other models...
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

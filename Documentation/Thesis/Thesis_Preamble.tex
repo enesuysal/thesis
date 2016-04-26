@@ -3,7 +3,7 @@
 %     File: Thesis_Preamble.tex                                        %
 %     Tex Master: Thesis.tex                                           %
 %                                                                      %
-%     Author: Andre C. Marta                                           %
+%     Author: ENES UYSAL                                           %
 %     Last modified : 9 Apr 2015                                       %
 %                                                                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -82,7 +82,7 @@
 \newcommand{\coverSupervisor}{@undefined} % new LaTeX variable name
 \newcommand{\coverMemberCommittee}{@undefined} % new LaTeX variable name
 % > English
-\addto\captionsenglish{\renewcommand{\coverThesis}{Thesis to obtain the Master of Science Degree in xx}}
+\addto\captionsenglish{\renewcommand{\coverThesis}{Thesis to obtain the Master of Science Degree in}}
 \addto\captionsenglish{\renewcommand{\coverSupervisors}{Supervisor(s)}}
 \addto\captionsenglish{\renewcommand{\coverExaminationCommittee}{Examination Committee}}
 \addto\captionsenglish{\renewcommand{\coverChairperson}{Chairperson}}
@@ -138,7 +138,7 @@
 %
 % > set the page margins (2.5cm minimum in every side, as per IST rules)
 %
-\usepackage{geometry}	
+\usepackage{geometry}
 \geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
 
 % 'setspace' package
@@ -188,7 +188,7 @@
 %
 \usepackage{amsmath}  % AMS mathematical facilities for LaTeX.
 \usepackage{amsthm}   % Typesetting theorems (AMS style).
-\usepackage{amsfonts} % 
+\usepackage{amsfonts} %
 
 
 % 'wrapfig' package
@@ -303,7 +303,7 @@
 %
 % Group variables according to their symbol type
 %
-\RequirePackage{ifthen} 
+\RequirePackage{ifthen}
 \ifthenelse{\equal{\languagename}{english}}%
     { % English
     \renewcommand{\nomgroup}[1]{%
@@ -513,4 +513,3 @@
   {\mbox{\boldmath$\scriptstyle#1$}}%
   {\mbox{\boldmath$\scriptscriptstyle#1$}}}
 \newcommand{\boldcal}[1]{{\ensuremath{\boldsymbol{\mathcal{#1}}}}}% math bold calygraphy
-

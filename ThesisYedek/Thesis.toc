@@ -1,0 +1,52 @@
+\select@language {english}
+\contentsline {section}{Acknowledgments}{v}{section*.1}
+\contentsline {section}{Resumo}{vii}{section*.2}
+\contentsline {section}{Abstract}{ix}{section*.3}
+\contentsline {section}{List of Tables}{xiii}{section*.5}
+\contentsline {section}{List of Figures}{xv}{section*.7}
+\contentsline {section}{Nomenclature}{1}{section*.9}
+\contentsline {section}{Glossary}{1}{section*.10}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Topic Overview}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}Objectives}{1}{section.1.3}
+\contentsline {section}{\numberline {1.4}Thesis Outline}{1}{section.1.4}
+\contentsline {chapter}{\numberline {2}State-of-the-art}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Overview}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}Web Services}{3}{section.2.2}
+\contentsline {section}{\numberline {2.3}SOA Web Services}{4}{section.2.3}
+\contentsline {section}{\numberline {2.4}REST Web Services}{6}{section.2.4}
+\contentsline {section}{\numberline {2.5}Theoretical Model 2}{6}{section.2.5}
+\contentsline {section}{\numberline {2.6}Theoretical Model 2}{6}{section.2.6}
+\contentsline {section}{\numberline {2.7}Theoretical Model 2}{6}{section.2.7}
+\contentsline {section}{\numberline {2.8}Theoretical Model 2}{6}{section.2.8}
+\contentsline {section}{\numberline {2.9}Theoretical Model 2}{6}{section.2.9}
+\contentsline {section}{\numberline {2.10}Theoretical Model 1}{6}{section.2.10}
+\contentsline {chapter}{\numberline {3}Architecture of the solution}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}Overview}{9}{section.3.1}
+\contentsline {section}{\numberline {3.2}Binary Format}{9}{section.3.2}
+\contentsline {section}{\numberline {3.3}Compliance and Conformance}{10}{section.3.3}
+\contentsline {section}{\numberline {3.4}No static data binding}{10}{section.3.4}
+\contentsline {section}{\numberline {3.5}Theoretical Model 2}{10}{section.3.5}
+\contentsline {section}{\numberline {3.6}Theoretical Model 1}{11}{section.3.6}
+\contentsline {chapter}{\numberline {4}Implementation}{13}{chapter.4}
+\contentsline {section}{\numberline {4.1}Numerical Model}{13}{section.4.1}
+\contentsline {section}{\numberline {4.2}Verification and Validation}{13}{section.4.2}
+\contentsline {chapter}{\numberline {5}Results}{15}{chapter.5}
+\contentsline {section}{\numberline {5.1}Problem Description}{15}{section.5.1}
+\contentsline {section}{\numberline {5.2}Baseline Solution}{15}{section.5.2}
+\contentsline {section}{\numberline {5.3}Enhanced Solution}{15}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Figures}{15}{subsection.5.3.1}
+\contentsline {subsubsection}{Images}{15}{section*.11}
+\contentsline {subsubsection}{Drawings}{16}{section*.12}
+\contentsline {subsection}{\numberline {5.3.2}Equations}{16}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Tables}{17}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}Mixing}{18}{subsection.5.3.4}
+\contentsline {chapter}{\numberline {6}Conclusions}{21}{chapter.6}
+\contentsline {section}{\numberline {6.1}Achievements}{21}{section.6.1}
+\contentsline {section}{\numberline {6.2}Future Work}{21}{section.6.2}
+\contentsline {chapter}{Bibliography}{23}{section*.13}
+\contentsline {chapter}{\numberline {A}Vector calculus}{25}{appendix.A}
+\contentsline {section}{\numberline {A.1}Vector identities}{25}{section.A.1}
+\contentsline {chapter}{\numberline {B}Technical Datasheets}{27}{appendix.B}
+\contentsline {section}{\numberline {B.1}Some Datasheet}{27}{section.B.1}

@@ -195,7 +195,7 @@ ExampleClass3
         }
         public string GetCSharpRestMessage(string message)
         {
-            return GetRestMessage("http://csharpserverthesis.azurewebsites.net/restservice.svc/GetResult/" + message, message, "GET");
+            return GetRestMessage("http://csharprestservice.azurewebsites.net/restservice.svc/GetResult/" + message, message, "GET");
         }
         public string GetJavaRestMessage(string message)
         {
