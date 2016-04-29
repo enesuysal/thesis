@@ -16,30 +16,40 @@ namespace ConsoleTest
 {
     class Program
     {
+        public class Person
+        {
+            public string name = "John";
+            public int age = 32;
+            public byte[] Serialize()
+            {
+                byte[] arrayResult = new byte[0];
+                Type type = this.GetType(); // Get type pointer
+                FieldInfo[] fields = type.GetFields(); // Obtain all fields
+                foreach (var field in fields) // Loop through fields
+                {
+                    string name = field.Name; // Get string name
+                    object temp = field.GetValue(this); // Get value
+                    arrayResult = CentralSerializer.serializePrimitive(field.FieldType.FullName, field.Name, true, temp, arrayResult);
+
+
+                }
+
+                return arrayResult;
+                //System.out.println(result.toString());
+            }
+
+        }
         static void Main(string[] args)
         {
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
             for (int i = 0; i < 10; i++)
             {
-                Employee emp = new Employee();
-
-                emp.name = "Test Employee " + (i + 1).ToString();
-                emp.gender = (i % 2 == 0) ? 'F' : 'M';
-                emp.age = Convert.ToByte(20 / 2 + i * 2);
-                emp.isSingle = (i % 2 == 0) ? true : false;
-                emp.weight = Convert.ToInt32(50);
-                emp.height = Convert.ToDouble(186.45);
-                emp.eyeColor = "Blue";
-                emp.salary = (float)Convert.ToDouble(2500);
-                emp.street = "CHRIS NISWANDEE SMALLSYS INC 795 E DRAGRAM TUCSON AZ 85705 USA";
-                emp.houseNumber = "795";
-                emp.floorNumber = "1";
-                emp.city = "TUCSON";
-                emp.zip = "85705";
-                emp.country = "USA";
-                Console.WriteLine(PrintObject(emp));
-                string msg = new Message(emp).Seriliaze();
+                Person p = new Person();
+                p.name = "John";
+                p.age = 32;
+               
+                string msg = new Message(p).Seriliaze();
                 Console.WriteLine(GetJavaRestMessage(msg));
             }
             stopWatch.Stop();

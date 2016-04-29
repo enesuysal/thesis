@@ -44,12 +44,11 @@ Binary message format resulting from compilation of the source program and that 
 only when needed. This allow us maintaining all the information necessary to communicate in a standard and platform
 independent way.\\
 
-Resources can be represented with or without variable names:\\ 
-
-Binary, no variable names (components are referred to by their position index in the resource); 
-Variable names, in a dictionary that maps names to position indices; 
-
-int 2;   000 RESIM GELECEK
+Resources can be represented with or without variable names: 
+\begin{itemize}
+\item Binary, no variable names (components are referred to by their position index in the resource); 
+\item Variable names, in a dictionary that maps names to position indices; 
+\end{itemize}
 
 As long as we control the serialization format, we can perform the serialization in one language and the
 deserialization in another. The binary format is always the result of serializing data in each language, with a tag,
@@ -64,7 +63,9 @@ the tag). This is implemented as following:
 \item 	An integer is always 64 bits, with each byte serialized in sequence. The receiver will recover the integer in the
 same way.
 \item 	Booleans can use just two different tags. There is no size or content, since the tag says it all
-\item 	Strings use a UTF-8 encoding, since it is already byte oriented. We decided which byte of each character goes first, if it has more than one byte. Check in both C# and Java which is the best way to deal with strings, in terms of serialization. You cannot use predefined serialization, unless you know exactly how it is done. It cannot be language dependent.
+\item 	Strings use a UTF-8 encoding, since it is already byte oriented. We decided which byte of each character goes first, if it has more than one byte.
+Check in both C\# and Java which is the best way to deal with strings, in terms of serialization.
+You cannot use predefined serialization, unless you know exactly how it is done. It cannot be language dependent.
 \item 	Structures. Sequence of fields, in which, for each field, you should include: name (a string) and the component proper (serialized according to its type of resource)
 \end{itemize}
 
@@ -120,7 +121,6 @@ the serialization methods in the static serialization class should include  whet
 The best is for each primitive data type to have two tags, one for mandatory and another for optional. Annotations allow us
 define tags for primitive data type.
 Messages sent use only mandatory values. Serialized formal arguments can use both mandatory and optional.
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

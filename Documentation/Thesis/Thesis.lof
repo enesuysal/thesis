@@ -2,14 +2,16 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Simple Web Service Architecture.}}{3}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces WSDL file.}}{6}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces SOAP.}}{6}{figure.2.3}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces WSDL (Web Services Description Language).}}{6}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces SOAP (Simple Object Access Protocol).}}{7}{figure.2.3}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces REST.}}{8}{figure.2.4}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Interoperability in SOA and REST.}}{12}{figure.3.1}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Asymmetric interoperability.}}{13}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Partial interoperability, based on compliance and conformance.}}{13}{figure.3.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Message Transportation.}}{21}{figure.5.1}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Examples of primitive type serialization.}}{21}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Message Transportation.}}{22}{figure.5.2}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

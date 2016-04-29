@@ -21,10 +21,55 @@ When we try to work with different computer language and their object types we h
 We can not use standard Java or .Net(C\#) object serialization, because different program languages uses different algoritms
 for serialization that's why we’ll run into the problem. for example in our case Java and .Net does'nt use same serialization
 algoritm if you serialize an object in Java to binary format and then if you try to deserialize it in .Net language you
-will have problem because .Net will not recognize that binary format while deserializing.
+will have problem because .Net will not recognize that binary format while deserializing.For example
+Person object binary representation is not the same in .Net(Table \ref{tab:netserilazitaon}) and
+Java(Table \ref{tab:javaserilazitaon})
+
+\begin{lstlisting}[language=Java, caption={Person Object}]
+
+  public class Person{
+       public String name;
+       public int age;
+  }
+
+\end{lstlisting}
+
+\begin{table}[]
+\centering
+\begin{tabular}{lllllllllllllll}
+0 & 1 & 0 & 0 & 0 & 255 & 255 & 255 & 255 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 12 & 2 & 0 & 0 & 0 & 73 & 83 & 101 & 114 & 105 & 97 & 108 & 105  \\
+122 & 97 & 116 & 105 & 111 & 110 & 32 & 116 & 101 & 115 & 116 & 44 & 32 & 86 & 101\\
+114 & 115 & 105 & 111 & 110 & 61 & 49 & 46 & 48 & 46 & 48 & 46 & 48 & 44 & 32 \\
+67 & 117 & 108 & 116 & 117 & 114 & 101 & 61 & 110 & 101 & 117 & 116 & 114 & 97 & 108 \\
+44 & 32 & 80 & 117 & 98 & 108 & 105 & 99 & 75 & 101 & 121 & 84 & 111 & 107 & 101 \\
+110 & 61 & 110 & 117 & 108 & 108 & 5 & 1 & 0 & 0 & 0 & 25 & 83 & 101 & 114 \\
+105 & 97 & 108 & 105 & 122 & 97 & 116 & 105 & 111 & 110 & 95 & 116 & 101 & 115 & 116 \\
+46 & 80 & 101 & 114 & 115 & 111 & 110 & 2 & 0 & 0 & 0 & 21 & 60 & 110 & 97 \\
+109 & 101 & 62 & 107 & 95 & 95 & 66 & 97 & 99 & 107 & 105 & 110 & 103 & 70 & 105 \\
+101 & 108 & 100 & 20 & 60 & 97 & 103 & 101 & 62 & 107 & 95 & 95 & 66 & 97 & 99 \\
+107 & 105 & 110 & 103 & 70 & 105 & 101 & 108 & 100 & 1 & 0 & 8 & 2 & 0 & 0 \\
+0 & 6 & 3 & 0 & 0 & 0 & 4 & 74 & 111 & 104 & 110 & 32 & 0 & 0 & 0 \\
+11& & & & & & & & & & & & & & &
+\end{tabular}
+\caption[.Net Serialization Person Object]{.Net Serialization Person Object}
+\label{tab:netserilazitaon}
+\end{table}
 
 
-Figure - . NET and Java String Object Binary
+\begin{table}[]
+\centering
+\begin{tabular}{lllllllllllllll}
+  -84 & -19 & 0 & 5 & 115 & 114 & 0 & 23 & 106 & 97 & 118 & 97 & 97 & 112 & 112 \\
+  108 & 105 & 99 & 97 & 116 & 105 & 111 & 110 & 55 & 46 & 80 & 101 & 114 & 115 & 111 \\
+  110 & 79 & -70 & 94 & 85 & -31 & -32 & -110 & 90 & 2 & 0 & 2 & 73 & 0 & 3 \\
+  97 & 103 & 101 & 76 & 0 & 4 & 110 & 97 & 109 & 101 & 116 & 0 & 18 & 76 & 106 \\
+  97 & 118 & 97 & 47 & 108 & 97 & 110 & 103 & 47 & 83 & 116 & 114 & 105 & 110 & 103 \\
+  59 & 120 & 112 & 0 & 0 & 0 & 32 & 116 & 0 & 4 & 74 & 111 & 104 & 110 \\
+\end{tabular}
+\caption[Java Serialization Person Object]{Java Serialization Person Object}
+\label{tab:javaserilazitaon}
+\end{table}
 
 In this case we will use our algoritms instead of using stardard serializer for Java or .Net that both languages could
 understand and easily serialize or deserialize.\\
@@ -63,9 +108,13 @@ is similar to the programming language’s serialization methods.\\
 
 We will show some examples of primitive type serialization.
 
-[Integer]
-[String]
-[Boolean]
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.9\textwidth]{Figures/binary.png}
+  \caption[Examples of primitive type serialization.]{Examples of primitive type serialization.}
+  \label{fig:examplebinary}
+\end{figure}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

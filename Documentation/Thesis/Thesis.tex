@@ -8,6 +8,21 @@
 % ----------------------------------------------------------------------
 \documentclass[10pt,a4paper,twoside]{report}
 
+
+
+
+\usepackage{listings}
+\usepackage{xcolor} % for setting colors
+\lstset{
+    frame=tb, % draw a frame at the top and bottom of the code block
+    tabsize=4, % tab space width
+    showstringspaces=false, % don't mark spaces in strings
+    numbers=left, % display line numbers on the left
+    commentstyle=\color{green}, % comment color
+    keywordstyle=\color{blue}, % keyword color
+    stringstyle=\color{red} % string color
+}
+
 % ----------------------------------------------------------------------
 % Define external packages, language, margins, fonts and new commands
 % ----------------------------------------------------------------------
@@ -184,7 +199,7 @@
 %
 %  CAUTION: 1) the main document (up to the conclusions) shall not exceed 80 pages
 %           2) the document shall not exceed a total of 100 pages (per IST regulations)
-% ----------------------------------------------------------------------
+% ------------------------------------------------------------------------
 \appendix
 
 % add page number prefix according to apendix chapter (optional)

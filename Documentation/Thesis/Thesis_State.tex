@@ -31,13 +31,13 @@ systems, present or future, without any restricted access or implementation\cite
 For example let’s say you have written web service in Java, let’s say you have another web service that written in .Net so what
 the web service technology allows you to do is Java can call .Net web service and .Net web service can also call Java web
 service and it just doesn’t have to be web service let’s say you have another application written in C++, so you can actually
-have C++ app that call java web service or .Net web service. You can actually have different applications written in different
-technologies that communicate with each other during execution time and they can call each other. This actually let us do is
+have C++ app that call Java web service or .Net web service. You can actually have different applications written in different
+technologies that communicate with each other during execution time and they can call each other. This actually let us to do that
 you can actually pick and choose technologies that you want to use let’s say you have set of business web services that are
-implemented in .Net and your java application can use them.\\
+implemented in .Net and your Java application can use them.\\
 
 Web Services are exposed to the Internet for programmatic access. They are online APIs that you can call from your code.
-When you want to call any API that written by someone else to your java code, you basically add jar or classes to your class
+When you want to call any API that written by someone else to your Java code, you basically add jar or classes to your class
 path and executions are done inside of machine or single environment. In the case of web services however you have different
 pieces of code deployed over different machines and they call methods of each other over the network. For example, you must
 have seen that different apps or games, which can post to your Facebook wall even these games, not designed by Facebook.
@@ -52,7 +52,7 @@ your browser you get an HTML response that let you read and write tweets. They h
 for styling, this is because web pages that you see are made human conception. They know that there is actually human is behind
 of browser on a laptop or devices who was reading these tweets, so they want to make sure about its format properly, so it is easy to access and read.
 Twitter has also other URL as “api.twitter.com“ that does a lot of same things as “www.twitter.com“ does, but it behaves a bit
-differently for instance this API gives you response which doesn’t have HTML or CSS code. It contains data but it is xml or json format and there are specific URLs for different operations this is what the developers can use from their code to read or write to twitter, so this data is actually very easy for parsing and converting then using in their objects and their code for developers. In this case there is no need HTML and CSS files.\\
+differently for instance this API gives you response which doesn’t have HTML or CSS code. It contains data but it is XML or JSON format and there are specific URLs for different operations this is what the developers can use from their code to read or write to twitter, so this data is actually very easy for parsing and converting then using in their objects and their code for developers. In this case there is no need HTML and CSS files.\\
 There are primarily two different types of web services. One of these types called as  Simple Object Access Protocol (SOAP) web
 service and another type called as REpresentational State Transfer(REST) web service. SOAP is older of these two and REST is newer entry to web services world, but both of them are used popular.
 Next chapter will be focusing on SOAP and REST web services.
@@ -63,7 +63,7 @@ Next chapter will be focusing on SOAP and REST web services.
 
 Simple Object Access Protocol, or SOAP as it was the first attempt to standardize a web service interface. It is based on
 sending an XML message to a service, in a specific format, and receiving an XML response in another specific format.
-The message can be sent across different transports, including HTTP, FTP, SMTP, and more. The specification does not
+The message can be sent across different transports, including HTTP, FTP (File transfer Protocol), SMTP (Simple Mail Transfer Protocol) and more \citep{thesis:state1}. The specification does not
 dictate the transport over which the message should be sent, but most implementations send the XML message over HTTP.\\
 
 I will try to explain shortly SOAP web service by an example. Let’s start an example with java application. Let’s say we have
@@ -79,20 +79,20 @@ application a java interface then most probably it will not work because they ar
 that we are going to share with web service consumer has to be technology independent. It should be something that any
 application or any technology can understand so creators of SOAP web service talked about that problem and what to give format
 understandable by all technology with all consumers and decided with XML. So what we do is in case of web service, we
-actually share that contract as an XML document. This XML document is actually called as WSDL.\\
+actually share that contract as an XML document. This XML document is actually called as WSDL(Web Services Description Language)\citep{thesis:state2}.\\
 
 WSDL document contains the contract to web service and so that’s are the things you have to do when you create the web
 service and you share WSDL document of that web service to the consumers, so this is not something you would have to do
 it manually. You would do it manually but there are tools which generate WSDL for the web service but it is something that
 you need to share this WSDL to consumers and it is a XML document, so it respective whatever application because applications
-such as .Net, C++ or Java can all parse this XML and get to know about service information and typically the content of
+such as .Net, C++ or Java can all parse this XML\citep{thesis:state3} and get to know about service information and typically the content of
 this WSDL is kind of similar to an interface content. It has operations, arguments and types  to return that consumer
 applications will have idea what to call and how to call.\\
 
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=0.5\textwidth]{Figures/WSDL.png}
-  \caption[WSDL file.]{WSDL file.}
+  \caption[WSDL (Web Services Description Language).]{WSDL (Web Services Description Language).}
   \label{fig:wsdl}
 \end{figure}
 
@@ -107,7 +107,7 @@ return type back to the client, the data has to be in XML format. You are not re
 has to be language natural format which is XML. There is specification about how you need to send all these different input
 type and output argument basically any type needs to be send specific XML format.\\
 
-It is a protocol that is a way in which both sender and receiver and this XML is called SOAP.
+It is a protocol that is a way in which both sender and receiver and this XML is called SOAP(Simple Object Access Protocol).
 It is a way in which these different technologies can access objects can access data it supposedly simple so that a part
 of the name is called simple object access protocol. So with this protocol all different technologies written in different
 languages can kind of understand what they all taking about.\\
@@ -115,14 +115,14 @@ languages can kind of understand what they all taking about.\\
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=0.8\textwidth]{Figures/soap.png}
-  \caption[SOAP.]{SOAP.}
+  \caption[SOAP (Simple Object Access Protocol).]{SOAP (Simple Object Access Protocol).}
   \label{fig:wsdl}
 \end{figure}
 
 Now we know what is the mechanism we know what need to be send and we know how to send which is using SOAP protocol
 but who does conversion? So for example you have your string object or complex object, so how do you convert it from java
 object to a soap message? The conversion is actually done with intermedia class so this class takes care of converting all
-your objects into a SOAP message. The whole method calls itself is actually done by SEI(Service Endpoint Interface). The SEI access interface to your
+your objects into a SOAP message. The whole method calls itself is actually done by SEI(Service Endpoint Interface)\citep{thesis:state4}. The SEI access interface to your
 web service endpoint so you have an interface at your client app to the service endpoint which translate all web service
 call to a SOAP message and then it makes sure that the other things is able to understand this message. So we don’t have to
 write this class and all the conversion ourselves. We can have it automatically generated for us. When you are making a web
@@ -144,7 +144,7 @@ perform tasks.\\
 Resources are the fundamental building blocks of web-based systems. A resource is anything we expose to the Web,
 from a document or video clip to a business processor device. A URI uniquely identifies a web resource, and at the
 same time makes it addressable, or capable of being manipulated using an application protocol such as HTTP. The
-relationship between URIs and resources is many-to-one. A URI identifies only one resource, but a resource can
+relationship between URIs and resources is many-to-one\citep{thesis:state5}. A URI identifies only one resource, but a resource can
 have more than one URI. That is, a resource can be identified in more than one way, much as humans can have multiple
 email addresses or telephone numbers. This fits with our  need to identify real-world resources in more
 than one way. Everything in REST web services has URl is unique and standard. for example Facebook, when you open an
@@ -153,15 +153,25 @@ new profile, it basically the same page which does same processing but render di
 that you are watching. In REST web services we need to think of resources and create unique urls for them. For example you are creating weathercast application and you want
 to get weather for different cities of Portugal, so your URl needs to be unique for each city as examples below.\\
 
-\begin{itemize}
-  \item http://weatherapp.com/city/Lisbon (Unique URl for Lisbon city)
-  \item http://weatherapp.com/city/Porto (Unique URl for Porto city)
-  \item http://weatherapp.com/city/Algarve (Unique URl for Algarve city)
-\end{itemize}
+\begin{table}[!htb]
+  \renewcommand{\arraystretch}{1.2} % more space between rows
+  \centering
+  \begin{tabular}{lccc}
+    \toprule
+    URl & Description  \\
+    \midrule
+    http://weatherapp.com/city/Lisbon &  Unique URl for Lisbon city\\
+    http://weatherapp.com/city/Porto & Unique URl for Porto city\\
+    http://weatherapp.com/city/Algarve & Unique URl for Algarve city\\
+    \bottomrule
+  \end{tabular}
+  \caption[URl Example.]{URl Example.}
+  \label{tab:urlexample}
+\end{table}
 
 In REST web services, with same unique URl we can do different actions, for example if you are administrator of weathercast
 application and you want to get data of Lisbon or if you want to update data of Lisbon or deleting data of Lisbon you can
-use the same unique url for all these methods using HTTP methods. Only a single concrete URI, a single URI template,
+use the same unique URl for all these methods using HTTP methods. Only a single concrete URI, a single URI template,
 and four HTTP verbs. In fact, it’s so compact that we can provide an overview in just a few lines, as shown in Table \ref{tab:aeroCoeff}.
 
 \begin{table}[!htb]
@@ -174,7 +184,7 @@ and four HTTP verbs. In fact, it’s so compact that we can provide an overview 
     POST           & /city & Create a new city\\
     GET            & /city/{cityName} & Request the data of city specified by the URI.\\
     PUT            & /city/{cityName} & Update an city data at the given URI with new information.\\
-    DELETE            & /city/{cityName} & Logically remove the city identified by the given URI.\\
+    DELETE         & /city/{cityName} & Logically remove the city identified by the given URI.\\
     \bottomrule
   \end{tabular}
   \caption[HTTP Methods.]{HTTP Methods.}
@@ -192,19 +202,19 @@ We've looked at requests so far, and understood what resource URIs and HTTP meth
 We make request to resource URIs with using HTTP methods. Let's switch to responses now.
 After making request, RESTful web service will be responded. It is important format of response
 because client needs to write code to handle that response. if that were a web application,
-the response would be html page  with styling formatting. When it comes  RESTful Web service
-you don't need all this styling because it can be basically  XML or Json.\\
+the response would be HTML page  with styling formatting. When it comes  RESTful Web service
+you don't need all this styling because it can be basically  XML or JSON.\\
 
-Json is much more populer than XML because it is more compact especially you have large amount of data and also
-when client is browser which is pice of javascript code running on browser
-so sending respinse data in json
+JSON is much more populer than XML\citep{thesis:state6} because it is more compact especially you have large amount of data
+and also when client is browser which is piece of javascript code running on browser so sending response data in JSON can be
+easily parsed by client.
 
 
 % ----------------------------------------------------------------------
 \section{Web Sockets}
 \label{section:websockets}
 
-WebSockets\citep{Ontology:Matching} are a relatively new technology which promises to make websites more reactive by allowing lower latency
+WebSockets\citep{Ontology:matching} are a relatively new technology which promises to make websites more reactive by allowing lower latency
 interaction between users and the server.\\
 
 WebSocket is a protocol which allows for communication between the client and the server/endpoint using a single TCP
@@ -214,11 +224,11 @@ more efficient communcation even over small packets of data.\\
 
 Web Sockets are also fundamental in the efficient support for binary data and increases performance.
 
-Example of WebSocket life cycle:
+Example of WebSocket life cycle:\citep{thesis:state7}\\
 1.Client sends the Server a handshake request in the form of a HTTP upgrade header with data about the WebSocket
-it’s attempting to connect to.
+it’s attempting to connect to.\\
 2.The Server responds to the request with another HTTP header, this is the last time a HTTP header gets used in the
 WebSocket connection. If the handshake was successful, they server sends a HTTP header telling the client it’s
-switching to the WebSocket protocol.
+switching to the WebSocket protocol.\\
 3.When connection is opened and the client and server can send any number of messages to each other
-until the connection is closed. These messages have very low bytes of overhead.
+until the connection is closed. These messages have very low bytes of overhead.\\

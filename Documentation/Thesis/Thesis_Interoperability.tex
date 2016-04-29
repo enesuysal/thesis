@@ -45,7 +45,7 @@ In our solution, we show how interaction is stil possible with only a partial kn
 characteristics actually used are included (partial interoperability). This is a way of getting closer to solving the
 fundamental integration problem, by reducing coupling to what is actually required.\\
 
-Coupling is thus a necessary bad, without which no interaction is possible. Our goal is to minimize it as much as
+Coupling is thus a necessary bad, without it no interaction is possible. Our goal is to minimize it as much as
 possible, down to the minimum level that ensures the level of interaction required by the resources to integrate.\\
 
 In this solutution we will show different approach, based on compliance. Messages do not obey some external schema.
@@ -84,14 +84,13 @@ interact with another, although not entirely interoperable with it, we say that 
 \end{figure}
 
 Figure ~\ref{fig:Partial} illustrates these concepts and differentiates compliance from conformance. It also describes complete
-transactions, with both request and response. The interacting resources now perform the roles of consumer who makes
-the request and provider, with sender and receiver roles reversed from request to response. Interoperability of a
-consumer with a provider is possible by satisfying the following properties:
+transactions, with both request and response. The interacting resources now perform the roles of consumer who makes the request and provider, with sender and receiver roles reversed from request to response. 
+Interoperability of a consumer with a provider is possible by satisfying the following properties:
 
 Compliance\citep{compliance:def} which means that the consumer must satisfy (comply with) the requirements established
 by the provider to accept requests sent to it, without which these cannot be honored.
 
-Conformance\citep{comformance:def} which means that the provider must fulfill the expectations of the consumer
+Conformance\citep{comformance:def2} which means that the provider must fulfill the expectations of the consumer
 regarding the effects of a request (including eventual responses), therefore being able to take the form
 of (to conform to) whatever the consumer expects it to be. 
 

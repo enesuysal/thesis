@@ -11,29 +11,11 @@
 \chapter{Conclusions}
 \label{chapter:conclusions}
 
-In this thesis we propose a solution for . This solution extends
-methodologies already used for .
-We discussed some methodologies that seem most relevant, .
-The tool proposed here consists of five components, where the implementation of three of them is part of the scope of
-this thesis. Section 4 briefly describes the tool architecture, describing its components and the interaction between
-them. Section 5 describes in more detail the implementation of the three components belonging to this thesis, the
-SysCFG, Extract Structure and SysSMT.
-SysCFG aims to extract the CFGs of the source code functions from the SystemC description. To accomplish this it was
-necessary to convert the SystemC source code to an easily manageable intermediate representation. Thus it was chosen
-LLVM framework which has a wide acceptance in recent years by the community. At this time there are several front-ends
- for LLVM built, while others are being developed and improved, as is the case of PinaVM. This is the LLVM front-end
- for SystemC used in this thesis. This thesis (see Section 6.1) shows that this component presents promissory results
- not only for small programs but also to real systems like the echo cancellation system.
-The Extract Structure consists on a source code parser to extract the static structure of the embedded system modeled
-in SystemC. This component saves the signs, modules and their connections between the two of them. At the same time,
-it also extracts the #define directives. This component arose from the need to create a helper structure at IVG component (outside the scope of this thesis) to create the CFG of the embedded system under analysis. In SystemC, module functions that emulate the module behavior are never called directly from the source code, only in simulation time SystemC decides who and when to call. Thus it is necessary to know beforehand the static structure to help in the organization of CFGs of the source code functions in order to build the embedded system CFG.
-Finally, we propose a solution to the
- Thus we had to find a solution from scratch where most 
-components had to be developed.
+TO BE COMPLETED
 
 
 % ----------------------------------------------------------------------
 \section{Future Work}
 \label{section:future}
 
-A few ideas for future work...
+TO BE COMPLETED

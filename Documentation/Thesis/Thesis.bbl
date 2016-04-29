@@ -1,34 +1,93 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{17}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[Sun(2014)]{thesis:introduction1}
+Z.~Sun.
+\newblock \emph{Handbook of Research on Demand-Driven Web Services: Theory,
+  Technologies, and Applications: Theory, Technologies, and Applications}.
+\newblock IGI Global, 2014.
+
+\bibitem[Garg and Buyya(2011)]{thesis:introduction2}
+S.~K. Garg and R.~Buyya.
+\newblock Networkcloudsim: Modelling parallel applications in cloud
+  simulations.
+\newblock \emph{Fourth IEEE International Conference on Utility and Cloud
+  Computing}, 2011.
+
 \bibitem[int(2016)]{interoperability:2016:Online}
 {Definition of Interoperability}.
 \newblock \url{http://interoperability-definition.info/en/}, 2016.
 \newblock [Online; accessed 24/05/2016].
 
-\bibitem[Jim~Webber and Robinson(2010)]{rest:restinpractice}
+\bibitem[Nikos~Antonopoulos(2010)]{thesis:state1}
+L.~G. Nikos~Antonopoulos.
+\newblock \emph{Cloud Computing: Principles, Systems and Applications}.
+\newblock Springer Science, Business Media, 2010.
+
+\bibitem[Josuttis(2007)]{thesis:state2}
+N.~M. Josuttis.
+\newblock \emph{SOA in Practice: The Art of Distributed System Design}.
+\newblock O'Reilly Media, Inc, 2007.
+
+\bibitem[Deborah~Nolan(2013)]{thesis:state3}
+D.~T.~L. Deborah~Nolan.
+\newblock \emph{XML and Web Technologies for Data Sciences with R}.
+\newblock Springer Science - Business Media, 2013.
+
+\bibitem[Hansen(2007)]{thesis:state4}
+M.~D. Hansen.
+\newblock \emph{SOA Using Java Web Services}.
+\newblock Pearson Education, 2007.
+
+\bibitem[Jim~Webber and Robinson(2010{\natexlab{a}})]{rest:restinpractice}
 S.~P. Jim~Webber and I.~Robinson.
 \newblock \emph{REST in Practice: Hypermedia and Systems Architecture}.
-\newblock O’Reilly Media, $1^{st}$ edition, 2010.
+\newblock O’Reilly Media, $1^{st}$ edition, 2010{\natexlab{a}}.
 \newblock ISBN-13: 978-0596805821.
 
-\bibitem[Euzenat(2007)]{Ontology:Matching}
-S.~P. Euzenat, Jérôme.
-\newblock \emph{Ontology Matching}.
-\newblock Springer, $2^{nd}$ edition, 2007.
-\newblock ISBN:978-0387303031.
+\bibitem[Jim~Webber and Robinson(2010{\natexlab{b}})]{thesis:state5}
+S.~P. Jim~Webber and I.~Robinson.
+\newblock \emph{REST in Practice}.
+\newblock O'Reilly Media, Inc, 2010{\natexlab{b}}.
+
+\bibitem[Delgado(2013)]{thesis:state6}
+J.~Delgado.
+\newblock \emph{Service Interoperability in the Internet of Things}, pages pp
+  51--87.
+\newblock Springer Berlin Heidelberg, 2013.
+
+\bibitem[Euzenat~J(2007)]{Ontology:matching}
+S.~P. Euzenat~J.
+\newblock \emph{Ontology matching}.
+\newblock Berlin. Springer, $2^{nd}$ edition, 2007.
+\newblock ISBN: 978-3-642-38720-3.
+
+\bibitem[the(2013)]{thesis:state7}
+{WebSockets – A Quick Introduction and a Sample Application}.
+\newblock
+  \url{https://blog.idrsolutions.com/2013/12/websockets-an-introduction/},
+  2013.
+\newblock [Online; accessed 24/05/2016].
 
 \bibitem[Natallia~Kokash(2009)]{compliance:def}
 F.~A. Natallia~Kokash.
 \newblock Formal behavioral modeling and compliance analysis for
   service-oriented systems.
 \newblock \emph{Springer Berlin Heidelberg}, 3\penalty0 (9-10):\penalty0
-  21--41, Oct. 2009.
-\newblock doi:10.1007/978-3-642-04167-9_2.
+  21--–41, Oct. 2009.
+\newblock doi:10.1007 978-3-642-04167-9 2.
+
+\bibitem[Dae-Kyoo~Kim(2007)]{comformance:def2}
+W.~S. Dae-Kyoo~Kim.
+\newblock An approach to evaluating structural pattern conformance of uml
+  models.
+\newblock \emph{Conference: Proceedings of the 2007 ACM Symposium on Applied
+  Computing (SAC), Seoul, Korea}, 2007.
+\newblock DOI: 10.1145 1244002.1244305.
 
 \bibitem[bin(2016)]{binary:2016:Online}
 {Serialization Performance comparison(XML,Binary,JSON,P...)}.
