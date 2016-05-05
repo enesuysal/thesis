@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+  <weather>
+      <country>Portugal</country>
+  		<city>Lisbon</city>
+  		<date>30.03.2016</date>
+  		<weatherResult></weatherResult>
+  </weather>

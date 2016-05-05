@@ -11,111 +11,182 @@
 \section{Overview}
 \label{section:overview}
 
-In this section we describe the implementation of the Binary Level Serialization, Central Serializer, Receiver,
- Message Transportation and Deployment.
+This chapter describes the implementation details of the Binary Level Serialization, Receiver and Compliance, Message Transportation and Deployment. This chapter also gives experimental examples about new implementation to show that solution works in practice and that is better than XML or JSON regarding data binding and decoupling.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Binary Level Serialization}
 \label{section:binaryLevelSerialization}
-When we try to work with different computer language and their object types we had problem with serialization.
-We can not use standard Java or .Net(C\#) object serialization, because different program languages uses different algoritms
-for serialization that's why we’ll run into the problem. for example in our case Java and .Net does'nt use same serialization
-algoritm if you serialize an object in Java to binary format and then if you try to deserialize it in .Net language you
-will have problem because .Net will not recognize that binary format while deserializing.For example
-Person object binary representation is not the same in .Net(Table \ref{tab:netserilazitaon}) and
-Java(Table \ref{tab:javaserilazitaon})
 
-\begin{lstlisting}[language=Java, caption={Person Object}]
+In this section, the implementation of the Binary level serialization will be presented. As in previous chapters, explained advantages of binary comparing to text-based solutions, it will be show with some experimentation.
 
-  public class Person{
+Computer languages have their own object types and special serialization algorithms for their object types, so when you are working with same language you can easily serialize an object and deserialize it back easily with other application which is written by same language.
+
+When starting to work with different computer languages and their object types, most probably you have problem with serialization. You can not use standard Java or .Net(C\#) object serialization, because different program languages uses different algoritms for serialization, that's why you’ll run into the problem with serialization. Let's explain that with a simple example. For example simple Person object such as in Listing ~\ref{lst:javaperson} has a binary representation which is not the same in .Net(Table \ref{tab:netserilazitaon}) and Java(Table \ref{tab:javaserilazitaon}).\\
+
+\begin{lstlisting}[caption=Person Object, label=lst:javaperson]
+  public class Person
+  {
        public String name;
        public int age;
   }
-
 \end{lstlisting}
-
+Because both Java and .Net has different algorithms to serialize and deserialize their object classes and they are unaware of each other. The unique solution for that problem is avoid using standard serialization libraries for Java and .Net.
 \begin{table}[]
 \centering
 \begin{tabular}{lllllllllllllll}
-0 & 1 & 0 & 0 & 0 & 255 & 255 & 255 & 255 & 1 & 0 & 0 & 0 & 0 & 0 \\
-0 & 0 & 12 & 2 & 0 & 0 & 0 & 73 & 83 & 101 & 114 & 105 & 97 & 108 & 105  \\
-122 & 97 & 116 & 105 & 111 & 110 & 32 & 116 & 101 & 115 & 116 & 44 & 32 & 86 & 101\\
-114 & 115 & 105 & 111 & 110 & 61 & 49 & 46 & 48 & 46 & 48 & 46 & 48 & 44 & 32 \\
-67 & 117 & 108 & 116 & 117 & 114 & 101 & 61 & 110 & 101 & 117 & 116 & 114 & 97 & 108 \\
-44 & 32 & 80 & 117 & 98 & 108 & 105 & 99 & 75 & 101 & 121 & 84 & 111 & 107 & 101 \\
-110 & 61 & 110 & 117 & 108 & 108 & 5 & 1 & 0 & 0 & 0 & 25 & 83 & 101 & 114 \\
-105 & 97 & 108 & 105 & 122 & 97 & 116 & 105 & 111 & 110 & 95 & 116 & 101 & 115 & 116 \\
-46 & 80 & 101 & 114 & 115 & 111 & 110 & 2 & 0 & 0 & 0 & 21 & 60 & 110 & 97 \\
-109 & 101 & 62 & 107 & 95 & 95 & 66 & 97 & 99 & 107 & 105 & 110 & 103 & 70 & 105 \\
-101 & 108 & 100 & 20 & 60 & 97 & 103 & 101 & 62 & 107 & 95 & 95 & 66 & 97 & 99 \\
-107 & 105 & 110 & 103 & 70 & 105 & 101 & 108 & 100 & 1 & 0 & 8 & 2 & 0 & 0 \\
-0 & 6 & 3 & 0 & 0 & 0 & 4 & 74 & 111 & 104 & 110 & 32 & 0 & 0 & 0 \\
-11& & & & & & & & & & & & & & &
+0   & 1   & 0   & 0   & 0   & 255 & 255 & 255 & 255 & 1   & 0   & 0   & 0   & 0   & 0  \\
+0   & 0   & 12  & 2   & 0   & 0   & 0   & 73  & 83  & 101 & 114 & 105 & 97  & 108 & 105\\
+122 & 97  & 116 & 105 & 111 & 110 & 32  & 116 & 101 & 115 & 116 & 44  & 32  & 86  & 101\\
+114 & 115 & 105 & 111 & 110 & 61  & 49  & 46  & 48  & 46  & 48  & 46  & 48  & 44  & 32 \\
+67  & 117 & 108 & 116 & 117 & 114 & 101 & 61  & 110 & 101 & 117 & 116 & 114 & 97  & 108\\
+44  & 32  & 80  & 117 & 98  & 108 & 105 & 99  & 75  & 101 & 121 & 84  & 111 & 107 & 101\\
+110 & 61  & 110 & 117 & 108 & 108 & 5   & 1   & 0   & 0   & 0   & 25  & 83  & 101 & 114\\
+105 & 97  & 108 & 105 & 122 & 97  & 116 & 105 & 111 & 110 & 95  & 116 & 101 & 115 & 116\\
+46  & 80  & 101 & 114 & 115 & 111 & 110 & 2   & 0   & 0   & 0   & 21  & 60  & 110 & 97 \\
+109 & 101 & 62  & 107 & 95  & 95  & 66  & 97  & 99  & 107 & 105 & 110 & 103 & 70  & 105\\
+101 & 108 & 100 & 20  & 60  & 97  & 103 & 101 & 62  & 107 & 95  & 95  & 66  & 97  & 99 \\
+107 & 105 & 110 & 103 & 70  & 105 & 101 & 108 & 100 & 1   & 0   & 8   & 2   & 0   & 0  \\
+0   & 6   & 3   & 0   & 0   & 0   & 4   & 74  & 111 & 104 & 110 & 32  & 0   & 0   & 0  \\
+11  &     &     &     &     &     &     &     &     &     &     &     &     &     &    \\
 \end{tabular}
 \caption[.Net Serialization Person Object]{.Net Serialization Person Object}
 \label{tab:netserilazitaon}
 \end{table}
 
-
 \begin{table}[]
 \centering
 \begin{tabular}{lllllllllllllll}
-  -84 & -19 & 0 & 5 & 115 & 114 & 0 & 23 & 106 & 97 & 118 & 97 & 97 & 112 & 112 \\
-  108 & 105 & 99 & 97 & 116 & 105 & 111 & 110 & 55 & 46 & 80 & 101 & 114 & 115 & 111 \\
-  110 & 79 & -70 & 94 & 85 & -31 & -32 & -110 & 90 & 2 & 0 & 2 & 73 & 0 & 3 \\
-  97 & 103 & 101 & 76 & 0 & 4 & 110 & 97 & 109 & 101 & 116 & 0 & 18 & 76 & 106 \\
-  97 & 118 & 97 & 47 & 108 & 97 & 110 & 103 & 47 & 83 & 116 & 114 & 105 & 110 & 103 \\
-  59 & 120 & 112 & 0 & 0 & 0 & 32 & 116 & 0 & 4 & 74 & 111 & 104 & 110 \\
+  -84 & -19 & 0   & 5  & 115 & 114 & 0   & 23   & 106 & 97  & 118 & 97  & 97  & 112  & 112 \\
+  108 & 105 & 99  & 97 & 116 & 105 & 111 & 110  & 55  & 46  & 80  & 101 & 114 & 115  & 111 \\
+  110 & 79  & -70 & 94 & 85  & -31 & -32 & -110 & 90  & 2   & 0   & 2   & 73  & 0    & 3 \\
+  97  & 103 & 101 & 76 & 0   & 4   & 110 & 97   & 109 & 101 & 116 & 0   & 18  & 76   & 106 \\
+  97  & 118 & 97  & 47 & 108 & 97  & 110 & 103  & 47  & 83  & 116 & 114 & 105 & 110  & 103 \\
+  59  & 120 & 112 & 0  & 0   & 0   & 32  & 116  & 0   & 4   & 74  & 111 & 104 & 110  &     \\
 \end{tabular}
 \caption[Java Serialization Person Object]{Java Serialization Person Object}
 \label{tab:javaserilazitaon}
 \end{table}
 
-In this case we will use our algoritms instead of using stardard serializer for Java or .Net that both languages could
-understand and easily serialize or deserialize.\\
+After that experiment, creating a common algoritm for different languages is decided to be use instead of using stardard serializer for Java or .Net that both languages could understand and easily serialize or deserialize.
 
-The binary format is always the result of serializing data in each language, with a tag, the number of bytes that follow and
-the serialized content. Recovering the serialized data is simply testing the tag to find the data type and then using the
-number of bytes and the serialized content. So instead of using stardard serializer with this algoritm we could serialize object
-in a language and deserialize with another language.\\
+The binary format is always the result of serializing data in each language. Each data has a tag which describe data type and the number of bytes that follow and the serialized content. Recovering the serialized data is simply testing the tag to find the data type and then using the number of bytes and the serialized content.
 
-Objects with variables should be serialized to a compound data (composed of inner data). This means having a compound data type,
- with its own tag, and inner components serialized according to their own data type (composition can be recursive).
- This is always recoverable at the receiver, thanks to the tag.\\
+A message to be sent is an object (in Java or .Net) that provide a serialization method, which basically builds a serialized message (an array of bytes) by sucessively adding each of its components, serialized. This is done by invoking the methods of the serialization class for primitive data or by recursively invoking the serialization method of structured objects that constitute the message.
 
-In following section CentralSerializer class will help us to seriliaze objects to binary level using primitive type
-object serialization.\\
+Instead of every class has their own serializer class, it is implemented with idea of centralizing the “object of primitive type to a sequence of bytes” and vice-versa methods in a single class is to avoid the need for every class to have these methods. Since they are static (they receive an object and return bytes, or vice versa), they can simply be concentrated in a static class (no instances) and invoked from anywhere.\\
 
+The methods to serialize, receive a primitive object (integer, Boolean, etc) and an array of bytes, returning the array of bytes with the serialized object’s bytes appended. Therefore, each serialization method grows the byte array. When the user wants to send a message, that message is an instance of a class that has a method that knows how to serialize it, by invoking the serialization methods of the static class for each of its variables.
+%We will show some examples of primitive type serialization.
+%\begin{figure}[!htb]
+%  \centering
+%  \includegraphics[width=0.9\textwidth]{Figures/binary.png}
+%  \caption[Examples of primitive type serialization.]{Examples of primitive type serialization.}
+%  \label{fig:examplebinary}
+%\end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Central Serializer}
-\label{section:centralSerializer}
+To examine the performance in serializing structed data in binary and text-based data(XML,JSON), an experiment was designed using following hardware and software:
+\begin{itemize}
+\item 	Hardware: IMac(by Apple Inc.) with Intel Core i7 1,7 GHz and 8GB memory.
+\item 	Operation System: Mac OS X version 10.11.4.
+\item 	Java: version 1.8.
+\end{itemize}
+Current version of object serialization libraries were selected shown in the following:
+\begin{itemize}
+\item JAXB Serializer for XML serialization.
+\item Jackson Serializer for JSON serialization.
+\item OpenEXI for XML compression
+\end{itemize}
+The experiment was designed as follows:
+\begin{itemize}
+\item Ten kinds of query were prepared for weathercast provider. They were queries with ten different size of weather: 0, 100, 200, 300, 400, 500, 600, 700, 800, 900 weathercast query.
+\item The serialized file was measured and the execution time was measured using System.currentTimeMillis() shown in Listing ~\ref{lst:timeserialize}.
+\end{itemize}
 
-A message to be sent should be an object (in Java or .Net) that should provide a serialization method, which basically
-builds a serialized message (an array of bytes) by sucessively adding each of its components, serialized. This is done by
-invoking the methods of the serialization class for primitive data (ints, bools, etc), or by recursively invoking the
-serialization method of structured objects that constitute the message.\\
+\begin{lstlisting}[caption=Serialization program for testing, label=lst:timeserialize]
+          long start = System.currentTimeMillis();
+          Query q = new Query();
+          for (int i = 0; i < 900; i++) {
+              q.weathers.add(new Weather());
+          }
+          json = serialize(query);
+          long end = System.currentTimeMillis();
+          double time  =  (double) (end-start);
+\end{lstlisting}
 
-The idea of centralizing the “object of primitive type to a sequence of bytes” and vice-versa methods in a single class
-is to avoid the need for every class to have these methods. Since they are static (they receive an object and return bytes,
-or vice versa), they can simply be concentrated in a static class (no instances) and invoked from anywhere.\\
+The avarage size of ten kinds of serialized files given in Table ~\ref{tab:binaryyy}.
+\begin{table}
+\centering
+\begin{tabular}{ p{5.50cm} p{5.50cm} }
+\toprule
+\multicolumn{1}{l}{\textbf{Format}} & \textbf{Avarage (bytes)}\\
+\midrule
+\textbf{XML}    & 62008\\
+\textbf{EXI}    & 3030\\
+\textbf{JSON}   & 32036\\
+\textbf{Binary} & 35984\\
 
-The methods to serialize can receive a primitive object (integer, Boolean, etc) and an array of bytes, returning the array
-of bytes with the serialized object’s bytes appended. Therefore, each serialization method grows the byte array. When the
-user wants to send a message, that message needs to be an instance of a class that has a method that knows how to serialize it,
-by invoking the serialization methods of the static class for each of its variables. This needs to be programmed by the use and
-is similar to the programming language’s serialization methods.\\
-
-We will show some examples of primitive type serialization.
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[width=0.9\textwidth]{Figures/binary.png}
-  \caption[Examples of primitive type serialization.]{Examples of primitive type serialization.}
-  \label{fig:examplebinary}
+\bottomrule
+\end{tabular}
+\caption[Sizes (in bytes) of several resource representations.]{Sizes (in bytes) of several resource representations.}
+\label{tab:binaryyy}
+\end{table}
+\begin{figure}
+    \begin{tikzpicture}
+    \begin{axis}[
+    title={Execution times for serialization of XML,JSON and Binary},
+    xlabel={Number of weathercast query},
+    ylabel={Execution time(ms.)},
+    xmin=0, xmax=900,
+    ymin=0, ymax=400,
+    xtick={0,100,200,300,400,500,600,700,800,900},
+    ytick={0,50,100,150,200,250,300,350,400},
+    legend pos=north west,
+    ymajorgrids=true,
+    grid style=dashed,
+]
+\addplot[
+    color=blue,
+    mark=square,
+    ]
+    coordinates {
+    (0,0)(100,33)(200,43.4)(300,63.2)(400,71.6)(500,90)(600,95.8)(700,99.2)(800,109)(900,111)
+    };
+   \addlegendentry{Binary}
+\addplot[
+    color=red,
+    mark=square,
+    ]
+    coordinates {
+   (0,0)(100,309)(200,324)(300,305)(400,330)(500,343)(600,303)(700,318)(800,328)(900,334)
+    };
+    \addlegendentry{JSON}
+ \addplot[
+    color=green,
+    mark=square,
+    ]
+    coordinates {
+   (0,0)(100,94.8)(200,100.2)(300,105.8)(400,107.4)(500,99.8)(600,103.6)(700,110.8)(800,109.4)(900,115.8)
+    };
+    \addlegendentry{XML}
+\end{axis}
+\end{tikzpicture}
+\caption{Avarage Execution times for serialization of XML,JSON and Binary}
+\label{fig:executiontime}
 \end{figure}
 
+From the point of the avarage size, the largest serialized file is optained using XML, but EXI (Efficient XML Interchange) that use compression technology has best serialized file size when compared with others. Again it needs compression and decompression each time. On the other hand, Binary and JSON have very similar serialized file size. From the point of execution time binary serialization spends less time when compared with the others as seen in Figure~\ref{fig:executiontime}. From quantative aspects, the size of binary-based serialized data is better than XML-based and JSON-based serialiation since there is no schema required and also in term of data binding, the binary-based serialization gives us big advantage with removing stub generation and DOM inspection.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%\section{Receiver and Compliance}
+%\label{section:compliance}
+
+%Compliance is done at the binary level, with primitive components. It is done both formal argument of the receiver method and received message. Only the components that match are assigned to the formal argument of the operation. Two partners will be able to communicate as long as the sender complies with receiver and the receiver conforms to what the sender expects and it supports all the features that the sender requires.
+
+%When a suitable operation is found, the server will complete operation and create a response for client. The system  also support optional components which use the formal argument component if optional fields don't have value or different value. Therefore, the serialization methods in the static serialization class should include the name of the component, whether it is mandatory(with annotation), the type(encoded in the tag) and the value. Each primitive data type can have mandatory annotation. Messages sent use only with mandatory values. Serialized formal arguments can use both mandatory and non-mandatory.The receiver has always a default value for the message, so for the data that don't have mandatory annotation it will always use default value.
+
+%To clarify the compliance, the idea is to serialize the argument (only one, but it can be structured) of each operation of a service(receiving object). This acts like a default value, against which the message received is matched. A service receiving a message matches it against the argument of each operation, until it finds one, assigns the message to that argument (partial assignment) and runs the operation, returning eventually a result.
+
+%When checking for compliance, a component in the message with the same name as a component in the operation’s argument matches it and can be assigned to it (if the message complies with the argument, as a whole). If not, it is ignored. If a component in the argument is not matched by any of the message’s components and is optional , retains the argument’s value (which acts as a default value). If all non-optional  components in the argument are matched, there is compliance, the matching components of the message are assigned to those of the argument with the same name and those that do not match are ignored. Thus the designation partial assignment.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Message Transportation}
@@ -123,16 +194,12 @@ We will show some examples of primitive type serialization.
 
 Transferring the array of bytes from sender to receiver requires a binary channel like Web Sockets(HTTP2) or
 more classical way by encoding and decoding the binary array with BASE64 and then use typical HTTP-based
-solutions (Web Services or REST). The classical solution is of course non-optimal compared to the other ones,
-but it can easier to implement given existent tools.\\
+solutions (Web Services or REST). The classical solution is non-optimal compared to the other ones, but it is easier to implement with existent tools.
 
-Message Transportation in this solution is done with essentially JavaScript and WebSockets [14], to circumvent some of the limitations of HTTP.
-The most important issue is that finally humans are also becoming direct Web producers and not merely clients of servers.\\
+Message Transportation in this solution is done with essentially JavaScript and WebSockets, to circumvent some of the limitations of HTTP. But also the solution supports classical way by encoding and decoding the binary array with BASE64 and then using typical HTTP-based solutions.
 
-Web Sockets [44] are fundamental in the efficient support for binary data removes this restriction, increases performance.
-They use the protocol upgrade feature of HTTP and
-provide a substantial degree of compatibility with existing systems. Part of the HTML5 world, servers and firewalls are
-increasingly supporting them and removes this restriction, adds binary support and increases performance.
+Web Sockets are choosen technology for implementation because they are fundamental in the efficient support for binary data removes this restriction, increases performance. They use the protocol upgrade feature of HTTP and
+provide a substantial degree of compatibility with existing systems. Now they are part of the HTML5 world, servers and firewalls are increasingly supporting them and removes this restriction, adds binary support and increases performance.
 
 \begin{figure}[!htb]
   \centering
@@ -140,66 +207,82 @@ increasingly supporting them and removes this restriction, adds binary support a
   \caption[Message Transportation.]{Message Transportation.}
   \label{fig:websocket}
 \end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Receiver}
-\label{section:receiver}
+To examine the performance in HTTP-based solutions and Web Sockets, an experiment was designed using following hardware and software:
 
-The Receving platform makes compliance tests in binary because binary format to be able to traverse both the received message
-and each operation’s formal argument, previously serialized. Only the components that match are assigned to the formal argument of the operation.
+\begin{itemize}
+\item 	Hardware: IMac(by Apple Inc.) with Intel Core i7 1,7 GHz and 8GB memory.
+\item 	Operation System: Mac OS X version 10.11.4.
+\item 	Java: version 1.8.
+\end{itemize}
 
-Two partners will be able to communicate as long as the sender complies with receiver and the receiver conforms to what the
-sender expects and it supports all the features that the sender requires, again just in the features actually invoked by the
-sender
+The experiment was designed as follows:
+\begin{itemize}
+\item Ten kinds of query were prepared for weathercast provider. They were queries with 6 different size of weather: 10, 100, 500, 1000, 5000, 10000 weathercast query.
+\end{itemize}
+\\
+\begin{figure}
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    enlargelimits=0.15,
+    legend style={at={(0.5,-0.15)},
+      anchor=north,legend columns=1},
+    ylabel={Time},
+    symbolic x coords={10,100,500,1000,5000,10000},
+    xtick=data,
+    nodes near coords,
+    nodes near coords align={vertical},
+    ]
+\addplot coordinates {(10,17) (100,110) (500,520) (1000,1050) (5000,5180) (10000,10520) };
+\addplot coordinates {(10,13) (100,19) (500,69) (1000,116) (5000,520) (10000,1019)};
 
-When the receiver finds a suitable operation, it builds another array of bytes from both the message and the formal argument
-then receiver matches components in the formal argument, if it matches it uses the message ones but if not matched by any in the message,
-use the ones already in the formal argument
+\legend{HTTP-based(Web Service),Web Socket}
+\end{axis}
+\end{tikzpicture}
+\caption{Avarage Times(in ms) of HTTP-based solutions and WebSocket.}
+\label{fig:executiontimewebsocket}
+\end{figure}
+\\
 
-The receiver has always a default value for the message, and only the message components that comply with what the receiver
-expects are assigned to the matching receiver argumentís components. Matching in your case is done by name. This means that
-the argument (just one) is either primitive (int, bool, string) or structured, with named components. Matching is either the
-same type (primitive types) or name by name (if the argument is a structured type).
+\begin{table}
+\centering
+\begin{tabular}{ p{5.50cm}p{5.50cm} p{5.50cm} }
+\toprule
+\multicolumn{1}{l}{\textbf{Nb of Message}} & \textbf{Web Service(HTTP) (in ms)} & \textbf{WebSocket(in ms)}\\
+\midrule
+\ 10    & 17    & 13\\
+\ 100   & 110   & 19\\
+\ 500   & 520   & 69\\
+\ 1000  & 1050  & 116\\
+\ 5000  & 5180  & 520\\
+\ 10000 & 10520 & 1019\\
 
-Then, the platform invokes the operation after generating the argument’s object from array of bytes.
-This can be done either by reflection or by invoking a constructor defined by the user in the class of the formal argument,
-which knows how to build itself from an array of bytes that respects its components (the new array of bytes respects this
-because it was created by copying the original array of bytes of the serialized formal arguments, replacing only the components
- that matched).
+\bottomrule
+\end{tabular}
+\caption[Avarage Times(in ms) of HTTP-based solutions and WebSocket.]{Times (in ms) of HTTP-based solutions and WebSocket.}
+\label{tab:websov}
+\end{table}
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Compliance}
-\label{section:compliance}
-
-Compliance is done at the binary level, with primitive components, as we described in previous section. Only the components
-that match are assigned to the formal argument of the operation.\\
-
-We should also serialize the formal argument of each operation to make compliance possible. These should also support
-optional components which use the formal argument component if none in the message matches it. Therefore, the serialization
-methods in the static serialization class should include the name of the component, whether it is optional (a boolean), the type
-(encoded in the tag) and the value. For each (primitive) data type can have mandatory annotation.
-Messages sent use only mandatory values. Serialized formal arguments can use both mandatory and non-mandatory.
-
-To clarify the compliance, the idea is to serialize the argument (only one, but it can be structured) of each operation of a service
-(receiving object). This acts like a default value, against which the message received is matched. A service receiving a message matches
-it against the argument of each operation, until it finds one, assigns the message to that argument (partial assignment, see below) and
-runs the operation, returning eventually a result.
-
-
-When checking for compliance, a component in the message with the same name as a component in the operation’s argument matches it and
-can be assigned to it (if the message complies with the argument, as a whole). If not, it is ignored. If a component in the argument
-is not matched by any of the message’s components and is optional , retains the argument’s value (which acts as a default value).
-If all non-optional  components in the argument are matched, there is compliance, the matching components of the message are
-assigned to those of the argument with the same name and those that do not match are ignored. Thus the designation partial assignment.
+As seen in Table \ref{tab:websov} and in Figure \ref{fig:executiontimewebsocket}, there is a big difference between the HTTP-based solutions and Web Sockets. It is clear to see using Web sockets technology adds a lot difference in performance aspect. WebSockets also removes the limitations of HTTP which adds binary support and increases performance.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Deployment}
 \label{section:deployment}
 
-The solution is developed and in two different language. They are .NET and Java and deployed Microsoft Azure Cloud. That's way we can
-have 2 different provider and .Net client can send message to Java provider over the cloud by using WebSockets and also Java client can
-send message to .Net provider. Using Microsoft Azure Cloud allowed us to test project in cloud enviroment
+The solution is developed and in two different languages that are .NET and Java. The solution is deployed to Microsoft Azure Cloud. The reason choosing Microsoft Azure Cloud instead of other providers is because Microsoft provide free access to their App Servers of Azure with student subscription account. Another reason, .Net and Java technologies can be deployed using the same platform. Microsoft Azure support Java and .Net and that's way  2 different provider will be in the same platform. The Azure application servers support Websockets, which is also benefit to test new solution using Websockets in cloud enviroment. .Net client can send a message to Java provider over the cloud by using WebSockets technology and also Java client can send message to .Net provider. Using Microsoft Azure Cloud technologies allowed us to test the project in cloud environment. The characteristics of Java application server and .Net application server can be seen in Figure~\ref{fig:javaserver} and in Figure~\ref{fig:netserver}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Figures/javaserver.png}
+  \caption[The characteristics of Java application server.]{The characteristics of Java application server.}
+  \label{fig:javaserver}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Figures/dotnetserver.png}
+  \caption[The characteristics of .Net application server.]{The characteristics of .Net application server.}
+  \label{fig:netserver}
+\end{figure}

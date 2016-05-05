@@ -1,0 +1,15 @@
+[WebService(Namespace = "http://tempuri.org/")]
+[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+
+public class WebService : System.Web.Services.WebService {
+
+    public WebService () {
+    }
+
+    [WebMethod]
+    public Weather GetWeatherCast(Weather weather) {
+        weather.weatherResult = WeatherCastProvider.GetWeather(weather.country, weather.city, weather.date); 
+        return weather;
+    }
+    
+}

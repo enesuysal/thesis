@@ -1,64 +1,111 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Sun(2014)]{thesis:introduction1}
-Z.~Sun.
-\newblock \emph{Handbook of Research on Demand-Driven Web Services: Theory,
-  Technologies, and Applications: Theory, Technologies, and Applications}.
-\newblock IGI Global, 2014.
+\bibitem[Zielinski(2006)]{thesis:introduction1}
+A.~L. Zielinski, Kurt~Geihs.
+\newblock \emph{New Developments in Distributed Applications and Interoperable
+  Systems}, page 327.
+\newblock Springer, 2006.
 
-\bibitem[Garg and Buyya(2011)]{thesis:introduction2}
-S.~K. Garg and R.~Buyya.
-\newblock Networkcloudsim: Modelling parallel applications in cloud
-  simulations.
-\newblock \emph{Fourth IEEE International Conference on Utility and Cloud
-  Computing}, 2011.
+\bibitem[Villari(2012)]{thesis:introduction2}
+M.~Villari.
+\newblock \emph{Achieving Federated and Self-Manageable Cloud Infrastructures:
+  Theory and Practice: Theory and Practice}, pages 58,91,119,269.
+\newblock IGI Global, 2012.
 
-\bibitem[int(2016)]{interoperability:2016:Online}
+\bibitem[Englander(2002)]{thesis:introduction3}
+R.~Englander.
+\newblock \emph{Java and SOAP}, page 213.
+\newblock O'Reilly Media, Inc., 2002.
+
+\bibitem[the(2016{\natexlab{a}})]{thesis:state1}
 {Definition of Interoperability}.
-\newblock \url{http://interoperability-definition.info/en/}, 2016.
+\newblock \url{http://interoperability-definition.info/en/},
+  2016{\natexlab{a}}.
 \newblock [Online; accessed 24/05/2016].
 
-\bibitem[Nikos~Antonopoulos(2010)]{thesis:state1}
+\bibitem[Nikos~Antonopoulos(2010)]{thesis:state2}
 L.~G. Nikos~Antonopoulos.
-\newblock \emph{Cloud Computing: Principles, Systems and Applications}.
+\newblock \emph{Cloud Computing: Principles, Systems and Applications},
+  page~15.
 \newblock Springer Science, Business Media, 2010.
 
-\bibitem[Josuttis(2007)]{thesis:state2}
+\bibitem[Josuttis(2007)]{thesis:state3}
 N.~M. Josuttis.
-\newblock \emph{SOA in Practice: The Art of Distributed System Design}.
+\newblock \emph{SOA in Practice: The Art of Distributed System Design}, page
+  221.
 \newblock O'Reilly Media, Inc, 2007.
 
-\bibitem[Deborah~Nolan(2013)]{thesis:state3}
+\bibitem[Deborah~Nolan(2013)]{thesis:state4}
 D.~T.~L. Deborah~Nolan.
-\newblock \emph{XML and Web Technologies for Data Sciences with R}.
+\newblock \emph{XML and Web Technologies for Data Sciences with R}, page~73.
 \newblock Springer Science - Business Media, 2013.
 
-\bibitem[Hansen(2007)]{thesis:state4}
+\bibitem[Hansen(2007)]{thesis:state5}
 M.~D. Hansen.
-\newblock \emph{SOA Using Java Web Services}.
+\newblock \emph{SOA Using Java Web Services}, page~34.
 \newblock Pearson Education, 2007.
 
-\bibitem[Jim~Webber and Robinson(2010{\natexlab{a}})]{rest:restinpractice}
+\bibitem[Jim~Webber and Robinson(2010{\natexlab{a}})]{thesis:state5_1}
 S.~P. Jim~Webber and I.~Robinson.
-\newblock \emph{REST in Practice: Hypermedia and Systems Architecture}.
+\newblock \emph{REST in Practice: Hypermedia and Systems Architecture},
+  page~12.
 \newblock O’Reilly Media, $1^{st}$ edition, 2010{\natexlab{a}}.
 \newblock ISBN-13: 978-0596805821.
 
-\bibitem[Jim~Webber and Robinson(2010{\natexlab{b}})]{thesis:state5}
+\bibitem[Jim~Webber and Robinson(2010{\natexlab{b}})]{thesis:state5_2}
 S.~P. Jim~Webber and I.~Robinson.
-\newblock \emph{REST in Practice}.
-\newblock O'Reilly Media, Inc, 2010{\natexlab{b}}.
+\newblock \emph{REST in Practice: Hypermedia and Systems Architecture}, page~5.
+\newblock O’Reilly Media, $1^{st}$ edition, 2010{\natexlab{b}}.
+\newblock ISBN-13: 978-0596805821.
+
+\bibitem[Sakr(2008)]{thesis:state5_3}
+S.~Sakr.
+\newblock Xml compression techniques: A survey and comparison.
+\newblock \emph{J Comput Syst Sci}, pages 303--322, 2008.
+
+\bibitem[Sakr(2010)]{thesis:state5_4}
+S.~Sakr.
+\newblock Encoding and compression for the devices profile for web services.
+\newblock \emph{Proc. 24th International Conf. on Advanced Information
+  Networking and Applications Workshops}, pages 514 -- 519, 2010.
+
+\bibitem[the(2016{\natexlab{b}})]{thesis:state9}
+{Efficient XML Interchange Working Group}.
+\newblock \url{https://www.w3.org/XML/EXI/}, 2016{\natexlab{b}}.
+\newblock [Online; accessed 24/05/2016].
 
 \bibitem[Delgado(2013)]{thesis:state6}
 J.~Delgado.
 \newblock \emph{Service Interoperability in the Internet of Things}, pages pp
   51--87.
 \newblock Springer Berlin Heidelberg, 2013.
+
+\bibitem[Binstock(2013)]{thesis:state8}
+A.~Binstock.
+\newblock {After XML, JSON: Then What?}
+\newblock
+  \url{http://www.drdobbs.com/web-development/after-xml-json-then-what/240151851},
+  2013.
+\newblock [Online; accessed 24/05/2016].
+
+\bibitem[Grigorik(2013)]{thesis:state10}
+I.~Grigorik.
+\newblock {High Performance Browser Networking}.
+\newblock \url{http://chimera.labs.oreilly.com/books/1230000000545/ch12.html},
+  2013.
+\newblock [Online; accessed 24/05/2016].
+
+\bibitem[Denis(2016)]{thesis:state11}
+A.~Denis.
+\newblock {Will WebSocket survive HTTP/2?}
+\newblock \url{http://www.infoq.com/articles/websocket-and-http2-coexist},
+  2016.
+\newblock [Online; accessed 30/05/2016].
 
 \bibitem[Euzenat~J(2007)]{Ontology:matching}
 S.~P. Euzenat~J.
@@ -72,6 +119,36 @@ S.~P. Euzenat~J.
   \url{https://blog.idrsolutions.com/2013/12/websockets-an-introduction/},
   2013.
 \newblock [Online; accessed 24/05/2016].
+
+\bibitem[Zyp~K(2011)]{thesis:arch1}
+C.~G. Zyp~K.
+\newblock {A JSON Media Type for Describing the Structure and Meaning of JSON
+  Documents}.
+\newblock \url{http://tools.ietf.org/html/draft-zyp-json-schema-03}, 2011.
+\newblock [Online; accessed 24/05/2016].
+
+\bibitem[Brian~Benz(2004)]{thesis:arch20}
+J.~R.~D. Brian~Benz.
+\newblock \emph{XML Programming Bible}, page pp 88.
+\newblock John Wiley & Sons, 2004.
+
+\bibitem[Vohra(2007)]{thesis:arch10}
+A.~Vohra.
+\newblock \emph{Pro XML Development with Java Technology}, page pp 78.
+\newblock Apress, 2007.
+
+\bibitem[bin(2016)]{binary:2016:Online}
+{Serialization Performance comparison(XML,Binary,JSON,P...)}.
+\newblock
+  \url{http://maxondev.com/serialization-performance-comparison-c-net-formats-frameworks-xmldatacontractserializer-xmlserializer-binaryformatter-json-newtonsoft-servicestack-text/},
+  2016.
+\newblock [Online; accessed 24/05/2016].
+
+\bibitem[Olivier.Dubuisson(2000)]{asn1:opt}
+Olivier.Dubuisson.
+\newblock \emph{Communication Between Heterogeneous Systems}.
+\newblock OSS Nokalva, $2^{nd}$ edition, 2000.
+\newblock ISBN 978-3-642-38721-0.
 
 \bibitem[Natallia~Kokash(2009)]{compliance:def}
 F.~A. Natallia~Kokash.
@@ -88,19 +165,6 @@ W.~S. Dae-Kyoo~Kim.
 \newblock \emph{Conference: Proceedings of the 2007 ACM Symposium on Applied
   Computing (SAC), Seoul, Korea}, 2007.
 \newblock DOI: 10.1145 1244002.1244305.
-
-\bibitem[bin(2016)]{binary:2016:Online}
-{Serialization Performance comparison(XML,Binary,JSON,P...)}.
-\newblock
-  \url{http://maxondev.com/serialization-performance-comparison-c-net-formats-frameworks-xmldatacontractserializer-xmlserializer-binaryformatter-json-newtonsoft-servicestack-text/},
-  2016.
-\newblock [Online; accessed 24/05/2016].
-
-\bibitem[Olivier.Dubuisson(2000)]{asn1:opt}
-Olivier.Dubuisson.
-\newblock \emph{Communication Between Heterogeneous Systems}.
-\newblock OSS Nokalva, $2^{nd}$ edition, 2000.
-\newblock ISBN 978-3-642-38721-0.
 
 \bibitem[Jeong~B(2008)]{expertsystems:x1}
 C.~H. L.~J. Jeong~B, Lee~D.

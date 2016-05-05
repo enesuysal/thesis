@@ -4,64 +4,64 @@ The top-level auxiliary file: Thesis.aux
 The style file: abbrvunsrtnat.bst
 Database file #1: Thesis_bib_DB.bib
 Warning--string name "abr" is undefined
---line 387 of file Thesis_bib_DB.bib
-Name 1 in "Jim Webber, Savas Parastatidis, and Ian Robinson" has a comma at the end for entry rest:restinpractice
+--line 506 of file Thesis_bib_DB.bib
+Name 1 in "Jim Webber, Savas Parastatidis, and Ian Robinson" has a comma at the end for entry thesis:state5_1
 while executing---line 1233 of file abbrvunsrtnat.bst
-Name 1 in "Jim Webber, Savas Parastatidis, and Ian Robinson" has a comma at the end for entry thesis:state5
+Name 1 in "Jim Webber, Savas Parastatidis, and Ian Robinson" has a comma at the end for entry thesis:state5_2
 while executing---line 1233 of file abbrvunsrtnat.bst
 Too many commas in name 1 of "Jeong B, Lee D, Cho H, Lee J" for entry expertsystems:x1
 while executing---line 1233 of file abbrvunsrtnat.bst
-Name 1 in "Jim Webber, Savas Parastatidis, and Ian Robinson" has a comma at the end for entry rest:restinpractice
+Name 1 in "Jim Webber, Savas Parastatidis, and Ian Robinson" has a comma at the end for entry thesis:state5_1
 while executing---line 1315 of file abbrvunsrtnat.bst
-Name 1 in "Jim Webber, Savas Parastatidis, and Ian Robinson" has a comma at the end for entry rest:restinpractice
+Name 1 in "Jim Webber, Savas Parastatidis, and Ian Robinson" has a comma at the end for entry thesis:state5_1
 while executing---line 1315 of file abbrvunsrtnat.bst
-Name 1 in "Jim Webber, Savas Parastatidis, and Ian Robinson" has a comma at the end for entry thesis:state5
+Name 1 in "Jim Webber, Savas Parastatidis, and Ian Robinson" has a comma at the end for entry thesis:state5_2
 while executing---line 1315 of file abbrvunsrtnat.bst
-Name 1 in "Jim Webber, Savas Parastatidis, and Ian Robinson" has a comma at the end for entry thesis:state5
-while executing---line 1315 of file abbrvunsrtnat.bst
-Too many commas in name 1 of "Jeong B, Lee D, Cho H, Lee J" for entry expertsystems:x1
+Name 1 in "Jim Webber, Savas Parastatidis, and Ian Robinson" has a comma at the end for entry thesis:state5_2
 while executing---line 1315 of file abbrvunsrtnat.bst
 Too many commas in name 1 of "Jeong B, Lee D, Cho H, Lee J" for entry expertsystems:x1
 while executing---line 1315 of file abbrvunsrtnat.bst
-You've used 17 entries,
+Too many commas in name 1 of "Jeong B, Lee D, Cho H, Lee J" for entry expertsystems:x1
+while executing---line 1315 of file abbrvunsrtnat.bst
+You've used 27 entries,
             2481 wiz_defined-function locations,
-            639 strings with 6667 characters,
-and the built_in function-call counts, 4958 in all, are:
-= -- 433
-> -- 122
-< -- 15
-+ -- 69
-- -- 34
-* -- 256
-:= -- 748
-add.period$ -- 57
-call.type$ -- 17
-change.case$ -- 27
-chr.to.int$ -- 16
-cite$ -- 20
-duplicate$ -- 320
-empty$ -- 553
-format.name$ -- 54
-if$ -- 1106
-int.to.chr$ -- 2
-int.to.str$ -- 18
-missing$ -- 24
-newline$ -- 99
-num.names$ -- 42
-pop$ -- 184
+            691 strings with 7746 characters,
+and the built_in function-call counts, 8946 in all, are:
+= -- 818
+> -- 177
+< -- 37
++ -- 106
+- -- 50
+* -- 425
+:= -- 1265
+add.period$ -- 92
+call.type$ -- 27
+change.case$ -- 44
+chr.to.int$ -- 25
+cite$ -- 31
+duplicate$ -- 590
+empty$ -- 975
+format.name$ -- 77
+if$ -- 2091
+int.to.chr$ -- 3
+int.to.str$ -- 28
+missing$ -- 33
+newline$ -- 154
+num.names$ -- 69
+pop$ -- 333
 preamble$ -- 1
-purify$ -- 17
+purify$ -- 27
 quote$ -- 0
-skip$ -- 191
+skip$ -- 386
 stack$ -- 0
-substring$ -- 132
-swap$ -- 50
-text.length$ -- 1
+substring$ -- 317
+swap$ -- 165
+text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 89
+type$ -- 147
 warning$ -- 0
-while$ -- 32
+while$ -- 66
 width$ -- 0
-write$ -- 229
+write$ -- 373
 (There were 9 error messages)

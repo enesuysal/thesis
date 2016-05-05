@@ -1,12 +1,16 @@
 \select@language {english}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces URl Example.}}{8}{table.2.1}
-\contentsline {table}{\numberline {2.2}{\ignorespaces HTTP Methods.}}{8}{table.2.2}
+\contentsline {table}{\numberline {2.1}{\ignorespaces URl Example.}}{12}{table.2.1}
+\contentsline {table}{\numberline {2.2}{\ignorespaces HTTP Methods.}}{12}{table.2.2}
+\contentsline {table}{\numberline {2.3}{\ignorespaces HTTP/2 and WebSocket.}}{16}{table.2.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces TLV format (Type-length-value).}}{28}{table.4.1}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces .Net Serialization Person Object}}{20}{table.5.1}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Java Serialization Person Object}}{20}{table.5.2}
+\contentsline {table}{\numberline {5.1}{\ignorespaces .Net Serialization Person Object}}{38}{table.5.1}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Java Serialization Person Object}}{38}{table.5.2}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Sizes (in bytes) of several resource representations.}}{39}{table.5.3}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Avarage Times(in ms) of HTTP-based solutions and WebSocket.}}{41}{table.5.4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

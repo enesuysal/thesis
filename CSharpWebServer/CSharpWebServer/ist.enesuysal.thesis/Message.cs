@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -61,6 +62,7 @@ namespace CSharpWebServer.ist.enesuysal.thesis
         public string Seriliaze()
         {
             string temp_inBase64 = Convert.ToBase64String(messageSerilized);
+            File.WriteAllBytes("Binary.txt", messageSerilized); // Requires System.IO
             return temp_inBase64;
         }
        

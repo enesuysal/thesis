@@ -43,11 +43,10 @@ namespace ConsoleTest
         {
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
-            for (int i = 0; i < 10; i++)
+         //   for (int i = 0; i < 10; i++)
             {
-                Person p = new Person();
-                p.name = "John";
-                p.age = 32;
+                PersonDetail p = new PersonDetail();
+              
                
                 string msg = new Message(p).Seriliaze();
                 Console.WriteLine(GetJavaRestMessage(msg));

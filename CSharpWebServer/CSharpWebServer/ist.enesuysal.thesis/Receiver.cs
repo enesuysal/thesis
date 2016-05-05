@@ -215,6 +215,12 @@ namespace CSharpWebServer.ist.enesuysal.thesis
         {
         }
 
+        [AvaliableMethod]
+        public void MakeObjectC(Weather2 test)
+        {
+            
+        }
+
 
     }
 }

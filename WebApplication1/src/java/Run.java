@@ -1,0 +1,18 @@
+
+import CSharpWebService.Weather;
+import CSharpWebService.WebService;
+import CSharpWebService.WebServiceSoap;
+
+public class Run {
+
+    public Weather GetWeatherCast() {
+        
+        Weather  w = new Weather();
+        w.setCountry("Portugal");
+        w.setCity("Lisbon");
+        w.setDate(null);
+        WebService service  = new WebService();
+        WebServiceSoap port = service .getWebServiceSoap12();
+        return (port.getWeatherCast(w));
+    }
+}

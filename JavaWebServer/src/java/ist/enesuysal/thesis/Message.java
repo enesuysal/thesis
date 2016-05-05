@@ -1,5 +1,6 @@
 package ist.enesuysal.thesis;
 
+import java.io.Console;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -81,6 +82,7 @@ public class Message {
         byte[] arrayByte = null;
         BASE64Encoder encoder = new BASE64Encoder();
         String temp_inBase64 = encoder.encode(messageSerilized);
+        System.out.println(Arrays.toString(messageSerilized));
         return temp_inBase64;
     }
 
