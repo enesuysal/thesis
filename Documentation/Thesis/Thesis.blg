@@ -17,7 +17,7 @@ Name 1 in "Jim Webber, Savas Parastatidis, and Ian Robinson" has a comma at the 
 while executing---line 1315 of file abbrvunsrtnat.bst
 You've used 26 entries,
             2481 wiz_defined-function locations,
-            686 strings with 7573 characters,
+            686 strings with 7575 characters,
 and the built_in function-call counts, 8556 in all, are:
 = -- 780
 > -- 170

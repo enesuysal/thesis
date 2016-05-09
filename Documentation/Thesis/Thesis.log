@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.2)  7 MAY 2016 18:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.2)  9 MAY 2016 17:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1425,14 +1425,14 @@ File: lstlang1.sty 2014/09/06 1.5e listings language file
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 14.
 
-<IST_A_CMYK_POS.pdf, id=179, 845.0471pt x 597.51233pt>
+<IST_A_CMYK_POS.pdf, id=183, 845.0471pt x 597.51233pt>
 File: IST_A_CMYK_POS.pdf Graphic file (type pdf)
 
 <use IST_A_CMYK_POS.pdf>
 Package pdftex.def Info: IST_A_CMYK_POS.pdf used on input line 14.
 (pdftex.def)             Requested size: -78.38533pt x -90.76195pt.
 
-<Figures/cloudPlatform.png, id=180, 401.5pt x 325.215pt>
+<Figures/cloudPlatform.png, id=184, 401.5pt x 325.215pt>
 File: Figures/cloudPlatform.png Graphic file (type png)
 
 <use Figures/cloudPlatform.png>
@@ -1515,7 +1515,7 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <20.74> not available
 
 
 
-] <Figures/soap-rest.png, id=361, 622.325pt x 328.22626pt>
+] <Figures/soap-rest.png, id=366, 622.325pt x 328.22626pt>
 File: Figures/soap-rest.png Graphic file (type png)
 
 <use Figures/soap-rest.png>
@@ -1537,22 +1537,19 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2503) has occurred while \output is active []
 
  [3]
 LaTeX Font Info:    Try loading font information for TS1+phv on input line 52.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
-)
-Underfull \vbox (badness 1783) has occurred while \output is active []
-
- [4])
-[5] [6
+) [4]) [5]
+[6
 
 ] (./Thesis_State.tex
 Chapter 2.
-<Figures/web-service-message-formats-1.png, id=395, 327.47343pt x 156.585pt>
+<Figures/web-service-message-formats-1.png, id=400, 327.47343pt x 156.585pt>
 File: Figures/web-service-message-formats-1.png Graphic file (type png)
 
 <use Figures/web-service-message-formats-1.png>
@@ -1571,7 +1568,7 @@ ter has web side URl called as \www.twitter.com"
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
-<Figures/WSDL.png, id=408, 432.61626pt x 317.185pt>
+<Figures/WSDL.png, id=413, 432.61626pt x 317.185pt>
 File: Figures/WSDL.png Graphic file (type png)
  <use Figures/WSDL.png>
 Package pdftex.def Info: Figures/WSDL.png used on input line 41.
@@ -1580,7 +1577,7 @@ Package pdftex.def Info: Figures/WSDL.png used on input line 41.
 Underfull \vbox (badness 2165) has occurred while \output is active []
 
  [9]
-<Figures/soap.png, id=417, 590.205pt x 302.12875pt>
+<Figures/soap.png, id=422, 590.205pt x 302.12875pt>
 File: Figures/soap.png Graphic file (type png)
  <use Figures/soap.png>
 Package pdftex.def Info: Figures/soap.png used on input line 53.
@@ -1589,7 +1586,7 @@ Package pdftex.def Info: Figures/soap.png used on input line 53.
 Underfull \vbox (badness 4266) has occurred while \output is active []
 
  [10 <./Figures/WSDL.png> <./Figures/soap.png>] [11]
-<Figures/rest.png, id=436, 529.98pt x 283.0575pt>
+<Figures/rest.png, id=441, 529.98pt x 283.0575pt>
 File: Figures/rest.png Graphic file (type png)
  <use Figures/rest.png>
 Package pdftex.def Info: Figures/rest.png used on input line 106.
@@ -1604,7 +1601,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 176--182
 
 ) [15] [16] (./Thesis_Interoperability.tex
 Chapter 3.
-<Figures/schema.png, id=515, 718.685pt x 371.3875pt>
+<Figures/schema.png, id=520, 718.685pt x 371.3875pt>
 File: Figures/schema.png Graphic file (type png)
  <use Figures/schema.png>
 Package pdftex.def Info: Figures/schema.png used on input line 21.
@@ -1617,14 +1614,14 @@ Package pdftex.def Info: Figures/schema.png used on input line 21.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [23]
-[24] <Figures/client1.png, id=747, 563.85657pt x 392.21532pt>
+[24] <Figures/client1.png, id=752, 563.85657pt x 392.21532pt>
 File: Figures/client1.png Graphic file (type png)
 
 <use Figures/client1.png>
 Package pdftex.def Info: Figures/client1.png used on input line 255.
 (pdftex.def)             Requested size: 409.71692pt x 284.99815pt.
 
-<Figures/client2.png, id=748, 559.33969pt x 386.94562pt>
+<Figures/client2.png, id=753, 559.33969pt x 386.94562pt>
 File: Figures/client2.png Graphic file (type png)
 
 <use Figures/client2.png>
@@ -1633,7 +1630,7 @@ Package pdftex.def Info: Figures/client2.png used on input line 261.
 ) [25 <./Figures/client1.png>] [26 <./Figures/client2.png>] (./Thesis_Architect
 ure.tex
 Chapter 4.
-<Figures/asyc.png, id=767, 718.685pt x 367.3725pt>
+<Figures/asyc.png, id=772, 718.685pt x 367.3725pt>
 File: Figures/asyc.png Graphic file (type png)
  <use Figures/asyc.png>
 Package pdftex.def Info: Figures/asyc.png used on input line 28.
@@ -1642,7 +1639,7 @@ Package pdftex.def Info: Figures/asyc.png used on input line 28.
 [27
 
 
-] <Figures/partial.png, id=774, 562.1pt x 215.80624pt>
+] <Figures/partial.png, id=779, 562.1pt x 215.80624pt>
 File: Figures/partial.png Graphic file (type png)
 
 <use Figures/partial.png>
@@ -1690,14 +1687,14 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 [29 <./Figures/partial.png>] [30]
-<Figures/scenario4.png, id=820, 782.925pt x 225.4824pt>
+<Figures/scenario4.png, id=825, 782.925pt x 225.4824pt>
 File: Figures/scenario4.png Graphic file (type png)
 
 <use Figures/scenario4.png>
 Package pdftex.def Info: Figures/scenario4.png used on input line 109.
 (pdftex.def)             Requested size: 409.71692pt x 117.99812pt.
 
-<Figures/scenari2.png, id=824, 782.925pt x 190.311pt>
+<Figures/scenari2.png, id=829, 782.925pt x 190.311pt>
 File: Figures/scenari2.png Graphic file (type png)
 
 <use Figures/scenari2.png>
@@ -1718,7 +1715,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 219--220
 
  []
 
-[34] <Figures/binaryrep2.png, id=901, 751.80875pt x 257.96375pt>
+[34] <Figures/binaryrep2.png, id=906, 751.80875pt x 257.96375pt>
 File: Figures/binaryrep2.png Graphic file (type png)
 
 <use Figures/binaryrep2.png>
@@ -1777,57 +1774,30 @@ Overfull \hbox (27.0944pt too wide) in paragraph at lines 404--414
  [][] 
  []
 
-<Figures/websocket.png, id=1141, 718.685pt x 215.80624pt>
+<Figures/websocket.png, id=1146, 718.685pt x 215.80624pt>
 File: Figures/websocket.png Graphic file (type png)
 
 <use Figures/websocket.png>
 Package pdftex.def Info: Figures/websocket.png used on input line 452.
 (pdftex.def)             Requested size: 227.62206pt x 68.34813pt.
  [46]
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.470 \begin
-            {figure}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.493 
-      
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Overfull \hbox (50.22632pt too wide) in paragraph at lines 496--509
+Overfull \hbox (50.22632pt too wide) in paragraph at lines 495--508
  [][] 
  []
 
 [47 <./Figures/websocket.png>]
-<Figures/javaserver.png, id=1157, 571.13374pt x 585.18625pt>
+<Figures/javaserver.png, id=1162, 571.13374pt x 585.18625pt>
 File: Figures/javaserver.png Graphic file (type png)
 
 <use Figures/javaserver.png>
-Package pdftex.def Info: Figures/javaserver.png used on input line 524.
+Package pdftex.def Info: Figures/javaserver.png used on input line 523.
 (pdftex.def)             Requested size: 318.66948pt x 326.50554pt.
 
-<Figures/dotnetserver.png, id=1158, 571.13374pt x 573.14125pt>
+<Figures/dotnetserver.png, id=1163, 571.13374pt x 573.14125pt>
 File: Figures/dotnetserver.png Graphic file (type png)
 
 <use Figures/dotnetserver.png>
-Package pdftex.def Info: Figures/dotnetserver.png used on input line 531.
+Package pdftex.def Info: Figures/dotnetserver.png used on input line 530.
 (pdftex.def)             Requested size: 318.66948pt x 319.78502pt.
 ) [48 <./Figures/javaserver.png>] [49 <./Figures/dotnetserver.png>] [50
 
@@ -1875,7 +1845,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.54 ... allows for increased interoperability, 
-                                                  adaptability and changeabi...
+                                                   adaptability and changeab...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1895,14 +1865,17 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) [53] [54
+)
+Underfull \vbox (badness 2503) has occurred while \output is active []
 
-] (./Thesis_Conclusions.tex
+ [53]
+[54] (./Thesis_Conclusions.tex
 Chapter 7.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [55
+
 
 ])
 [56] (./Thesis.bbl
@@ -1916,16 +1889,6 @@ Underfull \hbox (badness 6658) in paragraph at lines 120--125
 []\OT1/phv/m/n/10 A. De-nis.  Will Web-Socket sur-vive HTTP/2?  [][]$\OT1/cmtt/
 m/n/10 http : / / www . infoq . com / articles /
  []
-
-! Misplaced alignment tab character &.
-l.149 \newblock John Wiley &
-                             Sons, 2004.
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 157--162
@@ -1947,7 +1910,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 252.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 252.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 252.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 36BA27A96FC3017A8DA735D7C8644006;2745.
+(rerunfilecheck)             Checksum: 4EC879FBC981DBC4A40935AB21B28016;2803.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1955,13 +1918,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 252.
  ) 
 Here is how much of TeX's memory you used:
- 31542 strings out of 493089
- 698030 string characters out of 6134843
- 885266 words of memory out of 5000000
- 33803 multiletter control sequences out of 15000+600000
+ 31544 strings out of 493089
+ 698058 string characters out of 6134843
+ 885292 words of memory out of 5000000
+ 33804 multiletter control sequences out of 15000+600000
  38346 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,20n,100p,2484b,2309s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,20n,100p,2484b,2305s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texl
@@ -1973,10 +1936,10 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2
 texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2015/texmf-d
 ist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2015/texmf-dist/fon
 ts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Thesis.pdf (68 pages, 1137122 bytes).
+Output written on Thesis.pdf (68 pages, 1139665 bytes).
 PDF statistics:
- 1389 PDF objects out of 1440 (max. 8388607)
- 1250 compressed objects within 13 object streams
- 592 named destinations out of 1000 (max. 500000)
- 447 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1396 PDF objects out of 1440 (max. 8388607)
+ 1257 compressed objects within 13 object streams
+ 593 named destinations out of 1000 (max. 500000)
+ 455 words of extra memory for PDF output out of 10000 (max. 10000000)
 

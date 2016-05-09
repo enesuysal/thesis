@@ -40,5 +40,6 @@
 \contentsline {subsection}{\numberline {6.2.2}Message protocol}{52}{subsection.6.2.2}
 \contentsline {subsection}{\numberline {6.2.3}The interoperability problem}{52}{subsection.6.2.3}
 \contentsline {chapter}{\numberline {7}Conclusions}{55}{chapter.7}
-\contentsline {section}{\numberline {7.1}Future Work}{56}{section.7.1}
+\contentsline {section}{\numberline {7.1}Summary}{55}{section.7.1}
+\contentsline {section}{\numberline {7.2}Future Work}{56}{section.7.2}
 \contentsline {chapter}{Bibliography}{57}{section*.9}

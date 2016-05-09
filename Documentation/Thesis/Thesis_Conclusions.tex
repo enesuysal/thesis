@@ -9,19 +9,34 @@
 \chapter{Conclusions}
 \label{chapter:conclusions}
 
+\section{Summary}
+\label{section:summary}
+
 In this thesis a solution proposed for a new programming technology alternative current solutions. Current solutions solves interoperability problem with schema sharing, but sharing schema which brings coupling problem between the provider and the consumer, because both customer and provider are forced to implement full interoperability.
 
 This solution provides the maximum decoupling possible while ensuring the minimum interoperability requirements with using compliance and conformance instead of sharing the same schema. As long as compliance and conformance hold, any two resources can interoperate, even if they were designed unbeknownst to each other. This solution allows changes to the client and to the server.
 
-Current solutions use XML or JSON as data type for sending or receiving message which are based on text, heavy, hard to parse and costly in communications. There are technologies for the binary XML or JSON format but still needed to decompress and compressed. Still using XML and JSON force both side check and validate their schemas to guarantee
-that message arrived in correct format. After validation XML and JSON inefficient in computer terms due to parsing data to build a DOM tree where all characters of a component need to be parsed to reach the next one, high memory consumption. This solution uses binary data format natively, does not require schema and also increases performance. Binary message format resulting from compilation of the source program and that uses self-description information and only when needed. This allows  maintaining all the information necessary to communicate in a standard and platform independent way.
+Current solutions use XML or JSON as data type for sending or receiving message which are based on text, heavy, hard to parse and costly in communications. There are technologies for the binary XML or JSON format but still needed to decompress and compressed. Still using XML and JSON force both side check and validate their schemas to guarantee that message arrived in correct format. After validation XML and JSON inefficient in computer terms due to parsing data to build a DOM tree where all characters of a component need to be parsed to reach the next one, high memory consumption. This solution uses binary data format natively, does not require schema and also increases performance. Binary message format resulting from compilation of the source program and that uses self-description information and only when needed. This allows  maintaining all the information necessary to communicate in a standard and platform independent way.
 
 Current solutions use a connectionless protocol (HTTP) and the lack of native support for binary data. This solution implemented to use new protocols such as Web Sockets and HTTP/2 protocol instead using classical HTTP to destroy limitations of HTTP, which removes this restriction, adds binary support and increases performance. But still classical HTTP protocol can be used in the solution, but BASE64 must be used to overcome the limitation of HTTP.
+
 
 % ----------------------------------------------------------------------
 \section{Future Work}
 \label{section:future}
-In this section is related discuss some possible future developments that could be made to improve implemented work.
-The solution currently has some limitations such as structures as compound resources without operations (only data fields). Requests and responses must be either primitive resources (e.g., integers) or structures (not complete resources). It would be desirable to add the functionality of operations instead of only data fileds.
 
-The interoperability framework presented in this chapter needs to be improved and made more complete. The compliance and conformance algorithms are implemented in the compiler but these need to be optimized in the binary version, to increase the performance. The solution needs to plan and implement some quality tests to be sure all its funtionalities implemented correctly and possible development bugs are corrected.
+Although the provided analyses and methodologies are quite good and show that new solution can be replacament for current ones, there are some improvements that can still be made. Current section is related discuss some possible future developments that could be made to improve implemented work.
+
+Here are these points:
+
+\begin{itemize}
+
+\item The solution currently has some limitations such as structures as compound resources without operations (only data fields). Requests and responses must be either primitive resources (e.g., integers) or structures (not complete resources). It would be desirable to add the functionality of operations instead of only data fields.
+
+\item The interoperability framework presented in this work needs to be improved and made more complete.
+
+\item The compliance and conformance algorithms are implemented in the solution but these need to be optimized in the binary version to increase the performance.
+
+\item There is a need to plan and implement some quality tests for solution to be sure all its funtionalities implemented correctly and possible development bugs are corrected.
+
+\end{itemize}
