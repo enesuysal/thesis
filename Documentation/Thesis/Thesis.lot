@@ -6,11 +6,16 @@
 \contentsline {table}{\numberline {2.3}{\ignorespaces HTTP/2 and WebSocket.}}{16}{table.2.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces TLV format (Type-length-value).}}{28}{table.4.1}
+\contentsline {table}{\numberline {4.1}{\ignorespaces TLV format (Type-length-value).}}{34}{table.4.1}
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {5.1}{\ignorespaces .Net Serialization Person Object}}{38}{table.5.1}
 \contentsline {table}{\numberline {5.2}{\ignorespaces Java Serialization Person Object}}{38}{table.5.2}
 \contentsline {table}{\numberline {5.3}{\ignorespaces Sizes (in bytes) of several resource representations.}}{39}{table.5.3}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Avarage Times(in ms) of HTTP-based solutions and WebSocket.}}{41}{table.5.4}
+\contentsline {table}{\numberline {5.4}{\ignorespaces General properties of the consumers for experiment.}}{41}{table.5.4}
+\contentsline {table}{\numberline {5.5}{\ignorespaces General properties of the providers for experiment.}}{41}{table.5.5}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Information about input parameter of operations in the provider for experiment.}}{43}{table.5.6}
+\contentsline {table}{\numberline {5.7}{\ignorespaces Compliance and Conformance between Query message and Weather objects .}}{46}{table.5.7}
+\contentsline {table}{\numberline {5.8}{\ignorespaces Compliance and Conformance between Cloud Servers and Mobile phones.}}{46}{table.5.8}
+\contentsline {table}{\numberline {5.9}{\ignorespaces Avarage Times(in ms) of HTTP-based solutions and WebSocket.}}{47}{table.5.9}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

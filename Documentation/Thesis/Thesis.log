@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.2)  5 MAY 2016 10:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.2)  7 MAY 2016 18:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -482,6 +482,20 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
+(/usr/local/texlive/2015/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen115
+\extrarowheight=\dimen116
+\NC@list=\toks19
+\extratabsurround=\skip43
+\backup@length=\skip44
+)
+\everycr=\toks20
+\minrowclearance=\skip45
+)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pgfplots/pgfplots.sty
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2015/05/02 v1.12.1 Data Visualization (1.12.1)
@@ -490,9 +504,9 @@ Package: pgfplots 2015/05/02 v1.12.1 Data Visualization (1.12.1)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
 x
-\pgfutil@everybye=\toks19
-\pgfutil@tempdima=\dimen115
-\pgfutil@tempdimb=\dimen116
+\pgfutil@everybye=\toks21
+\pgfutil@tempdima=\dimen117
+\pgfutil@tempdimb=\dimen118
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
 sts.tex))
@@ -520,37 +534,37 @@ File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 94.
 )
-\Gin@req@height=\dimen117
-\Gin@req@width=\dimen118
+\Gin@req@height=\dimen119
+\Gin@req@width=\dimen120
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2013/11/30 v3.0.0 (rcs-revision 1.47)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks20
-\pgfkeys@temptoks=\toks21
+\pgfkeys@pathtoks=\toks22
+\pgfkeys@temptoks=\toks23
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
 ode.tex
-\pgfkeys@tmptoks=\toks22
+\pgfkeys@tmptoks=\toks24
 ))
-\pgf@x=\dimen119
-\pgf@y=\dimen120
-\pgf@xa=\dimen121
-\pgf@ya=\dimen122
-\pgf@xb=\dimen123
-\pgf@yb=\dimen124
-\pgf@xc=\dimen125
-\pgf@yc=\dimen126
+\pgf@x=\dimen121
+\pgf@y=\dimen122
+\pgf@xa=\dimen123
+\pgf@ya=\dimen124
+\pgf@xb=\dimen125
+\pgf@yb=\dimen126
+\pgf@xc=\dimen127
+\pgf@yc=\dimen128
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
 \c@pgf@counta=\count100
 \c@pgf@countb=\count101
 \c@pgf@countc=\count102
 \c@pgf@countd=\count103
-\t@pgf@toka=\toks23
-\t@pgf@tokb=\toks24
-\t@pgf@tokc=\toks25
+\t@pgf@toka=\toks25
+\t@pgf@tokb=\toks26
+\t@pgf@tokc=\toks27
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -581,12 +595,12 @@ Package: pgfcore 2010/04/11 v3.0.0 (rcs-revision 1.7)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen127
+\pgfmath@dimen=\dimen129
 \pgfmath@count=\count106
 \pgfmath@box=\box29
-\pgfmath@toks=\toks26
-\pgfmath@stack@operand=\toks27
-\pgfmath@stack@operation=\toks28
+\pgfmath@toks=\toks28
+\pgfmath@stack@operand=\toks29
+\pgfmath@stack@operation=\toks30
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
 tex
@@ -612,32 +626,32 @@ erarithmetics.code.tex)))
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
 de.tex
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
-\pgf@picminx=\dimen128
-\pgf@picmaxx=\dimen129
-\pgf@picminy=\dimen130
-\pgf@picmaxy=\dimen131
-\pgf@pathminx=\dimen132
-\pgf@pathmaxx=\dimen133
-\pgf@pathminy=\dimen134
-\pgf@pathmaxy=\dimen135
-\pgf@xx=\dimen136
-\pgf@xy=\dimen137
-\pgf@yx=\dimen138
-\pgf@yy=\dimen139
-\pgf@zx=\dimen140
-\pgf@zy=\dimen141
+\pgf@picminx=\dimen130
+\pgf@picmaxx=\dimen131
+\pgf@picminy=\dimen132
+\pgf@picmaxy=\dimen133
+\pgf@pathminx=\dimen134
+\pgf@pathmaxx=\dimen135
+\pgf@pathminy=\dimen136
+\pgf@pathmaxy=\dimen137
+\pgf@xx=\dimen138
+\pgf@xy=\dimen139
+\pgf@yx=\dimen140
+\pgf@yy=\dimen141
+\pgf@zx=\dimen142
+\pgf@zy=\dimen143
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
 ruct.code.tex
 File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
-\pgf@path@lastx=\dimen142
-\pgf@path@lasty=\dimen143
+\pgf@path@lastx=\dimen144
+\pgf@path@lasty=\dimen145
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
 .code.tex
 File: pgfcorepathusage.code.tex 2013/12/13  (rcs-revision 1.23)
-\pgf@shorten@end@additional=\dimen144
-\pgf@shorten@start@additional=\dimen145
+\pgf@shorten@end@additional=\dimen146
+\pgf@shorten@start@additional=\dimen147
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
 de.tex
@@ -650,14 +664,14 @@ File: pgfcorescopes.code.tex 2013/10/09  (rcs-revision 1.44)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
 ate.code.tex
 File: pgfcoregraphicstate.code.tex 2013/09/19  (rcs-revision 1.11)
-\pgflinewidth=\dimen146
+\pgflinewidth=\dimen148
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
 ations.code.tex
 File: pgfcoretransformations.code.tex 2013/10/10  (rcs-revision 1.17)
-\pgf@pt@x=\dimen147
-\pgf@pt@y=\dimen148
-\pgf@pt@temp=\dimen149
+\pgf@pt@x=\dimen149
+\pgf@pt@y=\dimen150
+\pgf@pt@temp=\dimen151
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
 e.tex
@@ -674,12 +688,12 @@ File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
 de.tex
 File: pgfcorearrows.code.tex 2013/11/07  (rcs-revision 1.40)
-\pgfarrowsep=\dimen150
+\pgfarrowsep=\dimen152
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
 e.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
-\pgf@max=\dimen151
+\pgf@max=\dimen153
 \pgf@sys@shading@range@num=\count109
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
@@ -715,8 +729,8 @@ File: pgfmoduleplot.code.tex 2013/07/31  (rcs-revision 1.12)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.0 (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen152
-\pgf@nodesepend=\dimen153
+\pgf@nodesepstart=\dimen154
+\pgf@nodesepend=\dimen155
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -1-18.sty
@@ -731,10 +745,10 @@ Package: pgfcomp-version-1-18 2007/07/23 v3.0.0 (rcs-revision 1.1)
 Package: pgffor 2013/12/13 v3.0.0 (rcs-revision 1.25)
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen154
-\pgffor@skip=\dimen155
-\pgffor@stack=\toks29
-\pgffor@toks=\toks30
+\pgffor@iter=\dimen156
+\pgffor@skip=\dimen157
+\pgffor@stack=\toks31
+\pgffor@toks=\toks32
 ))
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
 e.tex
@@ -744,14 +758,14 @@ Package: tikz 2013/12/13 v3.0.0 (rcs-revision 1.142)
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.0 (rcs-revision 1.20)
 \pgf@plot@mark@count=\count110
-\pgfplotmarksize=\dimen156
+\pgfplotmarksize=\dimen158
 )
-\tikz@lastx=\dimen157
-\tikz@lasty=\dimen158
-\tikz@lastxsaved=\dimen159
-\tikz@lastysaved=\dimen160
-\tikzleveldistance=\dimen161
-\tikzsiblingdistance=\dimen162
+\tikz@lastx=\dimen159
+\tikz@lasty=\dimen160
+\tikz@lastxsaved=\dimen161
+\tikz@lastysaved=\dimen162
+\tikzleveldistance=\dimen163
+\tikzsiblingdistance=\dimen164
 \tikz@figbox=\box35
 \tikz@figbox@bg=\box36
 \tikz@tempbox=\box37
@@ -776,10 +790,10 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.0 (rcs-revision 1.2)
 )))
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
-\t@pgfplots@toka=\toks31
-\t@pgfplots@tokb=\toks32
-\t@pgfplots@tokc=\toks33
-\pgfplots@tmpa=\dimen163
+\t@pgfplots@toka=\toks33
+\t@pgfplots@tokb=\toks34
+\t@pgfplots@tokc=\toks35
+\pgfplots@tmpa=\dimen165
 \c@pgfplots@coordindex=\count119
 \c@pgfplots@scanlineindex=\count120
 
@@ -816,7 +830,7 @@ matrix.code.tex)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
 shared.code.tex
 \c@pgfplotstable@counta=\count123
-\t@pgfplotstable@a=\toks34
+\t@pgfplotstable@a=\toks36
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
 deque.code.tex)
@@ -858,14 +872,14 @@ x)
 s/tikzlibrarydecorations.code.tex
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
 s.code.tex
-\pgfdecoratedcompleteddistance=\dimen164
-\pgfdecoratedremainingdistance=\dimen165
-\pgfdecoratedinputsegmentcompleteddistance=\dimen166
-\pgfdecoratedinputsegmentremainingdistance=\dimen167
-\pgf@decorate@distancetomove=\dimen168
+\pgfdecoratedcompleteddistance=\dimen166
+\pgfdecoratedremainingdistance=\dimen167
+\pgfdecoratedinputsegmentcompleteddistance=\dimen168
+\pgfdecoratedinputsegmentremainingdistance=\dimen169
+\pgf@decorate@distancetomove=\dimen170
 \pgf@decorate@repeatstate=\count125
-\pgfdecorationsegmentamplitude=\dimen169
-\pgfdecorationsegmentlength=\dimen170
+\pgfdecorationsegmentamplitude=\dimen171
+\pgfdecorationsegmentlength=\dimen172
 )
 \tikz@lib@dec@box=\box39
 )
@@ -878,12 +892,12 @@ s/tikzlibrarydecorations.pathreplacing.code.tex
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.pathreplacing.code.tex))
 \pgfplots@numplots=\count126
-\pgfplots@xmin@reg=\dimen171
-\pgfplots@xmax@reg=\dimen172
-\pgfplots@ymin@reg=\dimen173
-\pgfplots@ymax@reg=\dimen174
-\pgfplots@zmin@reg=\dimen175
-\pgfplots@zmax@reg=\dimen176
+\pgfplots@xmin@reg=\dimen173
+\pgfplots@xmax@reg=\dimen174
+\pgfplots@ymin@reg=\dimen175
+\pgfplots@ymax@reg=\dimen176
+\pgfplots@zmin@reg=\dimen177
+\pgfplots@zmax@reg=\dimen178
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryplotmarks.code.tex
@@ -902,7 +916,7 @@ Language: english 2012/08/20 v3.3p English support from the babel system
 (/usr/local/texlive/2015/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2014/09/25 3.9l Babel common definitions
 \babel@savecnt=\count127
-\U@D=\dimen177
+\U@D=\dimen179
 )
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
@@ -913,7 +927,7 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2013/01/14 v2.14 AMS math features
-\@mathmargin=\skip43
+\@mathmargin=\skip46
 
 For additional information on amsmath, use the `?' option.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -921,12 +935,12 @@ Package: amstext 2000/06/29 v2.01
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks35
-\ex@=\dimen178
+\@emptytoks=\toks37
+\ex@=\dimen180
 ))
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen179
+\pmbraise@=\dimen181
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
@@ -943,7 +957,7 @@ LaTeX Info: Redefining \dots on input line 381.
 LaTeX Info: Redefining \cdots on input line 466.
 \Mathstrutbox@=\box40
 \strutbox@=\box41
-\big@size=\dimen180
+\big@size=\dimen182
 LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \macc@depth=\count133
@@ -951,35 +965,35 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \dotsspace@=\muskip10
 \c@parentequation=\count135
 \dspbrk@lvl=\count136
-\tag@help=\toks36
+\tag@help=\toks38
 \row@=\count137
 \column@=\count138
 \maxfields@=\count139
-\andhelp@=\toks37
-\eqnshift@=\dimen181
-\alignsep@=\dimen182
-\tagshift@=\dimen183
-\tagwidth@=\dimen184
-\totwidth@=\dimen185
-\lineht@=\dimen186
-\@envbody=\toks38
-\multlinegap=\skip44
-\multlinetaggap=\skip45
-\mathdisplay@stack=\toks39
+\andhelp@=\toks39
+\eqnshift@=\dimen183
+\alignsep@=\dimen184
+\tagshift@=\dimen185
+\tagwidth@=\dimen186
+\totwidth@=\dimen187
+\lineht@=\dimen188
+\@envbody=\toks40
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks41
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2015/03/04 v2.20.2
-\thm@style=\toks40
-\thm@bodyfont=\toks41
-\thm@headfont=\toks42
-\thm@notefont=\toks43
-\thm@headpunct=\toks44
-\thm@preskip=\skip46
-\thm@postskip=\skip47
-\thm@headsep=\skip48
-\dth@everypar=\toks45
+\thm@style=\toks42
+\thm@bodyfont=\toks43
+\thm@headfont=\toks44
+\thm@notefont=\toks45
+\thm@headpunct=\toks46
+\thm@preskip=\skip49
+\thm@postskip=\skip50
+\thm@headsep=\skip51
+\dth@everypar=\toks47
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
@@ -990,12 +1004,12 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip49
-\subfigcapskip=\skip50
-\subfigcaptopadj=\dimen187
-\subfigbottomskip=\skip51
-\subfigcapmargin=\dimen188
-\subfiglabelskip=\skip52
+\subfigtopskip=\skip52
+\subfigcapskip=\skip53
+\subfigcaptopadj=\dimen189
+\subfigbottomskip=\skip54
+\subfigcapmargin=\dimen190
+\subfiglabelskip=\skip55
 \c@subfigure=\count140
 \c@lofdepth=\count141
 \c@subtable=\count142
@@ -1005,31 +1019,23 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 * Local config file subfigure.cfg used *
 ****************************************
 (/usr/local/texlive/2015/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip53
-\subfig@bottom=\skip54
+\subfig@top=\skip56
+\subfig@bottom=\skip57
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/subfigmat/subfigmat.sty
 Package: subfigmat 1999/02/27 v1.0 Subfigure Matrix Package
-\sfm@width=\skip55
-\sfmcolsep=\skip56
+\sfm@width=\skip58
+\sfmcolsep=\skip59
 \c@sfm@count=\count144
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/tools/dcolumn.sty
 Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/array.sty
-Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen189
-\extrarowheight=\dimen190
-\NC@list=\toks46
-\extratabsurround=\skip57
-\backup@length=\skip58
-))
+)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/nomencl/nomencl.sty
 Package: nomencl 2005/09/22 v4.2 Nomenclature package (LN)
 \nomlabelwidth=\dimen191
 \nom@tempdim=\dimen192
-\nomitemsep=\skip59
+\nomitemsep=\skip60
 )
 \@nomenclaturefile=\write4
 \openout4 = `Thesis.nlo'.
@@ -1045,10 +1051,10 @@ Package: glossary 2006/07/20 2.4 (NLCT)
 No configuration file glossary.cfg found
 (/usr/local/texlive/2015/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
-\LTleft=\skip60
-\LTright=\skip61
-\LTpre=\skip62
-\LTpost=\skip63
+\LTleft=\skip61
+\LTright=\skip62
+\LTpre=\skip63
+\LTpost=\skip64
 \LTchunksize=\count146
 \LTcapwidth=\dimen193
 \LT@head=\box42
@@ -1059,9 +1065,9 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LT@rows=\count148
 \c@LT@tables=\count149
 \c@LT@chunks=\count150
-\LT@p@ftn=\toks47
+\LT@p@ftn=\toks48
 )
-\descriptionwidth=\skip64
+\descriptionwidth=\skip65
 \istfile=\write5
 )
 \@glossaryfile=\write6
@@ -1072,10 +1078,10 @@ Writing glossary file Thesis.glo
 (/usr/local/texlive/2015/texmf-dist/tex/latex/rotating/rotating.sty
 Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
 \c@r@tfl@t=\count151
-\rotFPtop=\skip65
-\rotFPbot=\skip66
+\rotFPtop=\skip66
+\rotFPbot=\skip67
 \rot@float@box=\box46
-\rot@mess@toks=\toks48
+\rot@mess@toks=\toks49
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
@@ -1187,7 +1193,7 @@ Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip67
+\Hy@SectionHShift=\skip68
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 393.
 
@@ -1208,8 +1214,8 @@ Package: hypcap 2011/02/16 v1.11 Adjusting the anchors of captions (HO)
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip68
-\bibsep=\skip69
+\bibhang=\skip69
+\bibsep=\skip70
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count162
 )
@@ -1248,12 +1254,12 @@ Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Bcount=\count168
 \calc@Adimen=\dimen212
 \calc@Bdimen=\dimen213
-\calc@Askip=\skip70
-\calc@Bskip=\skip71
+\calc@Askip=\skip71
+\calc@Bskip=\skip72
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count169
-\calc@Cskip=\skip72
+\calc@Cskip=\skip73
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2015/04/20 v2.0e eso-pic (RN)
@@ -1265,7 +1271,7 @@ Package: eso-pic 2015/04/20 v2.0e eso-pic (RN)
 File: pppdftex.def 2015/05/11 v0.4x Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box47
-\AM@toc@title=\toks49
+\AM@toc@title=\toks50
 \c@AM@survey=\count170
 \AM@templatesizebox=\box48
 ))
@@ -1286,32 +1292,35 @@ LaTeX Warning: Label `section:overview' multiply defined.
 LaTeX Warning: Label `section:overview' multiply defined.
 
 
+LaTeX Warning: Label `lst:weather2' multiply defined.
+
+
 LaTeX Warning: Label `section:overview' multiply defined.
 
 )
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 38.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 42.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 38.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
@@ -1325,12 +1334,12 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 \scratchbox=\box49
 \nofMPsegments=\count173
 \nofMParguments=\count174
-\everyMPshowfont=\toks50
+\everyMPshowfont=\toks51
 \MPscratchCnt=\count175
 \MPscratchDim=\dimen217
 \MPnumerator=\count176
 \makeMPintoPDFobject=\count177
-\everyMPtoPDFconversion=\toks51
+\everyMPtoPDFconversion=\toks52
 )
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1390,7 +1399,7 @@ Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.12} (current compat level: 1.9).
 
 \AtBeginShipoutBox=\box50
-Package hyperref Info: Link coloring ON on input line 42.
+Package hyperref Info: Link coloring ON on input line 38.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1399,9 +1408,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count178
 )
-LaTeX Info: Redefining \ref on input line 42.
-LaTeX Info: Redefining \pageref on input line 42.
-LaTeX Info: Redefining \nameref on input line 42.
+LaTeX Info: Redefining \ref on input line 38.
+LaTeX Info: Redefining \pageref on input line 38.
+LaTeX Info: Redefining \nameref on input line 38.
 
 (./Thesis.out) (./Thesis.out)
 \@outlinefile=\write7
@@ -1416,14 +1425,14 @@ File: lstlang1.sty 2014/09/06 1.5e listings language file
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 14.
 
-<IST_A_CMYK_POS.pdf, id=175, 845.0471pt x 597.51233pt>
+<IST_A_CMYK_POS.pdf, id=179, 845.0471pt x 597.51233pt>
 File: IST_A_CMYK_POS.pdf Graphic file (type pdf)
 
 <use IST_A_CMYK_POS.pdf>
 Package pdftex.def Info: IST_A_CMYK_POS.pdf used on input line 14.
 (pdftex.def)             Requested size: -78.38533pt x -90.76195pt.
 
-<Figures/cloudPlatform.png, id=176, 401.5pt x 325.215pt>
+<Figures/cloudPlatform.png, id=180, 401.5pt x 325.215pt>
 File: Figures/cloudPlatform.png Graphic file (type png)
 
 <use Figures/cloudPlatform.png>
@@ -1469,7 +1478,7 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
 
 ]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 110.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 106.
  (./Thesis.toc [5
 
 ])
@@ -1506,7 +1515,7 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <20.74> not available
 
 
 
-] <Figures/soap-rest.png, id=346, 622.325pt x 328.22626pt>
+] <Figures/soap-rest.png, id=361, 622.325pt x 328.22626pt>
 File: Figures/soap-rest.png Graphic file (type png)
 
 <use Figures/soap-rest.png>
@@ -1520,23 +1529,30 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.42 ...ribed in the previous example in section 
+l.44 ...ribed in the previous example in section 
                                                   \ref{section:context} that...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[3]
-LaTeX Font Info:    Try loading font information for TS1+phv on input line 60.
- (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ts1phv.fd
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
+LaTeX Font Info:    Try loading font information for TS1+phv on input line 52.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
-) [4])
+)
+Underfull \vbox (badness 1783) has occurred while \output is active []
+
+ [4])
 [5] [6
 
 ] (./Thesis_State.tex
 Chapter 2.
-<Figures/web-service-message-formats-1.png, id=376, 327.47343pt x 156.585pt>
+<Figures/web-service-message-formats-1.png, id=395, 327.47343pt x 156.585pt>
 File: Figures/web-service-message-formats-1.png Graphic file (type png)
 
 <use Figures/web-service-message-formats-1.png>
@@ -1555,7 +1571,7 @@ ter has web side URl called as \www.twitter.com"
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
-<Figures/WSDL.png, id=389, 432.61626pt x 317.185pt>
+<Figures/WSDL.png, id=408, 432.61626pt x 317.185pt>
 File: Figures/WSDL.png Graphic file (type png)
  <use Figures/WSDL.png>
 Package pdftex.def Info: Figures/WSDL.png used on input line 41.
@@ -1564,7 +1580,7 @@ Package pdftex.def Info: Figures/WSDL.png used on input line 41.
 Underfull \vbox (badness 2165) has occurred while \output is active []
 
  [9]
-<Figures/soap.png, id=398, 590.205pt x 302.12875pt>
+<Figures/soap.png, id=417, 590.205pt x 302.12875pt>
 File: Figures/soap.png Graphic file (type png)
  <use Figures/soap.png>
 Package pdftex.def Info: Figures/soap.png used on input line 53.
@@ -1573,7 +1589,7 @@ Package pdftex.def Info: Figures/soap.png used on input line 53.
 Underfull \vbox (badness 4266) has occurred while \output is active []
 
  [10 <./Figures/WSDL.png> <./Figures/soap.png>] [11]
-<Figures/rest.png, id=417, 529.98pt x 283.0575pt>
+<Figures/rest.png, id=436, 529.98pt x 283.0575pt>
 File: Figures/rest.png Graphic file (type png)
  <use Figures/rest.png>
 Package pdftex.def Info: Figures/rest.png used on input line 106.
@@ -1588,7 +1604,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 176--182
 
 ) [15] [16] (./Thesis_Interoperability.tex
 Chapter 3.
-<Figures/schema.png, id=495, 718.685pt x 371.3875pt>
+<Figures/schema.png, id=515, 718.685pt x 371.3875pt>
 File: Figures/schema.png Graphic file (type png)
  <use Figures/schema.png>
 Package pdftex.def Info: Figures/schema.png used on input line 21.
@@ -1597,81 +1613,40 @@ Package pdftex.def Info: Figures/schema.png used on input line 21.
 [17
 
 
-] [18 <./Figures/schema.png>] [19] [20] [21]
+] [18 <./Figures/schema.png>] [19] [20] [21] [22]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22]
-[23] <Figures/client1.png, id=712, 563.85657pt x 392.21532pt>
+ [23]
+[24] <Figures/client1.png, id=747, 563.85657pt x 392.21532pt>
 File: Figures/client1.png Graphic file (type png)
 
 <use Figures/client1.png>
-Package pdftex.def Info: Figures/client1.png used on input line 251.
+Package pdftex.def Info: Figures/client1.png used on input line 255.
 (pdftex.def)             Requested size: 409.71692pt x 284.99815pt.
 
-<Figures/client2.png, id=713, 559.33969pt x 386.94562pt>
+<Figures/client2.png, id=748, 559.33969pt x 386.94562pt>
 File: Figures/client2.png Graphic file (type png)
 
 <use Figures/client2.png>
-Package pdftex.def Info: Figures/client2.png used on input line 257.
+Package pdftex.def Info: Figures/client2.png used on input line 261.
 (pdftex.def)             Requested size: 409.71692pt x 283.44806pt.
-) [24] [25 <./Figures/client1.png> <./Figures/client2.png>] [26
-
-] (./Thesis_Architecture.tex
+) [25 <./Figures/client1.png>] [26 <./Figures/client2.png>] (./Thesis_Architect
+ure.tex
 Chapter 4.
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--26
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--28
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
-
- []
+<Figures/asyc.png, id=767, 718.685pt x 367.3725pt>
+File: Figures/asyc.png Graphic file (type png)
+ <use Figures/asyc.png>
+Package pdftex.def Info: Figures/asyc.png used on input line 28.
+(pdftex.def)             Requested size: 409.71692pt x 209.44373pt.
 
 [27
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 49--51
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
-
- []
-
-[28] <Figures/binaryrep2.png, id=778, 751.80875pt x 257.96375pt>
-File: Figures/binaryrep2.png Graphic file (type png)
-
-<use Figures/binaryrep2.png>
-Package pdftex.def Info: Figures/binaryrep2.png used on input line 81.
-(pdftex.def)             Requested size: 409.71692pt x 140.58548pt.
- [29 <./Figures/binaryrep2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 130--132
-
- []
-
-<Figures/asyc.png, id=802, 718.685pt x 367.3725pt>
-File: Figures/asyc.png Graphic file (type png)
- <use Figures/asyc.png>
-Package pdftex.def Info: Figures/asyc.png used on input line 136.
-(pdftex.def)             Requested size: 409.71692pt x 209.44373pt.
-
-[30] <Figures/partial.png, id=808, 562.1pt x 215.80624pt>
+] <Figures/partial.png, id=774, 562.1pt x 215.80624pt>
 File: Figures/partial.png Graphic file (type png)
 
 <use Figures/partial.png>
-Package pdftex.def Info: Figures/partial.png used on input line 146.
+Package pdftex.def Info: Figures/partial.png used on input line 38.
 (pdftex.def)             Requested size: 409.71692pt x 157.30014pt.
 
 
@@ -1681,7 +1656,21 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.151 ...s reversed from request to response.\\ 
+l.51 ...whatever the consumer expects it to be. 
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[28 <./Figures/asyc.png>]
+
+! Package inputenc Error: Unicode char \u8:  not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...e the form of) B without A noticing it. 
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1694,59 +1683,49 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.158 ...hatever the consumer expects it to be. 
+l.62 ...he minimum required by the application. 
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[31 <./Figures/asyc.png> <./Figures/partial.png>]
-
-! Package inputenc Error: Unicode char \u8:  not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.168 ... the form of) B without A noticing it. 
-                                                   Partial interoperability ...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:  not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.170 ...e minimum required by the application. 
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Underfull \vbox (badness 2503) has occurred while \output is active []
-
- [32]
-<Figures/scenario4.png, id=830, 782.925pt x 225.4824pt>
+[29 <./Figures/partial.png>] [30]
+<Figures/scenario4.png, id=820, 782.925pt x 225.4824pt>
 File: Figures/scenario4.png Graphic file (type png)
 
 <use Figures/scenario4.png>
-Package pdftex.def Info: Figures/scenario4.png used on input line 217.
+Package pdftex.def Info: Figures/scenario4.png used on input line 109.
 (pdftex.def)             Requested size: 409.71692pt x 117.99812pt.
- [33]
-<Figures/scenari2.png, id=860, 782.925pt x 190.311pt>
+
+<Figures/scenari2.png, id=824, 782.925pt x 190.311pt>
 File: Figures/scenari2.png Graphic file (type png)
 
 <use Figures/scenari2.png>
-Package pdftex.def Info: Figures/scenari2.png used on input line 236.
+Package pdftex.def Info: Figures/scenari2.png used on input line 128.
 (pdftex.def)             Requested size: 409.71692pt x 99.59242pt.
- [34 <./Figures/scenario4.png> <./Figures/scenari2.png>] [35]) [36] (./Thesis_I
-mplementation.tex
+ [31 <./Figures/scenario4.png> <./Figures/scenari2.png>] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
+
+ []
+
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 217--218
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
+
+ []
+
+[34] <Figures/binaryrep2.png, id=901, 751.80875pt x 257.96375pt>
+File: Figures/binaryrep2.png Graphic file (type png)
+
+<use Figures/binaryrep2.png>
+Package pdftex.def Info: Figures/binaryrep2.png used on input line 247.
+(pdftex.def)             Requested size: 409.71692pt x 140.58548pt.
+ [35 <./Figures/binaryrep2.png>]) [36]
+(./Thesis_Implementation.tex
 Chapter 5.
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--25
@@ -1756,30 +1735,55 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 [37
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
-
- []
-
-[38]
+] [38]
 Overfull \hbox (25.51183pt too wide) in paragraph at lines 102--103
 []\OT1/phv/m/n/10 The se-ri-al-ized file was mea-sured and the ex-e-cu-tion tim
 e was mea-sured us-ing Sys-tem.currentTimeMillis()
  []
 
-[39]
-Overfull \hbox (4.33139pt too wide) in paragraph at lines 195--198
-\OT1/phv/m/n/10 Transferring the ar-ray of bytes from sender to re-ceiver re-qu
-ires a bi-nary chan-nel like Web Sock-ets(HTTP2)
+[39] [40]
+Overfull \hbox (50.22632pt too wide) in paragraph at lines 194--203
+ [][] 
  []
 
-<Figures/websocket.png, id=946, 718.685pt x 215.80624pt>
+
+Overfull \hbox (5.73401pt too wide) in paragraph at lines 215--215
+[]|\OT1/phv/b/n/10 Development
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--216
+[]|\OT1/phv/b/n/10 Server
+ []
+
+
+Overfull \hbox (35.99995pt too wide) in paragraph at lines 209--221
+ [][] 
+ []
+
+
+Overfull \hbox (114.74423pt too wide) in paragraph at lines 246--247
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][]  
+ []
+
+[41]
+
+Package Listings Warning: Text dropped after begin of listing on input line 261
+.
+
+[42] [43] [44] [45]
+Overfull \hbox (27.0944pt too wide) in paragraph at lines 404--414
+ [][] 
+ []
+
+<Figures/websocket.png, id=1141, 718.685pt x 215.80624pt>
 File: Figures/websocket.png Graphic file (type png)
 
 <use Figures/websocket.png>
-Package pdftex.def Info: Figures/websocket.png used on input line 206.
+Package pdftex.def Info: Figures/websocket.png used on input line 452.
 (pdftex.def)             Requested size: 227.62206pt x 68.34813pt.
- [40]
+ [46]
 
 ! LaTeX Error: There's no line here to end.
 
@@ -1787,7 +1791,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.224 \begin
+l.470 \begin
             {figure}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1800,53 +1804,38 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.247 
+l.493 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (50.22632pt too wide) in paragraph at lines 250--263
+Overfull \hbox (50.22632pt too wide) in paragraph at lines 496--509
  [][] 
  []
 
-[41 <./Figures/websocket.png>]
-<Figures/javaserver.png, id=960, 571.13374pt x 585.18625pt>
+[47 <./Figures/websocket.png>]
+<Figures/javaserver.png, id=1157, 571.13374pt x 585.18625pt>
 File: Figures/javaserver.png Graphic file (type png)
 
 <use Figures/javaserver.png>
-Package pdftex.def Info: Figures/javaserver.png used on input line 278.
+Package pdftex.def Info: Figures/javaserver.png used on input line 524.
 (pdftex.def)             Requested size: 318.66948pt x 326.50554pt.
 
-<Figures/dotnetserver.png, id=961, 571.13374pt x 573.14125pt>
+<Figures/dotnetserver.png, id=1158, 571.13374pt x 573.14125pt>
 File: Figures/dotnetserver.png Graphic file (type png)
 
 <use Figures/dotnetserver.png>
-Package pdftex.def Info: Figures/dotnetserver.png used on input line 285.
+Package pdftex.def Info: Figures/dotnetserver.png used on input line 531.
 (pdftex.def)             Requested size: 318.66948pt x 319.78502pt.
-) [42] [43 <./Figures/javaserver.png> <./Figures/dotnetserver.png>] [44
+) [48 <./Figures/javaserver.png>] [49 <./Figures/dotnetserver.png>] [50
 
 ] (./Thesis_Comparasion.tex
 Chapter 6.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 28.
-
-Underfull \hbox (badness 10000) in paragraph at lines 30--34
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--37
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--42
-
- []
-
-[45
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 20.
+[51
 
 ]
 
@@ -1856,8 +1845,9 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.73 ...nary support and increases performance. 
-                                                   
+l.40 ...nary support and increases performance. 
+                                                    Using a platform which...
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -1869,12 +1859,14 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.73 ...y support and increases performance.  
-                                                  
+l.40 ...y support and increases performance.  
+                                                   Using a platform which us...
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+[52]
 
 ! Package inputenc Error: Unicode char \u8:  not set up for use with LaTeX.
 
@@ -1882,69 +1874,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.76 ...onstitutes a relevant coupling problem. 
-                                                   \\
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:  not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.76 ...titutes a relevant coupling problem.  
-                                                  \\
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--77
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 83--87
-
- []
-
-
-! Package inputenc Error: Unicode char \u8:  not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.94  
-        
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:  not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.99 inevitable. 
-                   \\
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:  not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.104 ...low us for increased interoperability, 
+l.54 ... allows for increased interoperability, 
                                                   adaptability and changeabi...
 
 Your command was ignored.
@@ -1958,33 +1888,37 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.105 necessarily shared or previously agreed. 
-                                                 
+l.54 ...ecessarily shared or previously agreed. 
+                                                   Building interoperability...
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[46]) [47] [48
+) [53] [54
 
 ] (./Thesis_Conclusions.tex
 Chapter 7.
-) [49
 
-] [50
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] (./Thesis.bbl
+ [55
+
+])
+[56] (./Thesis.bbl
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 11.
- [51
+ [57
+
 
 ]
-Underfull \hbox (badness 6658) in paragraph at lines 104--109
+Underfull \hbox (badness 6658) in paragraph at lines 120--125
 []\OT1/phv/m/n/10 A. De-nis.  Will Web-Socket sur-vive HTTP/2?  [][]$\OT1/cmtt/
 m/n/10 http : / / www . infoq . com / articles /
  []
 
 ! Misplaced alignment tab character &.
-l.133 \newblock John Wiley &
+l.149 \newblock John Wiley &
                              Sons, 2004.
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1994,40 +1928,40 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--146
+Underfull \hbox (badness 10000) in paragraph at lines 157--162
 []\OT1/phv/m/n/10 Serialization Per-for-mance com-par-i-son(XML,Binary,JSON,P..
 .).  [][]$\OT1/cmtt/m/n/10 http : / / maxondev . com /
  []
 
 
-Overfull \hbox (373.70848pt too wide) in paragraph at lines 141--146
+Overfull \hbox (373.70848pt too wide) in paragraph at lines 157--162
 \OT1/cmtt/m/n/10 serialization-[]performance-[]comparison-[]c-[]net-[]formats-[
 ]frameworks-[]xmldatacontractserializer-[]xmlserializer-[]binaryformatter-[]jso
 n-[]newtonsoft-[]servicestack-[]text/$[][]\OT1/phv/m/n/10 ,
  []
 
-) [52]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 256.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 256.
+) [58]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 252.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 252.
  (./Thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 256.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 256.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 252.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 252.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 6E43519F5D0506571123CF7080542995;2664.
+(rerunfilecheck)             Checksum: 36BA27A96FC3017A8DA735D7C8644006;2745.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 256.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 252.
  ) 
 Here is how much of TeX's memory you used:
- 31301 strings out of 493089
- 694571 string characters out of 6134843
- 884659 words of memory out of 5000000
- 33702 multiletter control sequences out of 15000+600000
+ 31542 strings out of 493089
+ 698030 string characters out of 6134843
+ 885266 words of memory out of 5000000
+ 33803 multiletter control sequences out of 15000+600000
  38346 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,20n,100p,2101b,2309s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,20n,100p,2484b,2309s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texl
@@ -2039,10 +1973,10 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2
 texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2015/texmf-d
 ist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2015/texmf-dist/fon
 ts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Thesis.pdf (62 pages, 1111027 bytes).
+Output written on Thesis.pdf (68 pages, 1137122 bytes).
 PDF statistics:
- 1166 PDF objects out of 1200 (max. 8388607)
- 1035 compressed objects within 11 object streams
- 455 named destinations out of 1000 (max. 500000)
- 439 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1389 PDF objects out of 1440 (max. 8388607)
+ 1250 compressed objects within 13 object streams
+ 592 named destinations out of 1000 (max. 500000)
+ 447 words of extra memory for PDF output out of 10000 (max. 10000000)
 

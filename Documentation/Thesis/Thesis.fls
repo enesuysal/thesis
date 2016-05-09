@@ -50,6 +50,10 @@ INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.def
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.def
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.dfu
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.dfu
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/colortbl/colortbl.sty
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/colortbl/colortbl.sty
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/tools/array.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/pgfplots/pgfplots.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/pgfplots/pgfplots.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex
@@ -230,8 +234,6 @@ INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/subfigmat/subfigmat.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/subfigmat/subfigmat.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/tools/dcolumn.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/tools/dcolumn.sty
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/tools/array.sty
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/tools/array.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/nomencl/nomencl.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/nomencl/nomencl.sty
 OUTPUT Thesis.nlo
@@ -440,9 +442,6 @@ INPUT ./Figures/client2.png
 INPUT ./Figures/client2.png
 INPUT Thesis_Architecture.tex
 INPUT Thesis_Architecture.tex
-INPUT Figures/binaryrep2.png
-INPUT ./Figures/binaryrep2.png
-INPUT ./Figures/binaryrep2.png
 INPUT Figures/asyc.png
 INPUT ./Figures/asyc.png
 INPUT ./Figures/asyc.png
@@ -455,6 +454,9 @@ INPUT ./Figures/scenario4.png
 INPUT Figures/scenari2.png
 INPUT ./Figures/scenari2.png
 INPUT ./Figures/scenari2.png
+INPUT Figures/binaryrep2.png
+INPUT ./Figures/binaryrep2.png
+INPUT ./Figures/binaryrep2.png
 INPUT Thesis_Implementation.tex
 INPUT Thesis_Implementation.tex
 INPUT Figures/websocket.png

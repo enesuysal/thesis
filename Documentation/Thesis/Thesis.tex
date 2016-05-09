@@ -8,16 +8,12 @@
 % ----------------------------------------------------------------------
 \documentclass[10pt,a4paper,twoside]{report}
 
-
-
-
-
 \usepackage{listings}
 \usepackage{xcolor} % for setting colors
 \usepackage[margin=0.5in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{textcomp}
-
+\usepackage{color, colortbl}
 \usepackage{pgfplots}
 \pgfplotsset{width=10cm,compat=1.9}
 \lstset{
@@ -27,7 +23,7 @@
     numbers=left, % display line numbers on the left
     commentstyle=\color{green}, % comment color
     keywordstyle=\color{blue}, % keyword color
-    moredelim=**[is][\color{red}]{@A}{@A},
+    moredelim=**[is][\color{red}]{@G}{@G},
     stringstyle=\color{red} % string color
 }
 
@@ -45,7 +41,7 @@
   \definecolor{redstrings}{rgb}{0.64,0.08,0.08}
   \definecolor{xmlcomments}{rgb}{0.5,0.5,0.5}
   \definecolor{types}{rgb}{0.17,0.57,0.68}
-
+  \definecolor{Gray}{gray}{0.9}
 
   \lstset{language=[Sharp]C,
   captionpos=b,
@@ -57,7 +53,7 @@
   breaklines=true,
   showstringspaces=false,
   breakatwhitespace=true,
-  moredelim=**[is][\color{red}]{@A}{@A},
+  moredelim=**[is][\color{red}]{@G}{@G},
   moredelim=**[is][\color{green}]{@B}{@B},
   moredelim=**[is][\color{blue}]{@C}{@C},
   moredelim=**[is][\color{brown}]{@D}{@D},

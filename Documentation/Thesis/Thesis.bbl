@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{26}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -21,6 +21,22 @@ M.~Villari.
 R.~Englander.
 \newblock \emph{Java and SOAP}, page 213.
 \newblock O'Reilly Media, Inc., 2002.
+
+\bibitem[Natallia~Kokash(2009)]{compliance:def}
+F.~A. Natallia~Kokash.
+\newblock Formal behavioral modeling and compliance analysis for
+  service-oriented systems.
+\newblock \emph{Springer Berlin Heidelberg}, 3\penalty0 (9-10):\penalty0
+  21--–41, Oct. 2009.
+\newblock doi:10.1007 978-3-642-04167-9 2.
+
+\bibitem[Dae-Kyoo~Kim(2007)]{comformance:def2}
+W.~S. Dae-Kyoo~Kim.
+\newblock An approach to evaluating structural pattern conformance of uml
+  models.
+\newblock \emph{Conference: Proceedings of the 2007 ACM Symposium on Applied
+  Computing (SAC), Seoul, Korea}, 2007.
+\newblock DOI: 10.1145 1244002.1244305.
 
 \bibitem[the(2016{\natexlab{a}})]{thesis:state1}
 {Definition of Interoperability}.
@@ -149,28 +165,5 @@ Olivier.Dubuisson.
 \newblock \emph{Communication Between Heterogeneous Systems}.
 \newblock OSS Nokalva, $2^{nd}$ edition, 2000.
 \newblock ISBN 978-3-642-38721-0.
-
-\bibitem[Natallia~Kokash(2009)]{compliance:def}
-F.~A. Natallia~Kokash.
-\newblock Formal behavioral modeling and compliance analysis for
-  service-oriented systems.
-\newblock \emph{Springer Berlin Heidelberg}, 3\penalty0 (9-10):\penalty0
-  21--–41, Oct. 2009.
-\newblock doi:10.1007 978-3-642-04167-9 2.
-
-\bibitem[Dae-Kyoo~Kim(2007)]{comformance:def2}
-W.~S. Dae-Kyoo~Kim.
-\newblock An approach to evaluating structural pattern conformance of uml
-  models.
-\newblock \emph{Conference: Proceedings of the 2007 ACM Symposium on Applied
-  Computing (SAC), Seoul, Korea}, 2007.
-\newblock DOI: 10.1145 1244002.1244305.
-
-\bibitem[Jeong~B(2008)]{expertsystems:x1}
-C.~H. L.~J. Jeong~B, Lee~D.
-\newblock A novel method for measuring semantic similarity for xml schema
-  matching.
-\newblock \emph{Expert Syst with Appl}, 34:\penalty0 1651--–1658, 2008.
-\newblock doi:10.1016/j.eswa.2007.01.025.
 
 \end{thebibliography}

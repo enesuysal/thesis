@@ -1,0 +1,26 @@
+TODO
+#####Chapter 5
+
+You should include the code and results those experiments that you made (at least, a concrete example), including changing either the client or the server. with presenting some data.
+
+You should demonstrate here that you really have an alternative solution to XML, JSON, WSDL and REST, that it works and that it allows changes to the client and to the server. I don’t see that at the moment. The example that you present does not involve compliance or conformance.
+
+-- Check the example of compliance an comformance from articles
+-- Create some data from example of Chapter 4 (Performance - Changebility -Decoupling)
+-- USe grapsh / Tables / Bars together
+
+
+#####Chapter 4
+
+REread email
+Read article again.
+
+# CURRENT WEATHER QUERYING
+* find current weather at a specific location ---> eg: owm.weather_at_place('London,UK')
+* find current weather at a specific city ID  ---> eg: owm.weather_at_id(1812597)
+* find current weather at specific lat/lon ------> eg: owm.weather_at_coords(-0.107331,51.503614)
+* find weather currently measured by station ----> eg: owm.weather_at_station(1000)
+* find current weathers in all locations
+  with name is equal/similar to a specific name -> eg: owm.weather_at_places('Springfield',search='accurate')
+* find current weathers in all locations
+  in the surroundings of specific lon/lat -------> eg: owm.weather_around_coords(-2.15, 57.0)

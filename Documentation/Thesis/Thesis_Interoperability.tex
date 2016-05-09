@@ -9,13 +9,13 @@
 \label{chapter:interoperability}
 \section{Overview}
 \label{section:overview}
-Resources need to interact to accomplish collaboration, either designed or emergent. This necessarily entails some form of mutual knowledge and understanding, but this creates dependencies on other resources that may hamper resource evolution and that's why Interoperability, a necessary condition to achieve integration between different systems. Another important factor for integration between systems is decoupling which says that resources need to be independent to evolve freely and dynamically. Unfortunately, independent resources do not understand each other and are not able to interact. Therefore, the fundamental problem of resource integration is to provide the maximum decoupling possible while ensuring the minimum interoperability requirements.
-
+Resources need to interact to accomplish collaboration, either designed or emergent. This necessarily entails some form of mutual knowledge and understanding, but this creates dependencies on other resources that may hamper resource evolution and that's why Interoperability, a necessary condition to achieve integration between different systems. Another important factor for integration between systems is decoupling which says that resources need to be independent to evolve freely and dynamically. Unfortunately, independent resources do not understand each other and are not able to interact. Therefore, the fundamental problem of resource integration is to provide the maximum decoupling possible while ensuring the minimum interoperability requirements. When using data formats like XML and JSON, there is a need to work with this document to understand message, which is sent by server or client side. Another problem is using XML or JSON to solve data interoperability, which is inefficient in computer terms due to parsing data to build a DOM tree and validating schemas to validate structure of message. This chapter gives detailed information about these interoperability issues.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Interoperability in SOA and REST}
-\label{section:InteroperabilitySOAREST}
 
-Currently, enterprise integration is based on SOA with Web Services and REST with HTTP; the two most used architectural styles for distributed interoperability. These styles use symmetric arrangement in which a sender produces a message according to some schema and the receiver uses the same schema to validate and to get the contents of the message. The message is sent over a channel between sender and receiver. In SOA web services, schema is usual in XML Schema and WSDL. In the REST world, schemas are known as media types but perform the same role. The difference is that, instead of being declared in a separate document referenced by messages, they need to be previously known to the interaction resources, either by being standard or by having been previously agreed. In any case, the schema or media type must be the same at both sender and receiver and therefore imposes coupling between the resources for all its possible values, even if only a few are actually used. In either case, data types need to be fully known by both interacting resources.
+\section{Service Interoperability}
+\label{section:InteroperabilityService}
+
+ Currently, enterprise integration is based on SOA with Web Services and REST with HTTP; the two most used architectural styles for distributed interoperability. These styles use symmetric arrangement in which a sender produces a message according to some schema and the receiver uses the same schema to validate and to get the contents of the message. The message is sent over a channel between sender and receiver. As seen in Figure \ref{fig:interoperability}, in SOA web services, schema is usual in XML Schema and WSDL. In the REST world, schemas are known as media types but perform the same role. The difference is that, instead of being declared in a separate document referenced by messages, they need to be previously known to the interaction resources, either by being standard or by having been previously agreed. In any case, the schema or media type must be the same at both sender and receiver and therefore imposes coupling between the resources for all its possible values, even if only a few are actually used. In either case, data types need to be fully known by both interacting resources.
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=0.9\textwidth]{Figures/schema.png}
@@ -23,10 +23,16 @@ Currently, enterprise integration is based on SOA with Web Services and REST wit
   \label{fig:interoperability}
 \end{figure}
 
-As described above, resources send requests to each other to invoke a given operation with a SOA or REST approach. These requests and their responses usually contain data, which is serialized, sent and reconstructed upon reception of the corresponding message.  The sender and receiver need to interpret those data in a compatible way, which means they need schema. These schemas can be XML Schema and JSON Schema. JSON is a very popular serialization format, as a simpler alternative to XML. JSON Schema is currently just an IETF draft\citep{thesis:arch1}, but is raising interest as a simpler alternative to XML Schema. Both XML and JSON are text based which means inefficient parsing and all characters of a component need to be parsed to reach the next one. Let's explain this with an example, Referring to the example in Chapter \ref{chapter:introduction} that demonstrate interaction between Android mobile phone and .Net weathercast provider. In case of REST approach, An XML or JSON message needed to be created to send server. Lets see how can be created a XML message with Android phone application to send it weathercast provider. The code in Listing ~\ref{lst:javaxml} explains how to create the XML message in Listing ~\ref{lst:xml} with using Java.
+
+\section{Data Interoperability}
+\label{section:InteroperabilityData}
+
+As described above, resources send requests to each other to invoke a given operation with a SOA or REST approach. These requests and their responses usually contain data, which is serialized, sent and reconstructed upon reception of the corresponding message. Most used data types for SOA and REST are XML and JSON. Section \ref{section:xml} gives detail information about advantages and disadvantages of XML and JSON. The sender and receiver need to interpret those data in a compatible way, which means they need schema. These schemas can be XML Schema and JSON Schema. JSON is a very popular serialization format, as a simpler alternative to XML. JSON Schema is currently just an IETF draft\citep{thesis:arch1}, but is raising interest as a simpler alternative to XML Schema. Both XML and JSON are text based which means inefficient parsing and all characters of a component need to be parsed to reach the next one.
+When using XML, there is a need to work with this document to understand message, which is sent by server or client side. The solutions are exist for that are Databinding, DOM (Document Object Model) or SAX(Simple API for XML)\citep{thesis:arch20}. For example, XML data binding refers to a means of representing information in an XML document as a business object in computer memory. An XML data binder accomplishes this by automatically creating a mapping between elements of the XML schema of the document that needed to bind and members of a class to be represented in memory. Another solutions for create data or access the data in the XML are DOM or SAX. They do same work in different way. SAX provides a mechanism for reading data from an XML document that is an alternative to that provided by the Document Object Model (DOM). Where the DOM operates on the document as a whole, SAX parsers operate on each piece of the XML document sequentially. In general, DOM is easier to use but has an overhead of parsing the entire XML before you can start using it.
+
+Let's explain this with an example, Referring to the example in Chapter \ref{chapter:introduction} that demonstrate interaction between Android mobile phone and .Net weathercast provider. In case of REST approach, An XML or JSON message needed to be created to send server. Lets see how can be created a XML message with Android phone application to send it weathercast provider. The code in Listing ~\ref{lst:javaxml} explains how to create the XML message in Listing ~\ref{lst:xml} with using Java.
 
 \begin{lstlisting}[caption=Example XML message to send weathercast provider, label=lst:xml]
-
   <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
   <weather>
       <country>Portugal</country>
@@ -34,7 +40,6 @@ As described above, resources send requests to each other to invoke a given oper
   		<date>30.03.2016</date>
   		<weatherResult></weatherResult>
   </weather>
-
 \end{lstlisting}
 
 \begin{lstlisting}[caption=XML message creation with Java Code, label=lst:javaxml]
@@ -64,7 +69,7 @@ As described above, resources send requests to each other to invoke a given oper
   		DOMSource source = new DOMSource(doc); // XML Message
 \end{lstlisting}
 
-After creation of XML message with Java, this message will be sent with suitable message level protocol (e.g., HTTP) and will be received by the provider. Weathercast provider will deserialize the message using parsers using schema or pre-agreed standard to understand query message. The code in Listing ~\ref{lst:Cshapxml} explains how to parse an XML message in .Net.
+After creation of XML message with Java, here the message is created using DOM which also could be done by using SAX, this message will be sent with suitable message level protocol (e.g., HTTP) and will be received by the provider. Weathercast provider will use XML databinding, DOM or SAX techniques to deserialize the message understand query message. The code in Listing ~\ref{lst:Cshapxml} explains how to parse an XML message using DOM in .Net.
 
 \begin{lstlisting}[caption=XML message parsing with .Net Code, label=lst:Cshapxml]
   string Country;
@@ -84,7 +89,7 @@ After creation of XML message with Java, this message will be sent with suitable
 
 \end{lstlisting}
 
-As seen in Listing ~\ref{lst:Cshapxml}, the receiver knows the format of XML message. Otherwise it can not deserialize correctly without knowing structure. XML parsing code reads an XML document and uses DOM or SAX APIs\citep{thesis:arch20} to provide programmatic access to its content and structure. After parsing XML message, .Net weathercast provider builds response data as XML message and then send to your mobile phone. Your mobile phone need to parse that XML response message using DOM or SAX API again to display the result on your phone screen. Here in this example it is assumed that both your mobile and weathercast provider know the same schema. Example schema for your mobile phone application and weathercast provider can be as in Listing ~\ref{lst:xmlschema}  and they both first validate message with a validator for example  SAX API validator\citep{thesis:arch10} as seen in Listing ~\ref{lst:javaschemacheck}, otherwise the componenent can not parse XML correctly and can not communicate each other.
+As seen in Listing ~\ref{lst:Cshapxml}, the receiver knows the format of XML message. Otherwise it cannot deserialize correctly without knowing structure. XML parsing code reads an XML document and uses DOM or SAX APIs to provide programmatic access to its content and structure. After parsing XML message, .Net weathercast provider builds response data as XML message and then sends to your mobile phone. Your mobile phone needs to parse that XML response message using DOM or SAX API again to display the result on your phone screen. Here in this example it is assumed that both your mobile and weathercast provider know the same schema. Example schema for your mobile phone application and weathercast provider can be as in Listing ~\ref{lst:xmlschema}  and they both first validate message with a validator for example  SAX API validator\citep{thesis:arch10} as seen in Listing ~\ref{lst:javaschemacheck}, otherwise the componenent can not parse XML correctly and can not communicate each other.
 
 \begin{lstlisting}[caption=Example schema for Weather XML file, label=lst:xmlschema]
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -121,7 +126,7 @@ As seen in Listing ~\ref{lst:Cshapxml}, the receiver knows the format of XML mes
 
 The same example can be implemented with SOA approach. SOA leads to an architectural style that is an evolution of the RPC (Remote Procedure Call) style, by declaring and invoking operations in a standard and language independent way. Service description (WSDL document) must be obtained first by your mobile phone and weathercast provider, so that a contract can be established between that resource (the provider) and the resource that uses it (the consumer). A concrete schema, with the names used, must be specified and be compatible on both sides, otherwise a representation returned by a resource, for example, will not be able to be analyzed and understood.
 
-Webservice will be implemented by .NET for weather cast provider such as in Listing ~\ref{lst:Cshapwebservice} and also following WSDL document will be created automatically for that web service by .NET as seen in Listing ~\ref{lst:wsdldocument}.
+Webservice is developed in .NET for weather cast provider such as in Listing ~\ref{lst:Cshapwebservice} and also following WSDL document will be created automatically for that web service by .NET as seen in Listing ~\ref{lst:wsdldocument}.
 
 \begin{lstlisting}[caption=SOAP Web Service with .Net, label=lst:Cshapwebservice]
 
@@ -215,12 +220,11 @@ So if your mobile application knows that WSDL document in Listing ~\ref{lst:wsdl
     </wsdl:service>
   </wsdl:definitions>
 \end{lstlisting}
-
-Developing client side code for given WSDL is usally automatically generated for you by using programming language. When developping code in clinet side, The following steps need to be completed to generate code for given WSDL file in Java.
+For calling a Web service from any programming language you need the stubs (interfaces) of the web service. From client side the business objects communicates with stub objects and stub takes the responsibility form the message and invoke the web service. Hence here also the first step is to obtain the stubs for  web service. Developing client side code for given WSDL is usally automatically generated for you by using programming language. This is also called  schema-first definitions that require schema to be created prior to instances. When developping code in client side, The following steps need to be completed to generate stubs code for given WSDL file in Java.
 \begin{itemize}
-  \item Click to “Add new file” as seen in Figure \ref{fig:wsdlstep1}.
+  \item Click to “Add new file” as seen in Figure ~\ref{fig:wsdlstep1}.
   \item Choose file type as “Web Service Client”.
-  \item Choose WSDL URL and Copy and paste your WSDL URl adress as seen in Figure \ref{fig:wsdlstep2}.
+  \item Choose WSDL URL and Copy and paste your WSDL URl adress as seen in Figure ~\ref{fig:wsdlstep2}.
   \item Click Finish.
 \end{itemize}
 
@@ -259,6 +263,7 @@ After these steps you can start to write client side code in Java as shown in Li
   \label{fig:wsdlstep2}
 \end{figure}
 
-As seen in Listing ~\ref{lst:wsdldocument} for very basic example there is a big WSDL document in case using SOA architecture.
+As seen in Listing ~\ref{lst:wsdldocument} for very basic example there is a big WSDL document in case using SOA architecture. Once the invoking is done by the client side, at service provider side as seen in ~\ref{lst:Cshapwebservice}, skeleton is the parallel object for stub and it receives the request message and understands it and passes on the information to service side business objects.
 
-As seen with examples, a typical and pragmatic solution is to resort to Web Services and XML data, sharing schemas and namespaces, or to RESTful APIs, which are simpler to use and require that schemas (media types) be standardized or pre-agreed. In these technologies, both customer and provider are forced to implement full interoperability (for example, sharing a XML schema), even if only a fraction of the possible interactions is used. This leads to a greater coupling than needed. In Chapter \ref{chapter:architecture}, the proposed solution  reduce coupling with using partial interoperability and creating the maximum decoupling possible while ensuring the minimum interoperability requirements.
+
+As seen with examples, a typical and pragmatic solution is to resort to Web Services and XML data, sharing schemas and namespaces, or to RESTful APIs, which are simpler to use and require that schemas (media types) be standardized or pre-agreed. In these technologies, both customer and provider are forced to implement full interoperability (for example, sharing a XML schema), even if only a fraction of the possible interactions is used. This leads to a greater coupling than needed. In Chapter ~\ref{chapter:architecture}, the proposed solution  reduce coupling with using partial interoperability and creating the maximum decoupling possible while ensuring the minimum interoperability requirements.
