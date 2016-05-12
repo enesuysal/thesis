@@ -474,6 +474,12 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/helvetic/phvr7t.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/helvetic/phvb7t.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/adobe/helvetic/phvb7t.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm
+INPUT Figures/databinding.png
+INPUT ./Figures/databinding.png
+INPUT ./Figures/databinding.png
+INPUT Figures/compliance.png
+INPUT ./Figures/compliance.png
+INPUT ./Figures/compliance.png
 INPUT Thesis_Conclusions.tex
 INPUT Thesis_Conclusions.tex
 INPUT Thesis.bbl

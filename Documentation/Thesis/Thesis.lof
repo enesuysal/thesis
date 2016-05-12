@@ -1,11 +1,11 @@
 \select@language {english}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces SOAP and REST Approach.}}{2}{figure.1.1}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces SOAP and REST Approach.}}{3}{figure.1.1}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Simple Web Service Architecture.}}{7}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces WSDL (Web Services Description Language).}}{10}{figure.2.2}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces SOAP (Simple Object Access Protocol).}}{10}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces REST.}}{12}{figure.2.4}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces REST URIs and HTTP methods.}}{12}{figure.2.4}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Interoperability in SOA and REST.}}{18}{figure.3.1}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Step 1 to generate client code from WSDL file.}}{25}{figure.3.2}
@@ -23,4 +23,6 @@
 \contentsline {figure}{\numberline {5.4}{\ignorespaces The characteristics of Java application server.}}{48}{figure.5.4}
 \contentsline {figure}{\numberline {5.5}{\ignorespaces The characteristics of .Net application server.}}{49}{figure.5.5}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Data interoperability.}}{54}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Asymmetric interoperability.}}{55}{figure.6.2}
 \addvspace {10\p@ }

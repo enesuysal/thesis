@@ -1,9 +1,0 @@
-    public static void main(String[] args)  {
-        
-        Weather w = new Weather();
-        w.country="Portugal";
-        w.city="Lisbon";
-        Message msg = new Message(w);
-        byte[] msgToSend =  msg.SeriliazeBinary();
-        string response = clientEndPoint.sendMessage(msgToSend);
-    }

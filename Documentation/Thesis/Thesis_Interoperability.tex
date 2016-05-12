@@ -30,7 +30,7 @@ Resources need to interact to accomplish collaboration, either designed or emerg
 As described above, resources send requests to each other to invoke a given operation with a SOA or REST approach. These requests and their responses usually contain data, which is serialized, sent and reconstructed upon reception of the corresponding message. Most used data types for SOA and REST are XML and JSON. Section \ref{section:xml} gives detail information about advantages and disadvantages of XML and JSON. The sender and receiver need to interpret those data in a compatible way, which means they need schema. These schemas can be XML Schema and JSON Schema. JSON is a very popular serialization format, as a simpler alternative to XML. JSON Schema is currently just an IETF draft\citep{thesis:arch1}, but is raising interest as a simpler alternative to XML Schema. Both XML and JSON are text based which means inefficient parsing and all characters of a component need to be parsed to reach the next one.
 When using XML, there is a need to work with this document to understand message, which is sent by server or client side. The solutions are exist for that are Databinding, DOM (Document Object Model) or SAX(Simple API for XML)\citep{thesis:arch20}. For example, XML data binding refers to a means of representing information in an XML document as a business object in computer memory. An XML data binder accomplishes this by automatically creating a mapping between elements of the XML schema of the document that needed to bind and members of a class to be represented in memory. Another solutions for create data or access the data in the XML are DOM or SAX. They do same work in different way. SAX provides a mechanism for reading data from an XML document that is an alternative to that provided by the Document Object Model (DOM). Where the DOM operates on the document as a whole, SAX parsers operate on each piece of the XML document sequentially. In general, DOM is easier to use but has an overhead of parsing the entire XML before you can start using it.
 
-Let's explain this with an example, Referring to the example in Chapter \ref{chapter:introduction} that demonstrate interaction between Android mobile phone and .Net weathercast provider. In case of REST approach, An XML or JSON message needed to be created to send server. Lets see how can be created a XML message with Android phone application to send it weathercast provider. The code in Listing ~\ref{lst:javaxml} explains how to create the XML message in Listing ~\ref{lst:xml} with using Java.
+Let's explain this with an example, referring to the example in Chapter \ref{chapter:introduction} that demonstrate interaction between Android mobile phone and .Net weathercast provider. In case of REST approach, An XML or JSON message needed to be created to send server. Lets see how can be created a XML message with Android phone application to send it weathercast provider. The code in Listing ~\ref{lst:javaxml} explains how to create the XML message in Listing ~\ref{lst:xml} with using Java.
 
 \begin{lstlisting}[caption=Example XML message to send weathercast provider, label=lst:xml]
   <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
@@ -253,13 +253,13 @@ After these steps you can start to write client side code in Java as shown in Li
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=0.9\textwidth]{Figures/client1.png}
-  \caption[Step 1 to generate client code from WSDL file.]{Step 1 to generate client code from WSDL file..}
+  \caption[Step 1 to generate client code from WSDL file.]{Step 1 to generate client code from WSDL file.}
   \label{fig:wsdlstep1}
 \end{figure}
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=0.9\textwidth]{Figures/client2.png}
-  \caption[Step 2 to generate client code from WSDL file.]{Step 2 to generate client code from WSDL file..}
+  \caption[Step 2 to generate client code from WSDL file.]{Step 2 to generate client code from WSDL file.}
   \label{fig:wsdlstep2}
 \end{figure}
 

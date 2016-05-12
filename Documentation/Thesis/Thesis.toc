@@ -39,7 +39,9 @@
 \contentsline {subsection}{\numberline {6.2.1}Textual or binary representation}{51}{subsection.6.2.1}
 \contentsline {subsection}{\numberline {6.2.2}Message protocol}{52}{subsection.6.2.2}
 \contentsline {subsection}{\numberline {6.2.3}The interoperability problem}{52}{subsection.6.2.3}
-\contentsline {chapter}{\numberline {7}Conclusions}{55}{chapter.7}
-\contentsline {section}{\numberline {7.1}Summary}{55}{section.7.1}
-\contentsline {section}{\numberline {7.2}Future Work}{56}{section.7.2}
-\contentsline {chapter}{Bibliography}{57}{section*.9}
+\contentsline {subsection}{\numberline {6.2.4}Full interoperability in SOA and REST}{53}{subsection.6.2.4}
+\contentsline {subsection}{\numberline {6.2.5}Asymmetric interoperability}{54}{subsection.6.2.5}
+\contentsline {chapter}{\numberline {7}Conclusions}{57}{chapter.7}
+\contentsline {section}{\numberline {7.1}Summary}{57}{section.7.1}
+\contentsline {section}{\numberline {7.2}Future Work}{58}{section.7.2}
+\contentsline {chapter}{Bibliography}{59}{section*.9}

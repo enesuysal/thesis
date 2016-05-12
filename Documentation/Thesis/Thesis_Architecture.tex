@@ -30,7 +30,7 @@ In this solution, a different approach will be showed, based on compliance. Mess
  \label{fig:Asymmetric}
 \end{figure}
 
-The receiver in Figure ~\ref{fig:Asymmetric} exposes a schema that defines the values it is willing to accept.
+The receiver in figure ~\ref{fig:Asymmetric} exposes a schema that defines the values it is willing to accept.
 When a message is received, its internal schema is checked against the receiver’s own schema. If it complies which means satisfies all the requirements of the receiver’s schema, the message can be accepted and processed. The advantage of this is that a resource can send a message to all the resources with schemas that the message complies with and, conversely, a resource can receive messages from any resource that sends messages compliant with its receiving schema. In other words, coupling occurs only in the characteristics actually used by messages and not in all the characteristics of the schemas used to generate the message or to describe the service of the receiving resource. Since the schemas of the message and of the receiver are not agreed beforehand, they need to be checked structurally. Resources of primitive types have predefined compliance rules. Structured resources are compared by the names of components (regardless of order of declaration or appearance) and (recursively) by the compliance between structured resources with matching names. Since the order of appearance of named component resources may different in the message and in the receiving schema, there is the need to map one onto the other. This is a form of polymorphism that increases the range of applicability of both sender and receiver, constituting a means to reduce coupling to only what is actually used. Sender and receiver no longer need to be designed for each other but, as long as compliance is ensured, one resource can replace another. In this case, what is involved is conformance between the replacement and the resource replaced, stating that the former supports all the characteristics supported by the latter. When a resource is able to interact with another, although not entirely interoperable with it, it means that there is partial interoperability.
 
 \begin{figure}[!htb]
@@ -183,7 +183,7 @@ As seen in the example, WSDL file is not necessary or generating a interface bas
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Anotations}
 %\label{section:anotations}
-To make compliance possible, the formal argument of each operation should also be serialized as seen in the example. These should also support optional components, which use the formal argument component if none in the message matches it. Therefore, the serialization methods in the static serialization class should include whether it is optional. The best is for each primitive data type to have two tags, one for mandatory and another for optional. Annotations allow us define tags for primitive data type. Messages sent use only mandatory values. Serialized formal arguments can use both mandatory and optional.
+To make compliance possible, the formal argument of each operation should also be serialized as seen in the example. These should also support optional components, which use the formal argument component if none in the message matches it. Therefore, the serialization methods in the static serialization class should include whether it is optional. The best is for each primitive data type to have two tags, one for mandatory and another for optional. Annotations allow us to define tags for primitive data type. Messages sent use only mandatory values. Serialized formal arguments can use both mandatory and optional.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Binary Format}
@@ -282,7 +282,7 @@ Creating binary is implemented with following rules:
 
 \begin{itemize}
 \item 	An integer is always 64 bits, with each byte serialized in sequence. The receiver will recover the integer in the same way.
-\item 	Booleans can use just two different tags. There is no size or content, since the tag says it all needed information.
+\item 	Booleans can use only two different tags. There is no size or content, since the tag says it all needed information.
 \item 	Strings use a UTF-8 encoding, since it is already byte oriented.
 \item 	Structures. Sequence of fields, in which, for each field, you should include: name (a string) and the component proper (serialized according to its type of resource)
 \end{itemize}
