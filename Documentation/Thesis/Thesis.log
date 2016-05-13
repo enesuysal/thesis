@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.2)  12 MAY 2016 16:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.2)  13 MAY 2016 12:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1463,17 +1463,17 @@ _CMYK_POS.pdf> <./Figures/cloudPlatform.png (PNG copy)>] [2
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 11.
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--21
+Underfull \hbox (badness 10000) in paragraph at lines 16--20
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--29
+Underfull \hbox (badness 10000) in paragraph at lines 21--26
 
  []
 
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 36.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 32.
 ) [3] [4
 
 ]
@@ -1559,7 +1559,7 @@ t line 15.
  [7
 
  <./Figures/web-service-message-formats-1.png (PNG copy)>]
-Overfull \hbox (17.15152pt too wide) in paragraph at lines 25--26
+Overfull \hbox (17.15152pt too wide) in paragraph at lines 24--25
 []\OT1/phv/m/n/10 Web ser-vices are sim-i-lar to web pages. For ex-am-ple Twit-
 ter has web side URl called as \www.twitter.com"
  []
@@ -1571,7 +1571,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Figures/WSDL.png, id=427, 432.61626pt x 317.185pt>
 File: Figures/WSDL.png Graphic file (type png)
  <use Figures/WSDL.png>
-Package pdftex.def Info: Figures/WSDL.png used on input line 41.
+Package pdftex.def Info: Figures/WSDL.png used on input line 40.
 (pdftex.def)             Requested size: 227.62206pt x 166.88759pt.
 
 Underfull \vbox (badness 2165) has occurred while \output is active []
@@ -1580,20 +1580,20 @@ Underfull \vbox (badness 2165) has occurred while \output is active []
 <Figures/soap.png, id=436, 590.205pt x 302.12875pt>
 File: Figures/soap.png Graphic file (type png)
  <use Figures/soap.png>
-Package pdftex.def Info: Figures/soap.png used on input line 51.
+Package pdftex.def Info: Figures/soap.png used on input line 50.
 (pdftex.def)             Requested size: 409.71692pt x 209.74144pt.
 
 [10 <./Figures/WSDL.png> <./Figures/soap.png>] [11]
 <Figures/rest.png, id=455, 529.98pt x 283.0575pt>
 File: Figures/rest.png Graphic file (type png)
  <use Figures/rest.png>
-Package pdftex.def Info: Figures/rest.png used on input line 103.
+Package pdftex.def Info: Figures/rest.png used on input line 102.
 (pdftex.def)             Requested size: 364.19667pt x 194.51515pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [12 <./Figures/rest.png>] [13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 173--179
+Underfull \hbox (badness 10000) in paragraph at lines 170--176
 
  []
 
@@ -1945,7 +1945,7 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2
 texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2015/texmf-d
 ist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2015/texmf-dist/fon
 ts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Thesis.pdf (70 pages, 1235033 bytes).
+Output written on Thesis.pdf (70 pages, 1234922 bytes).
 PDF statistics:
  1427 PDF objects out of 1440 (max. 8388607)
  1282 compressed objects within 13 object streams

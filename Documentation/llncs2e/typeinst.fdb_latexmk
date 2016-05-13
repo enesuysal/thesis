@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1463067487 "typeinst.tex" "typeinst.pdf" "typeinst" 1463067487
+["pdflatex"] 1463139895 "typeinst.tex" "typeinst.pdf" "typeinst" 1463139896
   "./Figures/asyc.png" 1461581368 85981 139d0ce492c8b08491eeaf042eea902c ""
   "/usr/local/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -61,8 +61,8 @@
   "aliascnt.sty" 1308754042 2598 b30528bf103263149326b7572d9672a5 ""
   "llncs.cls" 1396267246 42896 f6a4d06405fdcfda24598954aa02c31a ""
   "remreset.sty" 1327593838 1096 6a75275ca00e32428c6f059d2f618ea7 ""
-  "typeinst.aux" 1463067487 1728 f60ac70a12d8a36b7adec430b341e613 ""
-  "typeinst.tex" 1463067485 30451 d9e2f5f15cc865212b4abaa4f521862f ""
+  "typeinst.aux" 1463139896 1613 69422dcbc757909da8cd557da08d3041 ""
+  "typeinst.tex" 1463135085 31344 8188022b7b29ce917a250dd9829e8261 ""
   (generated)
   "typeinst.pdf"
   "typeinst.log"
